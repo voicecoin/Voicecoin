@@ -8,7 +8,7 @@
 #include <string>
 #include <algorithm>
 #include "uint256.h"
-
+#if 0
 class auto_bignum_ctx
 {
 protected:
@@ -56,7 +56,7 @@ public:
     explicit bignum(const std::string& str)
     {
         BN_init(this);
-        SetHex(str);
+        set_hex(str);
     }
 
     bignum& operator=(const bignum& b)
@@ -243,7 +243,7 @@ public:
         return vch;
     }
 
-    bignum& SetCompact(unsigned int nCompact)
+    bignum& set_compact(unsigned int nCompact)
     {
         unsigned int nSize = nCompact >> 24;
         std::vector<unsigned char> vch(4 + nSize);
@@ -255,7 +255,7 @@ public:
         return *this;
     }
 
-    unsigned int GetCompact() const
+    unsigned int get_compact() const
     {
         unsigned int nSize = BN_bn2mpi(this, NULL);
         std::vector<unsigned char> vch(nSize);
@@ -268,7 +268,7 @@ public:
         return nCompact;
     }
 
-    void SetHex(const std::string& str)
+    void set_hex(const std::string& str)
     {
         // skip 0x
         const char* psz = str.c_str();
@@ -299,16 +299,16 @@ public:
     }
 
     template<typename Stream>
-    void serialize(Stream& s, int nType=0, int nVersion=VERSION) const
+    void serialize(Stream& s) const
     {
-        ::serialize(s, getvch(), nType, nVersion);
+        ::serialize(s, getvch());
     }
 
     template<typename Stream>
-    void unserialize(Stream& s, int nType=0, int nVersion=VERSION)
+    void unserialize(Stream& s)
     {
         vector<unsigned char> vch;
-        ::unserialize(s, vch, nType, nVersion);
+        ::unserialize(s, vch);
         setvch(vch);
     }
 
@@ -482,3 +482,4 @@ inline bool operator<(const bignum& a, const bignum& b)  { return (BN_cmp(&a, &b
 inline bool operator>(const bignum& a, const bignum& b)  { return (BN_cmp(&a, &b) > 0); }
 
 #endif // BCUS_BIG_NUM_H
+#endif

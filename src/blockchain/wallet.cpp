@@ -2,6 +2,7 @@
 #include "ecc_key.h"
 #include "base58.h"
 #include "hash.h"
+#include "util.h"
 
 wallet_key::wallet_key()
 {
@@ -31,8 +32,32 @@ std::string wallet_key::get_address(const std::vector<unsigned char>& pub_key)
     return "$" + base58::encode_check(vch);
 }
 
+uint160 wallet_key::get_uint160() const
+{
+    return get_uint160(pub_key);
+}
+
+uint160 wallet_key::get_uint160(const std::vector<unsigned char>& pub_key)
+{
+    return hash_helper::hash160(pub_key);
+}
+
+uint160 wallet_key::get_uint160(const std::string &addr)
+{
+    std::string str = addr.substr(1);
+    std::vector<unsigned char> vch;
+    base58::decode_check(str, vch);
+    return uint160(vch);
+}
+
 //////////////////////////////////////////////////////////////////////////
 //
+
+wallet &wallet::instance()
+{
+    static wallet w;
+    return w;
+}
 
 const wallet_key *wallet::generate_key()
 {
@@ -41,9 +66,17 @@ const wallet_key *wallet::generate_key()
     ecc.generate();
     k->pub_key = ecc.get_pub_key();
     k->priv_key = ecc.get_priv_key();
-    keys.insert(make_pair(k->get_address(), wallet_key_ptr(k)));
+    keys.insert(make_pair(k->get_uint160(), wallet_key_ptr(k)));
     
     return k;
+}
+
+const wallet_key *wallet::get_key(const uint160 &pub_hash)
+{
+    std::map<uint160, wallet_key_ptr>::iterator itr = keys.find(pub_hash);
+    if (itr == keys.end())
+        return NULL;
+    return itr->second.get();
 }
 
 /*

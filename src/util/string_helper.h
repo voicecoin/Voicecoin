@@ -32,6 +32,8 @@ public:
     }
 
     static signed char hex_to_digit(char c);
+
+    static std::string time_to_string(const char *format, int64_t t);
 };
 
 #endif // STRING_HELPER_H

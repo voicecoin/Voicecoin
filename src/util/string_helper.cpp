@@ -1,4 +1,5 @@
 #include "string_helper.h"
+#include <time.h>
 
 static const signed char p_hexdigit[256] =
 { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
@@ -22,4 +23,13 @@ static const signed char p_hexdigit[256] =
 signed char string_helper::hex_to_digit(char c)
 {
     return p_hexdigit[(unsigned char)c];
+}
+
+std::string string_helper::time_to_string(const char *format, int64_t t)
+{
+    char buf[128] = { 0 };
+    tm *tm = localtime(&t);
+    if (tm == NULL) return "";
+    strftime(buf, 64, format, tm);
+    return buf;
 }

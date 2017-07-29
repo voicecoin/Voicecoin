@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="blockchain\arith_uint256.cpp" />
     <ClCompile Include="blockchain\base58.cpp" />
     <ClCompile Include="blockchain\block.cpp" />
+    <ClCompile Include="blockchain\blockchain.cpp" />
     <ClCompile Include="blockchain\ecc_key.cc" />
     <ClCompile Include="blockchain\main.cpp" />
     <ClCompile Include="blockchain\transaction.cpp" />
@@ -29,18 +31,21 @@
     <ClCompile Include="util\string_helper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="blockchain\arith_uint256.h" />
     <ClInclude Include="blockchain\base58.h" />
-    <ClInclude Include="blockchain\bignum.h" />
     <ClInclude Include="blockchain\block.h" />
+    <ClInclude Include="blockchain\blockchain.h" />
     <ClInclude Include="blockchain\ecc_key.h" />
     <ClInclude Include="blockchain\hash.h" />
     <ClInclude Include="blockchain\transaction.h" />
     <ClInclude Include="blockchain\uint256.h" />
     <ClInclude Include="blockchain\wallet.h" />
+    <ClInclude Include="util\buff_stream.h" />
     <ClInclude Include="util\endian.h" />
     <ClInclude Include="util\file_stream.h" />
     <ClInclude Include="util\serialize.h" />
     <ClInclude Include="util\string_helper.h" />
+    <ClInclude Include="util\util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A806CB37-2B6B-4D13-8574-DEFF3B2BA50F}</ProjectGuid>

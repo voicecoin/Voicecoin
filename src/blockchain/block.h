@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <uint256.h>
 #include "transaction.h"
-#include "bignum.h"
 
 class block_header
 {
@@ -14,7 +13,7 @@ public:
     uint256 hash_prev_block;
     uint256 hash_merkle_root;
     uint32_t bits;
-    bignum nonce;
+    uint32_t nonce;
 
 public:
     block_header();
@@ -27,8 +26,8 @@ public:
     template <typename Stream, typename Operation>
     inline void serialization(Stream& s, Operation ser_action)
     {
-        READWRITE(VARINT(version));
-        READWRITE(VARINT(timestamp));
+        READWRITE(version);
+        READWRITE(timestamp);
         READWRITE(hash_prev_block);
         READWRITE(hash_merkle_root);
         READWRITE(bits);
@@ -36,13 +35,20 @@ public:
     }
 };
 
-class block : public block_header
+class block
 {
 public:
+    block_header header;
     std::vector<transaction_ptr> trans;
+
+    std::vector<uint256> merkle_tree;
 
 public:
     block();
+
+    uint256 get_hash(); // only header
+
+    uint256 build_merkle_tree();
 
     bool empty();
     void clear();
@@ -52,7 +58,7 @@ public:
     template <typename Stream, typename Operation>
     inline void serialization(Stream& s, Operation ser_action)
     {
-        block_header::serialization(s, ser_action);
+        READWRITE(header);
         READWRITE(trans);
     }
 };

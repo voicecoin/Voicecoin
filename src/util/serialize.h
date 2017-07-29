@@ -18,7 +18,8 @@
 static const unsigned int MAX_SIZE = 0x02000000;
 
 // struct deserialize_type {};
-// constexpr deserialize_type deserialize{};
+// constexpr deserialize_type deserialize{};
+
 #define READWRITE(obj)          (::ser_read_write(s, (obj), ser_action))
 #define READWRITEMANY(...)      (::ser_read_write_many(s, ser_action, __VA_ARGS__))
 

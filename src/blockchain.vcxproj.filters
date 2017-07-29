@@ -33,6 +33,12 @@
     <ClCompile Include="blockchain\wallet.cpp">
       <Filter>blockchain</Filter>
     </ClCompile>
+    <ClCompile Include="blockchain\arith_uint256.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="blockchain\blockchain.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blockchain\ecc_key.h">
@@ -53,9 +59,6 @@
     <ClInclude Include="blockchain\block.h">
       <Filter>blockchain</Filter>
     </ClInclude>
-    <ClInclude Include="blockchain\bignum.h">
-      <Filter>blockchain</Filter>
-    </ClInclude>
     <ClInclude Include="blockchain\transaction.h">
       <Filter>blockchain</Filter>
     </ClInclude>
@@ -70,6 +73,18 @@
     </ClInclude>
     <ClInclude Include="blockchain\wallet.h">
       <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="blockchain\arith_uint256.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="blockchain\blockchain.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="util\buff_stream.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\util.h">
+      <Filter>util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

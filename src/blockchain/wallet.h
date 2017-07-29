@@ -2,6 +2,7 @@
 #define BCUS_WALLET_H
 
 #include "serialize.h"
+#include "uint256.h"
 
 class wallet_key
 {
@@ -18,6 +19,10 @@ public:
     std::string get_address() const;
     static std::string get_address(const std::vector<unsigned char>& pub_key);
 
+    uint160 get_uint160() const;
+    static uint160 get_uint160(const std::vector<unsigned char>& pub_key);
+    static uint160 get_uint160(const std::string &addr);
+
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
@@ -33,14 +38,14 @@ typedef std::shared_ptr<wallet_key> wallet_key_ptr;
 class wallet
 {
 public:
-    typedef std::map<std::string, wallet_key_ptr>::const_iterator const_iterator;
-    std::map<std::string, wallet_key_ptr> keys;
+    typedef std::map<uint160, wallet_key_ptr>::const_iterator const_iterator;
+    std::map<uint160, wallet_key_ptr> keys;
 
 public:
-    wallet() {};
-
+    static wallet &instance();
     const wallet_key *generate_key();
 
+    const wallet_key *get_key(const uint160 &pub_hash);
     const_iterator cbegin() { return keys.cbegin(); }
     const_iterator cend() { return keys.cend(); }
 
