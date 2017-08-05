@@ -9,12 +9,12 @@
 using namespace std;
 
 int main()
-{ 
-    //block_chain bc;
-
-    //while (true)
-    //    bc.generate_block();
-
+{
+    while (true)
+    {
+        block *blk = block_chain::instance().prepare_block();
+        block_chain::instance().generate_block(blk);
+    }
     
     system("pause");
 	return 0;

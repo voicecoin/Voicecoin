@@ -15,6 +15,8 @@ public:
     uint32_t bits;
     uint32_t nonce;
 
+    uint32_t height; // only new block
+
 public:
     block_header();
 

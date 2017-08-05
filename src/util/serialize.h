@@ -197,15 +197,9 @@ protected:
 };
 
 template <typename T>
-size_t get_serialize_size(const T& t, int nType, int nVersion = 0)
+size_t get_serialize_size(const T& t)
 {
-    return (size_computer(nType, nVersion) << t).size();
-}
-
-template <typename S, typename T>
-size_t get_serialize_size(const S& s, const T& t)
-{
-    return (size_computer(s.get_type(), s.get_version()) << t).size();
+    return (size_computer() << t).size();
 }
 
 /*

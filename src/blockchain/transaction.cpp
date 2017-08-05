@@ -91,26 +91,22 @@ bool transaction::check_sign_and_value()
         for (size_t j = 0; j < tmp.input.size(); ++j)
         {
             if (i != j)
-            {
                 tmp.input[j].pubkey.clear();
-                tmp.input[j].sig.clear();
-            }
+            tmp.input[j].sig.clear();
         }
 
         uint160 pub_hash; // TODO: find pubkey_hash from trans list
         // in_value += pre_out;
 
-        uint160 pub_hash2 = wallet_key::get_uint160(tmp.input[i].pubkey);
+        uint160 pub_hash2 = wallet_key::get_uint160(input[i].pubkey);
         if (pub_hash != pub_hash2)
         {
             return false;
         }
-        std::vector<unsigned char> sig = tmp.input[i].sig;
-        tmp.input[i].sig.clear();
 
         uint256 trans_hash = serialize_hash(tmp);
 
-        if (!ecc_key::verify(tmp.input[i].pubkey, trans_hash, tmp.input[i].sig))
+        if (!ecc_key::verify(input[i].pubkey, trans_hash, input[i].sig))
         {
             return false;
         }

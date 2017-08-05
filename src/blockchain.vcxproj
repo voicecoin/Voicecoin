@@ -23,10 +23,13 @@
     <ClCompile Include="blockchain\base58.cpp" />
     <ClCompile Include="blockchain\block.cpp" />
     <ClCompile Include="blockchain\blockchain.cpp" />
+    <ClCompile Include="blockchain\dbproxy.cpp" />
+    <ClCompile Include="blockchain\dbwrapper.cpp" />
     <ClCompile Include="blockchain\ecc_key.cc" />
-    <ClCompile Include="blockchain\main.cpp" />
     <ClCompile Include="blockchain\transaction.cpp" />
     <ClCompile Include="blockchain\wallet.cpp" />
+    <ClCompile Include="main\main.cpp" />
+    <ClCompile Include="main\msg_thread.cpp" />
     <ClCompile Include="util\endian.cpp" />
     <ClCompile Include="util\string_helper.cpp" />
   </ItemGroup>
@@ -35,11 +38,14 @@
     <ClInclude Include="blockchain\base58.h" />
     <ClInclude Include="blockchain\block.h" />
     <ClInclude Include="blockchain\blockchain.h" />
+    <ClInclude Include="blockchain\dbproxy.h" />
+    <ClInclude Include="blockchain\dbwrapper.h" />
     <ClInclude Include="blockchain\ecc_key.h" />
     <ClInclude Include="blockchain\hash.h" />
     <ClInclude Include="blockchain\transaction.h" />
     <ClInclude Include="blockchain\uint256.h" />
     <ClInclude Include="blockchain\wallet.h" />
+    <ClInclude Include="main\msg_thread.h" />
     <ClInclude Include="util\buff_stream.h" />
     <ClInclude Include="util\endian.h" />
     <ClInclude Include="util\file_stream.h" />
@@ -58,7 +64,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -118,11 +124,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./;util;blockchain</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;main;blockchain;util;include;leveldb/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>shlwapi.lib;leveldbd.lib;libeay32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

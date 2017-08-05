@@ -165,6 +165,7 @@
     <ClCompile Include="db\version_set.cc" />
     <ClCompile Include="db\write_batch.cc" />
     <ClCompile Include="helpers\memenv\memenv.cc" />
+    <ClCompile Include="port\port_posix_sse.cc" />
     <ClCompile Include="port\port_win.cc" />
     <ClCompile Include="table\block.cc" />
     <ClCompile Include="table\block_builder.cc" />

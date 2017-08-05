@@ -7,11 +7,11 @@
     <Filter Include="util">
       <UniqueIdentifier>{38f3b907-5647-4e8c-a7b9-15df0b774e3c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{67f4cbb0-38b0-4184-87cc-94648274670c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="blockchain\main.cpp">
-      <Filter>blockchain</Filter>
-    </ClCompile>
     <ClCompile Include="blockchain\ecc_key.cc">
       <Filter>blockchain</Filter>
     </ClCompile>
@@ -37,6 +37,18 @@
       <Filter>blockchain</Filter>
     </ClCompile>
     <ClCompile Include="blockchain\blockchain.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="main\msg_thread.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="blockchain\dbwrapper.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="blockchain\dbproxy.cpp">
       <Filter>blockchain</Filter>
     </ClCompile>
   </ItemGroup>
@@ -85,6 +97,15 @@
     </ClInclude>
     <ClInclude Include="util\util.h">
       <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="main\msg_thread.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="blockchain\dbwrapper.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="blockchain\dbproxy.h">
+      <Filter>blockchain</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

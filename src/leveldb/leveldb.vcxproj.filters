@@ -147,6 +147,9 @@
     <ClCompile Include="port\port_win.cc">
       <Filter>port</Filter>
     </ClCompile>
+    <ClCompile Include="port\port_posix_sse.cc">
+      <Filter>port</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="db\builder.h">
