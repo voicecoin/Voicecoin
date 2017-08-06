@@ -26,9 +26,11 @@ public:
 
     block_info *insert_block_info(const uint256 &block_hash, int height = -1);
 
+    bool read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos);
+
 private:
     block_chain();
-    uint32_t get_next_wook_proof();
+    uint32_t get_next_wook_proof(block_info *curent_block);
     block_info *get_curent_block();
 
 private: 

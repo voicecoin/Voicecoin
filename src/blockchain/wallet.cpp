@@ -3,8 +3,11 @@
 #include "base58.h"
 #include "hash.h"
 #include "util.h"
+#include "time.h"
+#include "dbproxy.h"
 
 wallet_key::wallet_key()
+    : create_time(0)
 {
 }
 
@@ -59,15 +62,38 @@ wallet &wallet::instance()
     return w;
 }
 
+bool wallet::init()
+{
+    wallet_db_ = new wallet_db;
+    if (!wallet_db_->load_wallet())
+    {
+        return false;
+    }
+
+    wallet_db_->read_default_key(default_key_);
+
+    if (keys.size() == 0)
+    {
+        const wallet_key *k = generate_key();
+        set_defult_key(k->get_uint160());
+        wallet_db_->write_default_key(k->get_uint160());
+    }
+
+    return true;
+}
+
 const wallet_key *wallet::generate_key()
 {
     wallet_key *k = new wallet_key;
     ecc_key ecc;
     ecc.generate();
+    k->create_time = time(0);
     k->pub_key = ecc.get_pub_key();
     k->priv_key = ecc.get_priv_key();
-    keys.insert(make_pair(k->get_uint160(), wallet_key_ptr(k)));
-    
+    const_iterator itr = keys.insert(make_pair(k->get_uint160(), wallet_key_ptr(k))).first;
+
+    wallet_db_->write_wallet(k->get_uint160(), itr->second);
+
     return k;
 }
 
@@ -77,6 +103,19 @@ const wallet_key *wallet::get_key(const uint160 &pub_hash)
     if (itr == keys.end())
         return NULL;
     return itr->second.get();
+}
+
+bool wallet::set_defult_key(const uint160 &pub_hash)
+{
+    if (keys.find(pub_hash) == keys.end())
+    {
+        return false;
+    }
+
+    default_key_ = pub_hash;
+    wallet_db_->write_default_key(default_key_);
+
+    return true;
 }
 
 /*

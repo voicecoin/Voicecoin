@@ -1,6 +1,8 @@
 #include "block.h"
 #include "buff_stream.h"
 #include "util.h"
+#include <boost/filesystem.hpp>
+#include "blockchain.h"
 
 block_header::block_header()
 {
@@ -64,4 +66,13 @@ void block::clear()
 {
     header.clear();
     trans.clear();
+}
+
+std::string block::get_block_file_name(int height)
+{
+    std::string path = block_chain::instance().get_app_path() + "block";
+    boost::filesystem::create_directories(path);
+    char filename[64] = { 0 };
+    sprintf(filename, "/blk%08d.dat", height);
+    return path + filename;
 }

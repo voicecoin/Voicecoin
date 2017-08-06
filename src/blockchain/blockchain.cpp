@@ -80,7 +80,7 @@ block *block_chain::prepare_block()
     blk->header.version = 1;
     blk->header.timestamp = time(0);
     blk->header.hash_prev_block = (curent_block == NULL ? 0 : *curent_block->hash);
-    blk->header.bits = get_next_wook_proof();
+    blk->header.bits = get_next_wook_proof(curent_block);
     blk->header.nonce = 0;
     blk->header.height = (curent_block == NULL ? 0 : curent_block->height + 1);
 
@@ -88,12 +88,12 @@ block *block_chain::prepare_block()
     blk->trans[0]->input.resize(1);
     blk->trans[0]->output.resize(1);
     blk->trans[0]->output[0].pub_hash = coinbase_pub_hash_;
-    blk->trans[0]->output[0].value = 10000;
+    blk->trans[0]->output[0].amount = 10000;
 
     for (std::map<uint256, transaction_ptr>::iterator itr = trans_.begin();
         itr != trans_.end(); ++itr)
     {
-        blk->trans[0]->output[0].value += itr->second->fee;
+        blk->trans[0]->output[0].amount += itr->second->fee;
         blk->trans.push_back(itr->second);
     }
 
@@ -143,6 +143,42 @@ bool block_chain::generate_block(block *blk)
 
 bool block_chain::accept_block(block *blk)
 {
+    // check block and all transaction
+    block_info *curent_block = get_curent_block();
+    if (blk->header.bits != get_next_wook_proof(curent_block))
+    {
+        return false;
+    }
+    if (blk->header.hash_merkle_root != blk->build_merkle_tree())
+    {
+        return false;
+    }
+    if (blk->header.hash_prev_block != *curent_block->hash)
+    {
+        return false;
+    }
+    if (blk->header.timestamp < curent_block->timestamp)
+    {
+        return false;
+    }
+
+    arith_uint256 target;
+    target.set_compact(blk->header.bits);
+    arith_uint256 blk_hash = uint_to_arith256(blk->get_hash());
+    if (blk_hash > target)
+    {
+        return false;
+    }
+
+    for (std::vector<transaction_ptr>::iterator itr = blk->trans.begin();
+        itr != blk->trans.end(); ++itr)
+    {
+        if (!(*itr)->check_sign_and_value())
+        {
+            return false;
+        }
+    }
+
     // write block_info db
     block_info *new_info = insert_block_info(blk->get_hash(), blk->header.height);
     if (new_info->height != 0)
@@ -155,11 +191,7 @@ bool block_chain::accept_block(block *blk)
     std::cout << "result: " << blk->get_hash().get_hex() << std::endl;
 
     // write block
-    std::string path = get_app_path() + "block";
-    boost::filesystem::create_directories(path);
-    char filename[64] = { 0 };
-    sprintf(filename, "/blk%08d.dat", blk->header.height);
-    file_stream fs(path + filename);
+    file_stream fs(block::get_block_file_name(blk->header.height));
     fs << *blk;
     
     // write tran_db
@@ -180,9 +212,8 @@ bool block_chain::accept_block(block *blk)
     return true;
 }
 
-uint32_t block_chain::get_next_wook_proof()
+uint32_t block_chain::get_next_wook_proof(block_info *curent_block)
 {
-    block_info *curent_block = get_curent_block();
     if (curent_block == NULL || curent_block->pre_info == NULL)
         return uint_to_arith256(start_work_proof_).get_compact();
     
@@ -213,4 +244,9 @@ uint32_t block_chain::get_next_wook_proof()
         newbit = uint_to_arith256(start_work_proof_);
 
     return newbit.get_compact();
+}
+
+bool block_chain::read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos)
+{
+    return tran_pos_db_->read_tran_pos(tranid, tran_pos);
 }

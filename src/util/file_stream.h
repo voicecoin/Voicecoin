@@ -23,6 +23,11 @@ public:
         return file_ != NULL;
     }
 
+    int seek(size_t pos, int type = SEEK_SET)
+    {
+        return ::fseek(file_, pos, type);
+    }
+
     void read(char* pch, int size)
     {
         if (!file_)

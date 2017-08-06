@@ -1,5 +1,8 @@
 #include "dbproxy.h"
 #include "blockchain.h"
+#include "wallet.h"
+
+static const char WALLET_DB_KEY = 'k';
 
 class block_info_disk
 {
@@ -35,7 +38,7 @@ bool block_info_db::write_block_info(const block_info &block_info)
     bidb.timestamp = block_info.timestamp;
     bidb.bits = block_info.bits;
     bidb.height = block_info.height;
-    bidb.pre_block = (block_info.pre_info == 0 ? *block_info.pre_info->hash : 0);
+    bidb.pre_block = (block_info.pre_info != 0 ? *block_info.pre_info->hash : 0);
 
     return write(*block_info.hash, bidb);
 }
@@ -82,4 +85,44 @@ bool tran_pos_db::write_tran_pos(
 bool tran_pos_db::read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos)
 {
     return read(tranid, tran_pos);
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+wallet_db::wallet_db()
+    : dbwrapper((block_chain::instance().get_app_path() + "walletdb").c_str())
+{
+}
+
+bool wallet_db::write_wallet(const uint160 &pub_hash, const wallet_key_ptr &key)
+{
+    return write(std::make_pair(WALLET_DB_KEY, pub_hash), key);
+}
+
+bool wallet_db::load_wallet()
+{
+    std::unique_ptr<db_iterator> pcursor(new_iterator());
+    for (pcursor->seek(std::make_pair(WALLET_DB_KEY, uint160()));
+        pcursor->valid(); pcursor->next())
+    {
+        std::pair<char, uint160> key;
+        wallet_key *wkey = new wallet_key;
+        if (pcursor->get_key(key) && pcursor->get_value(*wkey) &&
+            key.first == 'k')
+        {
+            wallet::instance().keys.insert(std::make_pair(key.second, wallet_key_ptr(wkey)));
+        }
+    }
+
+    return true;
+}
+
+bool wallet_db::write_default_key(const uint160 &pub_hash)
+{
+    return write(std::string("default_key"), pub_hash);
+}
+
+bool wallet_db::read_default_key(uint160 &pub_hash)
+{
+    return read(std::string("default_key"), pub_hash);
 }

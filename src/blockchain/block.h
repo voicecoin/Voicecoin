@@ -55,6 +55,8 @@ public:
     bool empty();
     void clear();
 
+    static std::string get_block_file_name(int height);
+
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>

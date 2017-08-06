@@ -10,6 +10,7 @@ using namespace std;
 
 int main()
 {
+    block_chain::instance().init_db();
     while (true)
     {
         block *blk = block_chain::instance().prepare_block();

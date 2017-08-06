@@ -7,6 +7,7 @@
 class wallet_key
 {
 public:
+    uint64_t create_time;
     std::vector<unsigned char> pub_key;
     std::vector<unsigned char> priv_key;
 
@@ -28,6 +29,7 @@ public:
     template <typename Stream, typename Operation>
     inline void serialization(Stream& s, Operation ser_action)
     {
+        READWRITE(create_time);
         READWRITE(pub_key);
         READWRITE(priv_key);
     }
@@ -35,27 +37,35 @@ public:
 
 typedef std::shared_ptr<wallet_key> wallet_key_ptr;
 
+class wallet_db;
+
 class wallet
 {
+    friend class wallet_db;
 public:
     typedef std::map<uint160, wallet_key_ptr>::const_iterator const_iterator;
-    std::map<uint160, wallet_key_ptr> keys;
 
 public:
     static wallet &instance();
+
+    bool init();
+
     const wallet_key *generate_key();
 
     const wallet_key *get_key(const uint160 &pub_hash);
+
+    bool set_defult_key(const uint160 &pub_hash);
+
     const_iterator cbegin() { return keys.cbegin(); }
     const_iterator cend() { return keys.cend(); }
 
-    ADD_SERIALIZE_METHODS;
+private:
+    wallet() {}
 
-    template <typename Stream, typename Operation>
-    inline void serialization(Stream& s, Operation ser_action)
-    {
-        READWRITE(keys);
-    }
+private:
+    std::map<uint160, wallet_key_ptr> keys;
+    uint160 default_key_;
+    wallet_db *wallet_db_;
 };
 
 #endif // BCUS_WALLET_H

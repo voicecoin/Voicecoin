@@ -2,6 +2,8 @@
 #include "buff_stream.h"
 #include "wallet.h"
 #include "ecc_key.h"
+#include "blockchain.h"
+#include "file_stream.h"
 
 trans_input::trans_input()
 {
@@ -10,13 +12,13 @@ trans_input::trans_input()
 
 bool trans_input::empty()
 {
-    return n == 0;
+    return index == 0;
 }
 
 void trans_input::clear()
 {
     pre_trans.clear();
-    n = 0;
+    index = 0;
     pubkey.clear();
     sig.clear();
 }
@@ -30,12 +32,12 @@ trans_output::trans_output()
 
 bool trans_output::empty()
 {
-    return value == 0;
+    return amount == 0;
 }
 
 void trans_output::clear()
 {
-    value = 0;
+    amount = 0;
     pub_hash.clear();
 }
 
@@ -62,7 +64,23 @@ bool transaction::sign()
             tmp.input[j].sig.clear();
         }
 
-        uint160 pub_hash; // TODO: find pubkey_hash by trans from wallet
+        block_tran_pos tran_pos;
+        if (!block_chain::instance().read_tran_pos(input[i].pre_trans, tran_pos))
+        {
+            return false;
+        }
+
+        transaction pre_tran;
+        file_stream fs(block::get_block_file_name(tran_pos.block_id));
+        fs.seek(tran_pos.tran_pos);
+        fs >> pre_tran;
+
+        if (input[i].index >= pre_tran.output.size())
+        {
+            return false;
+        }
+
+        uint160 pub_hash = pre_tran.output[input[i].index].pub_hash;
         const wallet_key *key = wallet::instance().get_key(pub_hash);
         if (key == NULL)
         {
@@ -95,8 +113,24 @@ bool transaction::check_sign_and_value()
             tmp.input[j].sig.clear();
         }
 
-        uint160 pub_hash; // TODO: find pubkey_hash from trans list
-        // in_value += pre_out;
+        block_tran_pos tran_pos;
+        if (!block_chain::instance().read_tran_pos(input[i].pre_trans, tran_pos))
+        {
+            return false;
+        }
+
+        transaction pre_tran;
+        file_stream fs(block::get_block_file_name(tran_pos.block_id));
+        fs.seek(tran_pos.tran_pos);
+        fs >> pre_tran;
+
+        if (input[i].index >= pre_tran.output.size())
+        {
+            return false;
+        }
+
+        uint160 pub_hash = pre_tran.output[input[i].index].pub_hash;
+        in_value += pre_tran.output[input[i].index].amount;
 
         uint160 pub_hash2 = wallet_key::get_uint160(input[i].pubkey);
         if (pub_hash != pub_hash2)
@@ -114,7 +148,7 @@ bool transaction::check_sign_and_value()
 
     for (size_t i = 0; i < output.size(); ++i)
     {
-        out_value += output[i].value;
+        out_value += output[i].amount;
 
     }
 

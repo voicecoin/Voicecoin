@@ -8,7 +8,7 @@ class trans_input
 {
 public:
     uint256 pre_trans;
-    uint32_t n; // index in pre_trans output, from 0
+    uint32_t index; // index in pre_trans output, from 0
     std::vector<unsigned char> pubkey;
     std::vector<unsigned char> sig;
 
@@ -23,7 +23,7 @@ public:
     inline void serialization(Stream& s, Operation ser_action)
     {
         READWRITE(pre_trans);
-        READWRITE(VARINT(n));
+        READWRITE(VARINT(index));
         READWRITE(pubkey);
         READWRITE(sig);
     }
@@ -32,7 +32,7 @@ public:
 class trans_output
 {
 public:
-    uint64_t value;
+    uint64_t amount;
     uint160 pub_hash;
 
 public:
@@ -45,7 +45,7 @@ public:
     template <typename Stream, typename Operation>
     inline void serialization(Stream& s, Operation ser_action)
     {
-        READWRITE(VARINT(value));
+        READWRITE(VARINT(amount));
         READWRITE(pub_hash);
     }
 };
