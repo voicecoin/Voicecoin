@@ -118,6 +118,91 @@ bool wallet::set_defult_key(const uint160 &pub_hash)
     return true;
 }
 
+bool wallet::is_mine(const uint160 &pub_hash)
+{
+    return keys.find(pub_hash) != keys.end();
+}
+
+void wallet::save_mine_transaction(const transaction &tran)
+{
+    if (!is_mine_transaction(tran))
+    {
+        return;
+    }
+
+    add_mine_transaction(tran);
+}
+
+bool wallet::is_mine_transaction(const transaction &tran)
+{
+    if (!tran.is_coin_base())
+    {
+        for (size_t i = 0; i < tran.input.size(); ++i)
+        {
+            std::map<uint256, transaction>::iterator itr = trans.find(tran.input[i].pre_out.hash);
+            if (itr != trans.end() && itr->second.output.size() > tran.input[i].pre_out.index)
+            {
+                if (is_mine(itr->second.output[tran.input[i].pre_out.index].pub_hash))
+                {
+                    return true;
+                }
+            }
+        }
+    }
+
+    for (size_t i = 0; i < tran.output.size(); ++i)
+    {
+        if (is_mine(tran.output[i].pub_hash))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+void wallet::add_mine_transaction(const transaction &tran)
+{
+    trans.insert(std::make_pair(tran.get_hash(), tran));
+    if (!tran.is_coin_base())
+    {
+        for (size_t i = 0; i < tran.input.size(); ++i)
+        {
+            trans_spends.insert(std::make_pair(tran.input[i].pre_out, tran.get_hash()));
+        }
+    }
+}
+
+bool wallet::is_spent(const uint256 &hash, int index)
+{
+    pre_output pout;
+    pout.hash = hash;
+    pout.index = index;
+
+    std::multimap<pre_output, uint256>::iterator itr = trans_spends.find(pout);
+    if (itr != trans_spends.end())
+    {
+        return true;
+    }
+    return false;
+}
+
+int64_t wallet::get_balance()
+{
+    int64_t balance = 0;
+    for (std::map<uint256, transaction>::iterator itr = trans.begin(); itr != trans.end(); ++itr)
+    {
+        transaction &tran = itr->second;
+        for (size_t i = 0; i < tran.output.size(); ++i)
+        {
+            if (is_mine(tran.output[i].pub_hash) && !is_spent(itr->first, i))
+            {
+                balance += tran.output[i].amount;
+            }
+        }
+    }
+    return balance;
+}
+
 /*
 
 static int test()

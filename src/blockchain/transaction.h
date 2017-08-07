@@ -4,11 +4,33 @@
 #include "uint256.h"
 #include "serialize.h"
 
+class pre_output
+{
+public:
+    uint256 hash;
+    uint32_t index; // index in pre_trans output, from 0
+
+    friend bool operator<(const pre_output& a, const pre_output& b)
+    {
+        int cmp = a.hash.compare(b.hash);
+        return cmp < 0 || (cmp == 0 && a.index < b.index);
+    }
+
+    friend bool operator==(const pre_output& a, const pre_output& b)
+    {
+        return (a.hash == b.hash && a.index == b.index);
+    }
+
+    friend bool operator!=(const pre_output& a, const pre_output& b)
+    {
+        return !(a == b);
+    }
+};
+
 class trans_input
 {
 public:
-    uint256 pre_trans;
-    uint32_t index; // index in pre_trans output, from 0
+    pre_output pre_out;
     std::vector<unsigned char> pubkey;
     std::vector<unsigned char> sig;
 
@@ -22,8 +44,8 @@ public:
     template <typename Stream, typename Operation>
     inline void serialization(Stream& s, Operation ser_action)
     {
-        READWRITE(pre_trans);
-        READWRITE(VARINT(index));
+        READWRITE(pre_out.hash);
+        READWRITE(VARINT(pre_out.index));
         READWRITE(pubkey);
         READWRITE(sig);
     }
@@ -63,7 +85,9 @@ public:
 public:
     transaction();
 
-    uint256 get_hash();
+    bool is_coin_base() const;
+
+    uint256 get_hash() const;
 
     bool sign();
     bool check_sign_and_value();

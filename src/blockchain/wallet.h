@@ -3,6 +3,7 @@
 
 #include "serialize.h"
 #include "uint256.h"
+#include "transaction.h"
 
 class wallet_key
 {
@@ -59,11 +60,22 @@ public:
     const_iterator cbegin() { return keys.cbegin(); }
     const_iterator cend() { return keys.cend(); }
 
+    bool is_mine(const uint160 &pub_hash);
+    void save_mine_transaction(const transaction &tran);
+
+    bool is_spent(const uint256 &hash, int index);
+
+    int64_t get_balance();
+
 private:
     wallet() {}
+    bool is_mine_transaction(const transaction &tran);
+    void add_mine_transaction(const transaction &tran);
 
 private:
     std::map<uint160, wallet_key_ptr> keys;
+    std::map<uint256, transaction> trans;
+    std::multimap<pre_output, uint256> trans_spends;
     uint160 default_key_;
     wallet_db *wallet_db_;
 };

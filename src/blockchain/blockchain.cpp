@@ -106,6 +106,7 @@ bool block_chain::generate_block(block *blk)
     target.set_compact(blk->header.bits);
     std::cout << string_helper::time_to_string("%Y-%m-%d %H:%M:%S", time(0)) << std::endl;
     std::cout << "target: " << target.get_hex() << std::endl;
+    uint256 nonce_ex;
 
     while (true)
     {
@@ -131,11 +132,13 @@ bool block_chain::generate_block(block *blk)
                 {
                     blk->header.timestamp = t;
                     blk->header.nonce = 0;
-                    blk->trans[0]->input[0].pre_trans = 0;
+                    nonce_ex.clear();
                 }
             }
         }
-        blk->trans[0]->input[0].pre_trans++;
+
+        nonce_ex++;
+        nonce_ex.to_vch(blk->trans[0]->input[0].pubkey);
     }
 
     return false;

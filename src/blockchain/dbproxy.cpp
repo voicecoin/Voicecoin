@@ -2,8 +2,6 @@
 #include "blockchain.h"
 #include "wallet.h"
 
-static const char WALLET_DB_KEY = 'k';
-
 class block_info_disk
 {
 public:
@@ -89,6 +87,9 @@ bool tran_pos_db::read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos)
 
 //////////////////////////////////////////////////////////////////////////
 
+static const char WALLET_DB_KEY = 'k';
+static const char WALLET_DB_TRAN = 't';
+
 wallet_db::wallet_db()
     : dbwrapper((block_chain::instance().get_app_path() + "walletdb").c_str())
 {
@@ -108,7 +109,7 @@ bool wallet_db::load_wallet()
         std::pair<char, uint160> key;
         wallet_key *wkey = new wallet_key;
         if (pcursor->get_key(key) && pcursor->get_value(*wkey) &&
-            key.first == 'k')
+            key.first == WALLET_DB_KEY)
         {
             wallet::instance().keys.insert(std::make_pair(key.second, wallet_key_ptr(wkey)));
         }
@@ -125,4 +126,28 @@ bool wallet_db::write_default_key(const uint160 &pub_hash)
 bool wallet_db::read_default_key(uint160 &pub_hash)
 {
     return read(std::string("default_key"), pub_hash);
+}
+
+bool wallet_db::write_transaction(const transaction &tran)
+{
+    return write(std::make_pair(WALLET_DB_TRAN, tran.get_hash()), tran);
+}
+
+bool wallet_db::load_transacton()
+{
+    std::unique_ptr<db_iterator> pcursor(new_iterator());
+
+    for (pcursor->seek(std::make_pair(WALLET_DB_TRAN, uint256()));
+        pcursor->valid(); pcursor->next())
+    {
+        std::pair<char, uint256> key;
+        transaction tran;
+        if (pcursor->get_key(key) && pcursor->get_value(tran) &&
+            key.first == WALLET_DB_TRAN)
+        {
+            wallet::instance().add_mine_transaction(tran);
+        }
+    }
+
+    return true;
 }

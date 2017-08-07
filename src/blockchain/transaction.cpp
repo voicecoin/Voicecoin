@@ -12,13 +12,13 @@ trans_input::trans_input()
 
 bool trans_input::empty()
 {
-    return index == 0;
+    return pre_out.index == 0;
 }
 
 void trans_input::clear()
 {
-    pre_trans.clear();
-    index = 0;
+    pre_out.hash.clear();
+    pre_out.index = 0;
     pubkey.clear();
     sig.clear();
 }
@@ -48,7 +48,12 @@ transaction::transaction()
     clear();
 }
 
-uint256 transaction::get_hash()
+bool transaction::is_coin_base() const
+{
+    return (input.size() == 1 && input[0].pre_out.hash.empty());
+}
+
+uint256 transaction::get_hash() const
 {
     return serialize_hash(*this);
 }
@@ -65,7 +70,7 @@ bool transaction::sign()
         }
 
         block_tran_pos tran_pos;
-        if (!block_chain::instance().read_tran_pos(input[i].pre_trans, tran_pos))
+        if (!block_chain::instance().read_tran_pos(input[i].pre_out.hash, tran_pos))
         {
             return false;
         }
@@ -75,12 +80,12 @@ bool transaction::sign()
         fs.seek(tran_pos.tran_pos);
         fs >> pre_tran;
 
-        if (input[i].index >= pre_tran.output.size())
+        if (input[i].pre_out.index >= pre_tran.output.size())
         {
             return false;
         }
 
-        uint160 pub_hash = pre_tran.output[input[i].index].pub_hash;
+        uint160 pub_hash = pre_tran.output[input[i].pre_out.index].pub_hash;
         const wallet_key *key = wallet::instance().get_key(pub_hash);
         if (key == NULL)
         {
@@ -114,7 +119,7 @@ bool transaction::check_sign_and_value()
         }
 
         block_tran_pos tran_pos;
-        if (!block_chain::instance().read_tran_pos(input[i].pre_trans, tran_pos))
+        if (!block_chain::instance().read_tran_pos(input[i].pre_out.hash, tran_pos))
         {
             return false;
         }
@@ -124,13 +129,13 @@ bool transaction::check_sign_and_value()
         fs.seek(tran_pos.tran_pos);
         fs >> pre_tran;
 
-        if (input[i].index >= pre_tran.output.size())
+        if (input[i].pre_out.index >= pre_tran.output.size())
         {
             return false;
         }
 
-        uint160 pub_hash = pre_tran.output[input[i].index].pub_hash;
-        in_value += pre_tran.output[input[i].index].amount;
+        uint160 pub_hash = pre_tran.output[input[i].pre_out.index].pub_hash;
+        in_value += pre_tran.output[input[i].pre_out.index].amount;
 
         uint160 pub_hash2 = wallet_key::get_uint160(input[i].pubkey);
         if (pub_hash != pub_hash2)

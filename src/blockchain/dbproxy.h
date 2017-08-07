@@ -7,6 +7,7 @@
 #include "dbwrapper.h"
 #include "block_info.h"
 #include "wallet.h"
+#include "transaction.h"
 
 class block_info_db : public dbwrapper
 {
@@ -38,6 +39,9 @@ public:
 
     bool write_default_key(const uint160 &pub_hash);
     bool read_default_key(uint160 &pub_hash);
+
+    bool write_transaction(const transaction &tran);
+    bool load_transacton();
 };
 
 #endif // BCUS_DB_PROXY_H

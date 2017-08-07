@@ -66,6 +66,12 @@ public:
         memset(data_, 0, sizeof(data_));
     }
 
+    void to_vch(std::vector<unsigned char>& vch)
+    {
+        vch.resize(sizeof(data_));
+        memcpy(&vch[0], data_, sizeof(data_));
+    }
+
     inline int compare(const base_blob& other) const { return memcmp(data_, other.data_, sizeof(data_)); }
 
     friend inline bool operator==(const base_blob& a, const base_blob& b) { return a.compare(b) == 0; }
