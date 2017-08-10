@@ -5,6 +5,7 @@
 #include "util.h"
 #include "time.h"
 #include "dbproxy.h"
+#include <iostream>
 
 wallet_key::wallet_key()
     : create_time(0)
@@ -70,6 +71,8 @@ bool wallet::init()
         return false;
     }
 
+    wallet_db_->load_transacton();
+
     wallet_db_->read_default_key(default_key_);
 
     if (keys.size() == 0)
@@ -118,6 +121,11 @@ bool wallet::set_defult_key(const uint160 &pub_hash)
     return true;
 }
 
+const uint160 wallet::get_defult_key() const
+{
+    return default_key_;
+}
+
 bool wallet::is_mine(const uint160 &pub_hash)
 {
     return keys.find(pub_hash) != keys.end();
@@ -163,6 +171,7 @@ bool wallet::is_mine_transaction(const transaction &tran)
 void wallet::add_mine_transaction(const transaction &tran)
 {
     trans.insert(std::make_pair(tran.get_hash(), tran));
+    wallet_db_->write_transaction(tran);
     if (!tran.is_coin_base())
     {
         for (size_t i = 0; i < tran.input.size(); ++i)
@@ -200,6 +209,7 @@ int64_t wallet::get_balance()
             }
         }
     }
+    std::cout << "balance: " << balance << std::endl;
     return balance;
 }
 

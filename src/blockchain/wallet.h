@@ -56,6 +56,7 @@ public:
     const wallet_key *get_key(const uint160 &pub_hash);
 
     bool set_defult_key(const uint160 &pub_hash);
+    const uint160 get_defult_key() const;
 
     const_iterator cbegin() { return keys.cbegin(); }
     const_iterator cend() { return keys.cend(); }

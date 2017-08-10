@@ -29,7 +29,7 @@
     <ClCompile Include="blockchain\transaction.cpp" />
     <ClCompile Include="blockchain\wallet.cpp" />
     <ClCompile Include="main\main.cpp" />
-    <ClCompile Include="main\msg_thread.cpp" />
+    <ClCompile Include="main\main_thread.cpp" />
     <ClCompile Include="util\endian.cpp" />
     <ClCompile Include="util\string_helper.cpp" />
   </ItemGroup>
@@ -45,7 +45,7 @@
     <ClInclude Include="blockchain\transaction.h" />
     <ClInclude Include="blockchain\uint256.h" />
     <ClInclude Include="blockchain\wallet.h" />
-    <ClInclude Include="main\msg_thread.h" />
+    <ClInclude Include="main\main_thread.h" />
     <ClInclude Include="util\buff_stream.h" />
     <ClInclude Include="util\endian.h" />
     <ClInclude Include="util\file_stream.h" />

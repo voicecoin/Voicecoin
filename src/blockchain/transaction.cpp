@@ -111,6 +111,7 @@ bool transaction::check_sign_and_value()
     for (size_t i = 0; i < input.size(); ++i)
     {
         transaction tmp = *this;
+
         for (size_t j = 0; j < tmp.input.size(); ++j)
         {
             if (i != j)

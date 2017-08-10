@@ -39,9 +39,6 @@
     <ClCompile Include="blockchain\blockchain.cpp">
       <Filter>blockchain</Filter>
     </ClCompile>
-    <ClCompile Include="main\msg_thread.cpp">
-      <Filter>main</Filter>
-    </ClCompile>
     <ClCompile Include="main\main.cpp">
       <Filter>main</Filter>
     </ClCompile>
@@ -50,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="blockchain\dbproxy.cpp">
       <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="main\main_thread.cpp">
+      <Filter>main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,14 +98,14 @@
     <ClInclude Include="util\util.h">
       <Filter>util</Filter>
     </ClInclude>
-    <ClInclude Include="main\msg_thread.h">
-      <Filter>main</Filter>
-    </ClInclude>
     <ClInclude Include="blockchain\dbwrapper.h">
       <Filter>blockchain</Filter>
     </ClInclude>
     <ClInclude Include="blockchain\dbproxy.h">
       <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="main\main_thread.h">
+      <Filter>main</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

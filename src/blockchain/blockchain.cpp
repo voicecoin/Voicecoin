@@ -6,6 +6,8 @@
 #include <time.h>
 #include "file_stream.h"
 #include <boost/filesystem.hpp>
+#include "main_thread.h"
+#include "wallet.h"
 #ifdef _MSC_VER
 #include <windows.h>
 #endif
@@ -41,10 +43,12 @@ std::string block_chain::get_app_path()
     return path;
 }
 
-void block_chain::init_db()
+void block_chain::init()
 {
     block_info_db_ = new block_info_db;
     tran_pos_db_ = new tran_pos_db;
+    coinbase_pub_hash_ = wallet::instance().get_defult_key();
+    block_info_db_->load_block_info();
 }
 
 block_info *block_chain::insert_block_info(const uint256 &block_hash, int height/* = -1*/)
@@ -102,22 +106,25 @@ block *block_chain::prepare_block()
 
 bool block_chain::generate_block(block *blk)
 {
+    generating_block_ = true;
     arith_uint256 target;
     target.set_compact(blk->header.bits);
     std::cout << string_helper::time_to_string("%Y-%m-%d %H:%M:%S", time(0)) << std::endl;
     std::cout << "target: " << target.get_hex() << std::endl;
     uint256 nonce_ex;
 
-    while (true)
+    while (generating_block_)
     {
         blk->header.hash_merkle_root = blk->build_merkle_tree();
 
-        while (true)
+        while (generating_block_)
         {
             arith_uint256 blk_hash = uint_to_arith256(blk->get_hash());
             if (blk_hash <= target)
             {
-                return accept_block(blk);
+                //return accept_block(blk);
+                main_thread::instance().accept_new_block(blk);
+                return true;
             }
 
             blk->header.nonce++;
@@ -144,6 +151,11 @@ bool block_chain::generate_block(block *blk)
     return false;
 }
 
+void block_chain::stop_generate_block()
+{
+    generating_block_ = false;
+}
+
 bool block_chain::accept_block(block *blk)
 {
     // check block and all transaction
@@ -156,13 +168,16 @@ bool block_chain::accept_block(block *blk)
     {
         return false;
     }
-    if (blk->header.hash_prev_block != *curent_block->hash)
+    if (blk->header.height != 0)
     {
-        return false;
-    }
-    if (blk->header.timestamp < curent_block->timestamp)
-    {
-        return false;
+        if (blk->header.hash_prev_block != *curent_block->hash)
+        {
+            return false;
+        }
+        if (blk->header.timestamp < curent_block->timestamp)
+        {
+            return false;
+        }
     }
 
     arith_uint256 target;
@@ -173,10 +188,25 @@ bool block_chain::accept_block(block *blk)
         return false;
     }
 
-    for (std::vector<transaction_ptr>::iterator itr = blk->trans.begin();
-        itr != blk->trans.end(); ++itr)
+    for (size_t i = 0; i < blk->trans.size(); ++i)
     {
-        if (!(*itr)->check_sign_and_value())
+        if (i == 0)
+        {
+            if (!blk->trans[i]->is_coin_base())
+            {
+                return false;
+            }
+            continue;
+        }
+        else
+        {
+            if (blk->trans[i]->is_coin_base())
+            {
+                return false;
+            }
+        }
+
+        if (!blk->trans[i]->check_sign_and_value())
         {
             return false;
         }
@@ -209,6 +239,7 @@ bool block_chain::accept_block(block *blk)
     {
         tran_pos_array.push_back(std::make_pair((*itr)->get_hash(), pos));
         pos.tran_pos += get_serialize_size(*(*itr));
+        wallet::instance().save_mine_transaction(*(*itr));
     }
     tran_pos_db_->write_tran_pos(tran_pos_array);
 

@@ -14,11 +14,12 @@ class block_chain
 public:
     static block_chain &instance();
 
-    void init_db();
+    void init();
 
     block *prepare_block(); // main thread
 
     bool generate_block(block *blk); // block thread
+    void stop_generate_block();
 
     bool accept_block(block *blk); // return to main thread
 
@@ -41,6 +42,7 @@ private:
     std::map<uint32_t, block_info *> block_by_hight_;
     block_info_db *block_info_db_;
     tran_pos_db *tran_pos_db_;
+    bool generating_block_;
 };
 
 #endif // BCUS_BLOCK_CHAIN_H
