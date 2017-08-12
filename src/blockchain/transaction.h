@@ -3,6 +3,7 @@
 
 #include "uint256.h"
 #include "serialize.h"
+#include "block_info.h"
 
 class pre_output
 {
@@ -79,8 +80,9 @@ public:
     std::vector<trans_input> input;
     std::vector<trans_output> output;
 
-    // will int by check_sign_and_value()
+    // will init by check_sign_and_value()
     uint64_t fee;
+    std::vector<block_tran_pos> input_tran_pos;
 
 public:
     transaction();

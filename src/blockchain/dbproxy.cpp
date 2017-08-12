@@ -145,7 +145,7 @@ bool wallet_db::load_transacton()
         if (pcursor->get_key(key) && pcursor->get_value(tran) &&
             key.first == WALLET_DB_TRAN)
         {
-            wallet::instance().add_mine_transaction(tran);
+            wallet::instance().add_mine_transaction(tran, false);
         }
     }
 

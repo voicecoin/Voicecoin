@@ -31,6 +31,7 @@ public:
 
 private:
     block_chain();
+    int64_t get_coin_base_amount(uint32_t height);
     uint32_t get_next_wook_proof(block_info *curent_block);
     block_info *get_curent_block();
 

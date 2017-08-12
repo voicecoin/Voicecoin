@@ -20,6 +20,7 @@ public:
 
     std::string get_address() const;
     static std::string get_address(const std::vector<unsigned char>& pub_key);
+    static std::string get_address(const uint160 &pub_hash);
 
     uint160 get_uint160() const;
     static uint160 get_uint160(const std::vector<unsigned char>& pub_key);
@@ -71,12 +72,12 @@ public:
 private:
     wallet() {}
     bool is_mine_transaction(const transaction &tran);
-    void add_mine_transaction(const transaction &tran);
+    void add_mine_transaction(const transaction &tran, bool save_db = true);
 
 private:
     std::map<uint160, wallet_key_ptr> keys;
     std::map<uint256, transaction> trans;
-    std::multimap<pre_output, uint256> trans_spends;
+    std::map<pre_output, uint256> trans_spends;
     uint160 default_key_;
     wallet_db *wallet_db_;
 };

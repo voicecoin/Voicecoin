@@ -16,6 +16,7 @@ public:
     void start_mining();
     void accept_new_block(block *blk);
     void get_balance();
+    void show_wallet();
 
 private:
     main_thread() {}
@@ -24,6 +25,7 @@ private:
     void mining_thread(block *blk);
     void do_accept_new_block(block *blk);
     void do_get_balance();
+    void do_show_wallet();
 
 private:
     boost::asio::io_service io_service_;

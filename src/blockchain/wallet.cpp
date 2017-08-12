@@ -36,6 +36,13 @@ std::string wallet_key::get_address(const std::vector<unsigned char>& pub_key)
     return "$" + base58::encode_check(vch);
 }
 
+std::string wallet_key::get_address(const uint160 &pub_hash)
+{
+    std::vector<unsigned char> vch;
+    vch.insert(vch.end(), UBEGIN(pub_hash), UEND(pub_hash));
+    return "$" + base58::encode_check(vch);
+}
+
 uint160 wallet_key::get_uint160() const
 {
     return get_uint160(pub_key);
@@ -168,10 +175,11 @@ bool wallet::is_mine_transaction(const transaction &tran)
     return false;
 }
 
-void wallet::add_mine_transaction(const transaction &tran)
+void wallet::add_mine_transaction(const transaction &tran, bool save_db)
 {
     trans.insert(std::make_pair(tran.get_hash(), tran));
-    wallet_db_->write_transaction(tran);
+    if (save_db)
+        wallet_db_->write_transaction(tran);
     if (!tran.is_coin_base())
     {
         for (size_t i = 0; i < tran.input.size(); ++i)

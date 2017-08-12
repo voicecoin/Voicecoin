@@ -108,6 +108,7 @@ bool transaction::check_sign_and_value()
     uint64_t in_value = 0;
     uint64_t out_value = 0;
 
+    input_tran_pos.resize(input.size());
     for (size_t i = 0; i < input.size(); ++i)
     {
         transaction tmp = *this;
@@ -119,15 +120,20 @@ bool transaction::check_sign_and_value()
             tmp.input[j].sig.clear();
         }
 
-        block_tran_pos tran_pos;
-        if (!block_chain::instance().read_tran_pos(input[i].pre_out.hash, tran_pos))
+        if (!block_chain::instance().read_tran_pos(input[i].pre_out.hash, input_tran_pos[i]))
+        {
+            return false;
+        }
+
+        if (input[i].pre_out.index >= input_tran_pos[i].spents.size() ||
+            input_tran_pos[i].spents[input[i].pre_out.index] != block_tran_pos(0, 0))
         {
             return false;
         }
 
         transaction pre_tran;
-        file_stream fs(block::get_block_file_name(tran_pos.block_id));
-        fs.seek(tran_pos.tran_pos);
+        file_stream fs(block::get_block_file_name(input_tran_pos[i].block_id));
+        fs.seek(input_tran_pos[i].tran_pos);
         fs >> pre_tran;
 
         if (input[i].pre_out.index >= pre_tran.output.size())
@@ -155,7 +161,6 @@ bool transaction::check_sign_and_value()
     for (size_t i = 0; i < output.size(); ++i)
     {
         out_value += output[i].amount;
-
     }
 
     if (in_value < out_value)

@@ -1,6 +1,7 @@
 #include "main_thread.h"
 #include <boost/bind.hpp>
 #include "wallet.h"
+#include <iostream>
 
 main_thread &main_thread::instance()
 {
@@ -58,6 +59,23 @@ void main_thread::do_get_balance()
 {
     wallet::instance().get_balance();
 }
+
+void main_thread::show_wallet()
+{
+    io_service_.post(boost::bind(&main_thread::do_show_wallet, this));
+}
+
+void main_thread::do_show_wallet()
+{
+    std::cout << "wallet key:" << std::endl;
+    for (wallet::const_iterator itr = wallet::instance().cbegin();
+        itr != wallet::instance().cend(); ++itr)
+    {
+        std::cout << itr->second->get_address() << std::endl;
+    }
+    std::cout << "default key: " << wallet_key::get_address(wallet::instance().get_defult_key()) << std::endl;
+}
+
 
 #if 0
 msg_queue::msg_queue(int size)

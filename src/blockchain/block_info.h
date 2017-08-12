@@ -32,9 +32,11 @@ class block_tran_pos
 public:
     int block_id;
     uint32_t tran_pos;
+    std::vector<block_tran_pos> spents;
 
 public:
-    block_tran_pos() : block_id(0), tran_pos(0) {}
+    block_tran_pos(int block_id_ = 0, uint32_t tran_pos_ = 0)
+        : block_id(block_id_), tran_pos(tran_pos_) {}
 
     ADD_SERIALIZE_METHODS;
 
@@ -43,6 +45,17 @@ public:
     {
         READWRITE(block_id);
         READWRITE(tran_pos);
+        READWRITE(spents);
+    }
+
+    bool operator==(const block_tran_pos& r) const
+    {
+        return block_id == r.block_id && tran_pos == r.tran_pos;
+    }
+
+    bool operator!=(const block_tran_pos& r) const
+    {
+        return !(*this == r);
     }
 };
 

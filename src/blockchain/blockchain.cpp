@@ -92,7 +92,7 @@ block *block_chain::prepare_block()
     blk->trans[0]->input.resize(1);
     blk->trans[0]->output.resize(1);
     blk->trans[0]->output[0].pub_hash = coinbase_pub_hash_;
-    blk->trans[0]->output[0].amount = 10000;
+    blk->trans[0]->output[0].amount = get_coin_base_amount(blk->header.height);
 
     for (std::map<uint256, transaction_ptr>::iterator itr = trans_.begin();
         itr != trans_.end(); ++itr)
@@ -188,28 +188,32 @@ bool block_chain::accept_block(block *blk)
         return false;
     }
 
+    int64_t coin_base_amount = get_coin_base_amount(blk->header.height);
     for (size_t i = 0; i < blk->trans.size(); ++i)
     {
         if (i == 0)
         {
-            if (!blk->trans[i]->is_coin_base())
+            if (!blk->trans[i]->is_coin_base() || blk->trans[i]->output.size() != 1)
             {
                 return false;
             }
             continue;
         }
-        else
+        else if (blk->trans[i]->is_coin_base())
         {
-            if (blk->trans[i]->is_coin_base())
-            {
-                return false;
-            }
+            return false;
         }
 
         if (!blk->trans[i]->check_sign_and_value())
         {
             return false;
         }
+        coin_base_amount += blk->trans[i]->fee;
+    }
+
+    if (blk->trans[0]->output[0].amount != coin_base_amount)
+    {
+        return false;
     }
 
     // write block_info db
@@ -237,8 +241,19 @@ bool block_chain::accept_block(block *blk)
     for (std::vector<transaction_ptr>::iterator itr = blk->trans.begin();
         itr != blk->trans.end(); ++itr)
     {
+        // update input pos info
+        for (size_t i = 0; i < (*itr)->input.size(); ++i)
+        {
+            (*itr)->input_tran_pos[i].spents[(*itr)->input[i].pre_out.index] = pos;
+            tran_pos_array.push_back(std::make_pair((*itr)->input[i].pre_out.hash, (*itr)->input_tran_pos[i]));
+        }
+
+        // insert this transaction pos info
+        pos.spents.resize((*itr)->output.size());
         tran_pos_array.push_back(std::make_pair((*itr)->get_hash(), pos));
+
         pos.tran_pos += get_serialize_size(*(*itr));
+
         wallet::instance().save_mine_transaction(*(*itr));
     }
     tran_pos_db_->write_tran_pos(tran_pos_array);
@@ -246,18 +261,36 @@ bool block_chain::accept_block(block *blk)
     return true;
 }
 
+int64_t block_chain::get_coin_base_amount(uint32_t height)
+{
+    static const uint64_t FIRST_AMOUNT = 100000000000;
+    static const uint64_t FROM_AMOUT = 1000000;
+    static const uint32_t DEC_BLOCK_COUNT = 200000;
+
+    if (height == 0)
+        return FIRST_AMOUNT;
+
+    uint64_t amount = FROM_AMOUT;
+    while (height >= DEC_BLOCK_COUNT)
+    {
+        height -= DEC_BLOCK_COUNT;
+        amount = (amount * 2 / 3);
+    }
+    return amount;
+}
+
 uint32_t block_chain::get_next_wook_proof(block_info *curent_block)
 {
+    const static int TARGET_BLOCK_NUM = 1000;
+    const static int TARGET_TIME_SPAN = TARGET_BLOCK_NUM * 10 * 60;
+    //const static int TARGET_TIME_SPAN = TARGET_BLOCK_NUM * 5 * 60;
+
     if (curent_block == NULL || curent_block->pre_info == NULL)
         return uint_to_arith256(start_work_proof_).get_compact();
     
     block_info *first_block = curent_block;
     for (int i = 0; first_block->pre_info != NULL && i < 1000; ++i)
         first_block = first_block->pre_info;
-
-    const int TARGET_BLOCK_NUM = 1000;
-    //const int TARGET_TIME_SPAN = TARGET_BLOCK_NUM * 10 * 60;
-    const int TARGET_TIME_SPAN = TARGET_BLOCK_NUM * 5 * 60;
 
     int block_count = curent_block->height - first_block->height;
     int total_time = (int)(curent_block->timestamp - first_block->timestamp);

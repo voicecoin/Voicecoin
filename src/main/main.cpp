@@ -19,6 +19,7 @@ int main()
     main_thread::instance().start();
 
     main_thread::instance().get_balance();
+    main_thread::instance().show_wallet();
     main_thread::instance().start_mining();
 
     while (true)
