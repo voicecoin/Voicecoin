@@ -1,5 +1,4 @@
-#ifndef BCUS_BUFF_STREAM_H
-#define BCUS_BUFF_STREAM_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -72,5 +71,3 @@ inline uint256 serialize_hash(T &t)
     bs << t;
     return hash_helper::hash(bs.begin(), bs.end());
 }
-
-#endif // BCUS_BUFF_STREAM_H

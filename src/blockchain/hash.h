@@ -1,5 +1,4 @@
-#ifndef BCUS_HASH_H
-#define BCUS_HASH_H
+#pragma once
 
 #include "uint256.h"
 #include <vector>
@@ -69,5 +68,3 @@ public:
         return hash3;
     }
 };
-
-#endif // BCUS_HASH_H

@@ -1,5 +1,4 @@
-#ifndef BCUS_UINT_256_H
-#define BCUS_UINT_256_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -177,5 +176,3 @@ protected:
 
 typedef base_blob<160> uint160;
 typedef base_blob<256> uint256;
-
-#endif // BCUS_UINT_256_H

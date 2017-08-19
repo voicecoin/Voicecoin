@@ -1,5 +1,4 @@
-#ifndef DB_WRAPPER_H
-#define DB_WRAPPER_H
+#pragma once
 
 #include <leveldb/db.h>
 #include <leveldb/write_batch.h>
@@ -203,5 +202,3 @@ private:
     leveldb::WriteOptions syncoptions;
     leveldb::DB* pdb; 
 };
-
-#endif // DB_WRAPPER_H

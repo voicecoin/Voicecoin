@@ -1,5 +1,4 @@
-#ifndef BCYS_ARITH_UINT256_H
-#define BCYS_ARITH_UINT256_H
+#pragma once
 
 #include <assert.h>
 #include <cstring>
@@ -262,5 +261,3 @@ public:
 
 uint256 arith_to_uint256(const arith_uint256 &);
 arith_uint256 uint_to_arith256(const uint256 &);
-
-#endif // BCYS_ARITH_UINT256_H

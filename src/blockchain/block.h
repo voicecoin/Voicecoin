@@ -1,5 +1,4 @@
-#ifndef BCUS_BLOCK_H
-#define BCUS_BLOCK_H
+#pragma once
 
 #include <stdint.h>
 #include <uint256.h>
@@ -66,5 +65,3 @@ public:
         READWRITE(trans);
     }
 };
-
-#endif // BCUS_BLOCK_H

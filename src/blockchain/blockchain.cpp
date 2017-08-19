@@ -45,10 +45,9 @@ std::string block_chain::get_app_path()
 
 void block_chain::init()
 {
-    block_info_db_ = new block_info_db;
     tran_pos_db_ = new tran_pos_db;
     coinbase_pub_hash_ = wallet::instance().get_defult_key();
-    block_info_db_->load_block_info();
+    tran_pos_db_->load_block_info();
 }
 
 block_info *block_chain::insert_block_info(const uint256 &block_hash, int height/* = -1*/)
@@ -222,7 +221,7 @@ bool block_chain::accept_block(block *blk)
         new_info->pre_info = insert_block_info(blk->header.hash_prev_block);
     new_info->timestamp = blk->header.timestamp;
     new_info->bits = blk->header.bits;
-    block_info_db_->write_block_info(*new_info);
+    tran_pos_db_->write_block_info(*new_info);
 
     std::cout << string_helper::time_to_string("%Y-%m-%d %H:%M:%S", time(0)) << std::endl;
     std::cout << "result: " << blk->get_hash().get_hex() << std::endl;

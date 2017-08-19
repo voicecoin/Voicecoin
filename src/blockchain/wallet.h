@@ -1,5 +1,4 @@
-#ifndef BCUS_WALLET_H
-#define BCUS_WALLET_H
+#pragma once
 
 #include "serialize.h"
 #include "uint256.h"
@@ -81,5 +80,3 @@ private:
     uint160 default_key_;
     wallet_db *wallet_db_;
 };
-
-#endif // BCUS_WALLET_H

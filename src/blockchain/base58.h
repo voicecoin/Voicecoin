@@ -1,5 +1,4 @@
-#ifndef BCUS_BASE_58_H
-#define BCUS_BASE_58_H
+#pragma once
 
 #include <vector>
 #include <string>
@@ -18,5 +17,3 @@ public:
     static bool decode_check(const char* psz, std::vector<unsigned char>& ret);
     static bool decode_check(const std::string& str, std::vector<unsigned char>& ret);
 };
-
-#endif // BCUS_BASE_58_H

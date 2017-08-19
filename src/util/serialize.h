@@ -1,5 +1,4 @@
-#ifndef BCUS_SERIALIZE_H
-#define BCUS_SERIALIZE_H
+#pragma once
 
 #include <algorithm>
 #include <assert.h>
@@ -667,5 +666,3 @@ inline void ser_read_write_many(Stream& s, ser_action_unserialize ser_action, Ar
 {
     ::unserialize_many(s, args...);
 }
-
-#endif // BCUS_SERIALIZE_H

@@ -1,5 +1,4 @@
-#ifndef BCUS_TRANSACTION_H
-#define BCUS_TRANSACTION_H
+#pragma once
 
 #include "uint256.h"
 #include "serialize.h"
@@ -109,5 +108,3 @@ public:
 };
 
 typedef std::shared_ptr<transaction> transaction_ptr;
-
-#endif // BCUS_TRANSACTION_H

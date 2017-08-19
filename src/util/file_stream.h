@@ -1,5 +1,4 @@
-#ifndef BCUS_FILE_STREAM_H
-#define BCUS_FILE_STREAM_H
+#pragma once
 
 #include <string>
 
@@ -66,5 +65,3 @@ public:
 private:
     FILE *file_;
 };
-
-#endif // BCUS_FILE_STREAM_H

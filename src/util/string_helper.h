@@ -1,5 +1,4 @@
-#ifndef STRING_HELPER_H
-#define STRING_HELPER_H
+#pragma once
 
 #include <string>
 
@@ -35,5 +34,3 @@ public:
 
     static std::string time_to_string(const char *format, int64_t t);
 };
-
-#endif // STRING_HELPER_H

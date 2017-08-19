@@ -1,5 +1,4 @@
-#ifndef BCUS_EDD_KEY_H
-#define BCUS_EDD_KEY_H
+#pragma once
 
 #include <vector>
 #include <openssl/ec.h>
@@ -35,5 +34,3 @@ public:
 private:
     EC_KEY* pkey;
 };
-
-#endif // BCUS_EDD_KEY_H

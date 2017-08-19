@@ -1,5 +1,4 @@
-#ifndef BCUS_ENDIAN_H
-#define BCUS_ENDIAN_H
+#pragma once
 
 #include <stdint.h>
 
@@ -21,5 +20,3 @@ IntType read_from_buff(const unsigned char* ptr)
     memcpy((char*)&x, ptr, sizeof(IntType));
     return endian_swap(x);
 }
-
-#endif // BCUS_ENDIAN_H

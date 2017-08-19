@@ -1,5 +1,4 @@
-#ifndef BCUS_BLOCK_CHAIN_H
-#define BCUS_BLOCK_CHAIN_H
+#pragma once
 
 #include <stdint.h>
 #include <map>
@@ -41,9 +40,6 @@ private:
     uint160 coinbase_pub_hash_;
     std::map<uint256, block_info *> block_info_;
     std::map<uint32_t, block_info *> block_by_hight_;
-    block_info_db *block_info_db_;
     tran_pos_db *tran_pos_db_;
     bool generating_block_;
 };
-
-#endif // BCUS_BLOCK_CHAIN_H

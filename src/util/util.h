@@ -1,5 +1,4 @@
-#ifndef BCUS_UTIL_H
-#define BCUS_UTIL_H
+#pragma once
 
 #define BEGIN(a)            ((char*)&(a))
 #define END(a)              ((char*)&((&(a))[1]))
@@ -13,5 +12,3 @@
 #ifndef min
 #  define min(a,b) (((a) < (b)) ? (a) : (b))
 #endif
-
-#endif // BCUS_UTIL_H

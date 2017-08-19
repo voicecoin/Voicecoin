@@ -25,12 +25,17 @@ public:
     }
 };
 
-block_info_db::block_info_db()
-    : dbwrapper((block_chain::instance().get_app_path() + "blockdb").c_str())
+//////////////////////////////////////////////////////////////////////////
+
+static const char TRAN_DB_BLOCK = 'b';
+static const char TRAN_DB_TRAN = 't';
+
+tran_pos_db::tran_pos_db()
+    : dbwrapper((block_chain::instance().get_app_path() + "transdb").c_str())
 {
 }
 
-bool block_info_db::write_block_info(const block_info &block_info)
+bool tran_pos_db::write_block_info(const block_info &block_info)
 {
     block_info_disk bidb;
     bidb.timestamp = block_info.timestamp;
@@ -38,34 +43,29 @@ bool block_info_db::write_block_info(const block_info &block_info)
     bidb.height = block_info.height;
     bidb.pre_block = (block_info.pre_info != 0 ? *block_info.pre_info->hash : 0);
 
-    return write(*block_info.hash, bidb);
+    return write(std::make_pair(TRAN_DB_BLOCK, *block_info.hash), bidb);
 }
 
-bool block_info_db::load_block_info()
+bool tran_pos_db::load_block_info()
 {
     std::unique_ptr<db_iterator> pcursor(new_iterator());
-    for (pcursor->seek_to_first(); pcursor->valid(); pcursor->next())
+    for (pcursor->seek(std::make_pair(TRAN_DB_BLOCK, uint256()));
+        pcursor->valid(); pcursor->next())
     {
-        uint256 hash;
+        std::pair<char, uint256> key;
         block_info_disk info;
-        if (pcursor->get_key(hash) && pcursor->get_value(info))
+        if (pcursor->get_key(key) && pcursor->get_value(info))
         {
-            block_info *new_block = block_chain::instance().insert_block_info(hash, info.height);
+            if (key.first != TRAN_DB_BLOCK) continue;
+            block_info *new_block = block_chain::instance().insert_block_info(key.second, info.height);
             if (new_block->height != 0)
-                new_block->pre_info = block_chain::instance().insert_block_info(hash);
+                new_block->pre_info = block_chain::instance().insert_block_info(key.second);
             new_block->timestamp = info.timestamp;
             new_block->bits = info.bits;
             new_block->height = info.height;
         }
     }
     return true;
-}
-
-//////////////////////////////////////////////////////////////////////////
-
-tran_pos_db::tran_pos_db()
-    : dbwrapper((block_chain::instance().get_app_path() + "transdb").c_str())
-{
 }
 
 bool tran_pos_db::write_tran_pos(
@@ -75,14 +75,14 @@ bool tran_pos_db::write_tran_pos(
     for (std::vector<std::pair<uint256, block_tran_pos>>::const_iterator
         itr = tran_pos_array.begin(); itr != tran_pos_array.end(); ++itr)
     {
-        batch.write(itr->first, itr->second);
+        batch.write(std::make_pair(TRAN_DB_TRAN, itr->first), itr->second);
     }
     return write_batch(batch, true);
 }
 
 bool tran_pos_db::read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos)
 {
-    return read(tranid, tran_pos);
+    return read(std::make_pair(TRAN_DB_TRAN, tranid), tran_pos);
 }
 
 //////////////////////////////////////////////////////////////////////////

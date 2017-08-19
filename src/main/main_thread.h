@@ -1,5 +1,4 @@
-#ifndef BCUS_MAIN_THREAD_H
-#define BCUS_MAIN_THREAD_H
+#pragma once
 
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
@@ -72,5 +71,3 @@ private:
 };
 
 #endif
-
-#endif // BCUS_MAIN_THREAD_H
