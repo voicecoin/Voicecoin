@@ -128,7 +128,7 @@ bool wallet_db::read_default_key(uint160 &pub_hash)
     return read(std::string("default_key"), pub_hash);
 }
 
-bool wallet_db::write_transaction(const transaction &tran)
+bool wallet_db::write_transaction(const wallet_tran &tran)
 {
     return write(std::make_pair(WALLET_DB_TRAN, tran.get_hash()), tran);
 }
@@ -141,7 +141,7 @@ bool wallet_db::load_transacton()
         pcursor->valid(); pcursor->next())
     {
         std::pair<char, uint256> key;
-        transaction tran;
+        wallet_tran tran;
         if (pcursor->get_key(key) && pcursor->get_value(tran) &&
             key.first == WALLET_DB_TRAN)
         {

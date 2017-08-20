@@ -38,6 +38,7 @@
     <ClInclude Include="blockchain\base58.h" />
     <ClInclude Include="blockchain\block.h" />
     <ClInclude Include="blockchain\blockchain.h" />
+    <ClInclude Include="blockchain\block_info.h" />
     <ClInclude Include="blockchain\dbproxy.h" />
     <ClInclude Include="blockchain\dbwrapper.h" />
     <ClInclude Include="blockchain\ecc_key.h" />

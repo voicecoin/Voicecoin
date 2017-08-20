@@ -107,5 +107,8 @@
     <ClInclude Include="main\main_thread.h">
       <Filter>main</Filter>
     </ClInclude>
+    <ClInclude Include="blockchain\block_info.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

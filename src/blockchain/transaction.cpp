@@ -184,4 +184,5 @@ void transaction::clear()
     input.clear();
     output.clear();
     fee = 0;
+    input_tran_pos.clear();
 }

@@ -6,6 +6,7 @@
 #include "time.h"
 #include "dbproxy.h"
 #include <iostream>
+#include <set>
 
 wallet_key::wallet_key()
     : create_time(0)
@@ -154,7 +155,7 @@ bool wallet::is_mine_transaction(const transaction &tran)
     {
         for (size_t i = 0; i < tran.input.size(); ++i)
         {
-            std::map<uint256, transaction>::iterator itr = trans.find(tran.input[i].pre_out.hash);
+            std::map<uint256, wallet_tran>::iterator itr = trans.find(tran.input[i].pre_out.hash);
             if (itr != trans.end() && itr->second.output.size() > tran.input[i].pre_out.index)
             {
                 if (is_mine(itr->second.output[tran.input[i].pre_out.index].pub_hash))
@@ -175,11 +176,26 @@ bool wallet::is_mine_transaction(const transaction &tran)
     return false;
 }
 
-void wallet::add_mine_transaction(const transaction &tran, bool save_db)
+void wallet::add_mine_transaction(const transaction &tran)
 {
-    trans.insert(std::make_pair(tran.get_hash(), tran));
+    trans.insert(std::make_pair(tran.get_hash(), wallet_tran(tran)));
+    wallet_db_->write_transaction(tran);
+    if (!tran.is_coin_base())
+    {
+        for (size_t i = 0; i < tran.input.size(); ++i)
+        {
+            trans_spends.insert(std::make_pair(tran.input[i].pre_out, tran.get_hash()));
+        }
+    }
+}
+
+void wallet::add_mine_transaction(const wallet_tran &tran, bool save_db)
+{
+    trans.insert(std::make_pair(tran.get_hash(), wallet_tran(tran)));
     if (save_db)
+    {
         wallet_db_->write_transaction(tran);
+    }
     if (!tran.is_coin_base())
     {
         for (size_t i = 0; i < tran.input.size(); ++i)
@@ -206,11 +222,16 @@ bool wallet::is_spent(const uint256 &hash, int index)
 int64_t wallet::get_balance()
 {
     int64_t balance = 0;
-    for (std::map<uint256, transaction>::iterator itr = trans.begin(); itr != trans.end(); ++itr)
+    for (std::map<uint256, wallet_tran>::iterator itr = trans.begin(); itr != trans.end(); ++itr)
     {
-        transaction &tran = itr->second;
+        wallet_tran &tran = itr->second;
         for (size_t i = 0; i < tran.output.size(); ++i)
         {
+            if (tran.spend_time != 0)
+            {
+                // TODO: check timeout
+                continue;
+            }
             if (is_mine(tran.output[i].pub_hash) && !is_spent(itr->first, i))
             {
                 balance += tran.output[i].amount;
@@ -219,6 +240,87 @@ int64_t wallet::get_balance()
     }
     std::cout << "balance: " << balance << std::endl;
     return balance;
+}
+
+bool wallet::send_money(const uint160 &pub_hash, int64_t value)
+{
+    transaction new_tran;
+    int64_t amount = 0;
+    std::set<wallet_tran *> spend_tran;
+    for (std::map<uint256, wallet_tran>::iterator itr = trans.begin(); itr != trans.end(); ++itr)
+    {
+        wallet_tran &tran = itr->second;
+        for (size_t i = 0; i < tran.output.size(); ++i)
+        {
+            if (is_mine(tran.output[i].pub_hash) && !is_spent(itr->first, i))
+            {
+                trans_input input;
+                input.pre_out.hash = itr->first;
+                input.pre_out.index = i;
+                new_tran.input.push_back(input);
+                amount += tran.output[i].amount;
+
+                spend_tran.insert(&tran);
+            }
+        }
+        if (amount >= value)
+        {
+            break;
+        }
+    }
+
+    if (amount < value)
+    {
+        return false;
+    }
+
+    trans_output output;
+    output.amount = value;
+    output.pub_hash = pub_hash;
+    new_tran.output.push_back(output);
+
+    if (amount - value > 0)
+    {
+        trans_output output2;
+        output2.amount = amount - value;
+        output2.pub_hash = default_key_;
+        new_tran.output.push_back(output2);
+    }
+
+    // TODO: send trans to network
+
+    for (std::set<wallet_tran *>::iterator itr = spend_tran.begin();
+        itr != spend_tran.end(); ++itr)
+    {
+        (*itr)->spend_time = time(0);
+        wallet_db_->write_transaction(*(*itr));
+    }
+
+    return true;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+wallet_tran::wallet_tran()
+{
+    clear();
+}
+
+wallet_tran::wallet_tran(const transaction &r)
+    : transaction(r)
+{
+    spend_time = 0;
+}
+
+bool wallet_tran::empty()
+{
+    return transaction::empty();
+}
+
+void wallet_tran::clear()
+{
+    spend_time = 0;
+    transaction::clear();
 }
 
 /*

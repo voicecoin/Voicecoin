@@ -1,5 +1,4 @@
-#ifndef BCUS_BLOCK_INFO_H
-#define BCUS_BLOCK_INFO_H
+#pragma once
 
 #include "uint256.h"
 #include "serialize.h"
@@ -7,7 +6,7 @@
 class block_info
 {
 public:
-    uint64_t timestamp;
+    int64_t timestamp;
     uint32_t bits;
     uint32_t height;
     block_info *pre_info;
@@ -58,5 +57,3 @@ public:
         return !(*this == r);
     }
 };
-
-#endif // BCUS_BLOCK_INFO_H

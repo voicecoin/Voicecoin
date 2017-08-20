@@ -33,6 +33,6 @@ public:
     bool write_default_key(const uint160 &pub_hash);
     bool read_default_key(uint160 &pub_hash);
 
-    bool write_transaction(const transaction &tran);
+    bool write_transaction(const wallet_tran &tran);
     bool load_transacton();
 };

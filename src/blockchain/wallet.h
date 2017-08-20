@@ -39,6 +39,7 @@ public:
 typedef std::shared_ptr<wallet_key> wallet_key_ptr;
 
 class wallet_db;
+class wallet_tran;
 
 class wallet
 {
@@ -68,15 +69,41 @@ public:
 
     int64_t get_balance();
 
+    bool send_money(const uint160 &pub_hash, int64_t value);
+
 private:
     wallet() {}
     bool is_mine_transaction(const transaction &tran);
-    void add_mine_transaction(const transaction &tran, bool save_db = true);
+    void add_mine_transaction(const transaction &tran);
+    void add_mine_transaction(const wallet_tran &tran, bool save_db = false);
 
 private:
     std::map<uint160, wallet_key_ptr> keys;
-    std::map<uint256, transaction> trans;
+    std::map<uint256, wallet_tran> trans;
     std::map<pre_output, uint256> trans_spends;
     uint160 default_key_;
     wallet_db *wallet_db_;
+};
+
+class wallet_tran : public transaction
+{
+public:
+    int64_t spend_time;
+
+public:
+    wallet_tran();
+    wallet_tran(const transaction &r);
+
+    bool empty();
+    void clear();
+
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void serialization(Stream& s, Operation ser_action)
+    {
+        READWRITE(*(transaction*)this);
+        READWRITE(spend_time);
+    }
+
 };

@@ -7,8 +7,8 @@
 class block_header
 {
 public:
-    uint32_t version;
-    uint64_t timestamp;
+    int32_t version;
+    int64_t timestamp;
     uint256 hash_prev_block;
     uint256 hash_merkle_root;
     uint32_t bits;
