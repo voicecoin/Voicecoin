@@ -10,6 +10,9 @@ public:
     uint256 hash;
     uint32_t index; // index in pre_trans output, from 0
 
+    pre_output() {}
+    pre_output(const uint256 &h, uint32_t i) : hash(h), index(i) {}
+
     friend bool operator<(const pre_output& a, const pre_output& b)
     {
         int cmp = a.hash.compare(b.hash);
@@ -82,13 +85,14 @@ public:
     // will init by check_sign_and_value()
     uint64_t fee;
     std::vector<block_tran_pos> input_tran_pos;
+    mutable uint256 hash;
 
 public:
     transaction();
 
     bool is_coin_base() const;
 
-    uint256 get_hash() const;
+    const uint256& get_hash() const;
 
     bool sign();
     bool check_sign_and_value();

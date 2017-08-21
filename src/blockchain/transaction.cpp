@@ -53,9 +53,11 @@ bool transaction::is_coin_base() const
     return (input.size() == 1 && input[0].pre_out.hash.empty());
 }
 
-uint256 transaction::get_hash() const
+const uint256& transaction::get_hash() const
 {
-    return serialize_hash(*this);
+    if (hash.empty())
+        hash = serialize_hash(*this);
+    return hash;
 }
 
 bool transaction::sign()

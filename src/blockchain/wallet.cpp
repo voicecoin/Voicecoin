@@ -7,6 +7,7 @@
 #include "dbproxy.h"
 #include <iostream>
 #include <set>
+#include "blockchain.h"
 
 wallet_key::wallet_key()
     : create_time(0)
@@ -287,7 +288,15 @@ bool wallet::send_money(const uint160 &pub_hash, int64_t value)
         new_tran.output.push_back(output2);
     }
 
-    // TODO: send trans to network
+    if (!new_tran.sign())
+    {
+        return false;
+    }
+
+    if (!block_chain::instance().add_new_transaction(new_tran, true))
+    {
+        return false;
+    }
 
     for (std::set<wallet_tran *>::iterator itr = spend_tran.begin();
         itr != spend_tran.end(); ++itr)

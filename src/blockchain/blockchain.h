@@ -28,6 +28,8 @@ public:
 
     bool read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos);
 
+    bool add_new_transaction(transaction &tran, bool from_me = false);
+
 private:
     block_chain();
     int64_t get_coin_base_amount(uint32_t height);
@@ -36,7 +38,9 @@ private:
 
 private: 
     uint256 start_work_proof_;
+    int max_trans_in_block_;
     std::map<uint256, transaction_ptr> trans_; // new trans
+    std::map<pre_output, uint256> trans_spends;
     uint160 coinbase_pub_hash_;
     std::map<uint256, block_info *> block_info_;
     std::map<uint32_t, block_info *> block_by_hight_;

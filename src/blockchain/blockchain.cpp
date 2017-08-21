@@ -21,6 +21,7 @@ block_chain &block_chain::instance()
 block_chain::block_chain()
 {
     start_work_proof_.set_hex("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+    max_trans_in_block_ = 2000;
 }
 
 std::string block_chain::get_app_path()
@@ -93,11 +94,14 @@ block *block_chain::prepare_block()
     blk->trans[0]->output[0].pub_hash = coinbase_pub_hash_;
     blk->trans[0]->output[0].amount = get_coin_base_amount(blk->header.height);
 
+    int count = 0;
     for (std::map<uint256, transaction_ptr>::iterator itr = trans_.begin();
         itr != trans_.end(); ++itr)
     {
         blk->trans[0]->output[0].amount += itr->second->fee;
         blk->trans.push_back(itr->second);
+        if (++count > max_trans_in_block_)
+            break;
     }
 
     return blk;
@@ -187,6 +191,7 @@ bool block_chain::accept_block(block *blk)
         return false;
     }
 
+    std::map<pre_output, uint256> spends;
     int64_t coin_base_amount = get_coin_base_amount(blk->header.height);
     for (size_t i = 0; i < blk->trans.size(); ++i)
     {
@@ -201,6 +206,15 @@ bool block_chain::accept_block(block *blk)
         else if (blk->trans[i]->is_coin_base())
         {
             return false;
+        }
+
+        for (std::vector<trans_input>::iterator itr = blk->trans[i]->input.begin();
+            itr != blk->trans[i]->input.end(); ++itr)
+        {
+            if (!trans_spends.insert(std::make_pair(itr->pre_out, blk->trans[i]->get_hash())).second)
+            {
+                return false;
+            }
         }
 
         if (!blk->trans[i]->check_sign_and_value())
@@ -248,14 +262,29 @@ bool block_chain::accept_block(block *blk)
         }
 
         // insert this transaction pos info
+
         pos.spents.resize((*itr)->output.size());
         tran_pos_array.push_back(std::make_pair((*itr)->get_hash(), pos));
 
         pos.tran_pos += get_serialize_size(*(*itr));
 
         wallet::instance().save_mine_transaction(*(*itr));
+
+        trans_.erase((*itr)->get_hash());
     }
     tran_pos_db_->write_tran_pos(tran_pos_array);
+
+    trans_spends.clear();
+    for (std::map<uint256, transaction_ptr>::iterator itr = trans_.begin();
+        itr != trans_.end(); ++itr)
+    {
+        transaction &tran = *itr->second;
+        for (std::vector<trans_input>::iterator itr = tran.input.begin();
+            itr != tran.input.end(); ++itr)
+        {
+            trans_spends.insert(std::make_pair(itr->pre_out, tran.get_hash()));
+        }
+    }
 
     return true;
 }
@@ -315,4 +344,42 @@ uint32_t block_chain::get_next_wook_proof(block_info *curent_block)
 bool block_chain::read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos)
 {
     return tran_pos_db_->read_tran_pos(tranid, tran_pos);
+}
+
+bool block_chain::add_new_transaction(transaction &tran, bool from_me)
+{
+    if (!tran.check_sign_and_value())
+    {
+        return false;
+    }
+
+    if (trans_.find(tran.get_hash()) != trans_.end())
+    {
+        return false;
+    }
+    for (std::vector<trans_input>::iterator itr = tran.input.begin();
+        itr != tran.input.end(); ++itr)
+    {
+        std::map<pre_output, uint256>::iterator ispend = trans_spends.find(itr->pre_out);
+        if (ispend != trans_spends.end())
+        {
+            return false;
+        }
+    }
+
+    if (from_me)
+    {
+        // TODO: send to network
+    }
+
+    transaction_ptr ptr(new transaction(tran));
+    trans_.insert(std::make_pair(tran.get_hash(), ptr));
+    
+    for (std::vector<trans_input>::iterator itr = tran.input.begin();
+        itr != tran.input.end(); ++itr)
+    {
+        trans_spends.insert(std::make_pair(itr->pre_out, tran.get_hash()));
+    }
+
+    return true;
 }
