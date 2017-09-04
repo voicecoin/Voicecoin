@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="biz">
+      <UniqueIdentifier>{15887a78-f619-4caa-affa-26b6e9e4b687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blockchain">
+      <UniqueIdentifier>{6bc8753c-a08d-4a59-b484-d6ded92750ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{11f869c9-ee95-45b5-a92f-8fafbdeeaf79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{9240c3bb-71af-4061-b7b0-be48d79687d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{9a97e379-b063-47b3-aec3-7e240324397f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyxml2">
+      <UniqueIdentifier>{76b47d3f-329b-4b28-a1ba-6cdf9fd752ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\biz\addr_manager.cc">
+      <Filter>biz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\biz\cc_client_thread.cc">
+      <Filter>biz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\biz\cc_server_thread.cc">
+      <Filter>biz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\biz\dns_seed.cc">
+      <Filter>biz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\biz\main_thread.cpp">
+      <Filter>biz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\biz\net_main.cc">
+      <Filter>biz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\biz\upnp_loader_thread.cc">
+      <Filter>biz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\arith_uint256.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\base58.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\block.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\blockchain.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\dbproxy.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\dbwrapper.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\ecc_key.cc">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transaction.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\wallet.cpp">
+      <Filter>blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\dir_reader.cc">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\endian.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\string_helper.cc">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\xml_config_parser.cc">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\bitcoin\bitcoin_block.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\bitcoin\bitcoin_client.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\bitcoin\bitcoin_message.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\bitcoin\bitcoin_parser.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\bitcoin\bitcoin_session.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\cc\cc_client.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\cc\cc_parser.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\cc\cc_server.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\cc\cc_session.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\cc\cc_session_container.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\endpoint.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\http\http_client.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\http\http_parser.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\http\http_server.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\http\http_session.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\http\http_session_container.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\io_timer.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\session.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\socket_ops.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\stream_acceptor.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\net\stream_connector.cc">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tinyxml2\tinyxml2.cpp">
+      <Filter>tinyxml2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\error_code.cc" />
+    <ClCompile Include="src\file.cc" />
+    <ClCompile Include="src\loghelper.cc" />
+    <ClCompile Include="src\main\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\biz\addr_manager.h">
+      <Filter>biz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\biz\cc_client_thread.h">
+      <Filter>biz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\biz\cc_server_thread.h">
+      <Filter>biz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\biz\dns_seed.h">
+      <Filter>biz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\biz\main_thread.h">
+      <Filter>biz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\biz\net_main.h">
+      <Filter>biz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\biz\upnp_loader_thread.h">
+      <Filter>biz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\arith_uint256.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\base58.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\bignum.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\blockchain.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block_info.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\dbproxy.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\dbwrapper.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\ecc_key.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\hash.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transaction.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\uint256.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\wallet.h">
+      <Filter>blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\buff_stream.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\dir_reader.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\endian.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\file_stream.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\serialize.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\serialize_type.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\string_helper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\util.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\xml_config_parser.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\bitcoin\bitcoin_block.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\bitcoin\bitcoin_client.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\bitcoin\bitcoin_message.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\bitcoin\bitcoin_parser.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\bitcoin\bitcoin_session.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\bitcoin\bitcoin_type.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\cc\cc_client.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\cc\cc_command.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\cc\cc_parser.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\cc\cc_server.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\cc\cc_session.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\cc\cc_session_container.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\channel.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\channel_factory.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\endpoint.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\http\http_client.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\http\http_parser.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\http\http_server.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\http\http_session.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\http\http_session_container.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\io_timer.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\parser.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\session.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\socket_ops.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\stream_acceptor.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\stream_connector.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\net\tcp_channel.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tinyxml2\tinyxml2.h">
+      <Filter>tinyxml2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\buffer.h" />
+    <ClInclude Include="src\error_code.h" />
+    <ClInclude Include="src\file.h" />
+    <ClInclude Include="src\handle_alloc.h" />
+    <ClInclude Include="src\loghelper.h" />
+    <ClInclude Include="src\noncopyable.h" />
+    <ClInclude Include="src\platform.h" />
+    <ClInclude Include="src\ring_buffer.h" />
+    <ClInclude Include="src\singleton.h" />
+    <ClInclude Include="src\slice.h" />
+  </ItemGroup>
+</Project>

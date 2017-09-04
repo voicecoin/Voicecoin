@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DA70BC73-4D07-48CA-9176-AD30134DE8F6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>chain_domain</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>D:\workspace\_devlib\libvs2015;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;src/biz;src/blockchain;src/common;src/tinyxml2;src/net;src/net/http;src/net/bitcoin;src/net/cc;src/crypt;src/leveldb/include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>src/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>miniupnpc.lib;libeay32.lib;leveldbd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\biz\addr_manager.cc" />
+    <ClCompile Include="src\biz\cc_client_thread.cc" />
+    <ClCompile Include="src\biz\cc_server_thread.cc" />
+    <ClCompile Include="src\biz\dns_seed.cc" />
+    <ClCompile Include="src\biz\main_thread.cpp" />
+    <ClCompile Include="src\biz\net_main.cc" />
+    <ClCompile Include="src\biz\upnp_loader_thread.cc" />
+    <ClCompile Include="src\blockchain\arith_uint256.cpp" />
+    <ClCompile Include="src\blockchain\base58.cpp" />
+    <ClCompile Include="src\blockchain\block.cpp" />
+    <ClCompile Include="src\blockchain\blockchain.cpp" />
+    <ClCompile Include="src\blockchain\dbproxy.cpp" />
+    <ClCompile Include="src\blockchain\dbwrapper.cpp" />
+    <ClCompile Include="src\blockchain\ecc_key.cc" />
+    <ClCompile Include="src\blockchain\transaction.cpp" />
+    <ClCompile Include="src\blockchain\wallet.cpp" />
+    <ClCompile Include="src\common\dir_reader.cc" />
+    <ClCompile Include="src\common\endian.cpp" />
+    <ClCompile Include="src\common\string_helper.cc" />
+    <ClCompile Include="src\common\xml_config_parser.cc" />
+    <ClCompile Include="src\error_code.cc" />
+    <ClCompile Include="src\file.cc" />
+    <ClCompile Include="src\loghelper.cc" />
+    <ClCompile Include="src\main\main.cpp" />
+    <ClCompile Include="src\net\bitcoin\bitcoin_block.cc" />
+    <ClCompile Include="src\net\bitcoin\bitcoin_client.cc" />
+    <ClCompile Include="src\net\bitcoin\bitcoin_message.cc" />
+    <ClCompile Include="src\net\bitcoin\bitcoin_parser.cc" />
+    <ClCompile Include="src\net\bitcoin\bitcoin_session.cc" />
+    <ClCompile Include="src\net\cc\cc_client.cc" />
+    <ClCompile Include="src\net\cc\cc_parser.cc" />
+    <ClCompile Include="src\net\cc\cc_server.cc" />
+    <ClCompile Include="src\net\cc\cc_session.cc" />
+    <ClCompile Include="src\net\cc\cc_session_container.cc" />
+    <ClCompile Include="src\net\endpoint.cc" />
+    <ClCompile Include="src\net\http\http_client.cc" />
+    <ClCompile Include="src\net\http\http_parser.cc" />
+    <ClCompile Include="src\net\http\http_server.cc" />
+    <ClCompile Include="src\net\http\http_session.cc" />
+    <ClCompile Include="src\net\http\http_session_container.cc" />
+    <ClCompile Include="src\net\io_timer.cc" />
+    <ClCompile Include="src\net\session.cc" />
+    <ClCompile Include="src\net\socket_ops.cc" />
+    <ClCompile Include="src\net\stream_acceptor.cc" />
+    <ClCompile Include="src\net\stream_connector.cc" />
+    <ClCompile Include="src\tinyxml2\tinyxml2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\biz\addr_manager.h" />
+    <ClInclude Include="src\biz\cc_client_thread.h" />
+    <ClInclude Include="src\biz\cc_server_thread.h" />
+    <ClInclude Include="src\biz\dns_seed.h" />
+    <ClInclude Include="src\biz\main_thread.h" />
+    <ClInclude Include="src\biz\net_main.h" />
+    <ClInclude Include="src\biz\upnp_loader_thread.h" />
+    <ClInclude Include="src\blockchain\arith_uint256.h" />
+    <ClInclude Include="src\blockchain\base58.h" />
+    <ClInclude Include="src\blockchain\bignum.h" />
+    <ClInclude Include="src\blockchain\block.h" />
+    <ClInclude Include="src\blockchain\blockchain.h" />
+    <ClInclude Include="src\blockchain\block_info.h" />
+    <ClInclude Include="src\blockchain\dbproxy.h" />
+    <ClInclude Include="src\blockchain\dbwrapper.h" />
+    <ClInclude Include="src\blockchain\ecc_key.h" />
+    <ClInclude Include="src\blockchain\hash.h" />
+    <ClInclude Include="src\blockchain\transaction.h" />
+    <ClInclude Include="src\blockchain\uint256.h" />
+    <ClInclude Include="src\blockchain\wallet.h" />
+    <ClInclude Include="src\buffer.h" />
+    <ClInclude Include="src\common\buff_stream.h" />
+    <ClInclude Include="src\common\dir_reader.h" />
+    <ClInclude Include="src\common\endian.h" />
+    <ClInclude Include="src\common\file_stream.h" />
+    <ClInclude Include="src\common\serialize.h" />
+    <ClInclude Include="src\common\serialize_type.h" />
+    <ClInclude Include="src\common\string_helper.h" />
+    <ClInclude Include="src\common\util.h" />
+    <ClInclude Include="src\common\xml_config_parser.h" />
+    <ClInclude Include="src\error_code.h" />
+    <ClInclude Include="src\file.h" />
+    <ClInclude Include="src\handle_alloc.h" />
+    <ClInclude Include="src\loghelper.h" />
+    <ClInclude Include="src\net\bitcoin\bitcoin_block.h" />
+    <ClInclude Include="src\net\bitcoin\bitcoin_client.h" />
+    <ClInclude Include="src\net\bitcoin\bitcoin_message.h" />
+    <ClInclude Include="src\net\bitcoin\bitcoin_parser.h" />
+    <ClInclude Include="src\net\bitcoin\bitcoin_session.h" />
+    <ClInclude Include="src\net\bitcoin\bitcoin_type.h" />
+    <ClInclude Include="src\net\cc\cc_client.h" />
+    <ClInclude Include="src\net\cc\cc_command.h" />
+    <ClInclude Include="src\net\cc\cc_parser.h" />
+    <ClInclude Include="src\net\cc\cc_server.h" />
+    <ClInclude Include="src\net\cc\cc_session.h" />
+    <ClInclude Include="src\net\cc\cc_session_container.h" />
+    <ClInclude Include="src\net\channel.h" />
+    <ClInclude Include="src\net\channel_factory.h" />
+    <ClInclude Include="src\net\endpoint.h" />
+    <ClInclude Include="src\net\http\http_client.h" />
+    <ClInclude Include="src\net\http\http_parser.h" />
+    <ClInclude Include="src\net\http\http_server.h" />
+    <ClInclude Include="src\net\http\http_session.h" />
+    <ClInclude Include="src\net\http\http_session_container.h" />
+    <ClInclude Include="src\net\io_timer.h" />
+    <ClInclude Include="src\net\parser.h" />
+    <ClInclude Include="src\net\session.h" />
+    <ClInclude Include="src\net\socket_ops.h" />
+    <ClInclude Include="src\net\stream_acceptor.h" />
+    <ClInclude Include="src\net\stream_connector.h" />
+    <ClInclude Include="src\net\tcp_channel.h" />
+    <ClInclude Include="src\noncopyable.h" />
+    <ClInclude Include="src\platform.h" />
+    <ClInclude Include="src\ring_buffer.h" />
+    <ClInclude Include="src\singleton.h" />
+    <ClInclude Include="src\slice.h" />
+    <ClInclude Include="src\tinyxml2\tinyxml2.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
