@@ -1,0 +1,6 @@
+.vs
+Debug/
+x64/
+chain_domain.VC*
+chain_domain.vc*
+src/miniupnpc/

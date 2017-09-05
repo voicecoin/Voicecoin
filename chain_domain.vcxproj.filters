@@ -19,6 +19,9 @@
     <Filter Include="tinyxml2">
       <UniqueIdentifier>{76b47d3f-329b-4b28-a1ba-6cdf9fd752ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="crypt">
+      <UniqueIdentifier>{608c7e58-3568-4cb4-96ef-57a2d7cf0df6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\biz\addr_manager.cc">
@@ -37,9 +40,6 @@
       <Filter>biz</Filter>
     </ClCompile>
     <ClCompile Include="src\biz\net_main.cc">
-      <Filter>biz</Filter>
-    </ClCompile>
-    <ClCompile Include="src\biz\upnp_loader_thread.cc">
       <Filter>biz</Filter>
     </ClCompile>
     <ClCompile Include="src\blockchain\arith_uint256.cpp">
@@ -152,6 +152,27 @@
     <ClCompile Include="src\loghelper.cc" />
     <ClCompile Include="src\main\main.cpp">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\biz\upnp_loader_thread.cc">
+      <Filter>biz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypt\base64.cc">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypt\cipher.cpp">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypt\ripemd160.cpp">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypt\sha1.cpp">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypt\sha256.cpp">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypt\sha512.cpp">
+      <Filter>crypt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -336,5 +357,26 @@
     <ClInclude Include="src\ring_buffer.h" />
     <ClInclude Include="src\singleton.h" />
     <ClInclude Include="src\slice.h" />
+    <ClInclude Include="src\crypt\base64.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypt\cipher.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypt\crypt_common.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypt\ripemd160.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypt\sha1.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypt\sha256.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypt\sha512.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
