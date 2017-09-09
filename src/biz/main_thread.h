@@ -18,6 +18,8 @@ public:
     void accept_new_block(block *blk);
     void get_balance();
     void show_wallet();
+    void generate_key();
+    void send_money(const std::string &addr, uint64_t amount);
 
 private:
     main_thread() {}
@@ -27,6 +29,8 @@ private:
     void do_accept_new_block(block *blk);
     void do_get_balance();
     void do_show_wallet();
+    void do_generate_key();
+    void do_send_money(const std::string &addr, uint64_t amount);
 
 private:
     boost::asio::io_service io_service_;

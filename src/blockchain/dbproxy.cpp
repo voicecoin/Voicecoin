@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "dbproxy.h"
 #include "blockchain.h"
 #include "wallet.h"

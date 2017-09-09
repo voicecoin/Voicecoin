@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "wallet.h"
 #include "ecc_key.h"
 #include "base58.h"
@@ -8,6 +9,7 @@
 #include <iostream>
 #include <set>
 #include "blockchain.h"
+#include "loghelper.h"
 
 namespace bcus {
 
@@ -61,7 +63,8 @@ uint160 wallet_key::get_uint160(const std::string &addr)
 {
     std::string str = addr.substr(1);
     std::vector<unsigned char> vch;
-    base58::decode_check(str, vch);
+    if (!base58::decode_check(str, vch))
+        return uint160();
     return uint160(vch);
 }
 
@@ -279,6 +282,7 @@ bool wallet::send_money(const uint160 &pub_hash, int64_t value)
 
     if (amount < value)
     {
+        XLOG(XLOG_WARNING, "wallet::%s, balance no enough[%lld]\n", __FUNCTION__, amount);
         return false;
     }
 
@@ -297,11 +301,13 @@ bool wallet::send_money(const uint160 &pub_hash, int64_t value)
 
     if (!new_tran.sign())
     {
+        XLOG(XLOG_WARNING, "wallet::%s, sign failed\n", __FUNCTION__);
         return false;
     }
 
     if (!block_chain::instance().add_new_transaction(new_tran, true))
     {
+        XLOG(XLOG_WARNING, "wallet::%s add transaction failed\n", __FUNCTION__);
         return false;
     }
 

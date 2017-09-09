@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "ecc_key.h"
 #include <openssl/obj_mac.h>
 #include <openssl/ecdsa.h>

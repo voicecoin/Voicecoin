@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "transaction.h"
 #include "buff_stream.h"
 #include "wallet.h"
@@ -80,7 +81,7 @@ bool transaction::sign()
         }
 
         transaction pre_tran;
-        file_stream fs(block::get_block_file_name(tran_pos.block_id));
+        file_stream fs(block::get_block_file_name(tran_pos.block_id), "rb+");
         fs.seek(tran_pos.tran_pos);
         fs >> pre_tran;
 

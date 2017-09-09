@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "block.h"
 #include "buff_stream.h"
 #include "util.h"

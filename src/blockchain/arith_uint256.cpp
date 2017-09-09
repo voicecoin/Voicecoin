@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "arith_uint256.h"
 #include "string_helper.h"
 #include "endian.h"

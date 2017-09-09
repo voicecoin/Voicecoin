@@ -77,6 +77,34 @@ void main_thread::do_show_wallet()
     std::cout << "default key: " << wallet_key::get_address(wallet::instance().get_defult_key()) << std::endl;
 }
 
+void main_thread::generate_key()
+{
+    io_service_.post(boost::bind(&main_thread::do_generate_key, this));
+}
+
+void main_thread::do_generate_key()
+{
+    wallet::instance().generate_key();
+    do_show_wallet();
+}
+
+void main_thread::send_money(const std::string &addr, uint64_t amount)
+{
+    io_service_.post(boost::bind(&main_thread::do_send_money, this, addr, amount));
+}
+
+void main_thread::do_send_money(const std::string &addr, uint64_t amount)
+{
+    uint160 pubhash = wallet_key::get_uint160(addr);
+    static uint160 pubhash_null;
+    if (pubhash == pubhash_null)
+    {
+        std::cout << "invalide addr" << std::endl;
+        return;
+    }
+    wallet::instance().send_money(pubhash, amount);
+}
+
 }
 #if 0
 msg_queue::msg_queue(int size)

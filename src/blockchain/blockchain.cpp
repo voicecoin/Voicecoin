@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "blockchain.h"
 #include "arith_uint256.h"
 #include "hash.h"
@@ -8,6 +9,7 @@
 #include <boost/filesystem.hpp>
 #include "main_thread.h"
 #include "wallet.h"
+#include "loghelper.h"
 #ifdef _MSC_VER
 #include <windows.h>
 #endif
@@ -114,8 +116,12 @@ bool block_chain::generate_block(block *blk)
     generating_block_ = true;
     arith_uint256 target;
     target.set_compact(blk->header.bits);
-    std::cout << bcus::string_helper::time_to_string("%Y-%m-%d %H:%M:%S", time(0)) << std::endl;
-    std::cout << "target: " << target.get_hex() << std::endl;
+    XLOG(XLOG_INFO, "block_chain::%s, [%s]\n",
+        __FUNCTION__, bcus::string_helper::time_to_string("%Y-%m-%d %H:%M:%S", time(0)).c_str());
+    XLOG(XLOG_INFO, "block_chain::%s, target[%s]\n",
+        __FUNCTION__, target.get_hex().c_str());
+    //std::cout << bcus::string_helper::time_to_string("%Y-%m-%d %H:%M:%S", time(0)) << std::endl;
+    //std::cout << "target: " << target.get_hex() << std::endl;
     uint256 nonce_ex;
 
     while (generating_block_)
@@ -127,7 +133,6 @@ bool block_chain::generate_block(block *blk)
             arith_uint256 blk_hash = uint_to_arith256(blk->get_hash());
             if (blk_hash <= target)
             {
-                //return accept_block(blk);
                 main_thread::instance().accept_new_block(blk);
                 return true;
             }
@@ -167,20 +172,24 @@ bool block_chain::accept_block(block *blk)
     block_info *curent_block = get_curent_block();
     if (blk->header.bits != get_next_wook_proof(curent_block))
     {
+        XLOG(XLOG_WARNING, "block_chain::%s wook_proof check failed\n", __FUNCTION__);
         return false;
     }
     if (blk->header.hash_merkle_root != blk->build_merkle_tree())
     {
+        XLOG(XLOG_WARNING, "block_chain::%s merkle_tree check failed\n", __FUNCTION__);
         return false;
     }
     if (blk->header.height != 0)
     {
         if (blk->header.hash_prev_block != *curent_block->hash)
         {
+            XLOG(XLOG_WARNING, "block_chain::%s prev_block check failed\n", __FUNCTION__);
             return false;
         }
         if (blk->header.timestamp < curent_block->timestamp)
         {
+            XLOG(XLOG_WARNING, "block_chain::%s timestamp check failed\n", __FUNCTION__);
             return false;
         }
     }
@@ -190,6 +199,7 @@ bool block_chain::accept_block(block *blk)
     arith_uint256 blk_hash = uint_to_arith256(blk->get_hash());
     if (blk_hash > target)
     {
+        XLOG(XLOG_WARNING, "block_chain::%s blk_hash check failed\n", __FUNCTION__);
         return false;
     }
 
@@ -201,12 +211,14 @@ bool block_chain::accept_block(block *blk)
         {
             if (!blk->trans[i]->is_coin_base() || blk->trans[i]->output.size() != 1)
             {
+                XLOG(XLOG_WARNING, "block_chain::%s first tran check failed\n", __FUNCTION__);
                 return false;
             }
             continue;
         }
         else if (blk->trans[i]->is_coin_base())
         {
+            XLOG(XLOG_WARNING, "block_chain::%s tran check failed\n", __FUNCTION__);
             return false;
         }
 
@@ -215,12 +227,14 @@ bool block_chain::accept_block(block *blk)
         {
             if (!trans_spends.insert(std::make_pair(itr->pre_out, blk->trans[i]->get_hash())).second)
             {
+                XLOG(XLOG_WARNING, "block_chain::%s double tran check failed\n", __FUNCTION__);
                 return false;
             }
         }
 
         if (!blk->trans[i]->check_sign_and_value())
         {
+            XLOG(XLOG_WARNING, "block_chain::%s check_sign_and_value failed\n", __FUNCTION__);
             return false;
         }
         coin_base_amount += blk->trans[i]->fee;
@@ -228,6 +242,7 @@ bool block_chain::accept_block(block *blk)
 
     if (blk->trans[0]->output[0].amount != coin_base_amount)
     {
+        XLOG(XLOG_WARNING, "block_chain::%s amount check failed\n", __FUNCTION__);
         return false;
     }
 
@@ -239,8 +254,10 @@ bool block_chain::accept_block(block *blk)
     new_info->bits = blk->header.bits;
     tran_pos_db_->write_block_info(*new_info);
 
-    std::cout << bcus::string_helper::time_to_string("%Y-%m-%d %H:%M:%S", time(0)) << std::endl;
-    std::cout << "result: " << blk->get_hash().get_hex() << std::endl;
+    XLOG(XLOG_INFO, "block_chain::%s, [%s]\n",
+        __FUNCTION__, bcus::string_helper::time_to_string("%Y-%m-%d %H:%M:%S", time(0)).c_str());
+    XLOG(XLOG_INFO, "block_chain::%s, result[%s]\n",
+        __FUNCTION__, blk->get_hash().get_hex().c_str());
 
     // write block
     file_stream fs(block::get_block_file_name(blk->header.height));
@@ -256,15 +273,22 @@ bool block_chain::accept_block(block *blk)
     for (std::vector<transaction_ptr>::iterator itr = blk->trans.begin();
         itr != blk->trans.end(); ++itr)
     {
-        // update input pos info
-        for (size_t i = 0; i < (*itr)->input.size(); ++i)
+        if (itr != blk->trans.begin())
         {
-            (*itr)->input_tran_pos[i].spents[(*itr)->input[i].pre_out.index] = pos;
-            tran_pos_array.push_back(std::make_pair((*itr)->input[i].pre_out.hash, (*itr)->input_tran_pos[i]));
+            if ((*itr)->input.size() != (*itr)->input_tran_pos.size())
+            {
+                XLOG(XLOG_WARNING, "block_chain::%s input size check failed\n", __FUNCTION__);
+                return false;
+            }
+            // update input pos info
+            for (size_t i = 0; i < (*itr)->input.size(); ++i)
+            {
+                (*itr)->input_tran_pos[i].spents[(*itr)->input[i].pre_out.index] = pos;
+                tran_pos_array.push_back(std::make_pair((*itr)->input[i].pre_out.hash, (*itr)->input_tran_pos[i]));
+            }
         }
 
         // insert this transaction pos info
-
         pos.spents.resize((*itr)->output.size());
         tran_pos_array.push_back(std::make_pair((*itr)->get_hash(), pos));
 
@@ -352,11 +376,13 @@ bool block_chain::add_new_transaction(transaction &tran, bool from_me)
 {
     if (!tran.check_sign_and_value())
     {
+        XLOG(XLOG_WARNING, "wallet::%s check_sign_and_value failed\n", __FUNCTION__);
         return false;
     }
 
     if (trans_.find(tran.get_hash()) != trans_.end())
     {
+        XLOG(XLOG_WARNING, "wallet::%s double spent\n", __FUNCTION__);
         return false;
     }
     for (std::vector<trans_input>::iterator itr = tran.input.begin();
@@ -365,6 +391,7 @@ bool block_chain::add_new_transaction(transaction &tran, bool from_me)
         std::map<pre_output, uint256>::iterator ispend = trans_spends.find(itr->pre_out);
         if (ispend != trans_spends.end())
         {
+            XLOG(XLOG_WARNING, "wallet::%s double spent\n", __FUNCTION__);
             return false;
         }
     }
