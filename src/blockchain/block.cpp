@@ -4,6 +4,8 @@
 #include <boost/filesystem.hpp>
 #include "blockchain.h"
 
+namespace bcus {
+
 block_header::block_header()
 {
     clear();
@@ -75,4 +77,6 @@ std::string block::get_block_file_name(int height)
     char filename[64] = { 0 };
     sprintf(filename, "/blk%08d.dat", height);
     return path + filename;
+}
+
 }

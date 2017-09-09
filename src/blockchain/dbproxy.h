@@ -8,6 +8,8 @@
 #include "wallet.h"
 #include "transaction.h"
 
+namespace bcus {
+
 class tran_pos_db : public dbwrapper
 {
 public:
@@ -36,3 +38,5 @@ public:
     bool write_transaction(const wallet_tran &tran);
     bool load_transacton();
 };
+
+}

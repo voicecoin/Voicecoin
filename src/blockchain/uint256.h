@@ -4,6 +4,8 @@
 #include <vector>
 #include "string_helper.h"
 
+namespace bcus {
+
 template<unsigned int BITS>
 class base_blob
 {
@@ -176,3 +178,6 @@ protected:
 
 typedef base_blob<160> uint160;
 typedef base_blob<256> uint256;
+
+
+}

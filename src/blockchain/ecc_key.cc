@@ -2,6 +2,8 @@
 #include <openssl/obj_mac.h>
 #include <openssl/ecdsa.h>
 
+namespace bcus {
+
 ecc_key::ecc_key()
 {
     pkey = EC_KEY_new_by_curve_name(NID_secp256k1);
@@ -109,4 +111,6 @@ bool ecc_key::verify(const std::vector<unsigned char> &pub_key, const uint256 &h
     if (!key.set_pub_key(pub_key))
         return false;
     return key.verify(hash, sig);
+}
+
 }

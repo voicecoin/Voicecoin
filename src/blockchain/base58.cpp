@@ -1,6 +1,8 @@
 #include "base58.h"
 #include "hash.h"
 
+namespace bcus {
+
 static const char* pszBase58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 
 std::string base58::encode(const unsigned char* pbegin, const unsigned char* pend)
@@ -121,4 +123,6 @@ bool base58::decode_check(const char* psz, std::vector<unsigned char>& vch)
 bool base58::decode_check(const std::string& str, std::vector<unsigned char>& vch)
 {
     return decode_check(str.c_str(), vch);
+}
+
 }

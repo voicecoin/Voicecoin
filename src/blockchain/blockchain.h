@@ -8,6 +8,8 @@
 #include "block_info.h"
 #include "dbproxy.h"
 
+namespace bcus {
+
 class block_chain
 {
 public:
@@ -47,3 +49,5 @@ private:
     tran_pos_db *tran_pos_db_;
     bool generating_block_;
 };
+
+}

@@ -4,6 +4,7 @@
 #include <boost/thread.hpp>
 #include "blockchain.h"
 
+namespace bcus {
 
 class main_thread
 {
@@ -34,7 +35,7 @@ private:
     boost::thread thread_mining_;
 };
 
-
+}
 #if 0
 #include <mutex>
 #include <condition_variable>

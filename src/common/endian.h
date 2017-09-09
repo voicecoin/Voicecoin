@@ -3,6 +3,8 @@
 #include <stdint.h>
 #include <cstring>
 
+namespace bcus {
+
 uint16_t endian_swap(uint16_t v);
 uint32_t endian_swap(uint32_t v);
 uint64_t endian_swap(uint64_t v);
@@ -20,4 +22,6 @@ IntType read_from_buff(const unsigned char* ptr)
     IntType x;
     memcpy((char*)&x, ptr, sizeof(IntType));
     return endian_swap(x);
+}
+
 }

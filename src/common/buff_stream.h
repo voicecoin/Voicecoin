@@ -7,6 +7,8 @@
 #include "uint256.h"
 #include "serialize.h"
 
+namespace bcus {
+
 class buff_stream
 {
 public:
@@ -50,14 +52,14 @@ public:
     template<typename T>
     buff_stream& operator<<(const T& obj)
     {
-        ::serialize(*this, obj);
+        bcus::serialize(*this, obj);
         return (*this);
     }
 
     template<typename T>
     buff_stream& operator>>(T& obj)
     {
-        ::unserialize(*this, obj);
+        bcus::unserialize(*this, obj);
         return (*this);
     }
 
@@ -72,4 +74,6 @@ inline uint256 serialize_hash(T &t)
     buff_stream bs;
     bs << t;
     return hash_helper::hash(bs.begin(), bs.end());
+}
+
 }

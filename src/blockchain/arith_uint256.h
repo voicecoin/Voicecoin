@@ -8,6 +8,8 @@
 #include <vector>
 #include "uint256.h"
 
+namespace bcus {
+
 /** Template base class for unsigned big integers. */
 template<unsigned int BITS>
 class base_uint
@@ -261,3 +263,5 @@ public:
 
 uint256 arith_to_uint256(const arith_uint256 &);
 arith_uint256 uint_to_arith256(const uint256 &);
+
+}

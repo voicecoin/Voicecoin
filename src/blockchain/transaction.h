@@ -5,6 +5,8 @@
 #include "block_info.h"
 #include <boost/shared_ptr.hpp>
 
+namespace bcus {
+
 class pre_output
 {
 public:
@@ -113,3 +115,5 @@ public:
 };
 
 typedef boost::shared_ptr<transaction> transaction_ptr;
+
+}

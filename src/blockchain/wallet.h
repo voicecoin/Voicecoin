@@ -4,6 +4,7 @@
 #include "uint256.h"
 #include "transaction.h"
 
+namespace bcus {
 
 class wallet_key
 {
@@ -108,3 +109,5 @@ public:
     }
 
 };
+
+}

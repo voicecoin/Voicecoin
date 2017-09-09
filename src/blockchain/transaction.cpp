@@ -5,6 +5,8 @@
 #include "blockchain.h"
 #include "file_stream.h"
 
+namespace bcus {
+
 trans_input::trans_input()
 {
     clear();
@@ -187,4 +189,6 @@ void transaction::clear()
     output.clear();
     fee = 0;
     input_tran_pos.clear();
+}
+
 }

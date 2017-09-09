@@ -17,6 +17,8 @@
 #include "serialize_type.h"
 #include <boost/shared_ptr.hpp>
 
+namespace bcus {
+
 static const unsigned int MAX_SIZE = 0x02000000;
 
 // struct deserialize_type {};
@@ -143,13 +145,13 @@ struct ser_action_unserialize
 template<typename Stream, typename T>
 void ser_read_write(Stream& s, const T& obj, ser_action_serialize ser_action)
 {
-    ::serialize(s, obj);
+    bcus::serialize(s, obj);
 }
 
 template<typename Stream, typename T>
 void ser_read_write(Stream& s, T& obj, ser_action_unserialize ser_action)
 {
-    ::unserialize(s, obj);
+    bcus::unserialize(s, obj);
 }
 
 /*
@@ -174,7 +176,7 @@ public:
     template<typename T>
     size_computer& operator<<(const T& obj)
     {
-        ::serialize(*this, obj);
+        bcus::serialize(*this, obj);
         return (*this);
     }
 
@@ -357,7 +359,7 @@ void serialize_impl(Stream& os, const std::vector<T, A>& v, const V&)
 {
     write_var_int(os, v.size());
     for (typename std::vector<T, A>::const_iterator vi = v.begin(); vi != v.end(); ++vi)
-        ::serialize(os, (*vi));
+        bcus::serialize(os, (*vi));
 }
 
 template<typename Stream, typename T, typename A>
@@ -639,4 +641,6 @@ template<typename Stream, typename... Args>
 void ser_read_write_many(Stream& s, ser_action_unserialize ser_action, Args&... args)
 {
     ::unserialize_many(s, args...);
+}
+
 }

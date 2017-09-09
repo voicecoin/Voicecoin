@@ -1,6 +1,8 @@
 #include "dbwrapper.h"
 #include <boost/filesystem.hpp>
 
+namespace bcus {
+
 dbwrapper::dbwrapper(const char *path)
 {
     boost::filesystem::create_directories(path);
@@ -36,4 +38,6 @@ void dbwrapper::handle_db_error(const leveldb::Status& status)
     if (status.IsNotFound())
         throw std::runtime_error("Database entry missing");
     throw std::runtime_error("Unknown database error");
+}
+
 }

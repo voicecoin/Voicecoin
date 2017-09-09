@@ -5,6 +5,8 @@
 #include <openssl/sha.h>
 #include <openssl/ripemd.h>
 
+namespace bcus {
+
 class hash_helper
 {
 public:
@@ -68,3 +70,5 @@ public:
         return hash3;
     }
 };
+
+}

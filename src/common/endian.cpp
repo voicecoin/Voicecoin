@@ -1,5 +1,7 @@
 #include "endian.h"
 
+namespace bcus {
+
 namespace
 {
     static struct check_endian
@@ -43,13 +45,15 @@ uint64_t endian_swap(uint64_t v)
         ((v & 0x00000000000000ffull) << 56);
 }
 
-#include <iostream>
-void test_endian()
-{
-    uint16_t w = 0x0102;
-    printf("%04x, %04x\n", w, endian_swap(w));
-    uint32_t n = 0x01020304;
-    printf("%08x, %08x\n", n, endian_swap(n));
-    uint64_t n2 = 0x0102030405060708ll;
-    printf("%016llx, %016llx\n", n2, endian_swap(n2));
-};
+// #include <iostream>
+// void test_endian()
+// {
+//     uint16_t w = 0x0102;
+//     printf("%04x, %04x\n", w, endian_swap(w));
+//     uint32_t n = 0x01020304;
+//     printf("%08x, %08x\n", n, endian_swap(n));
+//     uint64_t n2 = 0x0102030405060708ll;
+//     printf("%016llx, %016llx\n", n2, endian_swap(n2));
+// };
+
+}

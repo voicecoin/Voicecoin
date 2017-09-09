@@ -9,6 +9,8 @@
 // const unsigned int PUBLIC_KEY_SIZE  = 65;
 // const unsigned int SIGNATURE_SIZE   = 72;
 
+namespace bcus {
+
 class ecc_key
 {
 public:
@@ -34,3 +36,5 @@ public:
 private:
     EC_KEY* pkey;
 };
+
+}

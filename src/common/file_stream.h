@@ -2,6 +2,8 @@
 
 #include <string>
 
+namespace bcus {
+
 class file_stream
 {
 public:
@@ -49,7 +51,7 @@ public:
         // Serialize to this stream
         if (!file_)
             throw std::ios_base::failure("file_stream::operator<<: file handle is NULL");
-        ::serialize(*this, obj);
+        bcus::serialize(*this, obj);
         return (*this);
     }
 
@@ -59,9 +61,11 @@ public:
         // Unserialize from this stream
         if (!file_)
             throw std::ios_base::failure("file_stream::operator>>: file handle is NULL");
-        ::unserialize(*this, obj);
+        bcus::unserialize(*this, obj);
         return (*this);
     }
 private:
     FILE *file_;
 };
+
+}

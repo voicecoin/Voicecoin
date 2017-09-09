@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <string.h>
 
+namespace bcus {
+
 template <unsigned int BITS>
 base_uint<BITS>::base_uint(const std::string& str)
 {
@@ -255,4 +257,6 @@ arith_uint256 uint_to_arith256(const uint256 &a)
     //for(int x=0; x<b.WIDTH; ++x)
     //    b.pn[x] = read_from_buff<uint32_t>(a.begin() + x*4);
     return b;
+}
+
 }

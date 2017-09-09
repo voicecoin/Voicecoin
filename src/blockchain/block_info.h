@@ -3,6 +3,8 @@
 #include "uint256.h"
 #include "serialize.h"
 
+namespace bcus {
+
 class block_info
 {
 public:
@@ -57,3 +59,5 @@ public:
         return !(*this == r);
     }
 };
+
+}

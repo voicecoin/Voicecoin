@@ -2,6 +2,7 @@
 #include <boost/bind.hpp>
 #include "wallet.h"
 #include <iostream>
+namespace bcus {
 
 main_thread &main_thread::instance()
 {
@@ -76,6 +77,7 @@ void main_thread::do_show_wallet()
     std::cout << "default key: " << wallet_key::get_address(wallet::instance().get_defult_key()) << std::endl;
 }
 
+}
 #if 0
 msg_queue::msg_queue(int size)
     : capacity_(size)

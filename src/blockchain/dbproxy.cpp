@@ -2,6 +2,8 @@
 #include "blockchain.h"
 #include "wallet.h"
 
+namespace bcus {
+
 class block_info_disk
 {
 public:
@@ -150,4 +152,6 @@ bool wallet_db::load_transacton()
     }
 
     return true;
+}
+
 }

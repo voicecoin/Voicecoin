@@ -12,26 +12,27 @@
 #include "cc_client_thread.h"
 
 using namespace std;
+using namespace bcus;
 
 int main()
 {
     wallet::instance().init();
     block_chain::instance().init();
 
-    //main_thread::instance().start();
+    main_thread::instance().start();
 
-    //main_thread::instance().get_balance();
-    //main_thread::instance().show_wallet();
-    //main_thread::instance().start_mining();
+    main_thread::instance().get_balance();
+    main_thread::instance().show_wallet();
+    main_thread::instance().start_mining();
 
-     while (true)
-     {
-         boost::this_thread::sleep(boost::posix_time::seconds(1));
-     }
+    cc_server_thread::get_instance()->start_server("0.0.0.0", 43333);
+    cc_server_thread::get_instance()->start();
+
+    while (true)
+    {
+        boost::this_thread::sleep(boost::posix_time::seconds(1));
+    }
  
-     //cc_server_thread::get_instance()->start_server("0.0.0.0", 43333);
-     //cc_server_thread::get_instance()->start();
-
     system("pause");
 	return 0;
 }

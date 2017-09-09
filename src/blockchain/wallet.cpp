@@ -9,6 +9,8 @@
 #include <set>
 #include "blockchain.h"
 
+namespace bcus {
+
 wallet_key::wallet_key()
     : create_time(0)
 {
@@ -335,6 +337,8 @@ void wallet_tran::clear()
 {
     spend_time = 0;
     transaction::clear();
+}
+
 }
 
 /*

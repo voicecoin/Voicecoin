@@ -4,6 +4,8 @@
 #include <leveldb/write_batch.h>
 #include "buff_stream.h"
 
+namespace bcus {
+
 class dbwrapper;
 
 class db_batch
@@ -202,3 +204,5 @@ private:
     leveldb::WriteOptions syncoptions;
     leveldb::DB* pdb; 
 };
+
+}

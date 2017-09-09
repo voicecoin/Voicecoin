@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 
+namespace bcus {
+
 class base58
 {
 public:
@@ -17,3 +19,5 @@ public:
     static bool decode_check(const char* psz, std::vector<unsigned char>& ret);
     static bool decode_check(const std::string& str, std::vector<unsigned char>& ret);
 };
+
+}

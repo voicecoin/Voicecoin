@@ -4,6 +4,8 @@
 #include <uint256.h>
 #include "transaction.h"
 
+namespace bcus {
+
 class block_header
 {
 public:
@@ -65,3 +67,5 @@ public:
         READWRITE(trans);
     }
 };
+
+}

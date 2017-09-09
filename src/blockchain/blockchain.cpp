@@ -12,6 +12,8 @@
 #include <windows.h>
 #endif
 
+namespace bcus {
+
 block_chain &block_chain::instance()
 {
     static block_chain bc;
@@ -382,4 +384,6 @@ bool block_chain::add_new_transaction(transaction &tran, bool from_me)
     }
 
     return true;
+}
+
 }

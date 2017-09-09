@@ -16,6 +16,8 @@
 #include "endian.h"
 #include <boost/shared_ptr.hpp>
 
+namespace bcus {
+
 class size_computer;
 
 template<typename Stream, typename I>
@@ -73,8 +75,8 @@ template<typename Stream, typename T>
 void unserialize(Stream& is, boost::shared_ptr<T>& p);
 
 
-#define READWRITE(obj)          (::ser_read_write(s, (obj), ser_action))
-#define READWRITEMANY(...)      (::ser_read_write_many(s, ser_action, __VA_ARGS__))
+#define READWRITE(obj)          (bcus::ser_read_write(s, (obj), ser_action))
+#define READWRITEMANY(...)      (bcus::ser_read_write_many(s, ser_action, __VA_ARGS__))
 
 #define FLATDATA(obj) REF(flat_data((char *)&(obj), (char *)&(obj) + sizeof(obj)))
 #define VARINT(obj) REF(var_int_wrap(REF(obj)))
@@ -92,4 +94,4 @@ void unserialize(Stream& is, boost::shared_ptr<T>& p);
 
 #endif
 
-
+}
