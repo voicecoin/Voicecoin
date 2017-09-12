@@ -5,6 +5,7 @@
 #include "ecc_key.h"
 #include "blockchain.h"
 #include "file_stream.h"
+#include "loghelper.h"
 
 namespace bcus {
 
@@ -77,6 +78,7 @@ bool transaction::sign()
         block_tran_pos tran_pos;
         if (!block_chain::instance().read_tran_pos(input[i].pre_out.hash, tran_pos))
         {
+            XLOG(XLOG_INFO, "%s read_tran_pos faild\n", __FUNCTION__);
             return false;
         }
 
@@ -87,6 +89,8 @@ bool transaction::sign()
 
         if (input[i].pre_out.index >= pre_tran.output.size())
         {
+            XLOG(XLOG_ERROR, "%s input[i].pre_out.index=[%d|%d]\n",
+                __FUNCTION__, input[i].pre_out.index, pre_tran.output.size());
             return false;
         }
 
@@ -94,6 +98,7 @@ bool transaction::sign()
         const wallet_key *key = wallet::instance().get_key(pub_hash);
         if (key == NULL)
         {
+            XLOG(XLOG_ERROR, "%s get key faild\n", __FUNCTION__);
             return false;
         }
         input[i].pubkey = tmp.input[i].pubkey = key->pub_key;
@@ -101,6 +106,7 @@ bool transaction::sign()
 
         if (!ecc_key::sign(key->priv_key, trans_hash, tmp.input[i].sig))
         {
+            XLOG(XLOG_ERROR, "%s sign faild\n", __FUNCTION__);
             return false;
         }
         input[i].sig = tmp.input[i].sig;
@@ -137,7 +143,7 @@ bool transaction::check_sign_and_value()
         }
 
         transaction pre_tran;
-        file_stream fs(block::get_block_file_name(input_tran_pos[i].block_id));
+        file_stream fs(block::get_block_file_name(input_tran_pos[i].block_id), "rb+");
         fs.seek(input_tran_pos[i].tran_pos);
         fs >> pre_tran;
 

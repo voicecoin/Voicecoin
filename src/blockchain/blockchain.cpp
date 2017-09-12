@@ -99,6 +99,16 @@ block *block_chain::prepare_block()
     blk->trans[0]->output[0].amount = get_coin_base_amount(blk->header.height);
 
     int count = 0;
+//     while (trans_.size() > 0)
+//     {
+//         std::map<uint256, transaction_ptr>::iterator itr = trans_.begin();
+//         blk->trans[0]->output[0].amount += itr->second->fee;
+//         blk->trans.push_back(itr->second);
+//         trans_.erase(itr);
+//         if (++count > max_trans_in_block_)
+//             break;
+//     }
+
     for (std::map<uint256, transaction_ptr>::iterator itr = trans_.begin();
         itr != trans_.end(); ++itr)
     {
@@ -225,7 +235,7 @@ bool block_chain::accept_block(block *blk)
         for (std::vector<trans_input>::iterator itr = blk->trans[i]->input.begin();
             itr != blk->trans[i]->input.end(); ++itr)
         {
-            if (!trans_spends.insert(std::make_pair(itr->pre_out, blk->trans[i]->get_hash())).second)
+            if (!spends.insert(std::make_pair(itr->pre_out, blk->trans[i]->get_hash())).second)
             {
                 XLOG(XLOG_WARNING, "block_chain::%s double tran check failed\n", __FUNCTION__);
                 return false;
@@ -268,7 +278,7 @@ bool block_chain::accept_block(block *blk)
     block_tran_pos pos;
     pos.block_id = blk->header.height;
     pos.tran_pos += get_serialize_size(blk->header);
-    pos.tran_pos += get_serialize_size((uint64_t)(blk->trans.size()));
+    pos.tran_pos += get_size_of_var_int((uint64_t)(blk->trans.size()));
 
     for (std::vector<transaction_ptr>::iterator itr = blk->trans.begin();
         itr != blk->trans.end(); ++itr)
@@ -300,17 +310,25 @@ bool block_chain::accept_block(block *blk)
     }
     tran_pos_db_->write_tran_pos(tran_pos_array);
 
-    trans_spends.clear();
-    for (std::map<uint256, transaction_ptr>::iterator itr = trans_.begin();
-        itr != trans_.end(); ++itr)
+    trans_spends_.clear();
+    std::map<uint256, transaction_ptr> trans = trans_;
+    trans_.clear();
+    for (std::map<uint256, transaction_ptr>::iterator itr = trans.begin();
+        itr != trans.end(); ++itr)
     {
-        transaction &tran = *itr->second;
-        for (std::vector<trans_input>::iterator itr = tran.input.begin();
-            itr != tran.input.end(); ++itr)
-        {
-            trans_spends.insert(std::make_pair(itr->pre_out, tran.get_hash()));
-        }
+        add_new_transaction(*itr->second);
     }
+
+//     for (std::map<uint256, transaction_ptr>::iterator itr = trans_.begin();
+//         itr != trans_.end(); ++itr)
+//     {
+//         transaction &tran = *itr->second;
+//         for (std::vector<trans_input>::iterator itri = tran.input.begin();
+//             itri != tran.input.end(); ++itri)
+//         {
+//             trans_spends_.insert(std::make_pair(itri->pre_out, tran.get_hash()));
+//         }
+//     }
 
     return true;
 }
@@ -336,8 +354,8 @@ int64_t block_chain::get_coin_base_amount(uint32_t height)
 uint32_t block_chain::get_next_wook_proof(block_info *curent_block)
 {
     const static int TARGET_BLOCK_NUM = 1000;
-    const static int TARGET_TIME_SPAN = TARGET_BLOCK_NUM * 10 * 60;
-    //const static int TARGET_TIME_SPAN = TARGET_BLOCK_NUM * 5 * 60;
+    //const static int TARGET_TIME_SPAN = TARGET_BLOCK_NUM * 10 * 60;
+    const static int TARGET_TIME_SPAN = TARGET_BLOCK_NUM * 5 * 60;
 
     if (curent_block == NULL || curent_block->pre_info == NULL)
         return uint_to_arith256(start_work_proof_).get_compact();
@@ -388,8 +406,8 @@ bool block_chain::add_new_transaction(transaction &tran, bool from_me)
     for (std::vector<trans_input>::iterator itr = tran.input.begin();
         itr != tran.input.end(); ++itr)
     {
-        std::map<pre_output, uint256>::iterator ispend = trans_spends.find(itr->pre_out);
-        if (ispend != trans_spends.end())
+        std::map<pre_output, uint256>::iterator ispend = trans_spends_.find(itr->pre_out);
+        if (ispend != trans_spends_.end())
         {
             XLOG(XLOG_WARNING, "wallet::%s double spent\n", __FUNCTION__);
             return false;
@@ -407,7 +425,7 @@ bool block_chain::add_new_transaction(transaction &tran, bool from_me)
     for (std::vector<trans_input>::iterator itr = tran.input.begin();
         itr != tran.input.end(); ++itr)
     {
-        trans_spends.insert(std::make_pair(itr->pre_out, tran.get_hash()));
+        trans_spends_.insert(std::make_pair(itr->pre_out, tran.get_hash()));
     }
 
     return true;

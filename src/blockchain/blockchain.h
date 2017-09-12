@@ -42,7 +42,7 @@ private:
     uint256 start_work_proof_;
     int max_trans_in_block_;
     std::map<uint256, transaction_ptr> trans_; // new trans
-    std::map<pre_output, uint256> trans_spends;
+    std::map<pre_output, uint256> trans_spends_;
     uint160 coinbase_pub_hash_;
     std::map<uint256, block_info *> block_info_;
     std::map<uint32_t, block_info *> block_by_hight_;

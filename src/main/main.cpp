@@ -69,6 +69,10 @@ int main()
     SET_LOG_FILE("conin.log");
     SET_LOG_LEVEL("debug");
 
+//     block b;
+//     file_stream fs(block::get_block_file_name(1), "rb+");
+//     fs >> b;
+
     XLOG(XLOG_INFO, "system start...\n");
 
     wallet::instance().init();
@@ -111,7 +115,8 @@ int main()
                 continue;
             }
 
-            main_thread::instance().send_money(vcmd[1], atoll(vcmd[2].c_str()));
+            //main_thread::instance().send_money(vcmd[1], atoll(vcmd[2].c_str()));
+            main_thread::instance().send_money("$JML2AMeN4vfBLVNchmsZj8nuaebB1ZgDj", atoll(vcmd[2].c_str()));
         }
 
         boost::thread::sleep(boost::get_system_time() + boost::posix_time::seconds(1));
