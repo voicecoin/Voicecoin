@@ -184,6 +184,7 @@ bool wallet::is_mine_transaction(const transaction &tran)
 
 void wallet::add_mine_transaction(const transaction &tran)
 {
+    XLOG(XLOG_INFO, "add_mine_transaction tran[%d %s]\n", tran.unix_time, tran.get_hash().to_string().c_str());
     trans.insert(std::make_pair(tran.get_hash(), wallet_tran(tran)));
     wallet_db_->write_transaction(tran);
     if (!tran.is_coin_base())

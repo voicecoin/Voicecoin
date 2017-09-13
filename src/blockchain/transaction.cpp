@@ -196,6 +196,7 @@ void transaction::clear()
     output.clear();
     fee = 0;
     input_tran_pos.clear();
+    unix_time = time(0);
 }
 
 }

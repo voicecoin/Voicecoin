@@ -84,6 +84,7 @@ public:
     uint32_t version;
     std::vector<trans_input> input;
     std::vector<trans_output> output;
+    uint32_t unix_time;
 
     // will init by check_sign_and_value()
     uint64_t fee;
@@ -111,6 +112,7 @@ public:
         READWRITE(VARINT(version));
         READWRITE(input);
         READWRITE(output);
+        READWRITE(unix_time);
     }
 };
 

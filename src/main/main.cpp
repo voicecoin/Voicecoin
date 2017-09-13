@@ -72,6 +72,10 @@ int main()
 //     block b;
 //     file_stream fs(block::get_block_file_name(1), "rb+");
 //     fs >> b;
+// 
+//     block b2;
+//     file_stream fs2(block::get_block_file_name(2), "rb+");
+//     fs2 >> b2;
 
     XLOG(XLOG_INFO, "system start...\n");
 
