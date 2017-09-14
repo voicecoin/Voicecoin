@@ -91,6 +91,7 @@ class wallet_tran : public transaction
 {
 public:
     int64_t spend_time;
+    int64_t left_value;
 
 public:
     wallet_tran();
@@ -106,6 +107,7 @@ public:
     {
         READWRITE(*(transaction*)this);
         READWRITE(spend_time);
+        READWRITE(left_value);
     }
 
 };

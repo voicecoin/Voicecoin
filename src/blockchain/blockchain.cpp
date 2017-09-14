@@ -379,7 +379,7 @@ uint32_t block_chain::get_next_wook_proof(block_info *curent_block)
     newbit *= total_time;
     newbit /= TARGET_TIME_SPAN;
 
-    if (newbit > uint_to_arith256(start_work_proof_))
+    //if (newbit > uint_to_arith256(start_work_proof_))
         newbit = uint_to_arith256(start_work_proof_);
 
     return newbit.get_compact();

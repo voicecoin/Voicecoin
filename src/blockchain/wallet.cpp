@@ -232,18 +232,31 @@ int64_t wallet::get_balance()
     for (std::map<uint256, wallet_tran>::iterator itr = trans.begin(); itr != trans.end(); ++itr)
     {
         wallet_tran &tran = itr->second;
-        for (size_t i = 0; i < tran.output.size(); ++i)
+        if (tran.spend_time != 0)
         {
-            if (tran.spend_time != 0)
+            bool add_left = true;
+            for (size_t i = 0; i < tran.output.size(); ++i)
             {
-                // TODO: check timeout
-                continue;
+                if (is_spent(itr->first, i))
+                {
+                    add_left = false;
+                    break;
+                }
             }
-            if (is_mine(tran.output[i].pub_hash) && !is_spent(itr->first, i))
+            if (add_left)
+                balance += tran.left_value;
+        }
+        else
+        {
+            for (size_t i = 0; i < tran.output.size(); ++i)
             {
-                balance += tran.output[i].amount;
+                if (is_mine(tran.output[i].pub_hash) && !is_spent(itr->first, i))
+                {
+                    balance += tran.output[i].amount;
+                }
             }
         }
+
     }
     std::cout << "balance: " << balance << std::endl;
     return balance;
@@ -262,6 +275,8 @@ bool wallet::send_money(const uint160 &pub_hash, int64_t value)
             // TODO: check timeout
             continue;
         }
+
+        // 同一trans中的所有自己的币一起花掉
         for (size_t i = 0; i < tran.output.size(); ++i)
         {
             if (is_mine(tran.output[i].pub_hash) && !is_spent(itr->first, i))
@@ -316,6 +331,17 @@ bool wallet::send_money(const uint160 &pub_hash, int64_t value)
         itr != spend_tran.end(); ++itr)
     {
         (*itr)->spend_time = time(0);
+
+        if (amount - value > 0)
+        {
+            auto itr2 = itr;
+            ++itr2;
+            if (itr2 == spend_tran.end())
+            {
+                (*itr)->left_value = amount - value;
+            }
+        }
+        
         wallet_db_->write_transaction(*(*itr));
     }
 
@@ -333,6 +359,7 @@ wallet_tran::wallet_tran(const transaction &r)
     : transaction(r)
 {
     spend_time = 0;
+    left_value = 0;
 }
 
 bool wallet_tran::empty()
@@ -343,6 +370,7 @@ bool wallet_tran::empty()
 void wallet_tran::clear()
 {
     spend_time = 0;
+    left_value = 0;
     transaction::clear();
 }
 
