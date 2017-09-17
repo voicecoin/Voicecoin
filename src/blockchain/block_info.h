@@ -11,6 +11,7 @@ public:
     int64_t timestamp;
     uint32_t bits;
     uint32_t height;
+    uint32_t file;
     block_info *pre_info;
     uint256 *hash;
 
@@ -25,6 +26,7 @@ public:
         READWRITE(timestamp);
         READWRITE(bits);
         READWRITE(height);
+        READWRITE(file);
     }
 };
 

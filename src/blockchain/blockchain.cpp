@@ -270,13 +270,19 @@ bool block_chain::accept_block(block *blk)
         __FUNCTION__, blk->get_hash().get_hex().c_str());
 
     // write block
-    file_stream fs(block::get_block_file_name(blk->header.height));
+    uint32_t block_id = get_new_block_id();
+    if (block_id == 0)
+    {
+        XLOG(XLOG_WARNING, "block_chain::%s get block id failed\n", __FUNCTION__);
+        return false;
+    }
+    file_stream fs(block::get_block_file_name(block_id));
     fs << *blk;
 
     // write tran_db
     std::vector<std::pair<uint256, block_tran_pos>> tran_pos_array;
     block_tran_pos pos;
-    pos.block_id = blk->header.height;
+    pos.block_id = block_id;
     pos.tran_pos += get_serialize_size(blk->header);
     pos.tran_pos += get_size_of_var_int((uint64_t)(blk->trans.size()));
 
@@ -429,6 +435,28 @@ bool block_chain::add_new_transaction(transaction &tran, bool from_me)
     }
 
     return true;
+}
+
+uint32_t block_chain::get_new_block_id()
+{
+    static uint32_t block_id = 1;
+    while (true)
+    {
+        FILE* file = fopen(block::get_block_file_name(block_id).c_str(), "ab");
+        if (file == NULL)
+        {
+            return 0;
+        }
+        fseek(file, 0, SEEK_END);
+        if (ftell(file) > 0)
+        {
+            fclose(file);
+            block_id++;
+            continue;
+        }
+        fclose(file);
+        return block_id;
+    }
 }
 
 }

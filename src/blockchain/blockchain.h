@@ -30,6 +30,7 @@ public:
 
     bool read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos);
 
+
     bool add_new_transaction(transaction &tran, bool from_me = false);
 
 private:
@@ -37,6 +38,7 @@ private:
     int64_t get_coin_base_amount(uint32_t height);
     uint32_t get_next_wook_proof(block_info *curent_block);
     block_info *get_curent_block();
+    uint32_t get_new_block_id();
 
 private: 
     uint256 start_work_proof_;

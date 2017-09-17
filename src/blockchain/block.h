@@ -56,7 +56,7 @@ public:
     bool empty();
     void clear();
 
-    static std::string get_block_file_name(int height);
+    static std::string get_block_file_name(int block_id);
 
     ADD_SERIALIZE_METHODS;
 
