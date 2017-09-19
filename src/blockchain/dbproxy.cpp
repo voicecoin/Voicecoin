@@ -136,6 +136,11 @@ bool wallet_db::write_transaction(const wallet_tran &tran)
     return write(std::make_pair(WALLET_DB_TRAN, tran.get_hash()), tran);
 }
 
+void wallet_db::erase_transaction(const uint256 &tran_hash)
+{
+    erase(std::make_pair(WALLET_DB_TRAN, tran_hash));
+}
+
 bool wallet_db::load_transacton()
 {
     boost::shared_ptr<db_iterator> pcursor(new_iterator());

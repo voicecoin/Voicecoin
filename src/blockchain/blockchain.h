@@ -30,7 +30,6 @@ public:
 
     bool read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos);
 
-
     bool add_new_transaction(transaction &tran, bool from_me = false);
 
 private:
@@ -39,6 +38,10 @@ private:
     uint32_t get_next_wook_proof(block_info *curent_block);
     block_info *get_curent_block();
     uint32_t get_new_block_id();
+    bool connect_block(block_info *blkinfo, block *blk,
+        std::vector<std::pair<uint256, block_tran_pos>> &tran_pos_array);
+    bool disconnect_block(block *blk,
+        std::vector<std::pair<uint256, block_tran_pos>> &tran_pos_array);
 
 private: 
     uint256 start_work_proof_;
@@ -47,7 +50,7 @@ private:
     std::map<pre_output, uint256> trans_spends_;
     uint160 coinbase_pub_hash_;
     std::map<uint256, block_info *> block_info_;
-    std::map<uint32_t, block_info *> block_by_hight_;
+    uint256 best_chain_hash_;
     tran_pos_db *tran_pos_db_;
     bool generating_block_;
 };

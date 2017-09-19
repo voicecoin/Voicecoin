@@ -212,6 +212,19 @@ void wallet::add_mine_transaction(const wallet_tran &tran, bool save_db)
     }
 }
 
+void wallet::disconnect_transaction(const transaction &tran)
+{
+    trans.erase(tran.get_hash());
+    wallet_db_->erase_transaction(tran.get_hash());
+    if (!tran.is_coin_base())
+    {
+        for (size_t i = 0; i < tran.input.size(); ++i)
+        {
+            trans_spends.erase(tran.input[i].pre_out);
+        }
+    }
+}
+
 bool wallet::is_spent(const uint256 &hash, int index)
 {
     pre_output pout;

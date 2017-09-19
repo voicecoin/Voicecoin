@@ -36,6 +36,7 @@ public:
     bool read_default_key(uint160 &pub_hash);
 
     bool write_transaction(const wallet_tran &tran);
+    void erase_transaction(const uint256 &tran_hash);
     bool load_transacton();
 };
 

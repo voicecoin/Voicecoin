@@ -11,12 +11,13 @@ public:
     int64_t timestamp;
     uint32_t bits;
     uint32_t height;
-    uint32_t file;
+    uint32_t block_id;
+
     block_info *pre_info;
     uint256 *hash;
 
 public:
-    block_info() : timestamp(0), bits(0), height(0), pre_info(0) {}
+    block_info() : timestamp(0), bits(0), height(0), block_id(0), pre_info(0) {}
 
     ADD_SERIALIZE_METHODS;
 
@@ -26,7 +27,7 @@ public:
         READWRITE(timestamp);
         READWRITE(bits);
         READWRITE(height);
-        READWRITE(file);
+        READWRITE(block_id);
     }
 };
 

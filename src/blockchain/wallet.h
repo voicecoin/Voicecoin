@@ -66,6 +66,7 @@ public:
 
     bool is_mine(const uint160 &pub_hash);
     void save_mine_transaction(const transaction &tran);
+    void disconnect_transaction(const transaction &tran);
 
     bool is_spent(const uint256 &hash, int index);
 
