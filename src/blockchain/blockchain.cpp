@@ -4,6 +4,7 @@
 #include "hash.h"
 #include <iostream>
 #include <cstring>
+#include <vector>
 #include <time.h>
 #include "file_stream.h"
 #include <boost/filesystem.hpp>
@@ -53,6 +54,7 @@ void block_chain::init()
     tran_pos_db_ = new tran_pos_db;
     coinbase_pub_hash_ = wallet::instance().get_defult_key();
     tran_pos_db_->load_block_info();
+    tran_pos_db_->read_best_chain(best_chain_hash_);
 }
 
 block_info *block_chain::insert_block_info(const uint256 &block_hash, int height/* = -1*/)
@@ -184,7 +186,7 @@ bool block_chain::accept_block(block *blk)
         XLOG(XLOG_WARNING, "block_chain::%s merkle_tree check failed\n", __FUNCTION__);
         return false;
     }
-    uint32_t block_height = 0;
+    uint32_t block_height = 1;
     block_info *pre_block = NULL;
     if (block_info_.size() != 0)
     {
@@ -273,7 +275,7 @@ bool block_chain::accept_block(block *blk)
 
     // write block_info db
     block_info *new_info = insert_block_info(blk->get_hash(), block_height);
-    if (new_info->height != 0)
+    if (new_info->height != 1)
         new_info->pre_info = insert_block_info(blk->header.hash_prev_block);
     new_info->timestamp = blk->header.timestamp;
     new_info->bits = blk->header.bits;
@@ -281,12 +283,7 @@ bool block_chain::accept_block(block *blk)
     tran_pos_db_->write_block_info(*new_info);
 
     // write tran_db
-    std::vector<std::pair<uint256, block_tran_pos>> tran_pos_array;
-    if (!connect_block(new_info, blk, tran_pos_array))
-    {
-        return false;
-    }
-    tran_pos_db_->write_tran_pos(tran_pos_array);
+    add_block_to_chain(new_info, blk);
 
     trans_spends_.clear();
     std::map<uint256, transaction_ptr> trans = trans_;
@@ -297,6 +294,74 @@ bool block_chain::accept_block(block *blk)
         add_new_transaction(*itr->second);
     }
 
+    return true;
+}
+
+bool block_chain::add_block_to_chain(block_info *new_info, block *blk)
+{
+    uint32_t curr_height = 0;
+    block_info *curr_block = get_curent_block();
+    if (curr_block != NULL)
+        curr_height = curr_block->height;
+
+    if (new_info->height > curr_height)
+    {
+        std::vector<std::pair<uint256, block_tran_pos>> tran_pos_array;
+        if (new_info->height == 1 ||
+            new_info->pre_info->hash == curr_block->hash)
+        {
+            if (!connect_block(new_info, blk, tran_pos_array))
+            {
+                return false;
+            }
+        }
+        else
+        {
+            block_info* pfork = curr_block;
+            block_info* plonger = new_info;
+            while (pfork != plonger)
+            {
+                if ((pfork = pfork->pre_info) == NULL)
+                {
+                    return false;
+                }
+                while (plonger->height > pfork->height)
+                {
+                    if ((plonger = plonger->pre_info) == NULL)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            for (block_info* pindex = curr_block; pindex != pfork; pindex = pindex->pre_info)
+            {
+                block blk;
+                file_stream fs(block::get_block_file_name(pindex->block_id), "rb+");
+                fs >> blk;
+                disconnect_block(&blk, tran_pos_array);
+            }
+
+            std::vector<block_info*> vconnect;
+            for (block_info* pindex = new_info; pindex != pfork; pindex = pindex->pre_info)
+                vconnect.push_back(pindex);
+
+            for (auto itr = vconnect.rbegin(); itr != vconnect.rend(); ++itr)
+            {
+                block blk;
+                file_stream fs(block::get_block_file_name((*itr)->block_id), "rb+");
+                fs >> blk;
+                if (!connect_block(*itr, &blk, tran_pos_array))
+                {
+                    return false;
+                }
+            }
+        }
+
+        best_chain_hash_ = *new_info->hash;
+        tran_pos_db_->write_best_chain(best_chain_hash_);
+        tran_pos_db_->write_tran_pos(tran_pos_array);
+    }
     return true;
 }
 

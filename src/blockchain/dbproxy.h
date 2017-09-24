@@ -18,6 +18,8 @@ public:
     bool write_block_info(const block_info &block_info);
     bool load_block_info();
 
+    bool write_best_chain(const uint256 &hash);
+    bool read_best_chain(uint256 &hash);
     bool write_tran_pos(
         const std::vector<std::pair<uint256, block_tran_pos>> &tran_pos_array);
     bool read_tran_pos(const uint256 &tranid, block_tran_pos &tran_pos);

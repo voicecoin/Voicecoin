@@ -38,6 +38,7 @@ private:
     uint32_t get_next_wook_proof(block_info *curent_block);
     block_info *get_curent_block();
     uint32_t get_new_block_id();
+    bool add_block_to_chain(block_info *blkinfo, block *blk);
     bool connect_block(block_info *blkinfo, block *blk,
         std::vector<std::pair<uint256, block_tran_pos>> &tran_pos_array);
     bool disconnect_block(block *blk,

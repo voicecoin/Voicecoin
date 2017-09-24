@@ -71,9 +71,21 @@ bool tran_pos_db::load_block_info()
     return true;
 }
 
+bool tran_pos_db::write_best_chain(const uint256 &hash)
+{
+    return write('c', hash);
+}
+
+bool tran_pos_db::read_best_chain(uint256 &hash)
+{
+    return read('v', hash);
+}
+
 bool tran_pos_db::write_tran_pos(
     const std::vector<std::pair<uint256, block_tran_pos>> &tran_pos_array)
 {
+    if (tran_pos_array.size() == 0)
+        return true;
     db_batch batch(*this);
     for (std::vector<std::pair<uint256, block_tran_pos>>::const_iterator
         itr = tran_pos_array.begin(); itr != tran_pos_array.end(); ++itr)
