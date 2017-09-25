@@ -61,8 +61,8 @@ bool tran_pos_db::load_block_info()
         {
             if (key.first != TRAN_DB_BLOCK) continue;
             block_info *new_block = block_chain::instance().insert_block_info(key.second, info.height);
-            if (new_block->height != 0)
-                new_block->pre_info = block_chain::instance().insert_block_info(key.second);
+            if (new_block->hash != 0)
+                new_block->pre_info = block_chain::instance().insert_block_info(info.pre_block);
             new_block->timestamp = info.timestamp;
             new_block->bits = info.bits;
             new_block->height = info.height;
@@ -78,7 +78,7 @@ bool tran_pos_db::write_best_chain(const uint256 &hash)
 
 bool tran_pos_db::read_best_chain(uint256 &hash)
 {
-    return read('v', hash);
+    return read('c', hash);
 }
 
 bool tran_pos_db::write_tran_pos(

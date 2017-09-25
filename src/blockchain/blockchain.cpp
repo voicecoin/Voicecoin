@@ -92,7 +92,7 @@ block *block_chain::prepare_block()
     blk->header.bits = get_next_wook_proof(curent_block);
     blk->header.nonce = 0;
 
-    uint32_t block_height = (curent_block == NULL ? 0 : curent_block->height + 1);
+    uint32_t block_height = (curent_block == NULL ? 1 : curent_block->height + 1);
 
     blk->trans.push_back(transaction_ptr(new transaction));
     blk->trans[0]->input.resize(1);
@@ -439,7 +439,7 @@ int64_t block_chain::get_coin_base_amount(uint32_t height)
     static const uint64_t FROM_AMOUT = 1000000;
     static const uint32_t DEC_BLOCK_COUNT = 200000;
 
-    if (height == 0)
+    if (height == 1)
         return FIRST_AMOUNT;
 
     uint64_t amount = FROM_AMOUT;
