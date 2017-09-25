@@ -20,6 +20,7 @@ public:
     void show_wallet();
     void generate_key();
     void send_money(const std::string &addr, uint64_t amount);
+    void add_new_transaction(transaction &tran);
 
 private:
     main_thread() {}
@@ -31,6 +32,7 @@ private:
     void do_show_wallet();
     void do_generate_key();
     void do_send_money(const std::string &addr, uint64_t amount);
+    void do_add_new_transaction(transaction &tran);
 
 private:
     boost::asio::io_service io_service_;

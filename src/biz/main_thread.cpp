@@ -105,6 +105,16 @@ void main_thread::do_send_money(const std::string &addr, uint64_t amount)
     wallet::instance().send_money(pubhash, amount);
 }
 
+void main_thread::add_new_transaction(transaction &tran)
+{
+    io_service_.post(boost::bind(&main_thread::do_add_new_transaction, this, tran));
+}
+
+void main_thread::do_add_new_transaction(transaction &tran)
+{
+    block_chain::instance().add_new_transaction(tran);
+}
+
 }
 #if 0
 msg_queue::msg_queue(int size)
