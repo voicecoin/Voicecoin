@@ -15,7 +15,7 @@ public:
     void stop();
 
     void start_mining();
-    void accept_new_block(block *blk);
+    void accept_new_block(block *blk, bool from_me = false);
     void get_balance();
     void show_wallet();
     void generate_key();
@@ -27,7 +27,7 @@ private:
 
     void do_start_mining();
     void mining_thread(block *blk);
-    void do_accept_new_block(block *blk);
+    void do_accept_new_block(block *blk, bool from_me);
     void do_get_balance();
     void do_show_wallet();
     void do_generate_key();

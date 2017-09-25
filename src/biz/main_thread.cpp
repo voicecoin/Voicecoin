@@ -38,16 +38,22 @@ void main_thread::mining_thread(block *blk)
     block_chain::instance().generate_block(blk);
 }
 
-void main_thread::accept_new_block(block *blk)
+void main_thread::accept_new_block(block *blk, bool from_me)
 {
-    io_service_.post(boost::bind(&main_thread::do_accept_new_block, this, blk));
+    io_service_.post(boost::bind(&main_thread::do_accept_new_block, this, blk, from_me));
 }
 
-void main_thread::do_accept_new_block(block *blk)
+void main_thread::do_accept_new_block(block *blk, bool from_me)
 {
     block_chain::instance().stop_generate_block();
     thread_mining_.join();
-    block_chain::instance().accept_block(blk);
+    if (block_chain::instance().accept_block(blk))
+    {
+        if (from_me)
+        {
+            // todo
+        }
+    }
     do_start_mining();
 }
 
