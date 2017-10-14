@@ -72,9 +72,6 @@
     <ClCompile Include="src\common\dir_reader.cc">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\endian.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
     <ClCompile Include="src\common\string_helper.cc">
       <Filter>common</Filter>
     </ClCompile>
@@ -174,6 +171,9 @@
     <ClCompile Include="src\crypt\sha512.cpp">
       <Filter>crypt</Filter>
     </ClCompile>
+    <ClCompile Include="src\common\endian2.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\biz\addr_manager.h">
@@ -240,9 +240,6 @@
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="src\common\dir_reader.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="src\common\endian.h">
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="src\common\file_stream.h">
@@ -377,6 +374,9 @@
     </ClInclude>
     <ClInclude Include="src\crypt\sha512.h">
       <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\endian2.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

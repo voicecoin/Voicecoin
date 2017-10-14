@@ -163,7 +163,7 @@
     <ClCompile Include="src\blockchain\transaction.cpp" />
     <ClCompile Include="src\blockchain\wallet.cpp" />
     <ClCompile Include="src\common\dir_reader.cc" />
-    <ClCompile Include="src\common\endian.cpp" />
+    <ClCompile Include="src\common\endian2.cpp" />
     <ClCompile Include="src\common\string_helper.cc" />
     <ClCompile Include="src\common\xml_config_parser.cc" />
     <ClCompile Include="src\crypt\base64.cc" />
@@ -223,7 +223,7 @@
     <ClInclude Include="src\buffer.h" />
     <ClInclude Include="src\common\buff_stream.h" />
     <ClInclude Include="src\common\dir_reader.h" />
-    <ClInclude Include="src\common\endian.h" />
+    <ClInclude Include="src\common\endian2.h" />
     <ClInclude Include="src\common\file_stream.h" />
     <ClInclude Include="src\common\serialize.h" />
     <ClInclude Include="src\common\serialize_type.h" />

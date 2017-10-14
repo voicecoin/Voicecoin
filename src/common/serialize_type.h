@@ -13,7 +13,7 @@
 #include <string.h>
 #include <utility>
 #include <vector>
-#include "endian.h"
+#include "endian2.h"
 #include <boost/shared_ptr.hpp>
 
 namespace bcus {

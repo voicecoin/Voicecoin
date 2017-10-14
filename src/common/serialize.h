@@ -13,7 +13,6 @@
 #include <utility>
 #include <vector>
 #include "platform.h"
-#include "endian.h"
 #include "serialize_type.h"
 #include <boost/shared_ptr.hpp>
 
@@ -118,7 +117,7 @@ template<typename Stream> void serialize(Stream& s, uint64_t a) { ser_writedata6
 template<typename Stream> void serialize(Stream& s, float a   ) { ser_writedata32(s, ser_float_to_uint32(a)); }
 template<typename Stream> void serialize(Stream& s, double a  ) { ser_writedata64(s, ser_double_to_uint64(a)); }
 template<typename Stream> void serialize(Stream& s, bool a)     { char f=a; ser_writedata8(s, f); }
-template<typename Stream> void serialize(Stream& s, unsigned long& a) { ser_writedata64(s, a); }
+//template<typename Stream> void serialize(Stream& s, unsigned long& a) { ser_writedata64(s, a); }
 
 template<typename Stream> void unserialize(Stream& s, char& a    ) { a = ser_readdata8(s); }
 template<typename Stream> void unserialize(Stream& s, int8_t& a  ) { a = ser_readdata8(s); }
@@ -132,7 +131,7 @@ template<typename Stream> void unserialize(Stream& s, uint64_t& a) { a = ser_rea
 template<typename Stream> void unserialize(Stream& s, float& a   ) { a = ser_uint32_to_float(ser_readdata32(s)); }
 template<typename Stream> void unserialize(Stream& s, double& a  ) { a = ser_uint64_to_double(ser_readdata64(s)); }
 template<typename Stream> void unserialize(Stream& s, bool& a)     { char f=ser_readdata8(s); a=f; }
-template<typename Stream> void unserialize(Stream& s, unsigned long &a) { ser_readdata64(s, a); }
+//template<typename Stream> void unserialize(Stream& s, unsigned long &a) { ser_readdata64(s, a); }
 
 struct ser_action_serialize
 {
@@ -603,14 +602,14 @@ void serialize_many(Stream& s)
 template<typename Stream, typename Arg>
 void serialize_many(Stream& s, Arg&& arg)
 {
-    ::serialize(s, std::forward<Arg>(arg));
+    bcus::serialize(s, std::forward<Arg>(arg));
 }
 
 template<typename Stream, typename Arg, typename... Args>
 void serialize_many(Stream& s, Arg&& arg, Args&&... args)
 {
-    ::serialize(s, std::forward<Arg>(arg));
-    ::serialize_many(s, std::forward<Args>(args)...);
+    bcus::serialize(s, std::forward<Arg>(arg));
+    bcus::serialize_many(s, std::forward<Args>(args)...);
 }
 
 template<typename Stream>
@@ -621,26 +620,26 @@ void unserialize_many(Stream& s)
 template<typename Stream, typename Arg>
 void unserialize_many(Stream& s, Arg& arg)
 {
-    ::unserialize(s, arg);
+    bcus::unserialize(s, arg);
 }
 
 template<typename Stream, typename Arg, typename... Args>
 void unserialize_many(Stream& s, Arg& arg, Args&... args)
 {
-    ::unserialize(s, arg);
-    ::unserialize_many(s, args...);
+    bcus::unserialize(s, arg);
+    bcus::unserialize_many(s, args...);
 }
 
 template<typename Stream, typename... Args>
 void ser_read_write_many(Stream& s, ser_action_serialize ser_action, Args&&... args)
 {
-    ::serialize_many(s, std::forward<Args>(args)...);
+    bcus::serialize_many(s, std::forward<Args>(args)...);
 }
 
 template<typename Stream, typename... Args>
 void ser_read_write_many(Stream& s, ser_action_unserialize ser_action, Args&... args)
 {
-    ::unserialize_many(s, args...);
+    bcus::unserialize_many(s, args...);
 }
 
 }
