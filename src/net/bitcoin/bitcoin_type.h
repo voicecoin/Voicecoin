@@ -7,6 +7,7 @@
 #include "string_helper.h"
 #include "endpoint.h"
 #include "cipher.h"
+#include <stdexcept>
 
 namespace bcus {
 

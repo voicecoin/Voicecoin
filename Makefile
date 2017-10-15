@@ -4,13 +4,14 @@ PTRADE_VERSION=PTRADE_NG_1_61 ## PTRADE_1_59 | PTRADE_1_61 | PTRADE_NG_1_61
 GTEST=$(HOME)/local/gtest
 EXE1=bcus.out
 
-INC_DIR = -I/usr/include  -I$(GTEST)/include
+INC_DIR = -I/usr/include
 LIB_DIR = -L/usr/local/lib
-#LIBS=-lboost_system -lboost_date_time -lboost_thread -lxerces-c
-LIBS = -lpthread $(GTEST)/lib/libgtest.a
+LIBS=-lboost_system -lboost_thread -lminiupnpc -lboost_filesystem
+LIBS += -lpthread -lleveldb -lcrypto -lssl
 
 DIR_LIST += ./src  ./src/common  ./src/main  ./src/net ./src/tinyxml2
-
+DIR_LIST +=  ./src/biz  ./src/blockchain ./src/crypt
+DIR_LIST += ./src/net/cc ./src/net/http
 
 ###############################################################
 ################# common frame ################################

@@ -90,6 +90,7 @@ inline bool endpoint::empty() const {
     } else {
         return true;
     }
+    return false;
 }
 inline const char *endpoint::ip() const {
     if (is_v4()) {
@@ -99,6 +100,7 @@ inline const char *endpoint::ip() const {
     } else {
         return "";
     }
+    return "";
 }
 inline uint32_t endpoint::ip_data() const {
     uint32_t v;

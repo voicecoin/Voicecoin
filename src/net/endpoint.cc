@@ -65,6 +65,7 @@ std::string endpoint::to_string() const
     } else {
         return "";
     }
+    return "";
 }
 
 static inline int check_ip(const char *ip) {

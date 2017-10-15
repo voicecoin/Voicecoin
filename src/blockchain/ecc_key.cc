@@ -2,6 +2,7 @@
 #include "ecc_key.h"
 #include <openssl/obj_mac.h>
 #include <openssl/ecdsa.h>
+#include <stdexcept>
 
 namespace bcus {
 
