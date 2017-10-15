@@ -11,6 +11,7 @@
 #include "main_thread.h"
 #include "wallet.h"
 #include "loghelper.h"
+#include "cc_server_thread.h"
 #ifdef _MSC_VER
 #include <windows.h>
 #endif
@@ -517,6 +518,10 @@ bool block_chain::add_new_transaction(transaction &tran, bool from_me)
     if (from_me)
     {
         // TODO: send to network
+        buff_stream bs;
+        bs << tran;
+        cc_server_thread::get_instance()->send_to_all(
+            bs.data(), bs.size());
     }
 
     transaction_ptr ptr(new transaction(tran));

@@ -2,6 +2,8 @@
 #include <boost/bind.hpp>
 #include "wallet.h"
 #include <iostream>
+#include "cc_server_thread.h"
+
 namespace bcus {
 
 main_thread &main_thread::instance()
@@ -52,6 +54,10 @@ void main_thread::do_accept_new_block(block *blk, bool from_me)
         if (from_me)
         {
             // todo
+            buff_stream bs;
+            bs << *blk;
+            cc_server_thread::get_instance()->send_to_all(
+                bs.data(), bs.size());
         }
     }
     do_start_mining();
