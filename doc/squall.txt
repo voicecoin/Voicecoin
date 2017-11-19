@@ -1,0 +1,33 @@
+network documents
+http://www.wanbizu.com/p/11462.html
+http://8btc.com/thread-21221-1-1.html
+https://www.cnblogs.com/wintersun/p/3813424.html
+http://8btc.com/article-1785-1.html
+http://www.360doc.com/content/16/0912/08/12545397_590179174.shtml
+http://blog.csdn.net/hacode/article/details/40422535
+
+Testnet出块查询网站：
+http://blockexplorer.com/testnet
+免费领取bitcoin testnet网站：
+http://testnet.mojocoin.com/
+
+compile
+./configure --with-gui=qt5 --prefix=/home/zhaogang/install
+./src/namecoin-tx
+./src/namecoind
+./src/namecoin-cli
+./src/namecoin-qt
+
+run commond lists
+./namecoin-cli help
+./namecoin-cli getblockcount 
+./namecoin-cli getnewaddress
+./namecoin-cli getreceivedbyaddress N4xE1kAyo7qwFBRcwALvX2bjTmRPcBrXmu
+./namecoin-cli dumpprivkey N4xE1kAyo7qwFBRcwALvX2bjTmRPcBrXmu
+./namecoin-cli listtransactions
+./namecoin-cli getaddressesbyaccount ""
+./namecoin-cli getbalance
+
+./namecoind -server ; 命令行提示符下的标准 Bitcoin 比特币客户端，提供 JSON-RPC 接口 (另参见标准客户端的 -server 选项)  
+
+./namecoin-qt   ; 基于 C++/Qt 的 Bitcoin 比特币客户端图形化界面，支持 Linux/MacOSX/Windows，全功能。现官方客户端使用
