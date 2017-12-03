@@ -1,0 +1,4 @@
+test/test_test_emercoin-sighash_tests.o: test/sighash_tests.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

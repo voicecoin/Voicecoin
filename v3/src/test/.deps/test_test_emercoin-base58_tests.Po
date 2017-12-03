@@ -1,0 +1,4 @@
+test/test_test_emercoin-base58_tests.o: test/base58_tests.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

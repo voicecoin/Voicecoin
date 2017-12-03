@@ -1,0 +1,4 @@
+test/test_test_emercoin-script_tests.o: test/script_tests.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

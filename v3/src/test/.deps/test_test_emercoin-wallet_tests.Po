@@ -1,0 +1,4 @@
+test/test_test_emercoin-wallet_tests.o: test/wallet_tests.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

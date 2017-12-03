@@ -1,0 +1,4 @@
+test/test_test_emercoin-miner_tests.o: test/miner_tests.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:
