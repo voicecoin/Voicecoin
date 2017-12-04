@@ -156,10 +156,10 @@ public:
         assert(hashGenesisBlock == uint256("0x00000000bcccd459d036a588d1008fce8da3754b205736f32ddfd35350e84c2d"));
         assert(genesis.hashMerkleRoot == uint256("0xd8eee032f95716d0cf14231dc7a238b96bbf827e349e75344c9a88e849262ee0"));
 
-        vSeeds.push_back(CDNSSeedData("emercoin.com", "seed.emercoin.com"));
-        vSeeds.push_back(CDNSSeedData("emercoin.net", "seed.emercoin.net"));
-        vSeeds.push_back(CDNSSeedData("emergate.net", "seed.emergate.net"));
-        vSeeds.push_back(CDNSSeedData("emcdns", "seed.emc"));
+       // vSeeds.push_back(CDNSSeedData("emercoin.com", "seed.emercoin.com"));
+       // vSeeds.push_back(CDNSSeedData("emercoin.net", "seed.emercoin.net"));
+       // vSeeds.push_back(CDNSSeedData("emergate.net", "seed.emergate.net"));
+       // vSeeds.push_back(CDNSSeedData("emcdns", "seed.emc"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(33);   // emercoin: addresses begin with 'E'
         base58Prefixes[SCRIPT_ADDRESS] = list_of(92);   // emercoin: addresses begin with 'e'
@@ -167,10 +167,10 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
 
-        convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
+       // convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
-        fRequireRPCPassword = true;
-        fMiningRequiresPeers = true;
+        fRequireRPCPassword = false;
+        fMiningRequiresPeers = false;
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
@@ -286,7 +286,7 @@ public:
         fAllowMinDifficultyBlocks = true;
         fDefaultConsistencyChecks = true;
         fRequireStandard = false;
-        fMineBlocksOnDemand = true;
+        fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const 

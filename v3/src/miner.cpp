@@ -526,6 +526,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
 
     try {
         while (true) {
+	    LogPrintf("BitcoinMiner 1111\n");
             if (Params().MiningRequiresPeers()) {
                 // Busy-wait for the network to come online so we don't waste time mining
                 // on an obsolete chain. In regtest mode we expect to fly solo.
@@ -540,7 +541,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
                     MilliSleep(5000);
                 } while (true);
             }
-
+	    LogPrintf("BitcoinMiner 1112\n");
             while (pwallet->IsLocked())
             {
                 strMintWarning = strMintMessage;
@@ -551,6 +552,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
             //
             // Create new block
             //
+	    LogPrintf("BitcoinMiner 1113\n");
             unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
             CBlockIndex* pindexPrev = chainActive.Tip();
 
@@ -566,7 +568,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
                 MilliSleep(pos_timio);
                 continue;
             }
-
+	    LogPrintf("BitcoinMiner 1114\n");
             if (!pblocktemplate.get())
             {
                 LogPrintf("Error in EmercoinMiner: Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
@@ -610,6 +612,8 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
             uint32_t nNonce = 0;
             uint32_t nOldNonce = 0;
             while (true) {
+		//LogPrintf("BitcoinMiner 2001\n");
+
                 bool fFound = ScanHash(pblock, nNonce, &hash);
                 uint32_t nHashesDone = nNonce - nOldNonce;
                 nOldNonce = nNonce;
@@ -642,7 +646,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
                         break;
                     }
                 }
-
+		//LogPrintf("BitcoinMiner 2002\n");
                 // Meter hashes/sec
                 static int64_t nHashCounter;
                 if (nHPSTimerStart == 0)
@@ -709,6 +713,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
         LogPrintf("EmercoinMiner runtime error: %s\n", e.what());
         return;
     }
+    LogPrintf("BitcoinMiner 3001\n");
 }
 
 void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads)
