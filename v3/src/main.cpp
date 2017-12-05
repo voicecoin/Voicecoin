@@ -1292,12 +1292,21 @@ bool IsInitialBlockDownload()
       LOCK(cs_main);
  
       if (fImporting || fReindex)
-        break; // ret true
+	{
+	    LogPrintf("IsInitialBlockDownload fImporting || fReindex\n");
+	    break; // ret true
+	}
+       
  
       int cah = chainActive.Height();
-
+	
       if(cah < Checkpoints::GetTotalBlocksEstimate() || cah < pindexBestHeader->nHeight - 24 * 6)
-        break; // ret true
+	{
+	    LogPrintf("IsInitialBlockDownload cah=%d,total=%d,height=%d\n",cah,Checkpoints::GetTotalBlocksEstimate(),
+		pindexBestHeader->nHeight - 24 * 6);
+	    break; // ret true
+	}
+	
 
       rc = pindexBestHeader->GetBlockTime() < GetTime() - chainParams.MaxTipAge();
 

@@ -55,12 +55,12 @@ static void convertSeed6(std::vector<CAddress> &vSeedsOut, const SeedSpec6 *data
 static Checkpoints::MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
         ( 0,     uint256("0x00000000bcccd459d036a588d1008fce8da3754b205736f32ddfd35350e84c2d"))
-        ( 25000, uint256("0x20cc6639e9593e4e9344e1d40a234c552da81cb90b991aed6200ff0f72a69719"))
-        ( 50000, uint256("0x4c3d02a982bcb47ed9e076f754870606a6892d258720dc13863e10badbfd0e78"))
-        (100000, uint256("0x0000000000000071c614fefb88072459cced7b9d9a9cffd04064d3c3d539ecaf"))
-        (150000, uint256("0x5d317133f36b13ba3cd335c142e51d7e7007c0e72fd8a0fef48d0f4f63f7827a"))
-        (200000, uint256("0x7af70a03354a9ae3f9bf7f6a1dd3da6b03dcc14f8d6ad237095d73dbeaf5184c"))
         ;
+  	//( 25000, uint256("0x20cc6639e9593e4e9344e1d40a234c552da81cb90b991aed6200ff0f72a69719"))
+        //( 50000, uint256("0x4c3d02a982bcb47ed9e076f754870606a6892d258720dc13863e10badbfd0e78"))
+        //(100000, uint256("0x0000000000000071c614fefb88072459cced7b9d9a9cffd04064d3c3d539ecaf"))
+        //(150000, uint256("0x5d317133f36b13ba3cd335c142e51d7e7007c0e72fd8a0fef48d0f4f63f7827a"))
+       // (200000, uint256("0x7af70a03354a9ae3f9bf7f6a1dd3da6b03dcc14f8d6ad237095d73dbeaf5184c"))
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
         1455207714, // * UNIX timestamp of last checkpoint block
@@ -106,8 +106,10 @@ public:
         pchMessageStart[2] = 0xe9;
         pchMessageStart[3] = 0xe5;
         nDefaultPort = 6661;
-        bnProofOfWorkLimit = ~uint256(0) >> 32;
-        bnInitialHashTarget = ~uint256(0) >> 32;
+       // bnProofOfWorkLimit = ~uint256(0) >> 32;
+       // bnInitialHashTarget = ~uint256(0) >> 32;
+	bnProofOfWorkLimit = ~uint256(0) >> 1;
+	bnInitialHashTarget = ~uint256(0) >> 1;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
@@ -153,8 +155,8 @@ public:
         genesis.nNonce   = 139946546u;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000000bcccd459d036a588d1008fce8da3754b205736f32ddfd35350e84c2d"));
-        assert(genesis.hashMerkleRoot == uint256("0xd8eee032f95716d0cf14231dc7a238b96bbf827e349e75344c9a88e849262ee0"));
+       // assert(hashGenesisBlock == uint256("0x00000000bcccd459d036a588d1008fce8da3754b205736f32ddfd35350e84c2d"));
+       // assert(genesis.hashMerkleRoot == uint256("0xd8eee032f95716d0cf14231dc7a238b96bbf827e349e75344c9a88e849262ee0"));
 
        // vSeeds.push_back(CDNSSeedData("emercoin.com", "seed.emercoin.com"));
        // vSeeds.push_back(CDNSSeedData("emercoin.net", "seed.emercoin.net"));
