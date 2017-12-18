@@ -1,0 +1,26 @@
+
+1. London CentOS Linux release 7.3.1611 (Core)
+45.76.129.96
+Q9m.8n2RD*Ej4(j]
+
+2. Frankfurt FreeBSD 11.1
+45.76.86.99 
+Dt3@#q#-c}$9=R=j
+
+3. Silicon Valley
+45.63.95.30
+v#R9z4bzkoFanmKB
+
+4. Sedney Debian 4.9.30
+45.76.118.175
+7%zH?ocb1zN1x#ZV
+
+5.Tokyo Ubuntu 17.04
+45.32.255.195 
+Pa9{FVxyKwBsrAL*
+
+curl -d '{"method":"getrawmempool", "id":1}' 'http://zhao:gang@45.32.255.195:6662/' -v
+
+export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:/opt/app/namecoin/lib:/opt/app/namecoin/deps
+
+./emercoind -checkpoints=0 -daemon -listenonion=0 -rpcallowip=114.80.133.7 -rpcallowip=114.80.133.7 -rpcallowip=192.168.101.202 -rpcallowip=127.0.0.1 -rpcallowip=61.172.240.228 -rpcallowip=47.89.23.159 -rpcallowip=183.192.25.29 -rpcallowip=45.76.129.96 -rpcallowip=139.226.4.24 -debug
