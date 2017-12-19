@@ -23,4 +23,4 @@ curl -d '{"method":"getrawmempool", "id":1}' 'http://zhao:gang@45.32.255.195:666
 
 export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:/opt/app/namecoin/lib:/opt/app/namecoin/deps
 
-./emercoind -checkpoints=0 -daemon -listenonion=0 -rpcallowip=114.80.133.7 -rpcallowip=114.80.133.7 -rpcallowip=192.168.101.202 -rpcallowip=127.0.0.1 -rpcallowip=61.172.240.228 -rpcallowip=47.89.23.159 -rpcallowip=183.192.25.29 -rpcallowip=45.76.129.96 -rpcallowip=139.226.4.24 -debug
+./emercoind -checkpoints=0 -daemon -listenonion=0 -rpcallowip=114.80.133.7 -rpcallowip=114.80.133.7 -rpcallowip=192.168.101.202 -rpcallowip=127.0.0.1 -rpcallowip=61.172.240.228 -rpcallowip=47.89.23.159 -rpcallowip=183.192.25.29 -rpcallowip=45.76.129.96 -rpcallowip=139.226.4.24 -rpcallowip=103.215.188.199 -debug
