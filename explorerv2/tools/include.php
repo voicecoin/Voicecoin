@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+error_reporting(0);
 $dbconn = new mysqli("localhost", "root","zhaogang", "emcchain");
 // Check connection
 if ($dbconn->connect_error) {
