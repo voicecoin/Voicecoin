@@ -48,7 +48,7 @@ if (isset($_GET['address'])) {
 		//echo $row['id']." ".$row['value']." ".$row['time']." ".$row['vin']."<br>";
 	}
 	echo '<table class="table">
-			<tr><th>'.lang("RECEIVED_TX").'</th><th>'.lang("COINS_COINS").'</th><th>'.lang("AGE_AGE").' ['.lang("DAYS_DAYS").']</th><th>'.lang("AVG_AGE").' [<small><sup>'.lang("DAYS_DAYS").'</sup>/<sub>'.lang("COIN_COIN").'</sub></small>]</th><th>'.lang("MINTING_CHANCE").' <small><sub>'.lang("WITHIN_H").'</sub></small> [%]</th><th>'.lang("ESTIMATED_REWARD").' [EMC]</th>';
+			<tr><th>'.lang("RECEIVED_TX").'</th><th>'.lang("COINS_COINS").'</th><th>'.lang("AGE_AGE").' ['.lang("DAYS_DAYS").']</th><th>'.lang("AVG_AGE").' [<small><sup>'.lang("DAYS_DAYS").'</sup>/<sub>'.lang("COIN_COIN").'</sub></small>]</th><th>'.lang("MINTING_CHANCE").' <small><sub>'.lang("WITHIN_H").'</sub></small> [%]</th><th>'.lang("ESTIMATED_REWARD").' [VC]</th>';
 	
 	foreach ($unspend_coins as $coins) {
 		$value=$coins['value'];

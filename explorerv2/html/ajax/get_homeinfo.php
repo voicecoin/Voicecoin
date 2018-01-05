@@ -40,8 +40,8 @@ function TrimTrailingZeroes($nbr) {
 			echo '<h3><strong>'.lang('WELCOME_EXPLORER').'</strong></h3>';
 			echo '<p>'.lang('LATEST_BLOCK').': <a href=/block/'.$block_hash.'>'.$block_height.'</a><br>';
 			echo lang('CONFIRMED_TRANSACTIONS').': '.$block_numtx.'<br>';
-			echo lang('TRANSACTION_VOLUME').': '.TrimTrailingZeroes(number_format($block_valueout,6)).' EMC</p>';
-			echo '<p>'.lang('COINS_AVAILABLE').': '.TrimTrailingZeroes(number_format($block_total_coins,6)).' EMC<br>';
+			echo lang('TRANSACTION_VOLUME').': '.TrimTrailingZeroes(number_format($block_valueout,6)).' VC</p>';
+			echo '<p>'.lang('COINS_AVAILABLE').': '.TrimTrailingZeroes(number_format($block_total_coins,6)).' VC<br>';
 			echo lang('POW_DIFFICULTY').': '.TrimTrailingZeroes(number_format($pow_difficulty,8)).'<br>';
 			echo lang('POS_DIFFICULTY').': '.TrimTrailingZeroes(number_format($pos_difficulty,8)).'</p>';
 			echo '<p><a class="btn btn-primary btn-lg" href="/chain" role="button">'.lang('EXPLORE_EXPLORE').'</a></p>';

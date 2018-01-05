@@ -111,9 +111,9 @@ arsort($addressbalances);
 echo'
 <h4><strong>Estimated Account Value</strong></h4>
 <table class="table">
-	<tr><td><h3>Balance</h3></td><td width="75%"><h3><span class="label label-success">'.TrimTrailingZeroes(number_format($balance,8)).' EMC</span></h3></td></tr>';
+	<tr><td><h3>Balance</h3></td><td width="75%"><h3><span class="label label-success">'.TrimTrailingZeroes(number_format($balance,8)).' VC</span></h3></td></tr>';
 foreach ($addressbalances as $key => $value) {
-	if ($value>0) {echo '<tr><td>'.$key.'</td><td>'.$value." EMC</td></tr>";}
+	if ($value>0) {echo '<tr><td>'.$key.'</td><td>'.$value." VC</td></tr>";}
 }
 echo '</table>';
 echo '<button class="btn btn-xs btn-primary" type="button" data-toggle="collapse" data-target="#unusedAddresses" aria-expanded="false" aria-controls="unusedAddresses">

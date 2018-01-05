@@ -87,17 +87,17 @@ if (isset($hash) && $hash!="") {
 				echo '
 				<tr><td>'.lang("TIME_TIME").'</td><td>'.$time.'</td></tr>
 				<tr><td class="text-'.$flagcolor.'">'.$flag.'</span> '.lang("DIFFICULTY_DIFFICULTY").'</td><td>'.TrimTrailingZeroes(number_format($difficulty,8)).'</td></tr>
-				<tr><td>'.lang("COINS_AVAILABLE").'</td><td>'.TrimTrailingZeroes(number_format($total_coins,8)).' EMC</td></tr>
+				<tr><td>'.lang("COINS_AVAILABLE").'</td><td>'.TrimTrailingZeroes(number_format($total_coins,8)).' VC</td></tr>
 				<tr><td>'.lang("AVG_AGE").'</td><td>'.TrimTrailingZeroes(number_format($total_avgcoindays,8)).' '.lang("DAYS_DAYS").'</td></tr>
 				<tr><td>'.lang("NONCE_NONCE").'</td><td>'.$nonce.'</td></tr>
 				<tr><td>'.lang("MERKLE_ROOT").'</td><td>'.$merkleroot.'</td></tr>
 				<tr><td>'.lang("TRANSACTIONS_TRANSACTIONS").'</td><td>'.$numtx.'</td></tr>
-				<tr><td>'.lang("INPUTS_INPUTS").'</td><td><span class="label label-danger">'.$numvin.' / '.$valuein.' EMC</span></td></tr>
-				<tr><td>'.lang("OUTPUTS_OUTPUTS").'</td><td><span class="label label-success">'.$numvout.' / '.$valueout.' EMC</span></td></tr>
-				<tr><td>'.lang("MINT_MINT").'</td><td><span class="label label-primary">'.$mint.' EMC</span></td></tr>
+				<tr><td>'.lang("INPUTS_INPUTS").'</td><td><span class="label label-danger">'.$numvin.' / '.$valuein.' VC</span></td></tr>
+				<tr><td>'.lang("OUTPUTS_OUTPUTS").'</td><td><span class="label label-success">'.$numvout.' / '.$valueout.' VC</span></td></tr>
+				<tr><td>'.lang("MINT_MINT").'</td><td><span class="label label-primary">'.$mint.' VC</span></td></tr>
 				<tr><td>'.lang("SIZE_SIZE").'</td><td>'.TrimTrailingZeroes(number_format($size,2)).' kiB</td></tr>
-				<tr><td>'.lang("FEE_FEE").'</td><td>'.TrimTrailingZeroes(number_format($feeWOmint,8)).' EMC</td></tr>
-				<tr><td>'.lang("COIN_DESTROYED").'</td><td>'.TrimTrailingZeroes(number_format($coindaysdestroyed,8)).' '.lang("COIN_COIN").'*'.lang("DAYS_DAYS").' / '.$valuein.' EMC = '.TrimTrailingZeroes(number_format($avgcoindaysdestroyed,8)).' '.lang("DAYS_DAYS").'</sub></td></tr>
+				<tr><td>'.lang("FEE_FEE").'</td><td>'.TrimTrailingZeroes(number_format($feeWOmint,8)).' VC</td></tr>
+				<tr><td>'.lang("COIN_DESTROYED").'</td><td>'.TrimTrailingZeroes(number_format($coindaysdestroyed,8)).' '.lang("COIN_COIN").'*'.lang("DAYS_DAYS").' / '.$valuein.' VC = '.TrimTrailingZeroes(number_format($avgcoindaysdestroyed,8)).' '.lang("DAYS_DAYS").'</sub></td></tr>
 				</table>
 
 
@@ -161,7 +161,7 @@ if (isset($hash) && $hash!="") {
 					$input.='<hr>';
 				}
 				if (($row['coinbase'])!="") {
-					$input.='coinbase<br>0 EMC</td>';
+					$input.='coinbase<br>0 VC</td>';
 				} else {
 					if ($row['address']=="") {
 						$address="N/A";
@@ -172,7 +172,7 @@ if (isset($hash) && $hash!="") {
 					if ($address!="N/A") {
 						$input.='<a href="/cointrace/received/vin/'.$vid.'" target="_blank"><button type="button" class="btn btn-link" style="padding:0"><i class="fa fa-code-fork fa-rotate-270"></button></a></i>';
 					}
-					$input.=' <span class="label label-danger">'.TrimTrailingZeroes(number_format($row['sent'],8)).' EMC</span> <sub>'.TrimTrailingZeroes(number_format($row['avgcoindaysdestroyed'],2)).' Days</sub><br>';
+					$input.=' <span class="label label-danger">'.TrimTrailingZeroes(number_format($row['sent'],8)).' VC</span> <sub>'.TrimTrailingZeroes(number_format($row['avgcoindaysdestroyed'],2)).' Days</sub><br>';
 					$countvin++;
 				}
 			}
@@ -190,7 +190,7 @@ if (isset($hash) && $hash!="") {
 				if ($address!="N/A") {
 					$output.='<a href="/cointrace/received/vout/'.$vid.'" target="_blank"><button type="button" class="btn btn-link" style="padding:0"><i class="fa fa-code-fork fa-rotate-270"></button></a></i>';
 				}
-				$output.=' <span class="label label-success">'.TrimTrailingZeroes(number_format($row['received'],8)).' EMC</span>';
+				$output.=' <span class="label label-success">'.TrimTrailingZeroes(number_format($row['received'],8)).' VC</span>';
 				$countvout++;
 			}
 			$fee=$row['fee'];

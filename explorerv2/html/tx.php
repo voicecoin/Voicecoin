@@ -49,14 +49,14 @@ if ($hash!="") {
 				<table class="table">
 					<tr><td>'.lang("CONFIRMED_BLOCK").'</td><td width="75%"><a href="/block/'.$blockhash.'" class="btn btn-primary btn-xs" role="button">'.$height.'</a></td></tr>
 					<tr><td>'.lang("TIME_TIME").'</td><td>'.$time.'</td></tr>
-					<tr><td>'.lang("INPUTS_INPUTS").'</td><td><span class="label label-danger">'.TrimTrailingZeroes(number_format($numvin,0)).' / '.TrimTrailingZeroes(number_format($valuein,8)).' EMC</span></td></tr>
-					<tr><td>'.lang("OUTPUTS_OUTPUTS").'</td><td><span class="label label-success">'.TrimTrailingZeroes(number_format($numvout,0)).' / '.TrimTrailingZeroes(number_format($valueout,8)).' EMC</span></td></tr>';
+					<tr><td>'.lang("INPUTS_INPUTS").'</td><td><span class="label label-danger">'.TrimTrailingZeroes(number_format($numvin,0)).' / '.TrimTrailingZeroes(number_format($valuein,8)).' VC</span></td></tr>
+					<tr><td>'.lang("OUTPUTS_OUTPUTS").'</td><td><span class="label label-success">'.TrimTrailingZeroes(number_format($numvout,0)).' / '.TrimTrailingZeroes(number_format($valueout,8)).' VC</span></td></tr>';
 					if ($fee<0) {
-						echo '<tr><td>'.lang("MINT_MINT").'</td><td>'.($fee*(-1)).' EMC</td></tr>';
+						echo '<tr><td>'.lang("MINT_MINT").'</td><td>'.($fee*(-1)).' VC</td></tr>';
 					} else {
-						echo '<tr><td>'.lang("FEE_FEE").'</td><td>'.$fee.' EMC</td></tr>';
+						echo '<tr><td>'.lang("FEE_FEE").'</td><td>'.$fee.' VC</td></tr>';
 					}
-					echo '<tr><td>'.lang("COIN_DESTROYED").'</td><td>'.TrimTrailingZeroes(number_format($coindaysdestroyed,8)).' '.lang("COIN_COIN").'*'.lang("DAYS_DAYS").' / '.$valuein.' EMC = '.TrimTrailingZeroes(number_format($avgcoindaysdestroyed,8)).' '.lang("DAYS_DAYS").'</sub></td></tr>
+					echo '<tr><td>'.lang("COIN_DESTROYED").'</td><td>'.TrimTrailingZeroes(number_format($coindaysdestroyed,8)).' '.lang("COIN_COIN").'*'.lang("DAYS_DAYS").' / '.$valuein.' VC = '.TrimTrailingZeroes(number_format($avgcoindaysdestroyed,8)).' '.lang("DAYS_DAYS").'</sub></td></tr>
 				</table>
 
 			</div>
@@ -69,7 +69,7 @@ if ($hash!="") {
 			<div class="panel-body">
 
 				<table class="table">
-					<tr><th>'.lang("RECEIVED_TX").'</th><th>'.lang("TRACE_TRACE").'</th><th>'.lang("VALUE_VALUE").' [EMC]</th><th>'.lang("ADDRESS_ADDRESS").'</th><th>'.lang("COIN_DAYS").' ['.lang("DAYS_DAYS").']</th></tr>';
+					<tr><th>'.lang("RECEIVED_TX").'</th><th>'.lang("TRACE_TRACE").'</th><th>'.lang("VALUE_VALUE").' [VC]</th><th>'.lang("ADDRESS_ADDRESS").'</th><th>'.lang("COIN_DAYS").' ['.lang("DAYS_DAYS").']</th></tr>';
 					$query_vin = "SELECT id, coinbase, output_txid, address, value, coindaysdestroyed, avgcoindaysdestroyed
 							FROM vin
 							WHERE blockid='$blockid' AND parenttxid='$tx_db_id'";
@@ -115,7 +115,7 @@ if ($hash!="") {
 			<div class="panel-body">
 
 				<table class="table">
-					<tr><th>'.lang("SPEND_TX").'</th><th>'.lang("TRACE_TRACE").'</th><th>'.lang("VALUE_VALUE").' [EMC]</th><th>'.lang("ADDRESS_ADDRESS").'</th></tr>';
+					<tr><th>'.lang("SPEND_TX").'</th><th>'.lang("TRACE_TRACE").'</th><th>'.lang("VALUE_VALUE").' [VC]</th><th>'.lang("ADDRESS_ADDRESS").'</th></tr>';
 					$query_vout = "SELECT id, address, value, n
 							FROM vout
 							WHERE blockid='$blockid' AND parenttxid='$tx_db_id' ORDER BY n";

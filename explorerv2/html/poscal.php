@@ -28,7 +28,7 @@
 	    </div>
 		<div class="col-sm-8">
 	    	<table class="table">
-						<tr><th colspan="2"><?php echo lang("MINTING_CHANCE");?></th><th><?php echo lang("ESTIMATED_REWARD");?> [EMC]</th><tr>
+						<tr><th colspan="2"><?php echo lang("MINTING_CHANCE");?></th><th><?php echo lang("ESTIMATED_REWARD");?> [VC]</th><tr>
 						<tr><td id="mintChance10mHead" width="15%">31d +10m</td><td width="60%">
 							<div class="progress">
   							<div id="mintChance10mTD" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
@@ -51,7 +51,7 @@
 	    </div>
 	  </div>
 	  <hr>
-		<h2>Proof-of-Work - Merged Mining - EMC/BTC </h2>
+		<h2>Proof-of-Work - Merged Mining - VC/BTC </h2>
 		<div class="row">
 	    <div class="col-sm-offset-2 col-sm-8">
 	      Hashrate [TH/s] <input type="input" class="form-control" id="inputHashrate" placeholder="Hashrate [TH/s]">
@@ -59,7 +59,7 @@
 	  </div>
 	  <div class="row">
 	    <div class="col-sm-offset-2 col-sm-8">
-	      EMC PoW Difficulty <input type="input" class="form-control" id="inputPoWDiff" placeholder="EMC PoW-Difficulty" value="<?php echo $powDifficulty; ?>">
+	      VC PoW Difficulty <input type="input" class="form-control" id="inputPoWDiff" placeholder="VC PoW-Difficulty" value="<?php echo $powDifficulty; ?>">
 	    </div>
 	  </div>
 	  <div class="row">
@@ -73,7 +73,7 @@
 	    </div>
 		<div class="col-sm-8">
 	    	<table class="table">
-					<tr><th>Avg. time to find a EMC block</th><th>Est. reward per day [EMC]</th><th>PoW Block Reward [EMC]</th><tr>
+					<tr><th>Avg. time to find a VC block</th><th>Est. reward per day [VC]</th><th>PoW Block Reward [VC]</th><tr>
 					<tr><td id="powTimeToFindTD">-</td><td id="powPerDayTD">-</td><td id="powRewardTD"><?php echo $powReward; ?></td></tr>
 				</table>
 	    </div>

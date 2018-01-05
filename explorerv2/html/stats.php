@@ -343,7 +343,7 @@ function TrimTrailingZeroes($nbr) {
 			<table class="table">
 			<?php
 				echo '<tr><td width="25%">'.lang('CHAIN_LENGTH').'</td><td width="15%">'.$height.' '.lang('BLOCKS_BLOCKS').'</td><td><span class="label label-'.$block_color.'">'.TrimTrailingZeroes(number_format($block_estimate,2)).'</span> <span class="label label-'.$pos_blocks_color.'">PoS: '.TrimTrailingZeroes(number_format($pos_blocks_estimate,2)).'</span> <span class="label label-'.$pow_blocks_color.'">PoW: '.TrimTrailingZeroes(number_format($pow_blocks_estimate,2)).'</span></td></tr>';
-				echo '<tr><td>'.lang('COINS_AVAILABLE').'</td><td>'.TrimTrailingZeroes(number_format($total_coins,2)).' EMC</td><td><span class="label label-'.$mint_color.'">'.TrimTrailingZeroes(number_format($mint_estimate,2)).' EMC</span> <span class="label label-'.$mint_color.'">'.lang('ANNUAL_GROWTH').': '.TrimTrailingZeroes(number_format($annual_inflation,2)).' %</span></td></tr>';
+				echo '<tr><td>'.lang('COINS_AVAILABLE').'</td><td>'.TrimTrailingZeroes(number_format($total_coins,2)).' VC</td><td><span class="label label-'.$mint_color.'">'.TrimTrailingZeroes(number_format($mint_estimate,2)).' VC</span> <span class="label label-'.$mint_color.'">'.lang('ANNUAL_GROWTH').': '.TrimTrailingZeroes(number_format($annual_inflation,2)).' %</span></td></tr>';
 				echo '<tr><td>'.lang('POW_DIFFICULTY').'</td><td>'.TrimTrailingZeroes(number_format($current_pow_difficulty,2)).'</td><td><span class="label label-'.$pow_color.'">'.TrimTrailingZeroes(number_format($pow_estimate,2)).'</span></td></tr>';
 				echo '<tr><td>PoW Hashrate</td><td>'.TrimTrailingZeroes(number_format($current_pow_hashrate,2)).' TH/s</td><td><span class="label label-'.$hashrate_color.'">'.TrimTrailingZeroes(number_format($hashrate_estimate,2)).' TH/s</span></td></tr>';
 				echo '<tr><td>'.lang('POS_DIFFICULTY').'</td><td >'.TrimTrailingZeroes(number_format($current_pos_difficulty,2)).'</td><td><span class="label label-'.$pos_color.'">'.TrimTrailingZeroes(number_format($pos_estimate,2)).'</span></td></tr>';
@@ -368,11 +368,11 @@ function TrimTrailingZeroes($nbr) {
 			<table class="table">
 			<?php
 				echo '<tr><td>'.lang('BLOCKS_FOUND').'</td><td width="75%">'.$blocks.' (PoS:'.$pos.' / PoW:'.($blocks-$pos).')</td></tr>';
-				echo '<tr><td>'.lang('EMC_MINTED').'</td><td>'.TrimTrailingZeroes(number_format($minted,8)).' EMC</td></tr>';
+				echo '<tr><td>'.lang('EMC_MINTED').'</td><td>'.TrimTrailingZeroes(number_format($minted,8)).' VC</td></tr>';
 				echo '<tr><td>'.lang('MINUTES_BLOCKS').'</td><td>'.TrimTrailingZeroes(number_format((1440/$blocks),2)).'</td></tr>';
 				echo '<tr><td>'.lang('TRANSACTIONS_TRANSACTIONS').'</td><td>'.$transactions.'</td></tr>';
-				echo '<tr><td>'.lang('TOTAL_FEES').'</td><td>'.TrimTrailingZeroes(number_format($fees,8)).' EMC</td></tr>';
-				echo '<tr><td>'.lang('TOTAL_OUTPUT').'</td><td>'.TrimTrailingZeroes(number_format($tx_out,8)).' EMC</td></tr>';
+				echo '<tr><td>'.lang('TOTAL_FEES').'</td><td>'.TrimTrailingZeroes(number_format($fees,8)).' VC</td></tr>';
+				echo '<tr><td>'.lang('TOTAL_OUTPUT').'</td><td>'.TrimTrailingZeroes(number_format($tx_out,8)).' VC</td></tr>';
 				echo '<tr><td>'.lang('COIN_DESTROYED').'</td><td>'.TrimTrailingZeroes(number_format($coin_dest,8)).' => '.TrimTrailingZeroes(number_format(($coin_dest/$tx_in),8)).' '.lang('DAYS_COIN').'</td></tr>';
 			?>
 			</table>
@@ -385,8 +385,8 @@ function TrimTrailingZeroes($nbr) {
 			<table class="table">
 			<?php
 				echo '<tr><td>'.lang('TRANSACTIONS_TRANSACTIONS').'</td><td width="75%">'.$wo_totaltx.'</td></tr>';
-				echo '<tr><td>'.lang('TOTAL_FEES').'</td><td>'.TrimTrailingZeroes(number_format($wo_fees,7)).' EMC</td></tr>';
-				echo '<tr><td>'.lang('TOTAL_OUTPUT').'</td><td>'.TrimTrailingZeroes(number_format($wo_tx_out,8)).' EMC</td></tr>';
+				echo '<tr><td>'.lang('TOTAL_FEES').'</td><td>'.TrimTrailingZeroes(number_format($wo_fees,7)).' VC</td></tr>';
+				echo '<tr><td>'.lang('TOTAL_OUTPUT').'</td><td>'.TrimTrailingZeroes(number_format($wo_tx_out,8)).' VC</td></tr>';
 				echo '<tr><td>'.lang('COIN_DESTROYED').'</td><td>'.TrimTrailingZeroes(number_format($wo_coin_dest,8)).' => '.TrimTrailingZeroes(number_format($wo_avg_coin_dest,8)).' '.lang('DAYS_COIN').'</td></tr>';
 			?>
 			</table>

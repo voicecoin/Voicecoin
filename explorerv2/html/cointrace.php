@@ -157,7 +157,7 @@ if (isset($type) && isset($vinvout) && isset($id)) {
 			$L1_Address=$row1['address'];
 			$value=round((($row1['value']*20)/$maxValue),0);
 			$r=round((($row1['value']*20)/$maxValue),0);
-			$value=$row1['value']." EMC";
+			$value=$row1['value']." VC";
 			$L1_Value=$value;
 			if ($r<1){$r=1;}
 			if ($L1_Address==""){$L1_Address="Proof-of-Work";$value="";}
@@ -177,7 +177,7 @@ if (isset($type) && isset($vinvout) && isset($id)) {
 					$L2_Address=$row2['address'];
 					$value=round((($row2['value']*20)/$maxValue),0);
 					$r=round((($row2['value']*20)/$maxValue),0);
-					$value=$row2['value']." EMC";
+					$value=$row2['value']." VC";
 					if ($r<1){$r=1;}
 					if ($L2_Address=="" && ($row2['coinbase']!="")){$L2_Address="Proof-of-Work";$value="";}
 					if ($L2_Address=="" && ($row2['coinbase']=="")){$L2_Address="N/A";}
@@ -206,7 +206,7 @@ if (isset($type) && isset($vinvout) && isset($id)) {
 							$L3_Address=$row3['address'];
 							$value=round((($row3['value']*20)/$maxValue),0);
 							$r=round((($row3['value']*20)/$maxValue),0);
-							$value=$row3['value']." EMC";
+							$value=$row3['value']." VC";
 							if ($r<1){$r=1;}
 							if ($L3_Address=="" && ($row3['coinbase']!="")){$L3_Address="Proof-of-Work";$value="";}
 							if ($L3_Address=="" && ($row3['coinbase']=="")){$L3_Address="N/A";}
@@ -235,7 +235,7 @@ if (isset($type) && isset($vinvout) && isset($id)) {
 									$L4_Address=$row4['address'];
 									$value=round((($row4['value']*20)/$maxValue),0);
 									$r=round((($row4['value']*20)/$maxValue),0);
-									$value=$row4['value']." EMC";
+									$value=$row4['value']." VC";
 									if ($r<1){$r=1;}
 									if ($L4_Address=="" && ($row4['coinbase']!="")){$L4_Address="Proof-of-Work";$value="";}
 									if ($L4_Address=="" && ($row4['coinbase']=="")){$L4_Address="N/A";}

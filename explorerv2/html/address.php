@@ -51,9 +51,9 @@ if (isset($address) && $address!="") {
 					</div>
 			
 					<table class="table">
-					<tr><td><h3>'.lang("BALANCE_BALANCE").'</h3></td><td width="75%"><h3><span class="label label-success">'.TrimTrailingZeroes(number_format($balance,8)).' EMC</span></h3></td></tr>
-					<tr><td>'.lang("SENT_SENT").'</td><td><span class="label label-danger">'.TrimTrailingZeroes(number_format($sent_count,0)).' '.lang("INPUTS_INPUTS").' / '.TrimTrailingZeroes(number_format($sent_total,8)).' EMC</span></td></tr>
-					<tr><td>'.lang("RECEIVED_RECEIVED").'</td><td><span class="label label-success">'.TrimTrailingZeroes(number_format($received_count,0)).' '.lang("OUTPUTS_OUTPUTS").' / '.TrimTrailingZeroes(number_format($received_total,8)).' EMC</span></td></tr>
+					<tr><td><h3>'.lang("BALANCE_BALANCE").'</h3></td><td width="75%"><h3><span class="label label-success">'.TrimTrailingZeroes(number_format($balance,8)).' VC</span></h3></td></tr>
+					<tr><td>'.lang("SENT_SENT").'</td><td><span class="label label-danger">'.TrimTrailingZeroes(number_format($sent_count,0)).' '.lang("INPUTS_INPUTS").' / '.TrimTrailingZeroes(number_format($sent_total,8)).' VC</span></td></tr>
+					<tr><td>'.lang("RECEIVED_RECEIVED").'</td><td><span class="label label-success">'.TrimTrailingZeroes(number_format($received_count,0)).' '.lang("OUTPUTS_OUTPUTS").' / '.TrimTrailingZeroes(number_format($received_total,8)).' VC</span></td></tr>
 					</table>
 				</div>
 				</div>';
@@ -66,7 +66,7 @@ if (isset($address) && $address!="") {
 
 				<table id="tx_table" class="table table-striped tablesorter">
 				<thead>
-				<tr><th>'.lang("TX_ID").'</th><th>'.lang("TYPE_TYPE").'</th><th>'.lang("DATE_DATE").'</th><th>'.lang("VALUE_VALUE").' [EMC]</th><th>'.lang("BALANCE_BALANCE").' [EMC]</th></tr>
+				<tr><th>'.lang("TX_ID").'</th><th>'.lang("TYPE_TYPE").'</th><th>'.lang("DATE_DATE").'</th><th>'.lang("VALUE_VALUE").' [VC]</th><th>'.lang("BALANCE_BALANCE").' [VC]</th></tr>
 				</thead>
 				<tbody>';	
 				
@@ -153,9 +153,9 @@ if (isset($address) && $address!="") {
 					</div>
 			
 					<table class="table">
-					<tr><td><h3>'.lang("BALANCE_BALANCE").'</h3></td><td width="75%"><h3><span class="label label-success">0 EMC</span></h3></td></tr>
-					<tr><td>'.lang("SENT_SENT").'</td><td><span class="label label-danger">0 '.lang("INPUTS_INPUTS").' / 0 EMC</span></td></tr>
-					<tr><td>'.lang("RECEIVED_RECEIVED").'</td><td><span class="label label-success">0 '.lang("OUTPUTS_OUTPUTS").' / 0 EMC</span></td></tr>
+					<tr><td><h3>'.lang("BALANCE_BALANCE").'</h3></td><td width="75%"><h3><span class="label label-success">0 VC</span></h3></td></tr>
+					<tr><td>'.lang("SENT_SENT").'</td><td><span class="label label-danger">0 '.lang("INPUTS_INPUTS").' / 0 VC</span></td></tr>
+					<tr><td>'.lang("RECEIVED_RECEIVED").'</td><td><span class="label label-success">0 '.lang("OUTPUTS_OUTPUTS").' / 0 VC</span></td></tr>
 					</table>
 				</div>
 				</div>';
@@ -168,7 +168,7 @@ if (isset($address) && $address!="") {
 
 				<table id="tx_table" class="table table-striped tablesorter">
 				<thead>
-				<tr><th>'.lang("TX_ID").'</th><th>'.lang("TYPE_TYPE").'</th><th>'.lang("DATE_DATE").'</th><th>'.lang("VALUE_VALUE").' [EMC]</th><th>'.lang("BALANCE_BALANCE").' [EMC]</th></tr>
+				<tr><th>'.lang("TX_ID").'</th><th>'.lang("TYPE_TYPE").'</th><th>'.lang("DATE_DATE").'</th><th>'.lang("VALUE_VALUE").' [VC]</th><th>'.lang("BALANCE_BALANCE").' [VC]</th></tr>
 				</thead>
 				<tbody>';	
 		echo '</tbody>';
