@@ -267,7 +267,7 @@ if (isset($hash) && $hash!="") {
 					$filt_key = 'dpo:'.$brand.':'.$sn.':';
 					$filt_list = $emercoin->name_filter($filt_key);
 					if(empty($filt_list)) {
-					echo "Serial $sn not found in the Emercoin blockchain<br>";
+					echo "Serial $sn not found in the voicecoin blockchain<br>";
 					echo "<b>Verification: <font color='red'>FAILED</font></b>";
 					} else
 					foreach($filt_list as $item) { // Yterate item list

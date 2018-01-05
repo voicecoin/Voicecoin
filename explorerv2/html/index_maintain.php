@@ -34,7 +34,7 @@ if (!empty($_COOKIE["lang"])) {
 	<script src="/js/notify-custom.js" type="text/javascript"></script>
 	<script src="/js/highstock.js" type="text/javascript"></script>
 	<script src="/js/exporting.js" type="text/javascript"></script>
-	<title>Emercoin Blockchain</title>
+	<title>voicecoin Blockchain</title>
 </head>
 
 <body>
@@ -110,7 +110,7 @@ if (!empty($_COOKIE["lang"])) {
 			<?php echo lang('DO_SERVICE'); ?>
 		</button>
 		<br>
-		<sub><a href="https://hashflare.io/r/AD872628" target="_blank">Cloud Mining</a> | <a href="https://livecoin.net?from=Livecoin-20e00c47" target="_blank">Emercoin Exchange</a></sub>
+		<sub><a href="https://hashflare.io/r/AD872628" target="_blank">Cloud Mining</a> | <a href="https://livecoin.net?from=Livecoin-20e00c47" target="_blank">voicecoin Exchange</a></sub>
 		<font size="1%"><a href="emclnx/robotrap.php">&#21;</a></font>
 		<div class="collapse" id="collapseDonations">
 		<p class="text-muted"><sub>
@@ -121,7 +121,7 @@ if (!empty($_COOKIE["lang"])) {
 
 		<b><?php echo lang('REFERRAL_REFERRAL'); ?></b><br>
 			Start mining Bitcoins from $1.50 per 10GH/s here: <a href="https://hashflare.io/r/AD872628" target="_blank">Hashflare.io</a><br>
-			Sell your Bitcoins for Emercoins here: <a href="https://livecoin.net?from=Livecoin-20e00c47" target="_blank">Livecoin.net</a><br>
+			Sell your Bitcoins for voicecoins here: <a href="https://livecoin.net?from=Livecoin-20e00c47" target="_blank">Livecoin.net</a><br>
 		</sub></p>
 		</div>
 		<p class="text-muted">

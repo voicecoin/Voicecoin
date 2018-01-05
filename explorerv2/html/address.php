@@ -209,7 +209,7 @@ $(document).ready(function() {
 	});
 	
 	var qrcode = new QRCode("qr_well", {
-    text: "emercoin:<?php echo $address ?>",
+    text: "voicecoin:<?php echo $address ?>",
     width: 192,
     height: 192,
     colorDark : "#000000",

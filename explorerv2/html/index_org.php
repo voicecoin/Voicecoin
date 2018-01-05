@@ -114,7 +114,7 @@ if ($include_file=="api") {
 			cursor:pointer;
 		}
 	</style>
-	<title>Emercoin Blockchain</title>
+	<title>voicecoin Blockchain</title>
 </head>
 
 <body>
@@ -230,7 +230,7 @@ if ($include_file=="api") {
 			<?php echo lang('DO_SERVICE'); ?>
 		</button>
 		<br>
-		<sub><a href="https://dev.emercoin.mintr.org/api/help">API</a> | <a href="https://hashflare.io/r/AD872628" target="_blank">Cloud Mining</a> | <a href="https://livecoin.net?from=Livecoin-20e00c47" target="_blank">Emercoin Exchange</a></sub>
+		<sub><a href="https://dev.emercoin.mintr.org/api/help">API</a> | <a href="https://hashflare.io/r/AD872628" target="_blank">Cloud Mining</a> | <a href="https://livecoin.net?from=Livecoin-20e00c47" target="_blank">voicecoin Exchange</a></sub>
 		<font size="1%"><a href="emclnx/robotrap.php">&#21;</a></font>
 		<div class="collapse" id="collapseDonations">
 		<p class="text-muted"><sub>
@@ -241,7 +241,7 @@ if ($include_file=="api") {
 
 		<b><?php echo lang('REFERRAL_REFERRAL'); ?></b><br>
 			Start mining Bitcoins from $1.50 per 10GH/s here: <a href="https://hashflare.io/r/AD872628" target="_blank">Hashflare.io</a><br>
-			Sell your Bitcoins for Emercoins here: <a href="https://livecoin.net?from=Livecoin-20e00c47" target="_blank">Livecoin.net</a><br>
+			Sell your Bitcoins for voicecoins here: <a href="https://livecoin.net?from=Livecoin-20e00c47" target="_blank">Livecoin.net</a><br>
 		</sub></p>
 		</div>
 		<p class="text-muted">
