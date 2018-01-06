@@ -224,7 +224,7 @@ if ($include_file=="api") {
 		include ($include_file.".php");
 	?>
 	<!-- Ende include-->
-<footer class="footer">
+<!-- <footer class="footer">
       <div class="container" >
 		<button class="btn btn-xs btn-primary" type="button" data-toggle="collapse" data-target="#collapseDonations" aria-expanded="false" aria-controls="collapseDonations">
 			<?php echo lang('DO_SERVICE'); ?>
@@ -248,7 +248,7 @@ if ($include_file=="api") {
 		<sub><?php echo lang('INFO_FEEDBACK'); ?>: <a href="https://github.com/Valermos/emercoin-blockchain-explorer" target="_blank">GitHub</a> | <a href="mailto:admin@mintr.org">E-Mail</a></sub><br>
 		<sub>v.1.8.2</sub></p>
       </div>
-</footer>
+</footer> -->
 </body>
 
 </html>
