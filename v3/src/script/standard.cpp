@@ -155,7 +155,7 @@ bool Solver(const CScript& scriptPubKey, txnouttype& typeRet, vector<vector<unsi
         }
     }
 
-    // emercoin: check for name transaction
+    // voicecoin: check for name transaction
     // note: we only expect pubkeyhash transactions here - perhaps this will change in the future
     CScript scriptOut;
     if (RemoveNameScriptPrefix(scriptPubKey, scriptOut))

@@ -1,5 +1,5 @@
 /*
- * Simple DNS server for EmerCoin project
+ * Simple DNS server for Voicecoin project
  *
  * Lookup for names like "dns:some-nake" in the local nameindex database.
  * Database is updates from blockchain, and keeps NMC-transactions.
@@ -161,7 +161,7 @@ EmcDns::EmcDns(const char *bind_ip, uint16_t port_no,
         if(*p == '.') 
 	  m_gw_suf_dots++;
 
-    // Activate DAP only on the public gateways, with some suffixes, like .emergate.net
+    // Activate DAP only on the public gateways, with some suffixes, like .VOICEgate.net
     // If no memory, DAP inactive - this is not critical problem
     m_dap_ht  = (allowed_len && m_gw_suf_len)? (DNSAP*)calloc(EMCDNS_DAPSIZE, sizeof(DNSAP)) : NULL; 
     m_daprand = GetRand(0xffffffff) | 1; 
@@ -320,7 +320,7 @@ EmcDns::~EmcDns() {
 void EmcDns::StatRun(void *p) {
   EmcDns *obj = (EmcDns*)p;
   obj->Run();
-//emercoin  ExitThread(0);
+//voicecoin  ExitThread(0);
 } // EmcDns::StatRun
 
 /*---------------------------------------------------*/
@@ -513,7 +513,7 @@ uint16_t EmcDns::HandleQuery() {
       key_end = p_suffix;
       domain_ndx_p -= m_gw_suf_dots; 
     } else 
-    // check special - if suffix == GW-site, e.g., request: emergate.net
+    // check special - if suffix == GW-site, e.g., request: VOICEgate.net
     if(p_suffix == key - 1 && strcmp((const char *)p_suffix + 1, m_gw_suffix + 1) == 0) {
       *++p_suffix = 0; // Set empty search key
       key_end = p_suffix;

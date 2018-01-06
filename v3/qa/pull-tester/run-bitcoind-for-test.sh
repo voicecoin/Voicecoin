@@ -3,14 +3,14 @@
 # Distributed under the GPL3 software license, see the accompanying
 # file COPYING or http://www.gnu.org/licenses/gpl.html.
 #
-DATADIR="/home/zhaogang/app/emercoin/.bitcoin"
+DATADIR="/home/zhaogang/app/Wallet/v3/.bitcoin"
 rm -rf "$DATADIR"
 mkdir -p "$DATADIR"/regtest
 touch "$DATADIR/regtest/debug.log"
 tail -q -n 1 -F "$DATADIR/regtest/debug.log" | grep -m 1 -q "Done loading" &
 WAITER=$!
 PORT=`expr 10000 + $$ % 55536`
-"/home/zhaogang/app/emercoin/src/bitcoind" -connect=0.0.0.0 -datadir="$DATADIR" -rpcuser=user -rpcpassword=pass -listen -keypool=3 -debug -debug=net -logtimestamps -checkmempool=0 -relaypriority=0 -port=$PORT -whitelist=127.0.0.1 -regtest -rpcport=`expr $PORT + 1` &
+"/home/zhaogang/app/Wallet/v3/src/bitcoind" -connect=0.0.0.0 -datadir="$DATADIR" -rpcuser=user -rpcpassword=pass -listen -keypool=3 -debug -debug=net -logtimestamps -checkmempool=0 -relaypriority=0 -port=$PORT -whitelist=127.0.0.1 -regtest -rpcport=`expr $PORT + 1` &
 BITCOIND=$!
 
 #Install a watchdog.

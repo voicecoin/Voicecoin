@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Emercoin"
-            VALUE "FileDescription",    "Emercoind (OSS daemon/client for Emercoin)"
+            VALUE "CompanyName",        "Voicecoin"
+            VALUE "FileDescription",    "Voicecoind (OSS daemon/client for Voicecoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "emercoind"
+            VALUE "InternalName",       "voicecoind"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the GPL3 software license, see the accompanying file COPYING or http://www.gnu.org/licenses/gpl.html."
-            VALUE "OriginalFilename",   "emercoind.exe"
-            VALUE "ProductName",        "Emercoind"
+            VALUE "OriginalFilename",   "voicecoind.exe"
+            VALUE "ProductName",        "Voicecoind"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

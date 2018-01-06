@@ -118,7 +118,7 @@ BOOST_AUTO_TEST_CASE(AlertApplies)
 {
     SetMockTime(11);
 
-    // emercoin: TODO: sign alerts with emercoin key
+    // voicecoin: TODO: sign alerts with voicecoin key
     // currently CheckSignature() will fail because alerts were signed with bitcoin key
 //    BOOST_FOREACH(const CAlert& alert, alerts)
 //    {
@@ -128,7 +128,7 @@ BOOST_AUTO_TEST_CASE(AlertApplies)
     BOOST_CHECK(alerts.size() >= 3);
 
     // Matches:
-    // emercoin: for some bitcoin test alerts are read with nExpiration == 0, making following tests fail.
+    // voicecoin: for some bitcoin test alerts are read with nExpiration == 0, making following tests fail.
 //    BOOST_CHECK(alerts[0].AppliesTo(1, ""));
 //    BOOST_CHECK(alerts[0].AppliesTo(999001, ""));
 //    BOOST_CHECK(alerts[0].AppliesTo(1, "/Satoshi:11.11.11/"));
@@ -170,7 +170,7 @@ BOOST_AUTO_TEST_CASE(AlertNotify)
         alert.ProcessAlert(false);
 
     std::vector<std::string> r = read_lines(temp);
-    // emercoin: following tests requires alertnotify.txt to exist, but for some reason this file is deleted at next instruction...
+    // voicecoin: following tests requires alertnotify.txt to exist, but for some reason this file is deleted at next instruction...
     //BOOST_CHECK_EQUAL(r.size(), 4u);
 
 // Windows built-in echo semantics are different than posixy shells. Quotes and

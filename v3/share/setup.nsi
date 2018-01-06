@@ -1,4 +1,4 @@
-Name "Emercoin Core (-bit)"
+Name "Voicecoin Core (-bit)"
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
@@ -6,23 +6,23 @@ SetCompressor /SOLID lzma
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.6.3
-!define COMPANY "Emercoin Core project"
-!define URL http://www.emercoin.com/
+!define COMPANY "Voicecoin Core project"
+!define URL http://www.voicecoin.com/
 
 # MUI Symbol Definitions
-!define MUI_ICON "/home/zhaogang/app/emercoin/share/pixmaps/emercoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/zhaogang/app/emercoin/share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "/home/zhaogang/app/Wallet/v3/share/pixmaps/voicecoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/zhaogang/app/Wallet/v3/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "/home/zhaogang/app/emercoin/share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "/home/zhaogang/app/Wallet/v3/share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Emercoin Core"
-!define MUI_FINISHPAGE_RUN $INSTDIR\emercoin-qt.exe
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Voicecoin Core"
+!define MUI_FINISHPAGE_RUN $INSTDIR\voicecoin-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/zhaogang/app/emercoin/share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/zhaogang/app/Wallet/v3/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
@@ -48,18 +48,18 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /home/zhaogang/app/emercoin/emercoin-${VERSION}-win-setup.exe
+OutFile /home/zhaogang/app/Wallet/v3/voicecoin-${VERSION}-win-setup.exe
 !if "" == "64"
-InstallDir $PROGRAMFILES64\Emercoin
+InstallDir $PROGRAMFILES64\Voicecoin
 !else
-InstallDir $PROGRAMFILES\Emercoin
+InstallDir $PROGRAMFILES\Voicecoin
 !endif
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
 VIProductVersion ${VERSION}.1
-VIAddVersionKey ProductName "Emercoin Core"
+VIAddVersionKey ProductName "Voicecoin Core"
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -73,19 +73,19 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /home/zhaogang/app/emercoin/release/emercoin-qt.exe
-    File /oname=COPYING.txt /home/zhaogang/app/emercoin/COPYING
-    File /oname=readme.txt /home/zhaogang/app/emercoin/doc/README_windows.txt
+    File /home/zhaogang/app/Wallet/v3/release/voicecoin-qt.exe
+    File /oname=COPYING.txt /home/zhaogang/app/Wallet/v3/COPYING
+    File /oname=readme.txt /home/zhaogang/app/Wallet/v3/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /home/zhaogang/app/emercoin/release/emercoind.exe
-    File /home/zhaogang/app/emercoin/release/emercoin-cli.exe
+    File /home/zhaogang/app/Wallet/v3/release/voicecoind.exe
+    File /home/zhaogang/app/Wallet/v3/release/voicecoin-cli.exe
     SetOutPath $INSTDIR\doc
-    File /r /home/zhaogang/app/emercoin/doc\*.*
+    File /r /home/zhaogang/app/Wallet/v3/doc\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
     # Remove old wxwidgets-based-bitcoin executable and locales:
-    Delete /REBOOTOK $INSTDIR\emercoin.exe
+    Delete /REBOOTOK $INSTDIR\voicecoin.exe
     RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd
 
@@ -95,7 +95,7 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk" $INSTDIR\emercoin-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk" $INSTDIR\voicecoin-qt.exe
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall $(^Name).lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
@@ -106,10 +106,10 @@ Section -post SEC0001
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString $INSTDIR\uninstall.exe
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
-    WriteRegStr HKCR "emercoin" "URL Protocol" ""
-    WriteRegStr HKCR "emercoin" "" "URL:Emercoin"
-    WriteRegStr HKCR "emercoin\DefaultIcon" "" $INSTDIR\emercoin-qt.exe
-    WriteRegStr HKCR "emercoin\shell\open\command" "" '"$INSTDIR\emercoin-qt.exe" "%1"'
+    WriteRegStr HKCR "voicecoin" "URL Protocol" ""
+    WriteRegStr HKCR "voicecoin" "" "URL:Voicecoin"
+    WriteRegStr HKCR "voicecoin\DefaultIcon" "" $INSTDIR\voicecoin-qt.exe
+    WriteRegStr HKCR "voicecoin\shell\open\command" "" '"$INSTDIR\voicecoin-qt.exe" "%1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -127,7 +127,7 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
-    Delete /REBOOTOK $INSTDIR\emercoin-qt.exe
+    Delete /REBOOTOK $INSTDIR\voicecoin-qt.exe
     Delete /REBOOTOK $INSTDIR\COPYING.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
     RMDir /r /REBOOTOK $INSTDIR\daemon
@@ -139,7 +139,7 @@ Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall $(^Name).lnk"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk"
-    Delete /REBOOTOK "$SMSTARTUP\Emercoin.lnk"
+    Delete /REBOOTOK "$SMSTARTUP\Voicecoin.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log
@@ -147,7 +147,7 @@ Section -un.post UNSEC0001
     DeleteRegValue HKCU "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKCU "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
-    DeleteRegKey HKCR "emercoin"
+    DeleteRegKey HKCR "voicecoin"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     RmDir /REBOOTOK $INSTDIR
     Push $R0

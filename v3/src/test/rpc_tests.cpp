@@ -108,7 +108,7 @@ BOOST_AUTO_TEST_CASE(rpc_rawsign)
     BOOST_CHECK(find_value(r.get_obj(), "complete").get_bool() == true);
 }
 
-// emercoin: currently we have different COIN value. maybe match it with bitcoin COIN value?
+// voicecoin: currently we have different COIN value. maybe match it with bitcoin COIN value?
 BOOST_AUTO_TEST_CASE(rpc_format_monetary_values)
 {
 //    BOOST_CHECK_EQUAL(write_string(ValueFromAmount(0LL), false), "0.00000000");
@@ -128,7 +128,7 @@ static Value ValueFromString(const std::string &str)
     return value;
 }
 
-// emercoin: currently we have different COIN value. maybe match it with bitcoin COIN value?
+// voicecoin: currently we have different COIN value. maybe match it with bitcoin COIN value?
 BOOST_AUTO_TEST_CASE(rpc_parse_monetary_values)
 {
 //    BOOST_CHECK_EQUAL(AmountFromValue(ValueFromString("0.00000001")), 1LL);

@@ -36,7 +36,7 @@ class QProgressBar;
 class QProgressDialog;
 QT_END_NAMESPACE
 
-// emercoin : to ensure that we can click on lock icon in GUI
+// voicecoin : to ensure that we can click on lock icon in GUI
 class ClickableLockLabel : public QLabel
 {
     Q_OBJECT
@@ -85,7 +85,7 @@ public:
     void removeAllWallets();
 #endif // ENABLE_WALLET
     bool enableWallet;
-    ClickableLockLabel *labelEncryptionIcon; // emercoin: changed from private to public
+    ClickableLockLabel *labelEncryptionIcon; // voicecoin: changed from private to public
 
 protected:
     void changeEvent(QEvent *e);

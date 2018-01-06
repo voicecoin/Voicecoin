@@ -2,7 +2,7 @@
 // Distributed under the GPL3 software license, see the accompanying
 // file COPYING or http://www.gnu.org/licenses/gpl.html.
 
-// emercoin: Because nTime field was not in origianl bitcoin CTransaction their serialization fails here.
+// voicecoin: Because nTime field was not in origianl bitcoin CTransaction their serialization fails here.
 //           We need to recreate test cases.
 
 #if 0

@@ -56,7 +56,7 @@ public:
     */
     QWidget *setupTabChain(QWidget *prev);
 
-    // emercoin: need for exchange code:
+    // voicecoin: need for exchange code:
     void setString (QString input);
 
 signals:

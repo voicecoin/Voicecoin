@@ -59,7 +59,7 @@ public:
     // header
     static const int32_t NORMAL_SERIALIZE_SIZE=80;
     static const int32_t CURRENT_VERSION=6;
-    int32_t nVersion;     // emercoin: it might contain merged mining information in higher bits. Use GetBlockVersion() to ignore it.
+    int32_t nVersion;     // voicecoin: it might contain merged mining information in higher bits. Use GetBlockVersion() to ignore it.
     uint256 hashPrevBlock;
     uint256 hashMerkleRoot;
     uint32_t nTime;
@@ -67,7 +67,7 @@ public:
     uint32_t nNonce;
     boost::shared_ptr<CAuxPow> auxpow;
 
-    // emercoin: copy from CBlockIndex.nFlags from other clients. We need this information because we are using headers-first syncronization.
+    // voicecoin: copy from CBlockIndex.nFlags from other clients. We need this information because we are using headers-first syncronization.
     int32_t nFlags;
 
 

@@ -1,5 +1,5 @@
 ---
-name: "emercoin-osx-0.6"
+name: "voicecoin-osx-0.6"
 enable_cache: true
 suites:
 - "trusty"
@@ -25,8 +25,8 @@ packages:
 - "python-setuptools"
 reference_datetime: "2016-01-01 00:00:00"
 remotes:
-- "url": "https://github.com/Emercoin/emercoin.git"
-  "dir": "emercoin"
+- "url": "https://github.com/Voicecoin/voicecoin.git"
+  "dir": "voicecoin"
 files:
 - "MacOSX10.11.sdk.tar.gz"
 script: |
@@ -73,7 +73,7 @@ script: |
   done
   export PATH=${WRAP_DIR}:${PATH}
 
-  cd emercoin
+  cd voicecoin
   BASEPREFIX=`pwd`/depends
 
   mkdir -p ${BASEPREFIX}/SDKs
@@ -88,14 +88,14 @@ script: |
   ./autogen.sh
   ./configure --prefix=${BASEPREFIX}/`echo "${HOSTS}" | awk '{print $1;}'`
   make dist
-  SOURCEDIST=`echo emercoin-*.tar.gz`
+  SOURCEDIST=`echo voicecoin-*.tar.gz`
   DISTNAME=`echo ${SOURCEDIST} | sed 's/.tar.*//'`
 
   # Correct tar file order
   mkdir -p temp
   pushd temp
   tar xf ../$SOURCEDIST
-  find emercoin-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
+  find voicecoin-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
   popd
 
   ORIGPATH="$PATH"
@@ -125,7 +125,7 @@ script: |
     popd
 
     make deploy
-    ${WRAP_DIR}/dmg dmg Emercoin-Qt.dmg ${OUTDIR}/${DISTNAME}-osx-unsigned.dmg
+    ${WRAP_DIR}/dmg dmg Voicecoin-Qt.dmg ${OUTDIR}/${DISTNAME}-osx-unsigned.dmg
 
     cd installed
     find . -name "lib*.la" -delete

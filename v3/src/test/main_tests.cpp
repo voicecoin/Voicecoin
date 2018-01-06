@@ -9,7 +9,7 @@
 
 BOOST_AUTO_TEST_SUITE(main_tests)
 
-// emercoin: TODO - add a complex test to block value generation.
+// voicecoin: TODO - add a complex test to block value generation.
 
 //BOOST_AUTO_TEST_CASE(subsidy_limit_test)
 //{

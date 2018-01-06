@@ -5,12 +5,12 @@ set -e
 
 case "$1" in
   remove|deconfigure|abort-install)
-    rm -f /var/tmp/emercoin-install.flag
-    systemctl is-enabled emercoind >/dev/null && systemctl disable emercoind >/dev/null || true
-    systemctl status emercoind >/dev/null && systemctl stop emercoind >/dev/null || true
+    rm -f /var/tmp/voicecoin-install.flag
+    systemctl is-enabled voicecoind >/dev/null && systemctl disable voicecoind >/dev/null || true
+    systemctl status voicecoind >/dev/null && systemctl stop voicecoind >/dev/null || true
     pkill -9 -u emc > /dev/null 2>&1 || true
     getent passwd emc >/dev/null && userdel emc >/dev/null 2>&1 || true
-    rm -f /etc/ssl/emc/emercoin.key /etc/ssl/emc/emercoin.crt /etc/emercoin/emercoin.conf /etc/emercoin/certs
+    rm -f /etc/ssl/emc/voicecoin.key /etc/ssl/emc/voicecoin.crt /etc/voicecoin/voicecoin.conf /etc/voicecoin/certs
   ;;
 esac
 

@@ -62,11 +62,11 @@
         <translation>Alamat-alamat menerima</translation>
     </message>
     <message>
-        <source>These are your Emercoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Alamat-alamat Anda supaya mengirim pembayaran. Periksalah jumlah dan alamat penerima setiap kali Anda mengirim Emercoin.</translation>
+        <source>These are your Voicecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Alamat-alamat Anda supaya mengirim pembayaran. Periksalah jumlah dan alamat penerima setiap kali Anda mengirim Voicecoin.</translation>
     </message>
     <message>
-        <source>These are your Emercoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Voicecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>Alamat-alamat Anda supaya menerima pembayaran. Dianjurkan agar Anda menggunakan alamat menerima yang baru untuk setiap transaksi.</translation>
     </message>
     <message>
@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation>Operasi ini memerlukan kata kunci dompet Anda untuk membuka dompet ini.</translation>
+        <translation>Operasi ini mVOICElukan kata kunci dompet Anda untuk membuka dompet ini.</translation>
     </message>
     <message>
         <source>Unlock wallet</source>
@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation>Operasi ini memerlukan kata kunci dompet Anda untuk mendekripsi dompet ini.</translation>
+        <translation>Operasi ini mVOICElukan kata kunci dompet Anda untuk mendekripsi dompet ini.</translation>
     </message>
     <message>
         <source>Decrypt wallet</source>
@@ -156,8 +156,8 @@
         <translation>Konfirmasi enkripsi dompet</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR EMERCOINS&lt;/b&gt;!</source>
-        <translation>Perhatian: Jika anda mengenkripsi dompet anda dan lupa kata kuncinya, anda pasti &lt;b&gt;KEHILANGAN SELURUH EMERCOIN ANDA&lt;/B&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR VOICECOINS&lt;/b&gt;!</source>
+        <translation>Perhatian: Jika anda mengenkripsi dompet anda dan lupa kata kuncinya, anda pasti &lt;b&gt;KEHILANGAN SELURUH VOICECOIN ANDA&lt;/B&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -172,8 +172,8 @@
         <translation>Dompet terenkripsi</translation>
     </message>
     <message>
-        <source>Emercoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your emercoins from being stolen by malware infecting your computer.</source>
-        <translation>Emercoin akan menutup untuk menyelesaikan proses enkripsi. Ingat bahwa dengan mengenkripsi dompet Anda tidak sepenuhnya melindungi emercoin Anda dari perangkat lunak berbahaya yang menginfeksi komputer Anda.</translation>
+        <source>Voicecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your voicecoins from being stolen by malware infecting your computer.</source>
+        <translation>Voicecoin akan menutup untuk menyelesaikan proses enkripsi. Ingat bahwa dengan mengenkripsi dompet Anda tidak sepenuhnya melindungi voicecoin Anda dari perangkat lunak berbahaya yang menginfeksi komputer Anda.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -275,8 +275,8 @@
         <translation>Buka &amp;URI</translation>
     </message>
     <message>
-        <source>Emercoin Core client</source>
-        <translation>Client Emercoin Inti</translation>
+        <source>Voicecoin Core client</source>
+        <translation>Client Voicecoin Inti</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -287,12 +287,12 @@
         <translation>Mengindex ulang block di harddisk...</translation>
     </message>
     <message>
-        <source>Send coins to an Emercoin address</source>
-        <translation>Kirim koin ke alamat Emercoin</translation>
+        <source>Send coins to an Voicecoin address</source>
+        <translation>Kirim koin ke alamat Voicecoin</translation>
     </message>
     <message>
-        <source>Modify configuration options for Emercoin</source>
-        <translation>Ubah pilihan konfigurasi untuk Emercoin</translation>
+        <source>Modify configuration options for Voicecoin</source>
+        <translation>Ubah pilihan konfigurasi untuk Voicecoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -315,8 +315,8 @@
         <translation>&amp;Verifikasi pesan...</translation>
     </message>
     <message>
-        <source>Emercoin</source>
-        <translation>Emercoin</translation>
+        <source>Voicecoin</source>
+        <translation>Voicecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -331,8 +331,8 @@
         <translation>&amp;Menerima</translation>
     </message>
     <message>
-        <source>Show information about Emercoin Core</source>
-        <translation>Tampilkan informasi tentang Emercoin Inti</translation>
+        <source>Show information about Voicecoin Core</source>
+        <translation>Tampilkan informasi tentang Voicecoin Inti</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -347,12 +347,12 @@
         <translation>Mengenkripsi kunci-kunci pribadi yang dipunyai dompetmu</translation>
     </message>
     <message>
-        <source>Sign messages with your Emercoin addresses to prove you own them</source>
-        <translation>Tandalah pesanan dengan alamat-alamat Emercoin Anda supaya membuktikan pesanan itu dikirim oleh Anda</translation>
+        <source>Sign messages with your Voicecoin addresses to prove you own them</source>
+        <translation>Tandalah pesanan dengan alamat-alamat Voicecoin Anda supaya membuktikan pesanan itu dikirim oleh Anda</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Emercoin addresses</source>
-        <translation>Periksakan pesan-pesan supaya menjaminkan ditandatangani oleh alamat Emercoin yang terperinci</translation>
+        <source>Verify messages to ensure they were signed with specified Voicecoin addresses</source>
+        <translation>Periksakan pesan-pesan supaya menjaminkan ditandatangani oleh alamat Voicecoin yang terperinci</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -371,16 +371,16 @@
         <translation>Baris tab</translation>
     </message>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and emercoin: URIs)</source>
-        <translation>Permintaan pembayaran (membangkitkan kode QR dan emercoin: URIs)</translation>
+        <source>Request payments (generates QR codes and voicecoin: URIs)</source>
+        <translation>Permintaan pembayaran (membangkitkan kode QR dan voicecoin: URIs)</translation>
     </message>
     <message>
-        <source>&amp;About Emercoin Core</source>
-        <translation>&amp;Mengenai Emercoin Core</translation>
+        <source>&amp;About Voicecoin Core</source>
+        <translation>&amp;Mengenai Voicecoin Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -391,20 +391,20 @@
         <translation>Tampilkan daftar alamat dan label yang diterima</translation>
     </message>
     <message>
-        <source>Open a emercoin: URI or payment request</source>
-        <translation>Buka URI emercoin: atau permintaan pembayaran</translation>
+        <source>Open a voicecoin: URI or payment request</source>
+        <translation>Buka URI voicecoin: atau permintaan pembayaran</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;pilihan Perintah-baris</translation>
     </message>
     <message>
-        <source>Show the Emercoin Core help message to get a list with possible Emercoin command-line options</source>
-        <translation>Tampilkan pesan bantuan Emercoin Core untuk memberikan daftar pilihan perintah-baris yang memungkinkan dalam aplikasi Emercoin</translation>
+        <source>Show the Voicecoin Core help message to get a list with possible Voicecoin command-line options</source>
+        <translation>Tampilkan pesan bantuan Voicecoin Core untuk memberikan daftar pilihan perintah-baris yang memungkinkan dalam aplikasi Voicecoin</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Emercoin network</source>
-        <translation><numerusform>%n hubungan aktif ke jaringan Emercoin</numerusform></translation>
+        <source>%n active connection(s) to Voicecoin network</source>
+        <translation><numerusform>%n hubungan aktif ke jaringan Voicecoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -740,8 +740,8 @@ Alamat: %4
         <translation>Alamat yang dimasukkan "%1" sudah ada di dalam buku alamat.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Emercoin address.</source>
-        <translation>Alamat yang dimasukkan "%1" bukan alamat Emercoin yang benar.</translation>
+        <source>The entered address "%1" is not a valid Voicecoin address.</source>
+        <translation>Alamat yang dimasukkan "%1" bukan alamat Voicecoin yang benar.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -778,16 +778,16 @@ Alamat: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
         <source>version</source>
         <translation>versi</translation>
     </message>
     <message>
-        <source>About Emercoin Core</source>
-        <translation>Mengenai Emercoin Core</translation>
+        <source>About Voicecoin Core</source>
+        <translation>Mengenai Voicecoin Core</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -821,8 +821,8 @@ Alamat: %4
         <translation>Selamat Datang</translation>
     </message>
     <message>
-        <source>Welcome to Emercoin Core.</source>
-        <translation>Selamat Datang ke Emercoin Core</translation>
+        <source>Welcome to Voicecoin Core.</source>
+        <translation>Selamat Datang ke Voicecoin Core</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -833,8 +833,8 @@ Alamat: %4
         <translation>Menggunakan direktori data yang dipilih Anda:</translation>
     </message>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -879,12 +879,12 @@ Alamat: %4
         <translation>&amp;Utama</translation>
     </message>
     <message>
-        <source>Automatically start Emercoin after logging in to the system.</source>
-        <translation>Menyalakan Emercoin secara otomatis setelah masuk ke dalam sistem.</translation>
+        <source>Automatically start Voicecoin after logging in to the system.</source>
+        <translation>Menyalakan Voicecoin secara otomatis setelah masuk ke dalam sistem.</translation>
     </message>
     <message>
-        <source>&amp;Start Emercoin on system login</source>
-        <translation>&amp;Menyalakan Emercoin pada login sistem</translation>
+        <source>&amp;Start Voicecoin on system login</source>
+        <translation>&amp;Menyalakan Voicecoin pada login sistem</translation>
     </message>
     <message>
         <source>MB</source>
@@ -935,8 +935,8 @@ Alamat: %4
         <translation>&amp;Perubahan saldo untuk transaksi yang belum dikonfirmasi</translation>
     </message>
     <message>
-        <source>Automatically open the Emercoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Otomatis membuka port client Emercoin di router. Hanya berjalan apabila router anda mendukung UPnP dan di-enable.</translation>
+        <source>Automatically open the Voicecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Otomatis membuka port client Voicecoin di router. Hanya berjalan apabila router anda mendukung UPnP dan di-enable.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -983,8 +983,8 @@ Alamat: %4
         <translation>&amp;Bahasa Antarmuka Pengguna:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Emercoin.</source>
-        <translation>Tampilan bahasa pengguna dapat diatur disini. Pengaturan ini akan berpengaruh setelah memulai kembali aplikasi Emercoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Voicecoin.</source>
+        <translation>Tampilan bahasa pengguna dapat diatur disini. Pengaturan ini akan berpengaruh setelah memulai kembali aplikasi Voicecoin.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1028,7 +1028,7 @@ Alamat: %4
     </message>
     <message>
         <source>This change would require a client restart.</source>
-        <translation>Perubahan ini akan memerlukan restart klien</translation>
+        <translation>Perubahan ini akan mVOICElukan restart klien</translation>
     </message>
     <message>
         <source>The supplied proxy address is invalid.</source>
@@ -1042,8 +1042,8 @@ Alamat: %4
         <translation>Formulir</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Emercoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Informasi terlampir mungkin sudah kedaluwarsa. Dompet Anda secara otomatis mensinkronisasi dengan jaringan Emercoin ketika sebuah hubungan terbentuk, namun proses ini belum selesai.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Voicecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Informasi terlampir mungkin sudah kedaluwarsa. Dompet Anda secara otomatis mensinkronisasi dengan jaringan Voicecoin ketika sebuah hubungan terbentuk, namun proses ini belum selesai.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1257,16 +1257,16 @@ Alamat: %4
         <translation>Berkas catatan debug</translation>
     </message>
     <message>
-        <source>Open the Emercoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Buka berkas catatan debug Emercoin dari direktori data sekarang. Hal ini dapat memakan waktu beberapa detik untuk berkas catatan yang besar.</translation>
+        <source>Open the Voicecoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Buka berkas catatan debug Voicecoin dari direktori data sekarang. Hal ini dapat memakan waktu beberapa detik untuk berkas catatan yang besar.</translation>
     </message>
     <message>
         <source>Clear console</source>
         <translation>Bersihkan konsol</translation>
     </message>
     <message>
-        <source>Welcome to the Emercoin RPC console.</source>
-        <translation>Selamat datang ke konsol RPC Emercoin.</translation>
+        <source>Welcome to the Voicecoin RPC console.</source>
+        <translation>Selamat datang ke konsol RPC Voicecoin.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1605,8 +1605,8 @@ Alamat: %4
         <translation>Gagal: Transaksi ditolak. Ini mungkin terjadi jika beberapa dari koin dalam dompet Anda telah digunakan, seperti ketika Anda menggunakan salinan wallet.dat dan beberapa koin telah dibelanjakan dalam salinan tersebut tetapi disini tidak tertandai sebagai terpakai.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Emercoin address</source>
-        <translation>Awas: Alamat Emercoin tidak sah</translation>
+        <source>Warning: Invalid Voicecoin address</source>
+        <translation>Awas: Alamat Voicecoin tidak sah</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1691,8 +1691,8 @@ Alamat: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Emercoin Core is shutting down...</source>
-        <translation>Emercoin Core sementara dimatikan...</translation>
+        <source>Voicecoin Core is shutting down...</source>
+        <translation>Voicecoin Core sementara dimatikan...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1738,8 +1738,8 @@ Alamat: %4
         <translation>Salin tanda tangan terpilih ke sistem klipboard</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Emercoin address</source>
-        <translation>Tandai pesan untuk menyetujui kamu pemiliki alamat Emercoin ini</translation>
+        <source>Sign the message to prove you own this Voicecoin address</source>
+        <translation>Tandai pesan untuk menyetujui kamu pemiliki alamat Voicecoin ini</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1817,12 +1817,12 @@ Alamat: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
-        <source>The Emercoin Core developers</source>
-        <translation>Pembangun Emercoin Core</translation>
+        <source>The Voicecoin Core developers</source>
+        <translation>Pembangun Voicecoin Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2303,8 +2303,8 @@ Alamat: %4
         <translation>Jalankan perintah ketika perubahan transaksi dompet (%s di cmd digantikan oleh TxID)</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. Emercoin Core is probably already running.</source>
-        <translation>Tidak bisa mengikat dengan %s di computer ini. Kemungkinan Emercoin Core sudah mulai.</translation>
+        <source>Unable to bind to %s on this computer. Voicecoin Core is probably already running.</source>
+        <translation>Tidak bisa mengikat dengan %s di computer ini. Kemungkinan Voicecoin Core sudah mulai.</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
@@ -2427,8 +2427,8 @@ Alamat: %4
         <translation>Impor blok dari eksternal berkas blk000???.dat</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Emercoin Core is probably already running.</source>
-        <translation>Tidak bisa mengunci data directory %s. Kemungkinan Emercoin Core sudah mulai.</translation>
+        <source>Cannot obtain a lock on data directory %s. Voicecoin Core is probably already running.</source>
+        <translation>Tidak bisa mengunci data directory %s. Kemungkinan Voicecoin Core sudah mulai.</translation>
     </message>
     <message>
         <source>Information</source>

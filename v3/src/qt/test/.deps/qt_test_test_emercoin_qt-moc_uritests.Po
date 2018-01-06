@@ -1,4 +1,4 @@
-qt/test/qt_test_test_emercoin_qt-moc_uritests.o: qt/test/moc_uritests.cpp \
+qt/test/qt_test_test_voicecoin_qt-moc_uritests.o: qt/test/moc_uritests.cpp \
  /usr/include/stdc-predef.h qt/test/uritests.h \
  /usr/include/qt5/QtCore/QObject /usr/include/qt5/QtCore/qobject.h \
  /usr/include/qt5/QtCore/qobjectdefs.h \

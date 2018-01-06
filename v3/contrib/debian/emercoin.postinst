@@ -5,20 +5,20 @@ set -e
 
 case "$1" in
   configure)
-    sed -i -e "s/\(^rpcpassword=MySuperPassword\)\(.*\)/rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)/" /var/lib/emc/.emercoin/emercoin.conf
-    chmod 600 /var/lib/emc/.emercoin/emercoin.conf
-    chown -R emc.emc /var/lib/emc/.emercoin /usr/bin/emercoin-cli
-    chmod 4750 /usr/bin/emercoin-cli
-    mkdir -p /etc/emercoin
-    ln -sf /var/lib/emc/.emercoin/emercoin.conf /etc/emercoin/emercoin.conf || true
-    ln -sf /etc/ssl/emc /etc/emercoin/certs || true
+    sed -i -e "s/\(^rpcpassword=MySuperPassword\)\(.*\)/rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)/" /var/lib/emc/.voicecoin/voicecoin.conf
+    chmod 600 /var/lib/emc/.voicecoin/voicecoin.conf
+    chown -R emc.emc /var/lib/emc/.voicecoin /usr/bin/voicecoin-cli
+    chmod 4750 /usr/bin/voicecoin-cli
+    mkdir -p /etc/voicecoin
+    ln -sf /var/lib/emc/.voicecoin/voicecoin.conf /etc/voicecoin/voicecoin.conf || true
+    ln -sf /etc/ssl/emc /etc/voicecoin/certs || true
     systemctl daemon-reload
-    [ -f /var/tmp/emercoin-install.flag ] && {
-      rm -f /var/tmp/emercoin-install.flag
-      systemctl enable emercoind
+    [ -f /var/tmp/voicecoin-install.flag ] && {
+      rm -f /var/tmp/voicecoin-install.flag
+      systemctl enable voicecoind
     }
-    systemctl status emercoind >/dev/null 2>&1 && systemctl restart emercoind || {
-      systemctl is-enabled emercoind >/dev/null 2>&1 && systemctl start emercoind || true
+    systemctl status voicecoind >/dev/null 2>&1 && systemctl restart voicecoind || {
+      systemctl is-enabled voicecoind >/dev/null 2>&1 && systemctl start voicecoind || true
     }
   ;;
 esac

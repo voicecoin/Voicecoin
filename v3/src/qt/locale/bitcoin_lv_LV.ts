@@ -43,11 +43,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Izvēlies adresi uz kuru sūtīt emercoins</translation>
+        <translation>Izvēlies adresi uz kuru sūtīt voicecoins</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Izvēlies adresi ar kuru saņemt emercoins</translation>
+        <translation>Izvēlies adresi ar kuru saņemt voicecoins</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -62,12 +62,12 @@
         <translation>Saņemšanas adreses</translation>
     </message>
     <message>
-        <source>These are your Emercoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Šīs ir jūsu Emercoin adreses maksājumu sūtīšanai. Vienmēr  pārbaudiet summu un saņēmēja adresi pirms monētu sūtīšanas.</translation>
+        <source>These are your Voicecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Šīs ir jūsu Voicecoin adreses maksājumu sūtīšanai. Vienmēr  pārbaudiet summu un saņēmēja adresi pirms monētu sūtīšanas.</translation>
     </message>
     <message>
-        <source>These are your Emercoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Šīs ir jūsu Emercoin adreses maksājumu saņemšanai. Ir ieteicams katram darījumam izmantot jaunu saņemšanas adresi.</translation>
+        <source>These are your Voicecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Šīs ir jūsu Voicecoin adreses maksājumu saņemšanai. Ir ieteicams katram darījumam izmantot jaunu saņemšanas adresi.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -160,8 +160,8 @@
         <translation>Apstiprināt maciņa šifrēšanu</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR EMERCOINS&lt;/b&gt;!</source>
-        <translation>Brīdinājums: Ja tu nošifrē savu maciņu un pazaudē paroli, tu &lt;b&gt;PAZAUDĒSI VISAS SAVAS EMERCOINS&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR VOICECOINS&lt;/b&gt;!</source>
+        <translation>Brīdinājums: Ja tu nošifrē savu maciņu un pazaudē paroli, tu &lt;b&gt;PAZAUDĒSI VISAS SAVAS VOICECOINS&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -180,8 +180,8 @@
         <translation>Maciņš nošifrēts</translation>
     </message>
     <message>
-        <source>Emercoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your emercoins from being stolen by malware infecting your computer.</source>
-        <translation>Emercoin aizvērsies, lai pabeigtu šifrēšanu. Atcerieties, ka maciņa šifrēšana nevar pilnībā novērst emerkoinu zādzību, ko veic datorā ieviesušās kaitīgas programmas.</translation>
+        <source>Voicecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your voicecoins from being stolen by malware infecting your computer.</source>
+        <translation>Voicecoin aizvērsies, lai pabeigtu šifrēšanu. Atcerieties, ka maciņa šifrēšana nevar pilnībā novērst VOICEkoinu zādzību, ko veic datorā ieviesušās kaitīgas programmas.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -287,8 +287,8 @@
         <translation>Atvērt &amp;URI...</translation>
     </message>
     <message>
-        <source>Emercoin Core client</source>
-        <translation>Emercoin Core klients</translation>
+        <source>Voicecoin Core client</source>
+        <translation>Voicecoin Core klients</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -299,12 +299,12 @@
         <translation>Bloku reindeksēšana no diska...</translation>
     </message>
     <message>
-        <source>Send coins to an Emercoin address</source>
-        <translation>Nosūtīt emerkoinus uz Emercoin adresi</translation>
+        <source>Send coins to an Voicecoin address</source>
+        <translation>Nosūtīt VOICEkoinus uz Voicecoin adresi</translation>
     </message>
     <message>
-        <source>Modify configuration options for Emercoin</source>
-        <translation>Mainīt Emercoin konfigurācijas uzstādījumus</translation>
+        <source>Modify configuration options for Voicecoin</source>
+        <translation>Mainīt Voicecoin konfigurācijas uzstādījumus</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -327,8 +327,8 @@
         <translation>&amp;Pārbaudīt ziņojumu...</translation>
     </message>
     <message>
-        <source>Emercoin</source>
-        <translation>Emercoin</translation>
+        <source>Voicecoin</source>
+        <translation>Voicecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -343,8 +343,8 @@
         <translation>&amp;Saņemt</translation>
     </message>
     <message>
-        <source>Show information about Emercoin Core</source>
-        <translation>Parādīt informāciju par Emercoin Core</translation>
+        <source>Show information about Voicecoin Core</source>
+        <translation>Parādīt informāciju par Voicecoin Core</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -359,12 +359,12 @@
         <translation>Šifrēt privātās atslēgas kuras pieder tavam maciņam</translation>
     </message>
     <message>
-        <source>Sign messages with your Emercoin addresses to prove you own them</source>
-        <translation>Parakstīt ziņojumus ar savām Emercoin adresēm lai pierādītu ka tās pieder tev</translation>
+        <source>Sign messages with your Voicecoin addresses to prove you own them</source>
+        <translation>Parakstīt ziņojumus ar savām Voicecoin adresēm lai pierādītu ka tās pieder tev</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Emercoin addresses</source>
-        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Emercoin adresēm</translation>
+        <source>Verify messages to ensure they were signed with specified Voicecoin addresses</source>
+        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Voicecoin adresēm</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -383,28 +383,28 @@
         <translation>Ciļņu rīkjosla</translation>
     </message>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and emercoin: URIs)</source>
-        <translation>Pieprasīt maksājumus (izveido QR kodu un emercoin: URIs)</translation>
+        <source>Request payments (generates QR codes and voicecoin: URIs)</source>
+        <translation>Pieprasīt maksājumus (izveido QR kodu un voicecoin: URIs)</translation>
     </message>
     <message>
-        <source>&amp;About Emercoin Core</source>
-        <translation>Par &amp;Emercoin Core</translation>
+        <source>&amp;About Voicecoin Core</source>
+        <translation>Par &amp;Voicecoin Core</translation>
     </message>
     <message>
-        <source>Open a emercoin: URI or payment request</source>
-        <translation>Atvērt emercoin URI vai maksājuma pieprasījumu</translation>
+        <source>Open a voicecoin: URI or payment request</source>
+        <translation>Atvērt voicecoin URI vai maksājuma pieprasījumu</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Komandrindas iespējas</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Emercoin network</source>
-        <translation><numerusform>%n aktīvu savienojumu ar Emercoin tīklu</numerusform><numerusform>%n aktīvs savienojums ar Emercoin tīklu</numerusform><numerusform>%n aktīvu savienojumu as Emercoin tīklu</numerusform></translation>
+        <source>%n active connection(s) to Voicecoin network</source>
+        <translation><numerusform>%n aktīvu savienojumu ar Voicecoin tīklu</numerusform><numerusform>%n aktīvs savienojums ar Voicecoin tīklu</numerusform><numerusform>%n aktīvu savienojumu as Voicecoin tīklu</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -704,8 +704,8 @@ Adrese: %4
         <translation>Nupat ierakstītā adrese "%1" jau atrodas adrešu grāmatā.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Emercoin address.</source>
-        <translation>Ierakstītā adrese "%1" nav derīga Emercoin adrese.</translation>
+        <source>The entered address "%1" is not a valid Voicecoin address.</source>
+        <translation>Ierakstītā adrese "%1" nav derīga Voicecoin adrese.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -738,8 +738,8 @@ Adrese: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
         <source>version</source>
@@ -750,8 +750,8 @@ Adrese: %4
         <translation>(%1-biti)</translation>
     </message>
     <message>
-        <source>About Emercoin Core</source>
-        <translation>Par Emercoin Core</translation>
+        <source>About Voicecoin Core</source>
+        <translation>Par Voicecoin Core</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -785,8 +785,8 @@ Adrese: %4
         <translation>Sveiciens</translation>
     </message>
     <message>
-        <source>Welcome to Emercoin Core.</source>
-        <translation>Sveicināts Emercoin Core</translation>
+        <source>Welcome to Voicecoin Core.</source>
+        <translation>Sveicināts Voicecoin Core</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -797,8 +797,8 @@ Adrese: %4
         <translation>Izmantot pielāgotu datu mapi:</translation>
     </message>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -839,12 +839,12 @@ Adrese: %4
         <translation>&amp;Galvenais</translation>
     </message>
     <message>
-        <source>Automatically start Emercoin after logging in to the system.</source>
-        <translation>Automātiski sākt Emercoin pēc pieteikšanās sistēmā.</translation>
+        <source>Automatically start Voicecoin after logging in to the system.</source>
+        <translation>Automātiski sākt Voicecoin pēc pieteikšanās sistēmā.</translation>
     </message>
     <message>
-        <source>&amp;Start Emercoin on system login</source>
-        <translation>&amp;Sākt Emercoin reizē ar sistēmu</translation>
+        <source>&amp;Start Voicecoin on system login</source>
+        <translation>&amp;Sākt Voicecoin reizē ar sistēmu</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -892,15 +892,15 @@ Adrese: %4
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
-        <translation>Ieslēgt emercoin &amp;kontroles funkcijas</translation>
+        <translation>Ieslēgt voicecoin &amp;kontroles funkcijas</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
         <translation>&amp;Tērēt neapstiprinātu atlikumu</translation>
     </message>
     <message>
-        <source>Automatically open the Emercoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Uz rūtera automātiski atvērt Emercoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
+        <source>Automatically open the Voicecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Uz rūtera automātiski atvērt Voicecoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -947,8 +947,8 @@ Adrese: %4
         <translation>Lietotāja interfeiss un &amp;valoda:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Emercoin.</source>
-        <translation>Šeit var iestatīt lietotāja valodu. Iestatījums aktivizēsies pēc Emercoin pārstartēšanas.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Voicecoin.</source>
+        <translation>Šeit var iestatīt lietotāja valodu. Iestatījums aktivizēsies pēc Voicecoin pārstartēšanas.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -956,11 +956,11 @@ Adrese: %4
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Izvēlēties dalījuma vienību pēc noklusēšanas, ko izmantot interfeisā un nosūtot emerkoinus.</translation>
+        <translation>Izvēlēties dalījuma vienību pēc noklusēšanas, ko izmantot interfeisā un nosūtot VOICEkoinus.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
-        <translation>Vai rādīt Emercoin kontroles funkcijas vai nē.</translation>
+        <translation>Vai rādīt Voicecoin kontroles funkcijas vai nē.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -998,8 +998,8 @@ Adrese: %4
         <translation>Forma</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Emercoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Emercoin tīklu, taču šis process vēl nav beidzies.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Voicecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Voicecoin tīklu, taču šis process vēl nav beidzies.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1049,8 +1049,8 @@ Adrese: %4
         <translation>Maksājumu pieprasījuma kļūda</translation>
     </message>
     <message>
-        <source>Cannot start emercoin: click-to-pay handler</source>
-        <translation>Nevar palaist Emercoin: nospied-lai-maksātu apstrādātāju</translation>
+        <source>Cannot start voicecoin: click-to-pay handler</source>
+        <translation>Nevar palaist Voicecoin: nospied-lai-maksātu apstrādātāju</translation>
     </message>
     <message>
         <source>Refund from %1</source>
@@ -1205,8 +1205,8 @@ Adrese: %4
         <translation>Notīrīt konsoli</translation>
     </message>
     <message>
-        <source>Welcome to the Emercoin RPC console.</source>
-        <translation>Laipni lūgti Emercoin RPC konsolē.</translation>
+        <source>Welcome to the Voicecoin RPC console.</source>
+        <translation>Laipni lūgti Voicecoin RPC konsolē.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1386,11 +1386,11 @@ Adrese: %4
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Sūtīt Emerkoinus</translation>
+        <translation>Sūtīt VOICEkoinus</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation>Emercoin Kontroles Funkcijas</translation>
+        <translation>Voicecoin Kontroles Funkcijas</translation>
     </message>
     <message>
         <source>Inputs...</source>
@@ -1466,7 +1466,7 @@ Adrese: %4
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Apstiprināt emerkoinu sūtīšanu</translation>
+        <translation>Apstiprināt VOICEkoinu sūtīšanu</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -1529,8 +1529,8 @@ Adrese: %4
         <translation>Transakcijas izveidošana neizdevās!</translation>
     </message>
     <message>
-        <source>Warning: Invalid Emercoin address</source>
-        <translation>Brīdinājums: Nederīga Emercoin adrese</translation>
+        <source>Warning: Invalid Voicecoin address</source>
+        <translation>Brīdinājums: Nederīga Voicecoin adrese</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1611,8 +1611,8 @@ Adrese: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Emercoin Core is shutting down...</source>
-        <translation>Emercoin Core tiek izslēgta...</translation>
+        <source>Voicecoin Core is shutting down...</source>
+        <translation>Voicecoin Core tiek izslēgta...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1658,8 +1658,8 @@ Adrese: %4
         <translation>Kopēt parakstu uz sistēmas starpliktuvi</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Emercoin address</source>
-        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Emercoin adreses īpašnieks.</translation>
+        <source>Sign the message to prove you own this Voicecoin address</source>
+        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Voicecoin adreses īpašnieks.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1741,12 +1741,12 @@ Adrese: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
-        <source>The Emercoin Core developers</source>
-        <translation>Emercoin Core izstrādātāji</translation>
+        <source>The Voicecoin Core developers</source>
+        <translation>Voicecoin Core izstrādātāji</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2138,7 +2138,7 @@ Adrese: %4
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Sūtīt Emerkoinus</translation>
+        <translation>Sūtīt VOICEkoinus</translation>
     </message>
 </context>
 <context>
@@ -2376,7 +2376,7 @@ Adrese: %4
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Nepietiek emerkoinu</translation>
+        <translation>Nepietiek VOICEkoinu</translation>
     </message>
     <message>
         <source>Loading block index...</source>

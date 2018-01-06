@@ -1570,7 +1570,7 @@ bool CWallet::CreateTransactionInner(const vector<pair<CScript, CAmount> >& vecS
         return false;
     }
 
-    // emercoin: define some values used in case of namecoin tx creation
+    // voicecoin: define some values used in case of namecoin tx creation
     CAmount nNameTxInCredit = 0;
     unsigned int nNameTxOut = 0;
     if (!wtxNameIn.IsNull())
@@ -1582,13 +1582,13 @@ bool CWallet::CreateTransactionInner(const vector<pair<CScript, CAmount> >& vecS
     wtxNew.fTimeReceivedIsTxTime = true;
     wtxNew.BindWallet(this);
     CMutableTransaction txNew;
-    txNew.nVersion = wtxNew.nVersion; // emercoin: important for name transactions
+    txNew.nVersion = wtxNew.nVersion; // voicecoin: important for name transactions
 
     {
         LOCK2(cs_main, cs_wallet);
         {
             CAmount nMinOut = GetMinTxOut(chainActive.Tip()->GetBlockVersion(), chainActive.Tip()->pprev);
-            nFeeRet = max(nFeeInput, MIN_TX_FEE);  // emercoin: a good starting point, probably...
+            nFeeRet = max(nFeeInput, MIN_TX_FEE);  // voicecoin: a good starting point, probably...
 	    LogPrintf("CWallet::CreateTransactionInner: nMinOut=%lu nFeeRet=%lu\n", (unsigned long long)nMinOut, (unsigned long long)nFeeRet);
             while (true)
             {
@@ -1608,7 +1608,7 @@ bool CWallet::CreateTransactionInner(const vector<pair<CScript, CAmount> >& vecS
                 set<pair<const CWalletTx*,unsigned int> > setCoins;
                 CAmount nValueIn = 0;
 
-                // emercoin: in case of namecoin tx we have already supplied input.
+                // voicecoin: in case of namecoin tx we have already supplied input.
                 // If we have enough money: skip coin selection, unless we have ordered it with coinControl.
                 if (!wtxNameIn.IsNull())
                 {
@@ -1627,7 +1627,7 @@ bool CWallet::CreateTransactionInner(const vector<pair<CScript, CAmount> >& vecS
                     return false;
                 }
 
-		// emercoin: name tx always at first position
+		// voicecoin: name tx always at first position
                 if (!wtxNameIn.IsNull())
                 {
                     setCoins.insert(setCoins.begin(), make_pair(&wtxNameIn, nNameTxOut));
@@ -1699,7 +1699,7 @@ bool CWallet::CreateTransactionInner(const vector<pair<CScript, CAmount> >& vecS
                 int nIn = 0;
                 BOOST_FOREACH(const PAIRTYPE(const CWalletTx*,unsigned int)& coin, setCoins)
                 {
-                    // emercoin: we sign name tx differently.
+                    // voicecoin: we sign name tx differently.
                     if (coin.first == &wtxNameIn && coin.second == nNameTxOut)
                     {
                         if (!SignNameSignature(*this, *coin.first, txNew, nIn++))

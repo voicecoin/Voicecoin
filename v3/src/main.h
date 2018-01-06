@@ -104,7 +104,7 @@ static const unsigned char REJECT_DUST = 0x41;
 static const unsigned char REJECT_INSUFFICIENTFEE = 0x42;
 static const unsigned char REJECT_CHECKPOINT = 0x43;
 
-/** emercoin constants */
+/** voicecoin constants */
 static const CAmount MAX_MINT_PROOF_OF_WORK = 5020 * COIN;
 static const CAmount MIN_TXOUT_AMOUNT = MIN_TX_FEE;
 static const int STAKE_MIN_AGE = 60 * 60 * 24 * 30;      // minimum age for coin age
@@ -209,7 +209,7 @@ bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock, b
 /** Find the best known block, and make it the tip of the block chain */
 bool ActivateBestChain(CValidationState &state, CBlock *pblock = NULL);
 
-// emercoin: reward for blocks
+// voicecoin: reward for blocks
 CAmount GetProofOfWorkReward(unsigned int nBits);
 CAmount GetProofOfStakeReward(int64_t nCoinAge);
 
@@ -409,7 +409,7 @@ bool AcceptBlockHeader(const CBlockHeader& block, bool fProofOfStake, CValidatio
 bool SignBlock(CBlock& block, const CKeyStore& keystore);
 bool CheckBlockSignature(const CBlock& block);
 
-// emercoin: check that tx output is not below MIN_TX_AMOUNT
+// voicecoin: check that tx output is not below MIN_TX_AMOUNT
 CAmount GetMinTxOut(int nVersion, CBlockIndex *pindexPrev);
 CAmount GetMinTxOutLOCKED(int nVersion, CBlockIndex *pindexPrev);
 bool CheckMinTxOut(const CTransaction& tx, int nVersion, CBlockIndex *pindexPrev);

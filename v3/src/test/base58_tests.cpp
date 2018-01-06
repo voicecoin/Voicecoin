@@ -163,7 +163,7 @@ BOOST_AUTO_TEST_CASE(base58_keys_valid_parse)
             std::string exp_addrType = find_value(metadata, "addrType").get_str(); // "script" or "pubkey"
             // Must be valid public key
             BOOST_CHECK_MESSAGE(addr.SetString(exp_base58string), "SetString:" + strTest);
-            // emercoin: TODO: use our own addresses for these tests
+            // voicecoin: TODO: use our own addresses for these tests
 //            BOOST_CHECK_MESSAGE(addr.IsValid(), "!IsValid:" + strTest);
 //            BOOST_CHECK_MESSAGE(addr.IsScript() == (exp_addrType == "script"), "isScript mismatch" + strTest);
             CTxDestination dest = addr.Get();
@@ -233,7 +233,7 @@ BOOST_AUTO_TEST_CASE(base58_keys_valid_gen)
             }
             CBitcoinAddress addrOut;
             BOOST_CHECK_MESSAGE(addrOut.Set(dest), "encode dest: " + strTest);
-            // emercoin: TODO: use our own addresses for these tests
+            // voicecoin: TODO: use our own addresses for these tests
 //            BOOST_CHECK_MESSAGE(addrOut.ToString() == exp_base58string, "mismatch: " + strTest);
         }
     }
