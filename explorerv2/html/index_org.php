@@ -181,7 +181,7 @@ if ($include_file=="api") {
 			<span class="caret"></span></a>
 						  <ul class="dropdown-menu">
 						    <li><a href="javascript:setLanguage('cn');"><img src="/lang/cn.png"> CN</a></li>
-						    <li><a href="javascript:setLanguage('de');"><img src="/lang/de.png"> DE</a></li>
+						    <!-- <li><a href="javascript:setLanguage('de');"><img src="/lang/de.png"> DE</a></li> -->
 							<li><a href="javascript:setLanguage('en');"><img src="/lang/en.png"> EN</a></li>
 						  </ul>
 						</li>
