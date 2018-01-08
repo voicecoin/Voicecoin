@@ -63,7 +63,7 @@ function lang($phrase){
                 'ADDRESS_TX' => '钱包地址/区块/交易',
                 'CHAIN_CHAIN' => '区块链',
                 'CHARTS_CHARTS' => '图表',
-                'EMERBOARD_EMERBOARD' => 'EmerBoard',
+                'EMERBOARD_EMERBOARD' => 'VoiceBoard',
                 'NVS_NVS' => '域名系统',
                 'SHOW_SHOW' => '显示',
                 'STATS_STATS' => '统计',

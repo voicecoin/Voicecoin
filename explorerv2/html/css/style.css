@@ -3,7 +3,21 @@
 .light-orange{color:#FACC2E}
 .light-green{color:#C8FE2E}
 .green{color:#64FE2E}
-
+/* 重置头部样式 */
+.navbar-default{
+    border-radius: 0;
+    border: 0;
+    background: url(../img/top_bg.png)  repeat-x;
+}
+.navbar-default .navbar-collapse{
+    background: none;
+}
+.navbar-default .navbar-collapse .navbar-nav>li>a {
+    color: #fff
+}
+.navbar-default .navbar-collapse .navbar-nav>li>a:hover{
+    color: #ccc
+}
 #drop input{
     display:none;
 }

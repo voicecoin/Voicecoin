@@ -121,7 +121,7 @@ function PrintTok($tokens) {
 		<div class="panel-heading" role="tab" id="headingOne">
 		  <h4 class="panel-title">
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			  <?php echo 'Verify with emcDPO'; ?>
+			  <?php echo 'Verify with vcDPO'; ?>
 			</a>
 		  </h4>
 		</div>

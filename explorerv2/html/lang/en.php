@@ -63,7 +63,7 @@ function lang($phrase){
 		'ADDRESS_TX' => 'Address/Block/TX',
 		'CHAIN_CHAIN' => 'Chain',
 		'CHARTS_CHARTS' => 'Charts',
-		'EMERBOARD_EMERBOARD' => 'EmerBoard',
+		'EMERBOARD_EMERBOARD' => 'VoiceBoard',
 		'NVS_NVS' => 'NVS',
 		'SHOW_SHOW' => 'Show',
 		'STATS_STATS' => 'Stats',
