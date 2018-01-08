@@ -1,5 +1,5 @@
 ---
-name: "emercoin-linux-0.6"
+name: "voicecoin-linux-0.6"
 enable_cache: true
 suites:
 - "trusty"
@@ -19,8 +19,8 @@ packages:
 - "ca-certificates"
 reference_datetime: "2016-01-01 00:00:00"
 remotes:
-- "url": "https://github.com/Emercoin/emercoin.git"
-  "dir": "emercoin"
+- "url": "https://github.com/Voicecoin/voicecoin.git"
+  "dir": "voicecoin"
 files: []
 script: |
   WRAP_DIR=$HOME/wrapped
@@ -64,7 +64,7 @@ script: |
   done
   export PATH=${WRAP_DIR}:${PATH}
 
-  cd emercoin
+  cd voicecoin
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
@@ -75,13 +75,13 @@ script: |
   ./autogen.sh
   ./configure --prefix=${BASEPREFIX}/`echo "${HOSTS}" | awk '{print $1;}'`
   make dist
-  SOURCEDIST=`echo emercoin-*.tar.gz`
+  SOURCEDIST=`echo voicecoin-*.tar.gz`
   DISTNAME=`echo ${SOURCEDIST} | sed 's/.tar.*//'`
   # Correct tar file order
   mkdir -p temp
   pushd temp
   tar xf ../$SOURCEDIST
-  find emercoin-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
+  find voicecoin-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
   popd
 
   ORIGPATH="$PATH"

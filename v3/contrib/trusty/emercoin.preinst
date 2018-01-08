@@ -8,13 +8,13 @@ case "$1" in
     getent passwd emc >/dev/null || {
       groupadd -r emc && useradd -r -m -d /var/lib/emc -k /dev/null -s /bin/false -g emc emc
     }
-    [ ! -f /etc/ssl/emc/emercoin.key ] || [ ! -f /etc/ssl/emc/emercoin.crt ] && {
+    [ ! -f /etc/ssl/emc/voicecoin.key ] || [ ! -f /etc/ssl/emc/voicecoin.crt ] && {
       mkdir -p /etc/ssl/emc
-      openssl req -nodes -x509 -newkey rsa:4096 -keyout /etc/ssl/emc/emercoin.key -out /etc/ssl/emc/emercoin.crt -days 3560 -subj /C=CY/L=Nicosia/O=Emercoin/CN=emercoin.local >/dev/null 2>&1
-      chown emc.emc /etc/ssl/emc/emercoin.key /etc/ssl/emc/emercoin.crt
-      chmod 600 /etc/ssl/emc/emercoin.key
+      openssl req -nodes -x509 -newkey rsa:4096 -keyout /etc/ssl/emc/voicecoin.key -out /etc/ssl/emc/voicecoin.crt -days 3560 -subj /C=CY/L=Nicosia/O=Voicecoin/CN=voicecoin.local >/dev/null 2>&1
+      chown emc.emc /etc/ssl/emc/voicecoin.key /etc/ssl/emc/voicecoin.crt
+      chmod 600 /etc/ssl/emc/voicecoin.key
     }
-    touch /var/tmp/emercoin-install.flag
+    touch /var/tmp/voicecoin-install.flag
   ;;
 esac
 

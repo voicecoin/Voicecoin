@@ -107,7 +107,7 @@
         <translation>Құпия сөзді өзгерту</translation>
     </message>
     <message>
-        <source>Emercoin</source>
+        <source>Voicecoin</source>
         <translation>Емеркоин</translation>
     </message>
     <message>

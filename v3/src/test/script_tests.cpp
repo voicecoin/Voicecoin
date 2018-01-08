@@ -3,7 +3,7 @@
 // file COPYING or http://www.gnu.org/licenses/gpl.html.
 #if 0
 
-// emercoin: TODO: redo a lot of test cases, because nTime from ppcoin broke most signature hashes.
+// voicecoin: TODO: redo a lot of test cases, because nTime from ppcoin broke most signature hashes.
 
 #include "data/script_invalid.json.h"
 #include "data/script_valid.json.h"

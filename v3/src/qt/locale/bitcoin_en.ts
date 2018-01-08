@@ -85,12 +85,12 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your Emercoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>These are your Emercoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
+        <source>These are your Voicecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>These are your Voicecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your Emercoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Voicecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -206,8 +206,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR EMERCOINS&lt;/b&gt;!</source>
-        <translation>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR EMERCOINS&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR VOICECOINS&lt;/b&gt;!</source>
+        <translation>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR VOICECOINS&lt;/b&gt;!</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -238,8 +238,8 @@
     </message>
     <message>
         <location line="+80"/>
-        <source>Emercoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your emercoins from being stolen by malware infecting your computer.</source>
-        <translation>Emercoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your emercoins from being stolen by malware infecting your computer.</translation>
+        <source>Voicecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your voicecoins from being stolen by malware infecting your computer.</source>
+        <translation>Voicecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your voicecoins from being stolen by malware infecting your computer.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -286,7 +286,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../emercoingui.cpp" line="+311"/>
+        <location filename="../voicecoingui.cpp" line="+311"/>
         <source>Sign &amp;message...</source>
         <translation>Sign &amp;message...</translation>
     </message>
@@ -378,7 +378,7 @@
     </message>
     <message>
         <location line="+173"/>
-        <source>Emercoin Core client</source>
+        <source>Voicecoin Core client</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -393,13 +393,13 @@
     </message>
     <message>
         <location line="-406"/>
-        <source>Send coins to an Emercoin address</source>
-        <translation>Send coins to an Emercoin address</translation>
+        <source>Send coins to an Voicecoin address</source>
+        <translation>Send coins to an Voicecoin address</translation>
     </message>
     <message>
         <location line="+48"/>
-        <source>Modify configuration options for Emercoin</source>
-        <translation>Modify configuration options for Emercoin</translation>
+        <source>Modify configuration options for Voicecoin</source>
+        <translation>Modify configuration options for Voicecoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -428,8 +428,8 @@
     </message>
     <message>
         <location line="+438"/>
-        <source>Emercoin</source>
-        <translation>Emercoin</translation>
+        <source>Voicecoin</source>
+        <translation>Voicecoin</translation>
     </message>
     <message>
         <location line="-639"/>
@@ -448,7 +448,7 @@
     </message>
     <message>
         <location line="+32"/>
-        <source>Show information about Emercoin Core</source>
+        <source>Show information about Voicecoin Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -468,13 +468,13 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your Emercoin addresses to prove you own them</source>
-        <translation>Sign messages with your Emercoin addresses to prove you own them</translation>
+        <source>Sign messages with your Voicecoin addresses to prove you own them</source>
+        <translation>Sign messages with your Voicecoin addresses to prove you own them</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified Emercoin addresses</source>
-        <translation>Verify messages to ensure they were signed with specified Emercoin addresses</translation>
+        <source>Verify messages to ensure they were signed with specified Voicecoin addresses</source>
+        <translation>Verify messages to ensure they were signed with specified Voicecoin addresses</translation>
     </message>
     <message>
         <location line="+49"/>
@@ -498,17 +498,17 @@
     </message>
     <message>
         <location line="-298"/>
-        <source>Emercoin Core</source>
-        <translation type="unfinished">Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation type="unfinished">Voicecoin Core</translation>
     </message>
     <message>
         <location line="+155"/>
-        <source>Request payments (generates QR codes and emercoin: URIs)</source>
+        <source>Request payments (generates QR codes and voicecoin: URIs)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+30"/>
-        <source>&amp;About Emercoin Core</source>
+        <source>&amp;About Voicecoin Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -523,7 +523,7 @@
     </message>
     <message>
         <location line="+3"/>
-        <source>Open a emercoin: URI or payment request</source>
+        <source>Open a voicecoin: URI or payment request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -533,15 +533,15 @@
     </message>
     <message>
         <location line="+2"/>
-        <source>Show the Emercoin Core help message to get a list with possible Emercoin command-line options</source>
+        <source>Show the Voicecoin Core help message to get a list with possible Voicecoin command-line options</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location line="+307"/>
-        <source>%n active connection(s) to Emercoin network</source>
+        <source>%n active connection(s) to Voicecoin network</source>
         <translation>
-            <numerusform>%n active connection to Emercoin network</numerusform>
-            <numerusform>%n active connections to Emercoin network</numerusform>
+            <numerusform>%n active connection to Voicecoin network</numerusform>
+            <numerusform>%n active connections to Voicecoin network</numerusform>
         </translation>
     </message>
     <message>
@@ -1012,8 +1012,8 @@ Address: %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid Emercoin address.</source>
-        <translation>The entered address &quot;%1&quot; is not a valid Emercoin address.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Voicecoin address.</source>
+        <translation>The entered address &quot;%1&quot; is not a valid Voicecoin address.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1058,8 +1058,8 @@ Address: %4
     <name>HelpMessageDialog</name>
     <message>
         <location filename="../utilitydialog.cpp" line="+31"/>
-        <source>Emercoin Core</source>
-        <translation type="unfinished">Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation type="unfinished">Voicecoin Core</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1074,7 +1074,7 @@ Address: %4
     </message>
     <message>
         <location line="+5"/>
-        <source>About Emercoin Core</source>
+        <source>About Voicecoin Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1132,17 +1132,17 @@ Address: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Welcome to Emercoin Core.</source>
+        <source>Welcome to Voicecoin Core.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>As this is the first time the program is launched, you can choose where Emercoin Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Voicecoin Core will store its data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>Emercoin Core will download and store a copy of the Emercoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Voicecoin Core will download and store a copy of the Voicecoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1157,8 +1157,8 @@ Address: %4
     </message>
     <message>
         <location filename="../intro.cpp" line="+82"/>
-        <source>Emercoin Core</source>
-        <translation type="unfinished">Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation type="unfinished">Voicecoin Core</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1229,13 +1229,13 @@ Address: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically start Emercoin after logging in to the system.</source>
-        <translation>Automatically start Emercoin after logging in to the system.</translation>
+        <source>Automatically start Voicecoin after logging in to the system.</source>
+        <translation>Automatically start Voicecoin after logging in to the system.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start Emercoin on system login</source>
-        <translation>&amp;Start Emercoin on system login</translation>
+        <source>&amp;Start Voicecoin on system login</source>
+        <translation>&amp;Start Voicecoin on system login</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1330,8 +1330,8 @@ Address: %4
     </message>
     <message>
         <location line="+30"/>
-        <source>Automatically open the Emercoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatically open the Emercoin client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
+        <source>Automatically open the Voicecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatically open the Voicecoin client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1340,7 +1340,7 @@ Address: %4
     </message>
     <message>
         <location line="+17"/>
-        <source>Connect to the Emercoin network through a SOCKS5 proxy.</source>
+        <source>Connect to the Voicecoin network through a SOCKS5 proxy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1400,8 +1400,8 @@ Address: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Emercoin.</source>
-        <translation>The user interface language can be set here. This setting will take effect after restarting Emercoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Voicecoin.</source>
+        <translation>The user interface language can be set here. This setting will take effect after restarting Voicecoin.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1475,8 +1475,8 @@ Address: %4
     <message>
         <location line="+53"/>
         <location line="+372"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Emercoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the Emercoin network after a connection is established, but this process has not completed yet.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Voicecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the Voicecoin network after a connection is established, but this process has not completed yet.</translation>
     </message>
     <message>
         <location line="-133"/>
@@ -1618,7 +1618,7 @@ Address: %4
     </message>
     <message>
         <location line="-400"/>
-        <source>Cannot start emercoin: click-to-pay handler</source>
+        <source>Cannot start voicecoin: click-to-pay handler</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1628,7 +1628,7 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>URI cannot be parsed! This can be caused by an invalid Emercoin address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Voicecoin address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1708,13 +1708,13 @@ Address: %4
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../emercoinunits.cpp" line="+194"/>
+        <location filename="../voicecoinunits.cpp" line="+194"/>
         <source>Amount</source>
         <translation type="unfinished">Amount</translation>
     </message>
     <message>
         <location filename="../guiutil.cpp" line="+109"/>
-        <source>Enter an Emercoin address (e.g. %1)</source>
+        <source>Enter an Voicecoin address (e.g. %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2019,8 +2019,8 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the Emercoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Open the Emercoin debug log file from the current data directory. This can take a few seconds for large log files.</translation>
+        <source>Open the Voicecoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Open the Voicecoin debug log file from the current data directory. This can take a few seconds for large log files.</translation>
     </message>
     <message>
         <location line="+76"/>
@@ -2029,8 +2029,8 @@ Address: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-35"/>
-        <source>Welcome to the Emercoin RPC console.</source>
-        <translation>Welcome to the Emercoin RPC console.</translation>
+        <source>Welcome to the Voicecoin RPC console.</source>
+        <translation>Welcome to the Voicecoin RPC console.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2125,7 +2125,7 @@ Address: %4
     <message>
         <location line="+14"/>
         <location line="+23"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Emercoin network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Voicecoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2423,7 +2423,7 @@ Address: %4
     <message>
         <location line="+30"/>
         <location line="+13"/>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for emercoin transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for voicecoin transactions than the network can process.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2621,7 +2621,7 @@ Address: %4
     </message>
     <message>
         <location line="+107"/>
-        <source>Warning: Invalid Emercoin address</source>
+        <source>Warning: Invalid Voicecoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2686,7 +2686,7 @@ Address: %4
     </message>
     <message>
         <location line="+33"/>
-        <source>The Emercoin address to send the payment to</source>
+        <source>The Voicecoin address to send the payment to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2728,7 +2728,7 @@ Address: %4
     </message>
     <message>
         <location line="+33"/>
-        <source>A message that was attached to the emercoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Emercoin network.</source>
+        <source>A message that was attached to the voicecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Voicecoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2753,7 +2753,7 @@ Address: %4
     <name>ShutdownWindow</name>
     <message>
         <location filename="../utilitydialog.cpp" line="+47"/>
-        <source>Emercoin Core is shutting down...</source>
+        <source>Voicecoin Core is shutting down...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2781,7 +2781,7 @@ Address: %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The Emercoin address to sign the message with</source>
+        <source>The Voicecoin address to sign the message with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2823,8 +2823,8 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Emercoin address</source>
-        <translation>Sign the message to prove you own this Emercoin address</translation>
+        <source>Sign the message to prove you own this Voicecoin address</source>
+        <translation>Sign the message to prove you own this Voicecoin address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2854,13 +2854,13 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>The Emercoin address the message was signed with</source>
+        <source>The Voicecoin address the message was signed with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+37"/>
-        <source>Verify the message to ensure it was signed with the specified Emercoin address</source>
-        <translation>Verify the message to ensure it was signed with the specified Emercoin address</translation>
+        <source>Verify the message to ensure it was signed with the specified Voicecoin address</source>
+        <translation>Verify the message to ensure it was signed with the specified Voicecoin address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2948,12 +2948,12 @@ Address: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+35"/>
-        <source>Emercoin Core</source>
-        <translation type="unfinished">Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation type="unfinished">Voicecoin Core</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>The Emercoin Core developers</source>
+        <source>The Voicecoin Core developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3512,7 +3512,7 @@ Address: %4
 <context>
     <name>UnitDisplayStatusBarControl</name>
     <message>
-        <location filename="../emercoingui.cpp" line="+106"/>
+        <location filename="../voicecoingui.cpp" line="+106"/>
         <source>Unit to show amounts in. Click to select another unit.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3579,7 +3579,7 @@ Address: %4
 <context>
     <name>bitcoin-core</name>
     <message>
-        <location filename="../emercoinstrings.cpp" line="+244"/>
+        <location filename="../voicecoinstrings.cpp" line="+244"/>
         <source>Options:</source>
         <translation>Options:</translation>
     </message>
@@ -3660,7 +3660,7 @@ Address: %4
     </message>
     <message>
         <location line="+20"/>
-        <source>Unable to bind to %s on this computer. Emercoin Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Voicecoin Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3890,7 +3890,7 @@ Address: %4
     </message>
     <message>
         <location line="+4"/>
-        <source>Cannot obtain a lock on data directory %s. Emercoin Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Voicecoin Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3975,16 +3975,16 @@ Address: %4
     </message>
     <message>
         <location line="+4"/>
-        <source>To use emercoind, or the -server option to emercoin-qt, you must set an rpcpassword in the configuration file:
+        <source>To use voicecoind, or the -server option to voicecoin-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=emercoinrpc
+rpcuser=voicecoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Emercoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Voicecoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3995,7 +3995,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Emercoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+6"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Emercoin Core will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Voicecoin Core will not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4020,7 +4020,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Emercoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Copyright (C) 2013-%i The Emercoin Core Developers</source>
+        <source>Copyright (C) 2013-%i The Voicecoin Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4030,7 +4030,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Emercoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+12"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of Emercoin Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Voicecoin Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4060,7 +4060,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Emercoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Initialization sanity check failed. Emercoin Core is shutting down.</source>
+        <source>Initialization sanity check failed. Voicecoin Core is shutting down.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4200,7 +4200,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Emercoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+4"/>
-        <source>Wallet needed to be rewritten: restart Emercoin Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Voicecoin Core to complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

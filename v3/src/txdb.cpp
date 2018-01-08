@@ -147,7 +147,7 @@ bool CBlockTreeDB::WriteBatchSync(const std::vector<std::pair<int, const CBlockF
     batch.Write('l', nLastFile);
     for (std::vector<const CBlockIndex*>::const_iterator it=blockinfo.begin(); it != blockinfo.end(); it++) {
 
-        // emercoin: search for auxpow in memory, then try disk
+        // voicecoin: search for auxpow in memory, then try disk
         boost::shared_ptr<CAuxPow> auxpow;
         if ((*it)->nVersion & BLOCK_VERSION_AUXPOW)
         {

@@ -133,7 +133,7 @@ public:
     unsigned int nStatus;
 
     //! block header
-    int nVersion;     // emercoin: it might contain merged mining information in higher bits. Use GetBlockVersion() to ignore it.
+    int nVersion;     // voicecoin: it might contain merged mining information in higher bits. Use GetBlockVersion() to ignore it.
     uint256 hashMerkleRoot;
     unsigned int nTime;
     unsigned int nBits;

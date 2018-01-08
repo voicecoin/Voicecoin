@@ -549,7 +549,7 @@ GUI:
 - `a49f11d` Change splash screen to normal window
 - `1f9be98` Disable App Nap on OSX 10.9+
 - `27c3e91` Add proxy to options overridden if necessary
-- `4bd1185` Allow "emergency" shutdown during startup
+- `4bd1185` Allow "VOICEgency" shutdown during startup
 - `d52f072` Don't show wallet options in the preferences menu when running with -disablewallet
 - `6093aa1` Qt: QProgressBar CPU-Issue workaround
 - `0ed9675` [Wallet] Add global boolean whether to send free transactions (default=true)

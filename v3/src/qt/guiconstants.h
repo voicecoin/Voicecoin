@@ -44,9 +44,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 35
 
-#define QAPP_ORG_NAME "Emercoin"
-#define QAPP_ORG_DOMAIN "emercoin.com"
-#define QAPP_APP_NAME_DEFAULT "Emercoin-Qt"
-#define QAPP_APP_NAME_TESTNET "Emercoin-Qt-testnet"
+#define QAPP_ORG_NAME "Voicecoin"
+#define QAPP_ORG_DOMAIN "voicecoin.com"
+#define QAPP_APP_NAME_DEFAULT "Voicecoin-Qt"
+#define QAPP_APP_NAME_TESTNET "Voicecoin-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

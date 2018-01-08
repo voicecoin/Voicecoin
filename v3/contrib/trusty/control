@@ -1,4 +1,4 @@
-Source: emercoin
+Source: voicecoin
 Section: utils
 Priority: optional
 Maintainer: Aspanta Limited <info@aspanta.com>
@@ -21,9 +21,9 @@ Build-Depends: build-essential,
  protobuf-compiler,
  python3
 
-Package: emercoin
+Package: voicecoin
 Architecture: any
-Description: Emercoin Client
+Description: Voicecoin Client
 Pre-Depends: debconf
 Depends: ${shlibs:Depends},
  openssl,

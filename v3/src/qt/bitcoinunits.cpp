@@ -62,9 +62,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("Emercoins");
-    case mBTC: return QString("Milli-Emercoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uBTC: return QString("Micro-Emercoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case BTC: return QString("Voicecoins");
+    case mBTC: return QString("Milli-Voicecoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uBTC: return QString("Micro-Voicecoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }

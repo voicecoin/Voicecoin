@@ -47,11 +47,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Wählen Sie die Adresse aus, an die Sie Emercoins überweisen möchten</translation>
+        <translation>Wählen Sie die Adresse aus, an die Sie Voicecoins überweisen möchten</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Wählen Sie die Adresse aus, über die Sie Emercoins empfangen wollen</translation>
+        <translation>Wählen Sie die Adresse aus, über die Sie Voicecoins empfangen wollen</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -66,12 +66,12 @@
         <translation>Empfangsadressen</translation>
     </message>
     <message>
-        <source>These are your Emercoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dies sind Ihre Emercoin-Adressen zum Tätigen von Überweisungen. Bitte prüfen Sie den Betrag und die Empfangsadresse, bevor Sie Emercoins überweisen.</translation>
+        <source>These are your Voicecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Dies sind Ihre Voicecoin-Adressen zum Tätigen von Überweisungen. Bitte prüfen Sie den Betrag und die Empfangsadresse, bevor Sie Voicecoins überweisen.</translation>
     </message>
     <message>
-        <source>These are your Emercoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Dies sind Ihre Emercoin-Adressen zum Empfangen von Zahlungen. Es wird empfohlen für jede Transaktion eine neue Empfangsadresse zu verwenden.</translation>
+        <source>These are your Voicecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Dies sind Ihre Voicecoin-Adressen zum Empfangen von Zahlungen. Es wird empfohlen für jede Transaktion eine neue Empfangsadresse zu verwenden.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -164,8 +164,8 @@
         <translation>Wallet-Verschlüsselung bestätigen</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR EMERCOINS&lt;/b&gt;!</source>
-        <translation>Warnung: Wenn Sie Ihre Wallet verschlüsseln und Ihre Passphrase verlieren, werden Sie &lt;b&gt;alle Ihre Emercoins verlieren&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR VOICECOINS&lt;/b&gt;!</source>
+        <translation>Warnung: Wenn Sie Ihre Wallet verschlüsseln und Ihre Passphrase verlieren, werden Sie &lt;b&gt;alle Ihre Voicecoins verlieren&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -188,8 +188,8 @@
         <translation>Geben Sie die neue Passphrase für die Wallet ein.&lt;br&gt;Bitte benutzen Sie eine Passphrase bestehend aus &lt;b&gt;zehn oder mehr zufälligen Zeichen&lt;/b&gt; oder &lt;b&gt;acht oder mehr Wörtern&lt;/b&gt;.</translation>
     </message>
     <message>
-        <source>Emercoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your emercoins from being stolen by malware infecting your computer.</source>
-        <translation>Emercoin wird jetzt beendet, um den Verschlüsselungsprozess abzuschließen. Bitte beachten Sie, dass die Wallet-Verschlüsselung nicht vollständig vor Diebstahl Ihrer Emercoins durch Schadprogramme schützt, die Ihren Computer befällt.</translation>
+        <source>Voicecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your voicecoins from being stolen by malware infecting your computer.</source>
+        <translation>Voicecoin wird jetzt beendet, um den Verschlüsselungsprozess abzuschließen. Bitte beachten Sie, dass die Wallet-Verschlüsselung nicht vollständig vor Diebstahl Ihrer Voicecoins durch Schadprogramme schützt, die Ihren Computer befällt.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -295,8 +295,8 @@
         <translation>&amp;URI öffnen...</translation>
     </message>
     <message>
-        <source>Emercoin Core client</source>
-        <translation>"Emercoin Core"-Client</translation>
+        <source>Voicecoin Core client</source>
+        <translation>"Voicecoin Core"-Client</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -307,11 +307,11 @@
         <translation>Reindiziere Blöcke auf Datenträger...</translation>
     </message>
     <message>
-        <source>Send coins to an Emercoin address</source>
-        <translation>Emercoins an eine Emercoin-Adresse überweisen</translation>
+        <source>Send coins to an Voicecoin address</source>
+        <translation>Voicecoins an eine Voicecoin-Adresse überweisen</translation>
     </message>
     <message>
-        <source>Modify configuration options for Emercoin</source>
+        <source>Modify configuration options for Voicecoin</source>
         <translation>Die Konfiguration des Clients bearbeiten</translation>
     </message>
     <message>
@@ -335,8 +335,8 @@
         <translation>Nachricht &amp;verifizieren...</translation>
     </message>
     <message>
-        <source>Emercoin</source>
-        <translation>Emercoin</translation>
+        <source>Voicecoin</source>
+        <translation>Voicecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -351,8 +351,8 @@
         <translation>&amp;Empfangen</translation>
     </message>
     <message>
-        <source>Show information about Emercoin Core</source>
-        <translation>Informationen über Emercoin Core anzeigen</translation>
+        <source>Show information about Voicecoin Core</source>
+        <translation>Informationen über Voicecoin Core anzeigen</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -367,12 +367,12 @@
         <translation>Verschlüsselt die zu Ihrer Wallet gehörenden privaten Schlüssel</translation>
     </message>
     <message>
-        <source>Sign messages with your Emercoin addresses to prove you own them</source>
-        <translation>Nachrichten signieren, um den Besitz Ihrer Emercoin-Adressen zu beweisen</translation>
+        <source>Sign messages with your Voicecoin addresses to prove you own them</source>
+        <translation>Nachrichten signieren, um den Besitz Ihrer Voicecoin-Adressen zu beweisen</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Emercoin addresses</source>
-        <translation>Nachrichten verifizieren, um sicherzustellen, dass diese mit den angegebenen Emercoin-Adressen signiert wurden</translation>
+        <source>Verify messages to ensure they were signed with specified Voicecoin addresses</source>
+        <translation>Nachrichten verifizieren, um sicherzustellen, dass diese mit den angegebenen Voicecoin-Adressen signiert wurden</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -391,16 +391,16 @@
         <translation>Registerkartenleiste</translation>
     </message>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and emercoin: URIs)</source>
-        <translation>Zahlungen anfordern (erzeugt QR-Codes und "emercoin:"-URIs)</translation>
+        <source>Request payments (generates QR codes and voicecoin: URIs)</source>
+        <translation>Zahlungen anfordern (erzeugt QR-Codes und "voicecoin:"-URIs)</translation>
     </message>
     <message>
-        <source>&amp;About Emercoin Core</source>
-        <translation>&amp;Über Emercoin Core</translation>
+        <source>&amp;About Voicecoin Core</source>
+        <translation>&amp;Über Voicecoin Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -411,20 +411,20 @@
         <translation>Liste verwendeter Empfangsadressen und Bezeichnungen anzeigen</translation>
     </message>
     <message>
-        <source>Open a emercoin: URI or payment request</source>
-        <translation>Eine "emercoin:"-URI oder Zahlungsanforderung öffnen</translation>
+        <source>Open a voicecoin: URI or payment request</source>
+        <translation>Eine "voicecoin:"-URI oder Zahlungsanforderung öffnen</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Kommandozeilenoptionen</translation>
     </message>
     <message>
-        <source>Show the Emercoin Core help message to get a list with possible Emercoin command-line options</source>
-        <translation>Zeige den "Emercoin Core"-Hilfetext, um eine Liste mit möglichen Kommandozeilenoptionen zu erhalten</translation>
+        <source>Show the Voicecoin Core help message to get a list with possible Voicecoin command-line options</source>
+        <translation>Zeige den "Voicecoin Core"-Hilfetext, um eine Liste mit möglichen Kommandozeilenoptionen zu erhalten</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Emercoin network</source>
-        <translation><numerusform>%n aktive Verbindung zum Emercoin-Netzwerk</numerusform><numerusform>%n aktive Verbindungen zum Emercoin-Netzwerk</numerusform></translation>
+        <source>%n active connection(s) to Voicecoin network</source>
+        <translation><numerusform>%n aktive Verbindung zum Voicecoin-Netzwerk</numerusform><numerusform>%n aktive Verbindungen zum Voicecoin-Netzwerk</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -787,8 +787,8 @@ Adresse: %4</translation>
         <translation>Die eingegebene Adresse "%1" befindet sich bereits im Adressbuch.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Emercoin address.</source>
-        <translation>Die eingegebene Adresse "%1" ist keine gültige Emercoin-Adresse.</translation>
+        <source>The entered address "%1" is not a valid Voicecoin address.</source>
+        <translation>Die eingegebene Adresse "%1" ist keine gültige Voicecoin-Adresse.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -825,8 +825,8 @@ Adresse: %4</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
         <source>version</source>
@@ -837,8 +837,8 @@ Adresse: %4</translation>
         <translation>(%1-Bit)</translation>
     </message>
     <message>
-        <source>About Emercoin Core</source>
-        <translation>Über Emercoin Core</translation>
+        <source>About Voicecoin Core</source>
+        <translation>Über Voicecoin Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -884,16 +884,16 @@ Adresse: %4</translation>
         <translation>Willkommen</translation>
     </message>
     <message>
-        <source>Welcome to Emercoin Core.</source>
-        <translation>Willkommen zu Emercoin Core.</translation>
+        <source>Welcome to Voicecoin Core.</source>
+        <translation>Willkommen zu Voicecoin Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Emercoin Core will store its data.</source>
-        <translation>Da Sie das Programm gerade zum ersten Mal starten, können Sie nun auswählen wo Emercoin Core seine Daten ablegen soll.</translation>
+        <source>As this is the first time the program is launched, you can choose where Voicecoin Core will store its data.</source>
+        <translation>Da Sie das Programm gerade zum ersten Mal starten, können Sie nun auswählen wo Voicecoin Core seine Daten ablegen soll.</translation>
     </message>
     <message>
-        <source>Emercoin Core will download and store a copy of the Emercoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Emercoin Core wird eine Kopie der Blockkette herunterladen und speichern. Mindestens %1GB Daten werden in diesem Verzeichnis abgelegt und die Datenmenge wächst über die Zeit an. Auch die Wallet wird in diesem Verzeichnis abgelegt.</translation>
+        <source>Voicecoin Core will download and store a copy of the Voicecoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Voicecoin Core wird eine Kopie der Blockkette herunterladen und speichern. Mindestens %1GB Daten werden in diesem Verzeichnis abgelegt und die Datenmenge wächst über die Zeit an. Auch die Wallet wird in diesem Verzeichnis abgelegt.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -904,8 +904,8 @@ Adresse: %4</translation>
         <translation>Ein benutzerdefiniertes Datenverzeichnis verwenden:</translation>
     </message>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -958,12 +958,12 @@ Adresse: %4</translation>
         <translation>&amp;Allgemein</translation>
     </message>
     <message>
-        <source>Automatically start Emercoin after logging in to the system.</source>
-        <translation>Emercoin nach der Anmeldung am System automatisch ausführen.</translation>
+        <source>Automatically start Voicecoin after logging in to the system.</source>
+        <translation>Voicecoin nach der Anmeldung am System automatisch ausführen.</translation>
     </message>
     <message>
-        <source>&amp;Start Emercoin on system login</source>
-        <translation>&amp;Starte Emercoin nach Systemanmeldung</translation>
+        <source>&amp;Start Voicecoin on system login</source>
+        <translation>&amp;Starte Voicecoin nach Systemanmeldung</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1038,16 +1038,16 @@ Adresse: %4</translation>
         <translation>&amp;Unbestätigtes Wechselgeld darf ausgegeben werden</translation>
     </message>
     <message>
-        <source>Automatically open the Emercoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatisch den Emercoin-Clientport auf dem Router öffnen. Dies funktioniert nur, wenn Ihr Router UPnP unterstützt und dies aktiviert ist.</translation>
+        <source>Automatically open the Voicecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatisch den Voicecoin-Clientport auf dem Router öffnen. Dies funktioniert nur, wenn Ihr Router UPnP unterstützt und dies aktiviert ist.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Portweiterleitung via &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Emercoin network through a SOCKS5 proxy.</source>
-        <translation>Über einen SOCKS5-Proxy mit dem Emercoin-Netzwerk verbinden.</translation>
+        <source>Connect to the Voicecoin network through a SOCKS5 proxy.</source>
+        <translation>Über einen SOCKS5-Proxy mit dem Voicecoin-Netzwerk verbinden.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1094,8 +1094,8 @@ Adresse: %4</translation>
         <translation>&amp;Sprache der Benutzeroberfläche:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Emercoin.</source>
-        <translation>Legt die Sprache der Benutzeroberfläche fest. Diese Einstellung wird erst nach einem Neustart von Emercoin aktiv.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Voicecoin.</source>
+        <translation>Legt die Sprache der Benutzeroberfläche fest. Diese Einstellung wird erst nach einem Neustart von Voicecoin aktiv.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1103,7 +1103,7 @@ Adresse: %4</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Wählen Sie die standardmäßige Untereinheit, die in der Benutzeroberfläche und beim Überweisen von Emercoins angezeigt werden soll.</translation>
+        <translation>Wählen Sie die standardmäßige Untereinheit, die in der Benutzeroberfläche und beim Überweisen von Voicecoins angezeigt werden soll.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1153,8 +1153,8 @@ Adresse: %4</translation>
         <translation>Formular</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Emercoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Die angezeigten Informationen sind möglicherweise nicht mehr aktuell. Ihre Wallet wird automatisch synchronisiert, nachdem eine Verbindung zum Emercoin-Netzwerk hergestellt wurde. Dieser Prozess ist jedoch derzeit noch nicht abgeschlossen.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Voicecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Die angezeigten Informationen sind möglicherweise nicht mehr aktuell. Ihre Wallet wird automatisch synchronisiert, nachdem eine Verbindung zum Voicecoin-Netzwerk hergestellt wurde. Dieser Prozess ist jedoch derzeit noch nicht abgeschlossen.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1260,16 +1260,16 @@ Adresse: %4</translation>
         <translation>fehlerhafte Zahlungsanforderung</translation>
     </message>
     <message>
-        <source>Cannot start emercoin: click-to-pay handler</source>
-        <translation>"emercoin: Klicken-zum-Bezahlen"-Handler konnte nicht gestartet werden</translation>
+        <source>Cannot start voicecoin: click-to-pay handler</source>
+        <translation>"voicecoin: Klicken-zum-Bezahlen"-Handler konnte nicht gestartet werden</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>Abruf-URL der Zahlungsanforderung ist ungültig: %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Emercoin address or malformed URI parameters.</source>
-        <translation>URI kann nicht analysiert werden! Dies kann durch eine ungültige Emercoin-Adresse oder fehlerhafte URI-Parameter verursacht werden.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Voicecoin address or malformed URI parameters.</source>
+        <translation>URI kann nicht analysiert werden! Dies kann durch eine ungültige Voicecoin-Adresse oder fehlerhafte URI-Parameter verursacht werden.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1338,8 +1338,8 @@ Adresse: %4</translation>
         <translation>Betrag</translation>
     </message>
     <message>
-        <source>Enter an Emercoin address (e.g. %1)</source>
-        <translation>Emercoin-Adresse eingeben (z.B. %1)</translation>
+        <source>Enter an Voicecoin address (e.g. %1)</source>
+        <translation>Voicecoin-Adresse eingeben (z.B. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1564,16 +1564,16 @@ Adresse: %4</translation>
         <translation>Debugprotokolldatei</translation>
     </message>
     <message>
-        <source>Open the Emercoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Öffnet die Emercoin-Debugprotokolldatei aus dem aktuellen Datenverzeichnis. Dies kann bei großen Protokolldateien einige Sekunden dauern.</translation>
+        <source>Open the Voicecoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Öffnet die Voicecoin-Debugprotokolldatei aus dem aktuellen Datenverzeichnis. Dies kann bei großen Protokolldateien einige Sekunden dauern.</translation>
     </message>
     <message>
         <source>Clear console</source>
         <translation>Konsole zurücksetzen</translation>
     </message>
     <message>
-        <source>Welcome to the Emercoin RPC console.</source>
-        <translation>Willkommen in der Emercoin-RPC-Konsole.</translation>
+        <source>Welcome to the Voicecoin RPC console.</source>
+        <translation>Willkommen in der Voicecoin-RPC-Konsole.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1647,8 +1647,8 @@ Adresse: %4</translation>
         <translation>Vorhandene Empfangsadresse &amp;wiederverwenden (nicht empfohlen)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Emercoin network.</source>
-        <translation>Eine optionale Nachricht, die an die Zahlungsanforderung angehängt wird. Sie wird angezeigt, wenn die Anforderung geöffnet wird. Hinweis: Diese Nachricht wird nicht mit der Zahlung über das Emercoin-Netzwerk gesendet.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Voicecoin network.</source>
+        <translation>Eine optionale Nachricht, die an die Zahlungsanforderung angehängt wird. Sie wird angezeigt, wenn die Anforderung geöffnet wird. Hinweis: Diese Nachricht wird nicht mit der Zahlung über das Voicecoin-Netzwerk gesendet.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1797,7 +1797,7 @@ Adresse: %4</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Emercoins überweisen</translation>
+        <translation>Voicecoins überweisen</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1884,8 +1884,8 @@ Adresse: %4</translation>
         <translation>Mindestbetrag</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for emercoin transactions than the network can process.</source>
-        <translation>Nur die minimale Gebühr zu bezahlen ist so lange in Ordnung, wie weniger Transaktionsvolumen als Platz in den Blöcken vorhanden ist. Aber Vorsicht, diese Option kann dazu führen, dass Transaktionen nicht bestätigt werden, wenn mehr Bedarf an Emercoin-Transaktionen besteht als das Netzwerk verarbeiten kann.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for voicecoin transactions than the network can process.</source>
+        <translation>Nur die minimale Gebühr zu bezahlen ist so lange in Ordnung, wie weniger Transaktionsvolumen als Platz in den Blöcken vorhanden ist. Aber Vorsicht, diese Option kann dazu führen, dass Transaktionen nicht bestätigt werden, wenn mehr Bedarf an Voicecoin-Transaktionen besteht als das Netzwerk verarbeiten kann.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2025,7 +2025,7 @@ Adresse: %4</translation>
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Die Transaktion wurde abgelehnt! Dies kann passieren, wenn einige Emercoins aus Ihrer Wallet bereits ausgegeben wurden. Beispielsweise weil Sie eine Kopie Ihrer wallet.dat genutzt, die Emercoins dort ausgegeben haben und dies daher in der derzeit aktiven Wallet nicht vermerkt ist.</translation>
+        <translation>Die Transaktion wurde abgelehnt! Dies kann passieren, wenn einige Voicecoins aus Ihrer Wallet bereits ausgegeben wurden. Beispielsweise weil Sie eine Kopie Ihrer wallet.dat genutzt, die Voicecoins dort ausgegeben haben und dies daher in der derzeit aktiven Wallet nicht vermerkt ist.</translation>
     </message>
     <message>
         <source>A fee higher than %1 is considered an insanely high fee.</source>
@@ -2040,8 +2040,8 @@ Adresse: %4</translation>
         <translation>Voraussichtlicher Beginn der Bestätigung innerhalb von %1 Blöcken.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Emercoin address</source>
-        <translation>Warnung: Ungültige Emercoin-Adresse</translation>
+        <source>Warning: Invalid Voicecoin address</source>
+        <translation>Warnung: Ungültige Voicecoin-Adresse</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2091,7 +2091,7 @@ Adresse: %4</translation>
         <translation>Dies ist eine normale Überweisung.</translation>
     </message>
     <message>
-        <source>The Emercoin address to send the payment to</source>
+        <source>The Voicecoin address to send the payment to</source>
         <translation>Die Zahlungsadresse der Überweisung</translation>
     </message>
     <message>
@@ -2123,8 +2123,8 @@ Adresse: %4</translation>
         <translation>Adressbezeichnung eingeben, die dann zusammen mit der Adresse der Liste bereits verwendeter Adressen hinzugefügt wird.</translation>
     </message>
     <message>
-        <source>A message that was attached to the emercoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Emercoin network.</source>
-        <translation>Eine an die "emercoin:"-URI angefügte Nachricht, die zusammen mit der Transaktion gespeichert wird. Hinweis: Diese Nachricht wird nicht über das Emercoin-Netzwerk gesendet.</translation>
+        <source>A message that was attached to the voicecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Voicecoin network.</source>
+        <translation>Eine an die "voicecoin:"-URI angefügte Nachricht, die zusammen mit der Transaktion gespeichert wird. Hinweis: Diese Nachricht wird nicht über das Voicecoin-Netzwerk gesendet.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -2142,8 +2142,8 @@ Adresse: %4</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Emercoin Core is shutting down...</source>
-        <translation>Emercoin Core wird beendet...</translation>
+        <source>Voicecoin Core is shutting down...</source>
+        <translation>Voicecoin Core wird beendet...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2165,8 +2165,8 @@ Adresse: %4</translation>
         <translation>Sie können Nachrichten mit Ihren Adressen signieren, um den Besitz dieser Adressen zu beweisen. Bitte nutzen Sie diese Funktion mit Vorsicht und nehmen Sie sich vor Phishingangriffen in Acht. Signieren Sie nur Nachrichten, mit denen Sie vollständig einverstanden sind.</translation>
     </message>
     <message>
-        <source>The Emercoin address to sign the message with</source>
-        <translation>Die Emercoin-Adresse mit der die Nachricht signiert wird</translation>
+        <source>The Voicecoin address to sign the message with</source>
+        <translation>Die Voicecoin-Adresse mit der die Nachricht signiert wird</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2197,8 +2197,8 @@ Adresse: %4</translation>
         <translation>Aktuelle Signatur in die Zwischenablage kopieren</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Emercoin address</source>
-        <translation>Die Nachricht signieren, um den Besitz dieser Emercoin-Adresse zu beweisen</translation>
+        <source>Sign the message to prove you own this Voicecoin address</source>
+        <translation>Die Nachricht signieren, um den Besitz dieser Voicecoin-Adresse zu beweisen</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2221,12 +2221,12 @@ Adresse: %4</translation>
         <translation>Geben Sie die signierende Adresse, Nachricht (achten Sie darauf Zeilenumbrüche, Leerzeichen, Tabulatoren usw. exakt zu kopieren) und Signatur unten ein, um die Nachricht zu verifizieren. Vorsicht, interpretieren Sie nicht mehr in die Signatur hinein, als in der signierten Nachricht selber enthalten ist, um nicht von einem Man-in-the-middle-Angriff hinters Licht geführt zu werden.</translation>
     </message>
     <message>
-        <source>The Emercoin address the message was signed with</source>
-        <translation>Die Emercoin-Adresse mit der die Nachricht signiert wurde</translation>
+        <source>The Voicecoin address the message was signed with</source>
+        <translation>Die Voicecoin-Adresse mit der die Nachricht signiert wurde</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Emercoin address</source>
-        <translation>Die Nachricht verifizieren, um sicherzustellen, dass diese mit der angegebenen Emercoin-Adresse signiert wurde</translation>
+        <source>Verify the message to ensure it was signed with the specified Voicecoin address</source>
+        <translation>Die Nachricht verifizieren, um sicherzustellen, dass diese mit der angegebenen Voicecoin-Adresse signiert wurde</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2292,12 +2292,12 @@ Adresse: %4</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Emercoin Core</translation>
+        <source>Voicecoin Core</source>
+        <translation>Voicecoin Core</translation>
     </message>
     <message>
-        <source>The Emercoin Core developers</source>
-        <translation>Die "Emercoin Core"-Entwickler</translation>
+        <source>The Voicecoin Core developers</source>
+        <translation>Die "Voicecoin Core"-Entwickler</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2423,7 +2423,7 @@ Adresse: %4</translation>
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Erzeugte Emercoins müssen %1 Blöcke lang reifen, bevor sie ausgegeben werden können. Als Sie diesen Block erzeugten, wurde er an das Netzwerk übertragen, um ihn der Blockkette hinzuzufügen. Falls dies fehlschlägt wird der Status in "nicht angenommen" geändert und Sie werden keine Emercoins gutgeschrieben bekommen. Das kann gelegentlich passieren, wenn ein anderer Knoten einen Block fast zeitgleich erzeugt.</translation>
+        <translation>Erzeugte Voicecoins müssen %1 Blöcke lang reifen, bevor sie ausgegeben werden können. Als Sie diesen Block erzeugten, wurde er an das Netzwerk übertragen, um ihn der Blockkette hinzuzufügen. Falls dies fehlschlägt wird der Status in "nicht angenommen" geändert und Sie werden keine Voicecoins gutgeschrieben bekommen. Das kann gelegentlich passieren, wenn ein anderer Knoten einen Block fast zeitgleich erzeugt.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2741,7 +2741,7 @@ Adresse: %4</translation>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Emercoins überweisen</translation>
+        <translation>Voicecoins überweisen</translation>
     </message>
 </context>
 <context>
@@ -2846,8 +2846,8 @@ Adresse: %4</translation>
         <translation>Dies ist eine Vorab-Testversion - Verwendung auf eigene Gefahr - nicht für Mining- oder Handelsanwendungen nutzen!</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. Emercoin Core is probably already running.</source>
-        <translation>Kann auf diesem Computer nicht an %s binden, da Emercoin Core wahrscheinlich bereits gestartet wurde.</translation>
+        <source>Unable to bind to %s on this computer. Voicecoin Core is probably already running.</source>
+        <translation>Kann auf diesem Computer nicht an %s binden, da Voicecoin Core wahrscheinlich bereits gestartet wurde.</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
@@ -3030,8 +3030,8 @@ Adresse: %4</translation>
         <translation>An die angegebene Adresse binden und nach eingehenden JSON-RPC-Verbindungen abhören. Für IPv6 "[Host]:Port"-Notation verwenden. Kann mehrmals angegeben werden. (Standard: an alle Schnittstellen binden)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Emercoin Core is probably already running.</source>
-        <translation>Datenverzeichnis %s kann nicht gesperrt werden, da Emercoin Core wahrscheinlich bereits gestartet wurde.</translation>
+        <source>Cannot obtain a lock on data directory %s. Voicecoin Core is probably already running.</source>
+        <translation>Datenverzeichnis %s kann nicht gesperrt werden, da Voicecoin Core wahrscheinlich bereits gestartet wurde.</translation>
     </message>
     <message>
         <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
@@ -3091,34 +3091,34 @@ Adresse: %4</translation>
     </message>
     <message>
         <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
-        <translation>Maximale Anzahl an Threads zur Emercoinerzeugung, wenn aktiviert, festlegen (-1 = alle Kerne, Standard: %d)</translation>
+        <translation>Maximale Anzahl an Threads zur Voicecoinerzeugung, wenn aktiviert, festlegen (-1 = alle Kerne, Standard: %d)</translation>
     </message>
     <message>
         <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
         <translation>Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im OpenSSL-Toolkit &lt;https://www.openssl.org/&gt; entwickelt wird, sowie von Eric Young geschriebene kryptographische Software und von Thomas Bernard geschriebene UPnP-Software.</translation>
     </message>
     <message>
-        <source>To use emercoind, or the -server option to emercoin-qt, you must set an rpcpassword in the configuration file:
+        <source>To use voicecoind, or the -server option to voicecoin-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=emercoinrpc
+rpcuser=voicecoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "Emercoin Alert" admin@foo.com
+for example: alertnotify=echo %%s | mail -s "Voicecoin Alert" admin@foo.com
 </source>
-        <translation>Um emercoind oder die Option -server mit emercoin-qt verwenden zu können, müssen Sie rpcpassword in der Konfigurationsdatei angeben:
+        <translation>Um voicecoind oder die Option -server mit voicecoin-qt verwenden zu können, müssen Sie rpcpassword in der Konfigurationsdatei angeben:
 %s
 Es wird empfohlen das folgende Zufallspasswort zu verwenden.
-rpcuser=emercoinrpc
+rpcuser=voicecoinrpc
 rpcpassword=%s
 (Sie müssen sich dieses Passwort nicht merken!)
 Der Benutzername und das Passwort dürfen NICHT identisch sein.
 Falls die Konfigurationsdatei nicht existiert, erzeugen Sie diese bitte mit Leserechten nur für den Dateibesitzer.
 Es wird ebenfalls empfohlen alertnotify anzugeben, um im Problemfall benachrichtigt zu werden.
-Beispiel: alertnotify=echo %%s | mail -s "Emercoin Alert" admin@foo.com
+Beispiel: alertnotify=echo %%s | mail -s "Voicecoin Alert" admin@foo.com
 </translation>
     </message>
     <message>
@@ -3126,8 +3126,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Emercoin Alert" admin@foo.com
         <translation>Warnung: -maxtxfee ist auf einen sehr hohen Wert festgelegt! Gebühren dieser Höhe könnten für eine einzelne Transaktion bezahlt werden.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Emercoin Core will not work properly.</source>
-        <translation>Warnung: Bitte korrigieren Sie die Datums- und Uhrzeiteinstellungen Ihres Computers, da Emercoin Core ansonsten nicht ordnungsgemäß funktionieren wird.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Voicecoin Core will not work properly.</source>
+        <translation>Warnung: Bitte korrigieren Sie die Datums- und Uhrzeiteinstellungen Ihres Computers, da Voicecoin Core ansonsten nicht ordnungsgemäß funktionieren wird.</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
@@ -3146,16 +3146,16 @@ Beispiel: alertnotify=echo %%s | mail -s "Emercoin Alert" admin@foo.com
         <translation>Über einen SOCKS5-Proxy &amp;verbinden</translation>
     </message>
     <message>
-        <source>Copyright (C) 2013-%i The Emercoin Core Developers</source>
-        <translation>Urheberrecht (C) 2013-%i Die "Emercoin Core"-Entwickler</translation>
+        <source>Copyright (C) 2013-%i The Voicecoin Core Developers</source>
+        <translation>Urheberrecht (C) 2013-%i Die "Voicecoin Core"-Entwickler</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>
         <translation>Der Wert %s von -rpcbind wurde nicht als Netzwerkadresse erkannt</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Emercoin Core</source>
-        <translation>Fehler beim Laden von wallet.dat: Wallet benötigt neuere Version von Emercoin Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Voicecoin Core</source>
+        <translation>Fehler beim Laden von wallet.dat: Wallet benötigt neuere Version von Voicecoin Core</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>
@@ -3178,8 +3178,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Emercoin Alert" admin@foo.com
         <translation>Hinweis</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. Emercoin Core is shutting down.</source>
-        <translation>Initialisierungsplausibilitätsprüfung fehlgeschlagen. Emercoin Core wird beendet.</translation>
+        <source>Initialization sanity check failed. Voicecoin Core is shutting down.</source>
+        <translation>Initialisierungsplausibilitätsprüfung fehlgeschlagen. Voicecoin Core wird beendet.</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
@@ -3215,7 +3215,7 @@ Beispiel: alertnotify=echo %%s | mail -s "Emercoin Alert" admin@foo.com
     </message>
     <message>
         <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>RPC-SSL-Optionen (siehe Emercoin-Wiki für SSL-Einrichtung):</translation>
+        <translation>RPC-SSL-Optionen (siehe Voicecoin-Wiki für SSL-Einrichtung):</translation>
     </message>
     <message>
         <source>RPC server options:</source>
@@ -3290,8 +3290,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Emercoin Alert" admin@foo.com
         <translation>Benutzername für JSON-RPC-Verbindungen</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Emercoin Core to complete</source>
-        <translation>Wallet musste neu geschrieben werden: starten Sie Emercoin Core zur Fertigstellung neu</translation>
+        <source>Wallet needed to be rewritten: restart Voicecoin Core to complete</source>
+        <translation>Wallet musste neu geschrieben werden: starten Sie Voicecoin Core zur Fertigstellung neu</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -3415,7 +3415,7 @@ Beispiel: alertnotify=echo %%s | mail -s "Emercoin Alert" admin@foo.com
     </message>
     <message>
         <source>Generate coins (default: %u)</source>
-        <translation>Emercoins erzeugen (Standard: %u)</translation>
+        <translation>Voicecoins erzeugen (Standard: %u)</translation>
     </message>
     <message>
         <source>How many blocks to check at startup (default: %u, 0 = all)</source>

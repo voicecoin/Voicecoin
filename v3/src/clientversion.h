@@ -18,9 +18,9 @@
 #define CLIENT_VERSION_MINOR 10
 #define CLIENT_VERSION_REVISION 4
 
-#define EMERCOIN_VERSION_MAJOR 0
-#define EMERCOIN_VERSION_MINOR 6
-#define EMERCOIN_VERSION_REVISION 3
+#define VOICECOIN_VERSION_MAJOR 0
+#define VOICECOIN_VERSION_MINOR 6
+#define VOICECOIN_VERSION_REVISION 3
 
 #define CLIENT_VERSION_BUILD 1
 
@@ -43,7 +43,7 @@
 #define DO_STRINGIZE(X) #X
 
 //! Copyright string used in Windows .rc files
-#define COPYRIGHT_STR "2013-" STRINGIZE(COPYRIGHT_YEAR) " The Emercoin Core Developers"
+#define COPYRIGHT_STR "2013-" STRINGIZE(COPYRIGHT_YEAR) " The Voicecoin Core Developers"
 
 /**
  * bitcoind-res.rc includes this file, but it cannot cope with real c++ code.
@@ -62,11 +62,11 @@ static const int CLIENT_VERSION =
                          +     100 * CLIENT_VERSION_REVISION
                          +       1 * CLIENT_VERSION_BUILD;
 
-// note: emercoin version is used for display purpose AND to accept alerts
-static const int EMERCOIN_VERSION =
-                           1000000 * EMERCOIN_VERSION_MAJOR
-                         +   10000 * EMERCOIN_VERSION_MINOR
-                         +     100 * EMERCOIN_VERSION_REVISION
+// note: voicecoin version is used for display purpose AND to accept alerts
+static const int VOICECOIN_VERSION =
+                           1000000 * VOICECOIN_VERSION_MAJOR
+                         +   10000 * VOICECOIN_VERSION_MINOR
+                         +     100 * VOICECOIN_VERSION_REVISION
                          +       1 * CLIENT_VERSION_BUILD;
 
 extern const std::string CLIENT_NAME;

@@ -167,7 +167,7 @@ void SendCoinsDialog::setModel(WalletModel *model)
         updateSmartFeeLabel();
         updateGlobalFeeVariables();
 
-        // emercoin: disable fee section
+        // voicecoin: disable fee section
         ui->frameFee->setHidden(true);
         ui->frameFee->setDisabled(true);
     }
@@ -320,7 +320,7 @@ void SendCoinsDialog::on_sendButton_clicked()
         return;
     }
 
-    // emercoin: add comment and comment-to
+    // voicecoin: add comment and comment-to
     CWalletTx* wtx = currentTransaction.getTransaction();
     foreach(const SendCoinsRecipient &rcp, recipients)
     {
@@ -757,7 +757,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
         }
         else if (!addr.IsValid()) // Invalid address
         {
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Emercoin address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Voicecoin address"));
         }
         else // Valid address
         {

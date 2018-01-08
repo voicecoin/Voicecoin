@@ -22,15 +22,6 @@
 /* Version is release */
 #undef COPYRIGHT_YEAR
 
-/* Emercoin major version */
-#undef EMERCOIN_VERSION_MAJOR
-
-/* Emercoin minor version */
-#undef EMERCOIN_VERSION_MINOR
-
-/* Emercoin build revision */
-#undef EMERCOIN_VERSION_REVISION
-
 /* Define to 1 to enable wallet functions */
 #undef ENABLE_WALLET
 
@@ -319,6 +310,15 @@
 /* UPnP support not compiled if undefined, otherwise value (0 or 1) determines
    default state */
 #undef USE_UPNP
+
+/* Voicecoin major version */
+#undef VOICECOIN_VERSION_MAJOR
+
+/* Voicecoin minor version */
+#undef VOICECOIN_VERSION_MINOR
+
+/* Voicecoin build revision */
+#undef VOICECOIN_VERSION_REVISION
 
 /* Enable large inode numbers on Mac OS X 10.5.  */
 #ifndef _DARWIN_USE_64_BIT_INODE

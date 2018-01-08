@@ -46,12 +46,12 @@
         <translation>Duke marr adresen</translation>
     </message>
     <message>
-        <source>These are your Emercoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Këto janë Emercoin adresat e juaja për të dërguar pagesa. Gjithmon kontrolloni shumën dhe adresën pranuese para se të dërgoni monedha.</translation>
+        <source>These are your Voicecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Këto janë Voicecoin adresat e juaja për të dërguar pagesa. Gjithmon kontrolloni shumën dhe adresën pranuese para se të dërgoni monedha.</translation>
     </message>
     <message>
-        <source>These are your Emercoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Këto janë Emercoin adresat e juaja për të pranuar pagesa. Rekomandohet që gjithmon të përdorni një adresë të re për çdo transaksion.</translation>
+        <source>These are your Voicecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Këto janë Voicecoin adresat e juaja për të pranuar pagesa. Rekomandohet që gjithmon të përdorni një adresë të re për çdo transaksion.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -207,8 +207,8 @@
         <translation>Ndrysho frazkalimin e përdorur per enkriptimin e portofolit</translation>
     </message>
     <message>
-        <source>Emercoin</source>
-        <translation>Emercoin</translation>
+        <source>Voicecoin</source>
+        <translation>Voicecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -243,12 +243,12 @@
         <translation>Shiriti i mjeteve</translation>
     </message>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Berthama Emercoin</translation>
+        <source>Voicecoin Core</source>
+        <translation>Berthama Voicecoin</translation>
     </message>
     <message>
-        <source>&amp;About Emercoin Core</source>
-        <translation>Rreth Berthames Emerkoin</translation>
+        <source>&amp;About Voicecoin Core</source>
+        <translation>Rreth Berthames VOICEkoin</translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
@@ -398,16 +398,16 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Berthama Emercoin</translation>
+        <source>Voicecoin Core</source>
+        <translation>Berthama Voicecoin</translation>
     </message>
     <message>
         <source>version</source>
         <translation>versioni</translation>
     </message>
     <message>
-        <source>About Emercoin Core</source>
-        <translation>Rreth Berthames Emerkoin</translation>
+        <source>About Voicecoin Core</source>
+        <translation>Rreth Berthames VOICEkoin</translation>
     </message>
     </context>
 <context>
@@ -417,12 +417,12 @@
         <translation>Miresevini</translation>
     </message>
     <message>
-        <source>Welcome to Emercoin Core.</source>
-        <translation>Miresevini ne Berthamen Emercoin</translation>
+        <source>Welcome to Voicecoin Core.</source>
+        <translation>Miresevini ne Berthamen Voicecoin</translation>
     </message>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Berthama Emercoin</translation>
+        <source>Voicecoin Core</source>
+        <translation>Berthama Voicecoin</translation>
     </message>
     <message>
         <source>Error</source>
@@ -609,8 +609,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Emercoin Core</source>
-        <translation>Berthama Emercoin</translation>
+        <source>Voicecoin Core</source>
+        <translation>Berthama Voicecoin</translation>
     </message>
     <message>
         <source>[testnet]</source>

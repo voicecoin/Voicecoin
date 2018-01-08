@@ -23,15 +23,6 @@
 /* Version is release */
 #define COPYRIGHT_YEAR 2017
 
-/* Emercoin major version */
-#define EMERCOIN_VERSION_MAJOR 0
-
-/* Emercoin minor version */
-#define EMERCOIN_VERSION_MINOR 6
-
-/* Emercoin build revision */
-#define EMERCOIN_VERSION_REVISION 3
-
 /* Define to 1 to enable wallet functions */
 #define ENABLE_WALLET 1
 
@@ -272,16 +263,16 @@
 #define LT_OBJDIR ".libs/"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "info@emercoin.com"
+#define PACKAGE_BUGREPORT "info@voicecoin.com"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "Emercoin Core"
+#define PACKAGE_NAME "Voicecoin Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Emercoin Core 0.6.3"
+#define PACKAGE_STRING "Voicecoin Core 0.6.3"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "emercoin"
+#define PACKAGE_TARNAME "voicecoin"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""
@@ -320,6 +311,15 @@
 /* UPnP support not compiled if undefined, otherwise value (0 or 1) determines
    default state */
 #define USE_UPNP 0
+
+/* Voicecoin major version */
+#define VOICECOIN_VERSION_MAJOR 0
+
+/* Voicecoin minor version */
+#define VOICECOIN_VERSION_MINOR 6
+
+/* Voicecoin build revision */
+#define VOICECOIN_VERSION_REVISION 3
 
 /* Enable large inode numbers on Mac OS X 10.5.  */
 #ifndef _DARWIN_USE_64_BIT_INODE

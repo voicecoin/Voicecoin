@@ -60,10 +60,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/emercoin
-pkgincludedir = $(includedir)/emercoin
-pkglibdir = $(libdir)/emercoin
-pkglibexecdir = $(libexecdir)/emercoin
+pkgdatadir = $(datadir)/voicecoin
+pkgincludedir = $(includedir)/voicecoin
+pkglibdir = $(libdir)/voicecoin
+pkglibexecdir = $(libexecdir)/voicecoin
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -88,7 +88,7 @@ DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/qa/pull-tester/run-bitcoind-for-test.sh.in \
 	$(top_srcdir)/qa/pull-tester/tests-config.sh.in \
 	$(dist_noinst_SCRIPTS) COPYING INSTALL build-aux/compile \
-	build-aux/config.guess build-aux/config.sub \
+	build-aux/config.guess build-aux/config.sub build-aux/depcomp \
 	build-aux/install-sh build-aux/missing build-aux/ltmain.sh \
 	$(top_srcdir)/build-aux/compile \
 	$(top_srcdir)/build-aux/config.guess \
@@ -226,13 +226,13 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/zhaogang/app/emercoin/build-aux/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/zhaogang/app/Wallet/v3/build-aux/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = /usr/bin/ar
-AUTOCONF = ${SHELL} /home/zhaogang/app/emercoin/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /home/zhaogang/app/emercoin/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /home/zhaogang/app/emercoin/build-aux/missing automake-1.14
+AUTOCONF = ${SHELL} /home/zhaogang/app/Wallet/v3/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /home/zhaogang/app/Wallet/v3/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /home/zhaogang/app/Wallet/v3/build-aux/missing automake-1.14
 AWK = mawk
 BDB_CPPFLAGS = 
 BDB_LIBS = -ldb_cxx-4.8
@@ -275,9 +275,6 @@ ECHO_C =
 ECHO_N = -n
 ECHO_T = 
 EGREP = /bin/grep -E
-EMERCOIN_VERSION_MAJOR = 0
-EMERCOIN_VERSION_MINOR = 6
-EMERCOIN_VERSION_REVISION = 3
 EXEEXT = 
 FGREP = /bin/grep -F
 GCOV = /usr/bin/gcov
@@ -311,7 +308,7 @@ LRELEASE = /usr/lib/x86_64-linux-gnu/qt5/bin/lrelease
 LTLIBOBJS = 
 LUPDATE = /usr/lib/x86_64-linux-gnu/qt5/bin/lupdate
 MAINT = 
-MAKEINFO = ${SHELL} /home/zhaogang/app/emercoin/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /home/zhaogang/app/Wallet/v3/build-aux/missing makeinfo
 MAKENSIS = 
 MANIFEST_TOOL = :
 MINIUPNPC_CPPFLAGS = 
@@ -328,11 +325,11 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
-PACKAGE = emercoin
-PACKAGE_BUGREPORT = info@emercoin.com
-PACKAGE_NAME = Emercoin Core
-PACKAGE_STRING = Emercoin Core 0.6.3
-PACKAGE_TARNAME = emercoin
+PACKAGE = voicecoin
+PACKAGE_BUGREPORT = info@voicecoin.com
+PACKAGE_NAME = Voicecoin Core
+PACKAGE_STRING = Voicecoin Core 0.6.3
+PACKAGE_TARNAME = voicecoin
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.6.3
 PATH_SEPARATOR = :
@@ -383,15 +380,18 @@ UNIVALUE_LIBS = univalue/libunivalue.la
 USE_QRCODE = 
 USE_UPNP = 
 VERSION = 0.6.3
+VOICECOIN_VERSION_MAJOR = 0
+VOICECOIN_VERSION_MINOR = 6
+VOICECOIN_VERSION_REVISION = 3
 WINDOWS_BITS = 
 WINDRES = 
 X11XCB_CFLAGS = 
 X11XCB_LIBS = 
 XGETTEXT = /usr/bin/xgettext
-abs_builddir = /home/zhaogang/app/emercoin
-abs_srcdir = /home/zhaogang/app/emercoin
-abs_top_builddir = /home/zhaogang/app/emercoin
-abs_top_srcdir = /home/zhaogang/app/emercoin
+abs_builddir = /home/zhaogang/app/Wallet/v3
+abs_srcdir = /home/zhaogang/app/Wallet/v3
+abs_top_builddir = /home/zhaogang/app/Wallet/v3
+abs_top_srcdir = /home/zhaogang/app/Wallet/v3
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -423,7 +423,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/zhaogang/app/emercoin/build-aux/install-sh
+install_sh = ${SHELL} /home/zhaogang/app/Wallet/v3/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -432,7 +432,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /home/zhaogang/install3
+prefix = /usr/local
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -447,19 +447,19 @@ top_srcdir = .
 ACLOCAL_AMFLAGS = -I build-aux/m4
 SUBDIRS = src
 GZIP_ENV = "-9n"
-BITCOIND_BIN = $(top_builddir)/src/emercoind$(EXEEXT)
-BITCOIN_QT_BIN = $(top_builddir)/src/qt/emercoin-qt$(EXEEXT)
-BITCOIN_CLI_BIN = $(top_builddir)/src/emercoin-cli$(EXEEXT)
+BITCOIND_BIN = $(top_builddir)/src/voicecoind$(EXEEXT)
+BITCOIN_QT_BIN = $(top_builddir)/src/qt/voicecoin-qt$(EXEEXT)
+BITCOIN_CLI_BIN = $(top_builddir)/src/voicecoin-cli$(EXEEXT)
 BITCOIN_WIN_INSTALLER = $(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
-OSX_APP = Emercoin-Qt.app
-OSX_DMG = Emercoin-Qt.dmg
+OSX_APP = Voicecoin-Qt.app
+OSX_DMG = Voicecoin-Qt.dmg
 OSX_DEPLOY_SCRIPT = $(top_srcdir)/contrib/macdeploy/macdeployqtplus
 OSX_FANCY_PLIST = $(top_srcdir)/contrib/macdeploy/fancy.plist
-OSX_INSTALLER_ICONS = $(top_srcdir)/src/qt/res/icons/emercoin.icns
+OSX_INSTALLER_ICONS = $(top_srcdir)/src/qt/res/icons/voicecoin.icns
 OSX_PLIST = $(top_srcdir)/share/qt/Info.plist #not installed
 OSX_QT_TRANSLATIONS = da,de,es,hu,ru,uk,zh_CN,zh_TW
 DIST_DOCS = $(wildcard doc/*.md) $(wildcard doc/release-notes/*.md)
-WINDOWS_PACKAGING = $(top_srcdir)/share/pixmaps/emercoin.ico \
+WINDOWS_PACKAGING = $(top_srcdir)/share/pixmaps/voicecoin.ico \
   $(top_srcdir)/share/pixmaps/nsis-header.bmp \
   $(top_srcdir)/share/pixmaps/nsis-wizard.bmp \
   $(top_srcdir)/doc/README_windows.txt
@@ -476,8 +476,8 @@ COVERAGE_INFO = baseline_filtered_combined.info baseline.info block_test.info \
   leveldb_baseline_filtered.info test_bitcoin_coverage.info test_bitcoin.info
 
 OSX_APP_BUILT = $(OSX_APP)/Contents/PkgInfo $(OSX_APP)/Contents/Resources/empty.lproj \
-  $(OSX_APP)/Contents/Resources/emercoin.icns $(OSX_APP)/Contents/Info.plist \
-  $(OSX_APP)/Contents/MacOS/Emercoin-Qt
+  $(OSX_APP)/Contents/Resources/voicecoin.icns $(OSX_APP)/Contents/Info.plist \
+  $(OSX_APP)/Contents/MacOS/Voicecoin-Qt
 
 APP_DIST_DIR = $(top_builddir)/dist
 APP_DIST_EXTRAS = $(APP_DIST_DIR)/.background/background.png $(APP_DIST_DIR)/.DS_Store $(APP_DIST_DIR)/Applications
@@ -1010,11 +1010,11 @@ $(OSX_APP)/Contents/Info.plist: $(OSX_PLIST)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/Resources/emercoin.icns: $(OSX_INSTALLER_ICONS)
+$(OSX_APP)/Contents/Resources/voicecoin.icns: $(OSX_INSTALLER_ICONS)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/MacOS/Emercoin-Qt: $(BITCOIN_QT_BIN)
+$(OSX_APP)/Contents/MacOS/Voicecoin-Qt: $(BITCOIN_QT_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
@@ -1027,10 +1027,10 @@ $(APP_DIST_DIR)/Applications:
 	@rm -f $@
 	@cd $(@D); $(LN_S) /Applications $(@F)
 
-$(APP_DIST_EXTRAS): $(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/Emercoin-Qt
+$(APP_DIST_EXTRAS): $(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/Voicecoin-Qt
 
 $(OSX_DMG): $(APP_DIST_EXTRAS)
-	$(GENISOIMAGE) -no-cache-inodes -D -l -probe -V "Emercoin-Qt" -no-pad -r -apple -o $@ dist
+	$(GENISOIMAGE) -no-cache-inodes -D -l -probe -V "Voicecoin-Qt" -no-pad -r -apple -o $@ dist
 
 $(APP_DIST_DIR)/.background/background.png:
 	$(MKDIR_P) $(@D)
@@ -1038,7 +1038,7 @@ $(APP_DIST_DIR)/.background/background.png:
 $(APP_DIST_DIR)/.DS_Store:
 	$(INSTALL) $(top_srcdir)/contrib/macdeploy/DS_Store $@
 
-$(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/Emercoin-Qt: $(OSX_APP_BUILT) $(OSX_PACKAGING)
+$(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/Voicecoin-Qt: $(OSX_APP_BUILT) $(OSX_PACKAGING)
 	INSTALLNAMETOOL=$(INSTALLNAMETOOL)  OTOOL=$(OTOOL) STRIP=$(STRIP) $(OSX_DEPLOY_SCRIPT) $(OSX_APP) -translations-dir=$(QT_TRANSLATION_DIR) -add-qt-tr $(OSX_QT_TRANSLATIONS) -verbose 2
 
 deploydir: $(APP_DIST_EXTRAS)
@@ -1073,7 +1073,7 @@ $(BITCOIN_CLI_BIN): FORCE
 
 #test_bitcoin.info: baseline_filtered_combined.info
 #	$(MAKE) -C src/ check
-#	$(LCOV) -c -d $(abs_builddir)/src -t test_emercoin -o $@
+#	$(LCOV) -c -d $(abs_builddir)/src -t test_voicecoin -o $@
 #	$(LCOV) -z -d $(abs_builddir)/src
 #	$(LCOV) -z -d $(abs_builddir)/src/leveldb
 
