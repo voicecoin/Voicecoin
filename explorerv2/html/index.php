@@ -153,11 +153,11 @@ if ($include_file=="api") {
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-				<span class="label label-primary">Mainnet</span>
+				<span class="label label-primary">Testnet</span>
 				<span class="caret"></span></a>
 							  <ul class="dropdown-menu">
-							    <li><a href="https://emercoin.mintr.org"> Mainnet</a></li>
-							    <li><a href="https://testnet.emercoin.mintr.org"> Testnet</a></li>
+							    <!-- <li><a href="https://emercoin.mintr.org"> Mainnet</a></li> -->
+							    <li><a href="http://alpha.voicecoin.com"> Testnet</a></li>
 					</ul>
 			</li>
 		<li class="dropdown">
