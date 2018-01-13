@@ -87,18 +87,18 @@
 }
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #621f6e;
+  background-color: #e0e0e0;
   background-position: 0 -15px;
 }
 .btn-primary:active,
 .btn-primary.active {
-  background-color: #621f6e;
-  border-color: #5b1d66;
+  background-color: #e0e0e0;
+  border-color: #dbdbdb;
 }
 .btn-primary.disabled,
 .btn-primary:disabled,
 .btn-primary[disabled] {
-  background-color: #621f6e;
+  background-color: #e0e0e0;
   background-image: none;
 }
 .btn-success {
