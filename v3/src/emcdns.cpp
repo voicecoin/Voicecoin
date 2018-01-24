@@ -121,7 +121,7 @@ EmcDns::EmcDns(const char *bind_ip, uint16_t port_no,
     if(!inet_pton(AF_INET, bind_ip, &m_address.sin_addr.s_addr)) 
       m_address.sin_addr.s_addr = htonl(INADDR_ANY);
 
-    if(bind(m_sockfd, (struct sockaddr *) &m_address,
+    if(::bind(m_sockfd, (struct sockaddr *) &m_address,
                      sizeof (struct sockaddr_in)) < 0) {
       char buf[80];
       sprintf(buf, "EmcDns::EmcDns: Cannot bind to port %u", port_no);

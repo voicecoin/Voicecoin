@@ -163,11 +163,16 @@ public:
        // vSeeds.push_back(CDNSSeedData("emergate.net", "seed.emergate.net"));
        // vSeeds.push_back(CDNSSeedData("emcdns", "seed.emc"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(33);   // emercoin: addresses begin with 'E'
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(92);   // emercoin: addresses begin with 'e'
-        base58Prefixes[SECRET_KEY] =     list_of(128);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
+        std::vector<unsigned char> pubkey_address = list_of(33);
+        base58Prefixes[PUBKEY_ADDRESS] = pubkey_address;   // emercoin: addresses begin with 'E'
+        std::vector<unsigned char> script_address = list_of(92);
+        base58Prefixes[SCRIPT_ADDRESS] = script_address;   // emercoin: addresses begin with 'e'
+        std::vector<unsigned char> secret_key = list_of(128);
+        base58Prefixes[SECRET_KEY] = secret_key;
+        std::vector<unsigned char> ext_public_key = list_of(0x04)(0x88)(0xB2)(0x1E);
+        base58Prefixes[EXT_PUBLIC_KEY] = ext_public_key;
+        std::vector<unsigned char> ext_secret_key = list_of(0x04)(0x88)(0xAD)(0xE4);
+        base58Prefixes[EXT_SECRET_KEY] = ext_secret_key;
 
        // convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
@@ -227,11 +232,16 @@ public:
         vSeeds.clear();
         vSeeds.push_back(CDNSSeedData("emercoin", "tnseed.emercoin.com"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(111);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(196);
-        base58Prefixes[SECRET_KEY]     = list_of(239);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x87)(0xCF);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x35)(0x83)(0x94);
+        std::vector<unsigned char> pubkey_address = list_of(111);
+        base58Prefixes[PUBKEY_ADDRESS] = pubkey_address;
+        std::vector<unsigned char> script_address = list_of(196);
+        base58Prefixes[SCRIPT_ADDRESS] = script_address;
+        std::vector<unsigned char> secret_key = list_of(239);
+        base58Prefixes[SECRET_KEY] = secret_key;
+        std::vector<unsigned char> ext_public_key = list_of(0x04)(0x35)(0x87)(0xCF);
+        base58Prefixes[EXT_PUBLIC_KEY] = ext_public_key;
+        std::vector<unsigned char> ext_secret_key = list_of(0x04)(0x35)(0x83)(0x94);
+        base58Prefixes[EXT_SECRET_KEY] = ext_secret_key;
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
 
