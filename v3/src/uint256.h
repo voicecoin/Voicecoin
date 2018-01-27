@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
+// Copyright (c) 2017-2018 VoiceExpert Squall
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Distributed under the GPL3 software license, see the accompanying
 // file COPYING or http://www.gnu.org/licenses/gpl.html.
@@ -319,7 +319,7 @@ public:
      * Bit number 24 (0x800000) represents the sign of N.
      * N = (-1^sign) * mantissa * 256^(exponent-3)
      * 
-     * Satoshi's original implementation used BN_bn2mpi() and BN_mpi2bn().
+     * Voiceun's original implementation used BN_bn2mpi() and BN_mpi2bn().
      * MPI uses the most significant bit of the first byte as sign.
      * Thus 0x1234560000 is compact (0x05123456)
      * and  0xc0de000000 is compact (0x0600c0de)
