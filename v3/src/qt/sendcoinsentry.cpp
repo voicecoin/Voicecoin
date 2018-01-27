@@ -350,7 +350,7 @@ void SendCoinsEntry::on_requestPaymentButton_clicked()
         if (valid)
             validExist = true;
 
-        mapExch.insert(pair<double, pair<Exch *, bool> >(exch->EstimatedEMC(dPay), pair<Exch *, bool>(exch, valid)));
+        mapExch.insert(pair<double, pair<Exch *, bool> >(exch->EstimatedVC(dPay), pair<Exch *, bool>(exch, valid)));
     }
 
     ui->exchComboBox->clear();

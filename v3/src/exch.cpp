@@ -42,12 +42,12 @@ const UniValue Exch::RawMarketInfo(const string &path) {
 } //  Exch::RawMarketInfo
 
 //-----------------------------------------------------
-// Returns extimated EMC to pay for specific pay_amount
+// Returns extimated VC to pay for specific pay_amount
 // Must be called after MarketInfo
-double Exch::EstimatedEMC(double pay_amount) const {
+double Exch::EstimatedVC(double pay_amount) const {
   return (m_rate <= 0.0)?
     m_rate : ceil(100.0 * (pay_amount + m_minerFee) / m_rate) / 100.0;
-} // Exch::EstimatedEMC
+} // Exch::EstimatedVC
 
 //-----------------------------------------------------
 // Connect to the server by https, fetch JSON and parse to UniValue
@@ -196,7 +196,7 @@ string ExchCoinReform::MarketInfo(const string &currency) {
   }
 } // ExchCoinReform::MarketInfo
 //coinReform
-//{"pair":"EMC_BTC","rate":"0.00016236","limit":"0.01623600","min":"0.00030000","minerFee":"0.00050000"}
+//{"pair":"VC_BTC","rate":"0.00016236","limit":"0.01623600","min":"0.00030000","minerFee":"0.00050000"}
 
 //-----------------------------------------------------
 // Creatse SEND exchange channel for 
@@ -228,13 +228,13 @@ string ExchCoinReform::Send(const string &to, double amount) {
     UniValue Resp(httpsFetch("/api/sendamount", &Req));
     LogPrint("exch", "DBG: ExchCoinReform::Send(%s|%s) returns <%s>\n\n", Host().c_str(), m_pair.c_str(), Resp.write(0, 0, 0).c_str());
     m_rate     = atof(Resp["rate"].get_str().c_str());
-    m_depAddr  = Resp["deposit"].get_str();			// Address to pay EMC
+    m_depAddr  = Resp["deposit"].get_str();			// Address to pay VC
     m_outAddr  = Resp["withdrawal"].get_str();			// Address to pay from exchange
-    m_depAmo   = atof(Resp["deposit_amount"].get_str().c_str());// amount in EMC
+    m_depAmo   = atof(Resp["deposit_amount"].get_str().c_str());// amount in VC
     m_outAmo   = atof(Resp["withdrawal_amount"].get_str().c_str());// Amount transferred to BTC
     m_txKey    = Name() + ':' + Resp["key"].get_str();		// TX reference key
 
-    // Adjust deposit amount to 1EMCent, upward
+    // Adjust deposit amount to 1VCent, upward
     m_depAmo = ceil(m_depAmo * 100.0) / 100.0;
 
     return "";

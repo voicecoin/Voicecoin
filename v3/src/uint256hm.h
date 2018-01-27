@@ -4,8 +4,8 @@
  *
  */
 
-#ifndef EMC_UINT256HM_H
-#define EMC_UINT256HM_H
+#ifndef VC_UINT256HM_H
+#define VC_UINT256HM_H
 
 #include "uint256.h"
 #include "random.h"

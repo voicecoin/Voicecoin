@@ -163,7 +163,7 @@ EmcDns::EmcDns(const char *bind_ip, uint16_t port_no,
 
     // Activate DAP only on the public gateways, with some suffixes, like .VOICEgate.net
     // If no memory, DAP inactive - this is not critical problem
-    m_dap_ht  = (allowed_len && m_gw_suf_len)? (DNSAP*)calloc(EMCDNS_DAPSIZE, sizeof(DNSAP)) : NULL; 
+    m_dap_ht  = (allowed_len && m_gw_suf_len)? (DNSAP*)calloc(VCDNS_DAPSIZE, sizeof(DNSAP)) : NULL; 
     m_daprand = GetRand(0xffffffff) | 1; 
 
     m_value  = (char *)malloc(VAL_SIZE + BUF_SIZE + 2 + 
@@ -848,12 +848,12 @@ DNSAP *EmcDns::CheckDAP(uint32_t ip_addr) {
   uint32_t hash = ip_addr * m_daprand;
   hash ^= hash >> 16;
   hash += hash >> 8;
-  DNSAP *dap = m_dap_ht + (hash & (EMCDNS_DAPSIZE - 1));
+  DNSAP *dap = m_dap_ht + (hash & (VCDNS_DAPSIZE - 1));
   uint16_t timestamp = time(NULL) >> 6; // time in 64s ticks
   uint16_t dt = timestamp - dap->timestamp;
   dap->ed_size = (dt > 15? 0 : dap->ed_size >> dt) + 1;
   dap->timestamp = timestamp;
-  return (dap->ed_size <= EMCDNS_DAPTRESHOLD)? dap : NULL;
+  return (dap->ed_size <= VCDNS_DAPTRESHOLD)? dap : NULL;
 } // EmcDns::CheckDAP 
 
 
