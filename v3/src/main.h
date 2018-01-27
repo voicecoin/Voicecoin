@@ -51,7 +51,7 @@ struct CBlockTemplate;
 struct CNodeStateStats;
 
 /** Default for -blockmaxsize and -blockminsize, which control the range of sizes the mining code will create **/
-static const unsigned int DEFAULT_BLOCK_MAX_SIZE = 750000;
+static const unsigned int DEFAULT_BLOCK_MAX_SIZE = 2000000;
 static const unsigned int DEFAULT_BLOCK_MIN_SIZE = 0;
 /** Default for -blockprioritysize, maximum space for zero/low-fee transactions **/
 static const unsigned int DEFAULT_BLOCK_PRIORITY_SIZE = 50000;
@@ -105,7 +105,7 @@ static const unsigned char REJECT_INSUFFICIENTFEE = 0x42;
 static const unsigned char REJECT_CHECKPOINT = 0x43;
 
 /** voicecoin constants */
-static const CAmount MAX_MINT_PROOF_OF_WORK = 5020 * COIN;
+static const CAmount MAX_MINT_PROOF_OF_WORK = 500 * COIN;
 static const CAmount MIN_TXOUT_AMOUNT = MIN_TX_FEE;
 static const int STAKE_MIN_AGE = 60 * 60 * 24 * 30;      // minimum age for coin age
 static const int64_t nMaxClockDrift = 2 * 60 * 60;       // two hours
@@ -210,7 +210,7 @@ bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock, b
 bool ActivateBestChain(CValidationState &state, CBlock *pblock = NULL);
 
 // voicecoin: reward for blocks
-CAmount GetProofOfWorkReward(unsigned int nBits);
+CAmount GetProofOfWorkReward(int nHeight,unsigned int nBits);
 CAmount GetProofOfStakeReward(int64_t nCoinAge);
 
 /** Create a new block index entry for a given block hash */

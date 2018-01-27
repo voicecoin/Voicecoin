@@ -133,7 +133,7 @@ CBlockTemplate* CreateNewBlockInner(const CScript& scriptPubKeyIn, bool fAddProo
     if (fAddProofOfStake)  // attemp to find a coinstake
     {
         fPoSCancel = true;
-        pblock->nBits = GetNextTargetRequired(pindexPrev, true);
+        pblock->nBits = GetNextTargetRequired(pindexPrev, pblock, true);
         CMutableTransaction txCoinStake;
         int64_t nSearchTime = txCoinStake.nTime; // search to current time
         if (nSearchTime > nLastCoinStakeSearchTime)
@@ -156,7 +156,7 @@ CBlockTemplate* CreateNewBlockInner(const CScript& scriptPubKeyIn, bool fAddProo
             return NULL; // voicecoin: there is no point to continue if we failed to create coinstake
     }
     else
-        pblock->nBits = GetNextTargetRequired(pindexPrev, false);
+        pblock->nBits = GetNextTargetRequired(pindexPrev, pblock, false);
 
     // Collect memory pool transactions into the block
     CAmount nFees = 0;
@@ -359,7 +359,7 @@ CBlockTemplate* CreateNewBlockInner(const CScript& scriptPubKeyIn, bool fAddProo
 
         // Compute final coinbase transaction.
         if (pblock->IsProofOfWork())
-            txNew.vout[0].nValue = GetProofOfWorkReward(pblock->nBits);
+            txNew.vout[0].nValue = GetProofOfWorkReward(nHeight,pblock->nBits);
         txNew.vin[0].scriptSig = CScript() << nHeight << OP_0;
         pblock->vtx[0] = txNew;
         pblocktemplate->vTxFees[0] = -nFees;
@@ -466,6 +466,8 @@ CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey)
 // create PoS block with key
 CBlockTemplate* CreateNewPoSBlockWithKey(CReserveKey& reservekey, bool& fPoSCancel, CWallet* pwallet)
 {
+   //notsupportPos
+    return NULL;
     CPubKey pubkey;
     if (!reservekey.GetReservedKey(pubkey))
         return NULL;
@@ -502,6 +504,13 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 
     return true;
 }
+
+unsigned long LinuxGetTickCount()  
+{  
+    struct timespec ts;  
+    clock_gettime(CLOCK_MONOTONIC, &ts);  
+    return (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);  
+}  
 
 void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
 {
@@ -611,6 +620,9 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
             uint256 hash;
             uint32_t nNonce = 0;
             uint32_t nOldNonce = 0;
+	    static int tick=0;
+            static int sumtime = 0;
+	    long t1 = LinuxGetTickCount();
             while (true) {
 		//LogPrintf("BitcoinMiner 2001\n");
 
@@ -634,8 +646,16 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
                         strMintWarning = "";
 
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                        LogPrintf("CPUMiner:\n");
-                        LogPrintf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex(), hashTarget.GetHex());
+			long t2 = LinuxGetTickCount();
+                        LogPrintf("getone proof-of-work found  time %dms\n  hash: %s  \ntarget: %s\n",t2-t1, hash.GetHex(), hashTarget.GetHex());
+			sumtime +=t2-t1;
+                        tick++;
+			if (tick == 24)
+			{
+			   LogPrintf("avgtime= %d\n",sumtime/24);
+  			   tick=0;
+			   sumtime=0;
+			}
                         ProcessBlockFound(pblock, *pwallet, reservekey);
                         SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
@@ -763,8 +783,8 @@ void static ThreadStakeMinter(void* parg)
 // ppcoin: stake minter
 void MintStake(boost::thread_group& threadGroup, CWallet* pwallet)
 {
-    // ppcoin: mint proof-of-stake blocks in the background
-    threadGroup.create_thread(boost::bind(&ThreadStakeMinter, pwallet));
+    return ;
+   
 }
 
 #endif // ENABLE_WALLET

@@ -43,7 +43,7 @@
 #define DO_STRINGIZE(X) #X
 
 //! Copyright string used in Windows .rc files
-#define COPYRIGHT_STR "2013-" STRINGIZE(COPYRIGHT_YEAR) " The Voicecoin Core Developers"
+#define COPYRIGHT_STR "2018-" STRINGIZE(COPYRIGHT_YEAR) " The Voicecoin Core Developers"
 
 /**
  * bitcoind-res.rc includes this file, but it cannot cope with real c++ code.
