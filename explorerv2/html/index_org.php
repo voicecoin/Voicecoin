@@ -46,7 +46,7 @@ if (isset($_SERVER['REQUEST_URI'])) {
 		$include_file="nvs";
 	}
 	if ($URI[1]=="vcboard") {
-		$include_file="vcboard";
+		$include_file="emerboard";
 	}
 	if ($URI[1]=="dpo") {
 		$include_file="dpo";
