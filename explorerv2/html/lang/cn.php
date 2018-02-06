@@ -59,7 +59,7 @@ function lang($phrase){
                 'TX_ID' => '交易ID',
                 'UNCONFIRMED_TRANSACTIONS' => '未确认交易',
                 'VALUE_EMC' => '转出总量 [VC]',
-                'WELCOME_EXPLORER' => '欢迎来到崛起币(voicecoin)区块浏览器',
+                'WELCOME_EXPLORER' => '欢迎来到语音币(voicecoin)区块浏览器',
                 'ADDRESS_TX' => '钱包地址/区块/交易',
                 'CHAIN_CHAIN' => '区块链',
                 'CHARTS_CHARTS' => '图表',

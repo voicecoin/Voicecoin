@@ -14,7 +14,7 @@ $message="";
 $index=0;
 if (isset($_SERVER['REQUEST_URI'])) {
 	$URI=explode('/',$_SERVER['REQUEST_URI']);
-	if ($URI[1]=="emerboard") {
+	if ($URI[1]=="vcboard") {
 		if (isset($URI[2])) {
 			$channel=urldecode($URI[2]);
 			if (isset($URI[3])) {
@@ -141,7 +141,7 @@ function makeClickableLinks($s) {
 		var channel = document.getElementById('inputChannel').value;
 		var type = document.getElementById('inputType').value;
 		var subject = document.getElementById('inputSubject').value;
-		window.location.href = '/emerboard/'+channel+'/'+type+'/'+subject;
+		window.location.href = '/vcboard/'+channel+'/'+type+'/'+subject;
 	};
 	</script>
 	
@@ -214,7 +214,7 @@ function makeClickableLinks($s) {
 						$message_value=base64_decode($message_value);
 					}
 					echo '<div class="panel panel-default">
-						<div class="panel-heading"><a href="/emerboard/'.$message_channel.'/'.$message_type.'/'.$message_subject.'" rel="nofollow">'.$message_type.': '.$message_subject.'</a></div>
+						<div class="panel-heading"><a href="/vcboard/'.$message_channel.'/'.$message_type.'/'.$message_subject.'" rel="nofollow">'.$message_type.': '.$message_subject.'</a></div>
 						<div class="panel-body">';
 						echo makeClickableLinks($message_value);
 						echo '</div>
@@ -248,7 +248,7 @@ function makeClickableLinks($s) {
 		var type = document.getElementById('inputType').value;
 		var subject = document.getElementById('inputSubject').value;
 		var index = <?php if ($limit>$elements) {echo $elements;} else {echo $limit;} ?>;
-		window.location.href = '/emerboard/'+channel+'/'+type+'/'+subject+'/'+index;
+		window.location.href = '/vcboard/'+channel+'/'+type+'/'+subject+'/'+index;
 	};
 	
 	function sendNextValues() {
@@ -259,6 +259,6 @@ function makeClickableLinks($s) {
 			if ($index_new<0) {$index_new=0;}
 		?>
 		var index = <?php echo $index_new; ?>;
-		window.location.href = '/emerboard/'+channel+'/'+type+'/'+subject+'/'+index;
+		window.location.href = '/vcboard/'+channel+'/'+type+'/'+subject+'/'+index;
 	};
 	</script>

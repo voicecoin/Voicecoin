@@ -45,8 +45,8 @@ if (isset($_SERVER['REQUEST_URI'])) {
 	if ($URI[1]=="nvs") {
 		$include_file="nvs";
 	}
-	if ($URI[1]=="emerboard") {
-		$include_file="emerboard";
+	if ($URI[1]=="vcboard") {
+		$include_file="vcboard";
 	}
 	if ($URI[1]=="dpo") {
 		$include_file="dpo";
@@ -142,7 +142,7 @@ if ($include_file=="api") {
 				<li <?php if ($include_file=='nvs') { echo 'class="active"'; } ?>><a href="/nvs"><?php echo lang('NVS_NVS'); ?></a></li>
 				<li <?php if ($include_file=='dpo') { echo 'class="active"'; } ?>><a href="/dpo"><?php echo 'DPO'; ?></a></li>
 				<li <?php if ($include_file=='poscal') { echo 'class="active"'; } ?>><a href="/poscal"><?php echo 'Mining-Calculator'; ?></a></li>
-				<li <?php if ($include_file=='emerboard') { echo 'class="active"'; } ?>><a href="/emerboard"><?php echo lang('EMERBOARD_EMERBOARD'); ?></a></li>
+				<li <?php if ($include_file=='vcboard') { echo 'class="active"'; } ?>><a href="/vcboard"><?php echo lang('EMERBOARD_EMERBOARD'); ?></a></li>
 			</ul>
 		<form class="navbar-form navbar-left" role="search" action="javascript:search();">
 			<div class="form-group ">
