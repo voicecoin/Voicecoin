@@ -3051,12 +3051,12 @@ Adres: %4
         <translation>İlgili bir uyarı alındığında ya da gerçekten uzun bir çatallama gördüğümüzde komutu çalıştır (komuttaki %s mesaj ile değiştirilir)</translation>
     </message>
     <message>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Kb başına EMC olarak bundan düşük ücretler aktarım için sıfır değerinde ücret olarak kabul edilir (varsayılan: %s)</translation>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Kb başına VC olarak bundan düşük ücretler aktarım için sıfır değerinde ücret olarak kabul edilir (varsayılan: %s)</translation>
     </message>
     <message>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Kb başına EMC olarak bundan düşük ücretler muamele oluşturulması için sıfır değerinde ücret olarak kabul edilir (varsayılan: %s)</translation>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Kb başına VC olarak bundan düşük ücretler muamele oluşturulması için sıfır değerinde ücret olarak kabul edilir (varsayılan: %s)</translation>
     </message>
     <message>
         <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
@@ -3163,8 +3163,8 @@ mesela: alertnotify=echo %%s | mail -s "Voicecoin Alert" admin@foo.com
         <translation>Hata: Deskteklenmeyen -tor argümanı bulundu, -onion kullanınız.</translation>
     </message>
     <message>
-        <source>Fee (in EMC/Kb) to add to transactions you send (default: %s)</source>
-        <translation>Yolladığınız muamelelere kB başına EMC olarak eklenecek ücret (varsayılan: %s)</translation>
+        <source>Fee (in VC/Kb) to add to transactions you send (default: %s)</source>
+        <translation>Yolladığınız muamelelere kB başına VC olarak eklenecek ücret (varsayılan: %s)</translation>
     </message>
     <message>
         <source>Information</source>

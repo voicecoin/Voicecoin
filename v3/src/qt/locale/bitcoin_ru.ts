@@ -3043,12 +3043,12 @@
         <translation>Выполнить команду, когда приходит соответствующее сообщение о тревоге или наблюдается очень длинное расщепление цепи (%s в команде заменяется на сообщение)</translation>
     </message>
     <message>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Комиссии (в EMC/Кб) меньшие этого значения считаются нулевыми для трансляции (по умолчанию: %s)</translation>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Комиссии (в VC/Кб) меньшие этого значения считаются нулевыми для трансляции (по умолчанию: %s)</translation>
     </message>
     <message>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Комиссии (в EMC/Кб) меньшие этого значения считаются нулевыми для создания транзакции (по умолчанию: %s)</translation>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Комиссии (в VC/Кб) меньшие этого значения считаются нулевыми для создания транзакции (по умолчанию: %s)</translation>
     </message>
     <message>
         <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
@@ -3155,8 +3155,8 @@ rpcpassword=%s
         <translation>Ошибка: обнаружен неподдерживаемый параметр -tor, используйте -onion.</translation>
     </message>
     <message>
-        <source>Fee (in EMC/Kb) to add to transactions you send (default: %s)</source>
-        <translation>Комиссия (в EMC/Кб) для добавления к вашим транзакциям (по умолчанию: %s)</translation>
+        <source>Fee (in VC/Kb) to add to transactions you send (default: %s)</source>
+        <translation>Комиссия (в VC/Кб) для добавления к вашим транзакциям (по умолчанию: %s)</translation>
     </message>
     <message>
         <source>Information</source>

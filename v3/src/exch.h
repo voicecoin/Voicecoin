@@ -43,11 +43,11 @@ class Exch {
   virtual int Remain(const string &txkey) = 0;
 
 
-  // Returns extimated EMC to pay for specific pay_amount
+  // Returns extimated VC to pay for specific pay_amount
   // Must be called after MarketInfo
-  double EstimatedEMC(double pay_amount) const;
+  double EstimatedVC(double pay_amount) const;
 
-  string m_retAddr; // Return EMC Addr
+  string m_retAddr; // Return VC Addr
 
   // MarketInfo fills these params
   string m_pair;
@@ -57,9 +57,9 @@ class Exch {
   double m_minerFee;
 
   // Send fills these params + m_rate above
-  string m_depAddr;	// Address to pay EMC
+  string m_depAddr;	// Address to pay VC
   string m_outAddr;	// Address to pay from exchange
-  double m_depAmo;	// amount in EMC
+  double m_depAmo;	// amount in VC
   double m_outAmo;	// Amount transferred to BTC
   string m_txKey;	// TX reference key
 

@@ -3920,12 +3920,12 @@ Address: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4050,7 +4050,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Voicecoin Alert&quot; admin@fo
     </message>
     <message>
         <location line="+2"/>
-        <source>Fee (in EMC/Kb) to add to transactions you send (default: %s)</source>
+        <source>Fee (in VC/Kb) to add to transactions you send (default: %s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

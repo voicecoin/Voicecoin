@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
+// Copyright (c) 2017-2018 VoiceExpert Squall
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Distributed under the GPL3 software license, see the accompanying
 // file COPYING or http://www.gnu.org/licenses/gpl.html.
@@ -23,42 +23,73 @@ const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfSta
     return pindex;
 }
 
-unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake)
+unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast,const CBlockHeader *pblock, bool fProofOfStake)
 {
-    using namespace std;
+    const CChainParams& params = Params();
+    unsigned int nProofOfWorkLimit = params.ProofOfWorkLimit().GetCompact();
+    int nInterval = params.TargetTimespan()/params.TargetSpacing();
+
+    // Genesis block
     if (pindexLast == NULL)
-        return Params().ProofOfWorkLimit().GetCompact(); // genesis block
+        return nProofOfWorkLimit;
 
-    const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
-    if (pindexPrev->pprev == NULL)
-        return Params().InitialHashTarget().GetCompact(); // first block
-    const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, fProofOfStake);
-    if (pindexPrevPrev->pprev == NULL)
-        return Params().InitialHashTarget().GetCompact(); // second block
+    // Only change once per difficulty adjustment interval
+    if ((pindexLast->nHeight+1) % nInterval != 0)
+    {
+	//LogPrintf("CalculateNextWorkRequired [%u]\n", pindexLast->nBits);
+        return pindexLast->nBits;
+    }
+    
+    int blockstogoback = nInterval-1;
+    if ((pindexLast->nHeight+1) != nInterval)
+        blockstogoback = nInterval;
 
-    int64_t nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
+    // Go back by what we want to be 14 days worth of blocks
+    const CBlockIndex* pindexFirst = pindexLast;
+    for (int i = 0; pindexFirst && i < blockstogoback; i++)
+        pindexFirst = pindexFirst->pprev;
 
-    // ppcoin: target change every block
-    // ppcoin: retarget with exponential moving toward target spacing
-    CBigNum bnNew;
-    bnNew.SetCompact(pindexPrev->nBits);
+    assert(pindexFirst);
 
-    // voicecoin: first 10 000 blocks are faster to mine.
-    int64_t nSpacingRatio = (pindexLast->nHeight <= 10000) ? max((int64_t)10, Params().StakeTargetSpacing() * pindexLast->nHeight / 10000) :
-                                                             max((int64_t)10, Params().StakeTargetSpacing());
+    return CalculateNextWorkRequired(pindexLast, pindexFirst);
 
-    int64_t nTargetSpacing = fProofOfStake? Params().StakeTargetSpacing() : min(Params().TargetSpacingMax(), nSpacingRatio * (1 + pindexLast->nHeight - pindexPrev->nHeight));
-    int64_t nInterval = Params().TargetTimespan() / nTargetSpacing;
-
-    int n = fProofOfStake ? 1 : ((pindexLast->nHeight < 6666) ? 1 : 3);
-    bnNew *= ((nInterval - n) * nTargetSpacing + (n + 1) * nActualSpacing);
-    bnNew /= ((nInterval + 1) * nTargetSpacing);
-
-    if (bnNew > CBigNum(Params().ProofOfWorkLimit()))
-        bnNew = CBigNum(Params().ProofOfWorkLimit());
-
-    return bnNew.GetCompact();
 }
+
+unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, const CBlockIndex* pindexFirst)
+{
+    const CChainParams& params = Params();
+    int64_t nFirstBlockTime = pindexFirst->GetBlockTime();
+    // Limit adjustment step
+    int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+    LogPrintf("CalculateNextWorkRequired [%ld] [%ld] [%ld] [%ld] [%d,%d]\n", pindexLast->GetBlockTime(),nFirstBlockTime,nActualTimespan,params.TargetTimespan(),pindexLast->nHeight,pindexFirst->nHeight);
+    if (nActualTimespan < params.TargetTimespan()/4)
+        nActualTimespan = params.TargetTimespan()/4;
+    if (nActualTimespan > params.TargetTimespan()*4)
+        nActualTimespan = params.TargetTimespan()*4;
+
+    // Retarget
+    uint256 bnNew;
+    uint256 bnOld;
+    bnNew.SetCompact(pindexLast->nBits);
+    bnOld = bnNew;
+    // Litecoin: intermediate uint256 can overflow by 1 bit
+    bool fShift = bnNew.bits() > 235;
+    if (fShift)
+        bnNew >>= 1;
+    bnNew *= nActualTimespan;
+    bnNew /= params.TargetTimespan();
+    if (fShift)
+        bnNew <<= 1;
+
+    const uint256 bnPowLimit = params.ProofOfWorkLimit();
+    if (bnNew > bnPowLimit)
+        bnNew = bnPowLimit;
+
+    unsigned int nPow = bnNew.GetCompact();
+    LogPrintf("CalculateNextWorkRequired [%u] ReTargert\n", nPow);
+    return nPow;
+}
+
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 {

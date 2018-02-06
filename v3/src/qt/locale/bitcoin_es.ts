@@ -3047,12 +3047,12 @@ Dirección: %4
         <translation>Ejecutar un comando cuando se reciba una alerta importante o cuando veamos un fork demasiado largo (%s en cmd se reemplazará por el mensaje)</translation>
     </message>
     <message>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Tarifas (en EMC/Kb) más pequeños que esto se consideran cero cuota de reinstalación (por defecto: %s)</translation>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Tarifas (en VC/Kb) más pequeños que esto se consideran cero cuota de reinstalación (por defecto: %s)</translation>
     </message>
     <message>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Tarifas (en EMC/Kb) más pequeños que esto se consideran cero cuota para la creación de la transacción (por defecto: %s)</translation>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Tarifas (en VC/Kb) más pequeños que esto se consideran cero cuota para la creación de la transacción (por defecto: %s)</translation>
     </message>
     <message>
         <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
@@ -3155,8 +3155,8 @@ por ejemplo: alertnotify=echo %% s | correo -s "Alerta Voicecoin" admin@foo.com
         <translation>Error: Argumento encontrado -tor no soportado, utilice -onion</translation>
     </message>
     <message>
-        <source>Fee (in EMC/Kb) to add to transactions you send (default: %s)</source>
-        <translation>Cuota (in EMC/Kb) para añadir a las transacciones que envíes (por defecto: %s)</translation>
+        <source>Fee (in VC/Kb) to add to transactions you send (default: %s)</source>
+        <translation>Cuota (in VC/Kb) para añadir a las transacciones que envíes (por defecto: %s)</translation>
     </message>
     <message>
         <source>Information</source>

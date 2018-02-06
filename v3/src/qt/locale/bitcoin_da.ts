@@ -3051,12 +3051,12 @@ Adresse: %4
         <translation>Udfør kommando, når en relevant alarm modtages eller vi ser en virkelig lang udsplitning (%s i cmd erstattes af besked)</translation>
     </message>
     <message>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Gebyrer (i EMC/Kb) mindre end dette opfattes som nulgebyr for videresendelse (standard: %s)</translation>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Gebyrer (i VC/Kb) mindre end dette opfattes som nulgebyr for videresendelse (standard: %s)</translation>
     </message>
     <message>
-        <source>Fees (in EMC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Gebyrer (i EMC/Kb) mindre end dette opfattes som nulgebyr for oprettelse af transaktion (standard: %s)</translation>
+        <source>Fees (in VC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Gebyrer (i VC/Kb) mindre end dette opfattes som nulgebyr for oprettelse af transaktion (standard: %s)</translation>
     </message>
     <message>
         <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
@@ -3167,8 +3167,8 @@ for eksempel: alertnotify=echo %%s | mail -s "Voicecoin Alert" admin@foo.com
         <translation>Fejl: Ikke understøttet argument -tor fundet, brug -onion.</translation>
     </message>
     <message>
-        <source>Fee (in EMC/Kb) to add to transactions you send (default: %s)</source>
-        <translation>Gebyr (i EMC/Kb) som skal føjes til transaktioner, du sender (standard: %s)</translation>
+        <source>Fee (in VC/Kb) to add to transactions you send (default: %s)</source>
+        <translation>Gebyr (i VC/Kb) som skal føjes til transaktioner, du sender (standard: %s)</translation>
     </message>
     <message>
         <source>Information</source>

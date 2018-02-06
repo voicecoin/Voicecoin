@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
+// Copyright (c) 2017-2018 VoiceExpert Squall
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Distributed under the GPL3 software license, see the accompanying
 // file COPYING or http://www.gnu.org/licenses/gpl.html.
@@ -1231,44 +1231,23 @@ bool GuessPoS(const CBlockHeader& header)
     return GetDifficulty(header.nBits) <= 1000 ? true : false;
 }
 
-CAmount GetProofOfWorkReward(unsigned int nBits)
+CAmount GetProofOfWorkReward(int nHeight,unsigned int nBits)
 {
-    CBigNum bnSubsidyLimit = MAX_MINT_PROOF_OF_WORK;
-    CBigNum bnTarget;
-    bnTarget.SetCompact(nBits);
-    CBigNum bnTargetLimit(Params().ProofOfWorkLimit());
-    bnTargetLimit.SetCompact(bnTargetLimit.GetCompact());
 
-    // ppcoin: subsidy is cut in half every 16x multiply of difficulty
-    // A reasonably continuous curve is used to avoid shock to market
-    // (nSubsidyLimit / nSubsidy) ** 4 == bnProofOfWorkLimit / bnTarget
-    CBigNum bnLowerBound = CENT;
-    CBigNum bnUpperBound = bnSubsidyLimit;
-    CBigNum bnMidPart, bnRewardPart;
+   int nFirstPeriod = 288;
+   if (nHeight<nFirstPeriod)
+	return 4375000*COIN;
+    const CChainParams& chainParams = Params();
+    int nReductionInterval = 4*52*7*24*60*60;
+    int nInterval = nReductionInterval/chainParams.TargetSpacing();
+    int halvings = (nHeight-nFirstPeriod) / nInterval;
+    if (halvings>64)
+	return 0;
+    CAmount nSubsidy = MAX_MINT_PROOF_OF_WORK;
+    nSubsidy >>= halvings;
+    return nSubsidy;
 
-    bool bLowDiff = GetDifficulty(nBits) < 512;
-    bnRewardPart = bLowDiff ? bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit :
-                              bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit;
-    while (bnLowerBound + CENT <= bnUpperBound)
-    {
-        CBigNum bnMidValue = (bnLowerBound + bnUpperBound) / 2;
-        bnMidPart = bLowDiff ? bnMidValue * bnMidValue * bnMidValue * bnMidValue * bnMidValue * bnMidValue :
-                               bnMidValue * bnMidValue * bnMidValue * bnMidValue;
-        if (fDebug && GetBoolArg("-printcreation", false))
-            LogPrintf("GetProofOfWorkReward() : lower=%lld upper=%lld mid=%lld\n", bnLowerBound.getuint64(), bnUpperBound.getuint64(), bnMidValue.getuint64());
 
-        if (bnMidPart * bnTargetLimit > bnRewardPart * bnTarget)
-            bnUpperBound = bnMidValue;
-        else
-            bnLowerBound = bnMidValue;
-    }
-
-    CAmount nSubsidy = bnUpperBound.getuint64();
-    nSubsidy = (nSubsidy / CENT) * CENT;
-    if (fDebug && GetBoolArg("-printcreation", false))
-        LogPrintf("GetProofOfWorkReward() : create=%s nBits=0x%08x nSubsidy=%lld\n", FormatMoney(nSubsidy), nBits, nSubsidy);
-
-    return min(nSubsidy, MAX_MINT_PROOF_OF_WORK);
 }
 
 // ppcoin: miner's coin stake is rewarded based on coin age spent (coin-days)
@@ -1748,12 +1727,7 @@ bool ppcoinContextualBlockChecks(const CBlock& block, CValidationState& state, C
     uint256 hashProofOfStake = 0;
     if (block.IsProofOfStake())
     {
-        // ppcoin: verify hash target and signature of coinstake tx
-        if (!CheckProofOfStake(state, block.vtx[1], block.nBits, hashProofOfStake))
-        {
-            LogPrintf("WARNING: %s: check proof-of-stake failed for block %s\n", __func__, block.GetHash().ToString());
-            return false; // do not error here as we expect this during initial block download
-        }
+	            return false; // do not error here as we expect this during initial block download
     }
 
     // ppcoin: compute stake entropy bit for stake modifier
@@ -1810,9 +1784,10 @@ static bool CheckCoinbaseReward(const CBlock& block, CValidationState& state, CB
 {
     // voicecoin: moved from CheckBlock(), because this check now depends on context
     // Check coinbase reward
+    const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
     bool fV6Rule = block.GetBlockVersion() >= 6 && CBlockIndex::IsSuperMajority(6, pindexPrev, Params().RejectBlockOutdatedMajority());
     CAmount txFeeCancelation = fV6Rule ? MIN_TX_FEE : CENT;
-    CAmount powLimit = block.IsProofOfWork() ? GetProofOfWorkReward(block.nBits) - block.vtx[0].GetMinFee() + txFeeCancelation : 0;
+    CAmount powLimit = block.IsProofOfWork() ? GetProofOfWorkReward(nHeight,block.nBits) - block.vtx[0].GetMinFee() + txFeeCancelation : 0;
     if (block.vtx[0].GetValueOut() > powLimit)
         return state.DoS(100, error("ContextualCheckBlock() : coinbase pays too much (actual=%d vs limit=%d)",
                          block.vtx[0].GetValueOut(), powLimit), REJECT_INVALID, "bad-cb-amount");
@@ -1952,6 +1927,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             // voicecoin: moved to here from CheckInputs(), because this check now depends on context
             if (tx.IsCoinStake())
             {
+                return state.DoS(100, error("ConnectBlock() : %s not support pos stake", tx.GetHash().ToString()),
+                                     REJECT_INVALID, "not support pos stake");
+									 
                 // ppcoin: coin stake tx earns reward instead of paying fee
                 uint64_t nCoinAge;
                 if (!GetCoinAge(tx, view, nCoinAge))
@@ -2874,6 +2852,12 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
 
 bool ContextualCheckBlockHeader(const CBlockHeader& block, bool fProofOfStake, CValidationState& state, CBlockIndex * const pindexPrev)
 {
+    if (fProofOfStake)
+    {
+
+	return false;
+    }
+
     uint256 hash = block.GetHash();
     if (hash == Params().HashGenesisBlock())
         return true;
@@ -2887,14 +2871,14 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, bool fProofOfStake, C
         // Check proof-of-work or proof-of-stake
         if (nHeight > 10000)
         {
-            if (block.nBits != GetNextTargetRequired(pindexPrev, fProofOfStake))
+            if (block.nBits != GetNextTargetRequired(pindexPrev, &block, fProofOfStake))
                 return state.DoS(100, error("%s : incorrect proof of work", __func__),
                               REJECT_INVALID, "bad-diffbits");
         }
         else
         {
             // this is needed only for voicecoin official blockchain, because of mistake we made at the beginning
-            unsigned int check = GetNextTargetRequired(pindexPrev, fProofOfStake);
+            unsigned int check = GetNextTargetRequired(pindexPrev, &block, fProofOfStake);
             unsigned int max_error = check / 100000;
             if (!(block.nBits >= check - max_error && block.nBits <= check + max_error)) // +- 0.001% interval
                 return state.DoS(100, error("%s : incorrect proof of work", __func__),
@@ -2969,6 +2953,9 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
 
 bool AcceptBlockHeader(const CBlockHeader& block, bool fProofOfStake, CValidationState& state, CBlockIndex** ppindex)
 {
+    if (fProofOfStake)
+  	  return state.Invalid(error("%s : notsupportpos", __func__), 0, "notsupportpos");
+
     AssertLockHeld(cs_main);
     // Check for duplicate
     uint256 hash = block.GetHash();
@@ -3242,8 +3229,7 @@ bool CheckBlockSignature(const CBlock& block)
 
 CAmount GetMinTxOut(int nVersion, CBlockIndex *pindexPrev)
 {
-    bool fV6Rule = nVersion >= 6 && CBlockIndex::IsSuperMajority(6, pindexPrev, Params().RejectBlockOutdatedMajority());
-    return fV6Rule ? MIN_TXOUT_AMOUNT : CENT;
+   return MIN_TXOUT_AMOUNT;
 }
 
 CAmount GetMinTxOutLOCKED(int nVersion, CBlockIndex *pindexPrev)
