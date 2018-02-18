@@ -1235,7 +1235,7 @@ CAmount GetProofOfWorkReward(int nHeight,unsigned int nBits)
 {
 
    int nFirstPeriod = 288;
-   if (nHeight<nFirstPeriod)
+   if (nHeight<=nFirstPeriod)
 	return 4375000*COIN;
     const CChainParams& chainParams = Params();
     int nReductionInterval = 4*52*7*24*60*60;
