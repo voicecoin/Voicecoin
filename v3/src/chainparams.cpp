@@ -159,11 +159,16 @@ public:
         vSeeds.push_back(CDNSSeedData("voicecoin.com", "seed.voicecoin.com"));
         vSeeds.push_back(CDNSSeedData("voicecoin.net", "seed.voicecoin.net"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(132);     // voicecoin: addresses begin with 'v'
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(115);;    // voicecoin: addresses begin with 'o'
-        base58Prefixes[SECRET_KEY] = list_of(34);          // voicecoin: addresses begin with 'i'
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x84)(0x88)(0xB2)(0x1E);  
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x84)(0x88)(0xAD)(0xE4);  
+		std::vector<unsigned char> v1 = list_of(132); 
+        base58Prefixes[PUBKEY_ADDRESS] = v1;    // voicecoin: addresses begin with 'v'
+        std::vector<unsigned char> v2 = list_of(115); 
+		base58Prefixes[SCRIPT_ADDRESS] = v2;    // voicecoin: addresses begin with 'o'
+        std::vector<unsigned char> v3 = list_of(34); 
+		base58Prefixes[SECRET_KEY] = v3;          // voicecoin: addresses begin with 'i'
+        std::vector<unsigned char> v4 = list_of(0x84)(0x88)(0xB2)(0x1E);  
+        base58Prefixes[EXT_PUBLIC_KEY] = v4;  
+        std::vector<unsigned char> v5 = list_of(0x84)(0x88)(0xAD)(0xE4);  
+        base58Prefixes[EXT_SECRET_KEY] = v5;  
 
         fRequireRPCPassword = true;
         fMiningRequiresPeers = false;
@@ -267,11 +272,16 @@ public:
         pchMessageStart[2] = 0xc7;
         pchMessageStart[3] = 0xc6;
 
-	base58Prefixes[PUBKEY_ADDRESS] = list_of(84);  
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(87);   
-        base58Prefixes[SECRET_KEY] =     list_of(90);  
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x1C)(0x66)(0x77)(0xAA);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x1C)(0x66)(0x87)(0xBA);
+	std::vector<unsigned char> v1 = list_of(84);  
+	base58Prefixes[PUBKEY_ADDRESS] = v1;  
+        std::vector<unsigned char> v2 = list_of(87);   
+        base58Prefixes[SCRIPT_ADDRESS] = v2;   
+        std::vector<unsigned char> v3 = list_of(90);  
+        base58Prefixes[SECRET_KEY] =     v3;  
+        std::vector<unsigned char> v4 = list_of(0x1C)(0x66)(0x77)(0xAA);
+        base58Prefixes[EXT_PUBLIC_KEY] = v4;
+        std::vector<unsigned char> v5 = list_of(0x1C)(0x66)(0x87)(0xBA);
+        base58Prefixes[EXT_SECRET_KEY] = v5;
 
 
         nEnforceBlockUpgradeMajority = 750;
