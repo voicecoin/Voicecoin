@@ -156,8 +156,8 @@ public:
        // assert(hashGenesisBlock == uint256("0x01"));
        // assert(genesis.hashMerkleRoot == uint256("0x01"));
 
-        vSeeds.push_back(CDNSSeedData("voicecoin.com", "seed.voicecoin.com"));
-        vSeeds.push_back(CDNSSeedData("voicecoin.net", "seed.voicecoin.net"));
+        vSeeds.push_back(CDNSSeedData("voicecoin.com", "gameblockchaincom.club"));
+       // vSeeds.push_back(CDNSSeedData("voicecoin.net", "seed.voicecoin.net"));
 
 		std::vector<unsigned char> v1 = list_of(132); 
         base58Prefixes[PUBKEY_ADDRESS] = v1;    // voicecoin: addresses begin with 'v'

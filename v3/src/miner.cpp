@@ -623,6 +623,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
 	    static int tick=0;
             static int sumtime = 0;
 	    long t1 = LinuxGetTickCount();
+            unsigned int logTick = 0;
             while (true) {
 		//LogPrintf("BitcoinMiner 2001\n");
 
@@ -633,6 +634,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
                 // Check if something found
                 if (fFound)
                 {
+		   //LogPrintf("BitcoinMiner 2002\n");
                     if (hash <= hashTarget)
                     {
                         // Found a solution
@@ -665,8 +667,14 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
 
                         break;
                     }
+			else
+			{
+				logTick++;
+				if(logTick%100==0)
+					LogPrintf("BitcoinMiner 2003  still work %u...\n",logTick);
+			}
                 }
-		//LogPrintf("BitcoinMiner 2002\n");
+		//LogPrintf("BitcoinMiner 2004\n");
                 // Meter hashes/sec
                 static int64_t nHashCounter;
                 if (nHPSTimerStart == 0)
