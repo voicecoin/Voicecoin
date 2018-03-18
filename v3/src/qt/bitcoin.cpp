@@ -93,6 +93,7 @@ static std::string Translate(const char* psz)
 
 static QString GetLangTerritory()
 {
+	return "en";
     QSettings settings;
     // Get desired locale (e.g. "de_DE")
     // 1) System default language

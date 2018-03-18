@@ -74,6 +74,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     /* Display elements init */
     QDir translations(":translations");
     ui->lang->addItem(QString("(") + tr("default") + QString(")"), QVariant(""));
+#if 0
     foreach(const QString &langStr, translations.entryList())
     {
         QLocale locale(langStr);
@@ -100,6 +101,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
 #endif
         }
     }
+#endif
 #if QT_VERSION >= 0x040700
     ui->thirdPartyTxUrls->setPlaceholderText("https://example.com/tx/%s");
 #endif
