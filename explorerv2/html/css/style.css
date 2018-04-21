@@ -7,7 +7,11 @@
 .navbar-default{
     border-radius: 0;
     border: 0;
-    background: url(../img/top_bg.png)  repeat-x;
+    background-image: unset;
+	background-color:#605079;
+}
+.navfont_edit{
+    color:#fff;
 }
 .navbar-default .navbar-collapse{
     background: none;
