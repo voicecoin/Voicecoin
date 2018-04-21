@@ -804,7 +804,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (file) fclose(file);
     static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
     if (!lock.try_lock())
-        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Voicecoin Core is probably already running."), strDataDir));
+        return false;//return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Voicecoin Core is probably already running."), strDataDir));
 #ifndef WIN32
     CreatePidFile(GetPidFile(), getpid());
 #endif
