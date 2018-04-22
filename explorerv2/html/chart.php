@@ -40,7 +40,7 @@ function get_coinsupply() {
             },
 
             series : [{
-                name : 'EMC',
+                name : 'VC',
 				color: '#8d2d9e',
                 data : data,
                 tooltip: {
@@ -110,7 +110,7 @@ function get_powdifficulty() {
 </script>
 
 
-<button type="submit" class="btn btn-primry" id="powhashrate">PoW Hashrate <i class="fa fa-caret-down"></i></button>
+<button type="submit" class="btn btn-primry" id="powhashrate">VDPOS Hashrate <i class="fa fa-caret-down"></i></button>
 <div id="powhashrate_container" style="width:100%; height:375px; text-align:center;"></div><br><hr>
 <script type="text/javascript">
 $('#powhashrate_container').hide();
@@ -118,12 +118,12 @@ powhashrate=0;
 $( "#powhashrate" ).click(function() {
 	if (powhashrate==0) {
 		$('#powhashrate_container').html('<i class="fa fa-spinner fa-3x fa-pulse"></i>');
-		$('#powhashrate').html('PoW Hashrate <i class="fa fa-caret-up"></i>');
+		$('#powhashrate').html('VDPOS Hashrate <i class="fa fa-caret-up"></i>');
 		$('#powhashrate_container').show();
 		get_powhashrate();
 		powhashrate=1;
 	} else {
-		$('#powhashrate').html('PoW Hashrate <i class="fa fa-caret-down"></i>');
+		$('#powhashrate').html('VDPOS Hashrate <i class="fa fa-caret-down"></i>');
 		$('#powhashrate_container').hide(500);
 		$('#powhashrate_container').html('');
 		powhashrate=0;
@@ -142,7 +142,7 @@ function get_powhashrate() {
             },
 
             title : {
-                text : 'PoW Hashrate'
+                text : 'VDPOS Hashrate'
             },
 
             series : [{
@@ -162,7 +162,7 @@ function get_powhashrate() {
 };
 </script>
 
-
+<!--
 <button type="submit" class="btn btn-primry" id="posdifficulty"><?php echo lang('POS_DIFFICULTY'); ?> <i class="fa fa-caret-down"></i></button>
 <div id="posdifficulty_container" style="width:100%; height:375px; text-align:center;"></div><br><hr>
 <script type="text/javascript">
@@ -182,6 +182,7 @@ $( "#posdifficulty" ).click(function() {
 		posdifficulty=0;
 	}
 });
+
 
 function get_posdifficulty() {
 
@@ -214,7 +215,7 @@ function get_posdifficulty() {
     });
 };
 </script>
-
+-->
 <button type="submit" class="btn btn-primry" id="avgcoinage"><?php echo lang('AVG_AGE'); ?> <i class="fa fa-caret-down"></i></button>
 <div id="avgcoinage_container" style="width:100%; height:375px; text-align:center;"></div><br><hr>
 <script type="text/javascript">
@@ -620,7 +621,7 @@ function get_powposblocks() {
                 },
 
                 tooltip: {
-                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+                    pointFormat: '<span style="color:{series.color}">VDPOS</span>: <b>{point.y}</b><br/>',
                     valueDecimals: 2
                 },
 
@@ -689,7 +690,7 @@ function get_powposmint() {
                 },
 
                 tooltip: {
-                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+                    pointFormat: '<span style="color:{series.color}">VDPOS</span>: <b>{point.y}</b><br/>',
                     valueDecimals: 2
                 },
 

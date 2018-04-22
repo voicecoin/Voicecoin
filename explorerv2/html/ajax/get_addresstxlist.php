@@ -8,7 +8,7 @@ if (!empty($_COOKIE["lang"])) {
 	require("../lang/en.php");
 }
 
-	$query = "SELECT * FROM blocks ORDER BY height DESC LIMIT 1";
+	$query = "SELECT * FROM blocks where total_coins is not null ORDER BY height DESC LIMIT 1";
 	$result = $dbconn->query($query);
 	while($row = $result->fetch_assoc())
 	{
@@ -19,13 +19,13 @@ if (!empty($_COOKIE["lang"])) {
 		$block_valueout=$row['valueout'];
 	}
 	
-	$query = "SELECT difficulty FROM blocks WHERE flags LIKE '%proof-of-work%' ORDER BY height DESC LIMIT 1";
+	$query = "SELECT difficulty FROM blocks WHERE  total_coins is not null and  flags LIKE '%proof-of-work%' ORDER BY height DESC LIMIT 1";
 	$result = $dbconn->query($query);
 	while($row = $result->fetch_assoc())
 	{
 		$pow_difficulty=$row['difficulty'];
 	}
-	
+	/*
 	$query = "SELECT difficulty FROM blocks WHERE flags LIKE '%proof-of-stake%' ORDER BY height DESC LIMIT 1";
 	$result = $dbconn->query($query);
 	$pos_difficulty=1;
@@ -33,6 +33,7 @@ if (!empty($_COOKIE["lang"])) {
 	{
 		$pos_difficulty=$row['difficulty'];
 	}
+	*/
 
 function TrimTrailingZeroes($nbr) {
     return strpos($nbr,'.')!==false ? rtrim(rtrim($nbr,'0'),'.') : $nbr;
@@ -43,6 +44,7 @@ function TrimTrailingZeroes($nbr) {
 			echo lang('TRANSACTION_VOLUME').': '.TrimTrailingZeroes(number_format($block_valueout,6)).' VC</p>';
 			echo '<p>'.lang('COINS_AVAILABLE').': '.TrimTrailingZeroes(number_format($block_total_coins,6)).' VC<br>';
 			echo lang('POW_DIFFICULTY').': '.TrimTrailingZeroes(number_format($pow_difficulty,8)).'<br>';
-			echo lang('POS_DIFFICULTY').': '.TrimTrailingZeroes(number_format($pos_difficulty,8)).'</p>';
+			echo '</p>';
+		//	echo lang('POS_DIFFICULTY').': '.TrimTrailingZeroes(number_format($pos_difficulty,8)).'</p>';
 			echo '<p><a class="btn btn-primary btn-lg" href="/chain" role="button">'.lang('EXPLORE_EXPLORE').'</a></p>';
 ?>

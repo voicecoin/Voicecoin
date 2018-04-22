@@ -140,9 +140,9 @@ if ($include_file=="api") {
 				<li <?php if ($include_file=='chart') { echo 'class="active"'; } ?>><a href="/chart"><?php echo lang('CHARTS_CHARTS'); ?></a></li>
 				<li <?php if ($include_file=='top') { echo 'class="active"'; } ?>><a href="/top"><?php echo lang('TOP_TOP'); ?></a></li>
 				<li <?php if ($include_file=='nvs') { echo 'class="active"'; } ?>><a href="/nvs"><?php echo lang('NVS_NVS'); ?></a></li>
-				<li <?php if ($include_file=='dpo') { echo 'class="active"'; } ?>><a href="/dpo"><?php echo 'DPO'; ?></a></li>
+		<!--		<li <?php if ($include_file=='dpo') { echo 'class="active"'; } ?>><a href="/dpo"><?php echo 'DPO'; ?></a></li>
 				<li <?php if ($include_file=='poscal') { echo 'class="active"'; } ?>><a href="/poscal"><?php echo 'Mining-Calculator'; ?></a></li>
-				<li <?php if ($include_file=='vcboard') { echo 'class="active"'; } ?>><a href="/vcboard"><?php echo lang('EMERBOARD_EMERBOARD'); ?></a></li>
+				<li <?php if ($include_file=='vcboard') { echo 'class="active"'; } ?>><a href="/vcboard"><?php echo lang('EMERBOARD_EMERBOARD'); ?></a></li> -->
 			</ul>
 		<form class="navbar-form navbar-left" role="search" action="javascript:search();">
 			<div class="form-group ">
