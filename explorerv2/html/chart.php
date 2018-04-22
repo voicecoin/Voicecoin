@@ -40,7 +40,7 @@ function get_coinsupply() {
             },
 
             series : [{
-                name : 'EMC',
+                name : 'VC',
 				color: '#8d2d9e',
                 data : data,
                 tooltip: {
@@ -621,7 +621,7 @@ function get_powposblocks() {
                 },
 
                 tooltip: {
-                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+                    pointFormat: '<span style="color:{series.color}">VDPOS</span>: <b>{point.y}</b><br/>',
                     valueDecimals: 2
                 },
 
@@ -690,7 +690,7 @@ function get_powposmint() {
                 },
 
                 tooltip: {
-                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+                    pointFormat: '<span style="color:{series.color}">VDPOS</span>: <b>{point.y}</b><br/>',
                     valueDecimals: 2
                 },
 
