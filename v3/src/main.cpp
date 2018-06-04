@@ -3913,8 +3913,8 @@ string GetWarnings(string strFor)
     string statusmessage;
     if (!RPCIsInWarmup(&statusmessage) && CheckpointsSync::IsSyncCheckpointTooOld(60 * 60 * 24 * 10))
     {
-        nPriority = 100;
-        strStatusBar = "WARNING: Checkpoint is too old. Wait for block chain to download, or notify developers of the issue.";
+        //nPriority = 100;
+        //strStatusBar = "WARNING: Checkpoint is too old. Wait for block chain to download, or notify developers of the issue.";
     }
 
     // Misc warnings like out of disk space and clock is wrong
@@ -3938,8 +3938,8 @@ string GetWarnings(string strFor)
     // ppcoin: if detected invalid checkpoint enter safe mode
     if (CheckpointsSync::hashInvalidCheckpoint != 0)
     {
-        nPriority = 3000;
-        strStatusBar = "WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers of the issue.";
+        //nPriority = 3000;
+        //strStatusBar = "WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers of the issue.";
     }
 
     // Alerts
