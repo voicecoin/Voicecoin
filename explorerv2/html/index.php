@@ -18,6 +18,9 @@ if (isset($_SERVER['REQUEST_URI'])) {
 	if ($URI[1]=="api") {
 		$include_file="api";
 	}
+	if ($URI[1]=="openapi") {
+		$include_file="openapi";
+	}
 	if ($URI[1]=="chain") {
 		$include_file="chain";
 	}
@@ -72,7 +75,7 @@ if (isset($_SERVER['REQUEST_URI'])) {
 ?>
 
 <?php
-if ($include_file=="api") {
+if ($include_file=="api" || $include_file=="openapi") {
 	include ($include_file.".php");
 	exit;
 }
@@ -114,7 +117,7 @@ if ($include_file=="api") {
 			cursor:pointer;
 		}
 	</style>
-	<title>voicecoin Blockchain</title>
+	<title>voicechain Blockchain</title>
 </head>
 
 <body>
