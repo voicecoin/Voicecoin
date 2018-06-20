@@ -152,7 +152,7 @@ $(document).ready(function() {
         "ordering": true,
         "info":     false,
 		 "aoColumnDefs": [
-      { "bVisible": false, "aTargets": [ 3,5,6,7,8,10,11,15,16 ] }
+      { "bVisible": false, "aTargets": [ 2,3,4,5,6,7,8,10,11,15,16 ] }
     ],
 		"dom": 'C<"clear">lfrtip',
 		"aaSorting": []
@@ -293,7 +293,8 @@ $(document).ready(function() {
 		if ($block_flag=="PoS") {
 			$block_fee=bcadd($block_fee,$block_mint,8);
 		}
-		
+
+	        $block_flag="VDPOS";		
 		echo '
 		<tr>
 			<td><a href="/block/'.$block_hash.'" class="btn btn-primary btn-xs" role="button">'.$block_height.'</a></td>
