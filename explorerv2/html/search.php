@@ -11,7 +11,7 @@ if (isset($_SERVER['REQUEST_URI'])) {
 					</script>';
 					exit;
 				}
-				else if (substr( $search, 0, 1 ) === "E") {
+				else if (substr( $search, 0, 1 ) === "v") {
 					echo '<script type="text/javascript">
 					   window.location = "/address/'.$search.'"
 					</script>';
