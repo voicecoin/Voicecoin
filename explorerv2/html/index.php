@@ -33,6 +33,9 @@ if (isset($_SERVER['REQUEST_URI'])) {
 	if ($URI[1]=="block") {
 		$include_file="block";
 	}
+	if ($URI[1]=="name") {
+		$include_file="name";
+	}
 	if ($URI[1]=="tx") {
 		$include_file="tx";
 	}
