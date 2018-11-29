@@ -1,4 +1,4 @@
-# V-DNS blockchain system
+# V-DNS Blockchain System
 
 V-DNS blockchain will provide registration, deletion, lookup and transfer of domain names. These services will take the form of smart contracts deployed within V-DNS blockchain. Smart contracts run on the V-DNS blockchain's Voiceweb Virtual Machine (VVM). V-DNS blockchain also provides mining capabilities and automatic issuance of Voicecoin
 
