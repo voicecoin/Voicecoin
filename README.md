@@ -1,47 +1,101 @@
-# V-DNS Blockchain System
+Voicecoin Core [VC, Ð]  
+</h1>
 
-V-DNS blockchain will provide registration, deletion, lookup and transfer of domain names. These services will take the form of smart contracts deployed within V-DNS blockchain. Smart contracts run on the V-DNS blockchain's Voiceweb Virtual Machine (VVM). V-DNS blockchain also provides mining capabilities and automatic issuance of Voicecoin
+<div align="center">
 
-## Features of V-DNS
+[![VoiceCoinBadge](https://avatars.githubusercontent.com/u/33388325?s=200&v=4)](https://www.voicecoin.org)
 
-###	HUMAN-MEANINGFUL
- Wilcox-O’Hearn proposes the following three properties for naming protocols: human-meaningful, decentralized, and secure. V-DNS possesses the characteristics of all these and more, owing to the integration of voice features combined with blockchain technology. Human-meaningful is a common domain name system, it is user-selected and easy to remember. VNS accomplishes this, being easily recognized by the ear, unambiguous, and suitable for use on the voice Internet. Voiceweb’s primary feature is voice. The design of voice domain name rules is not on the state’s constant suffix, but in the form of dialogue with people. The actual situation is that the traditional top-level domain names are gradually coming out with more natural language features, but the development is very slow. Adding a gTLD (Generic Top-Level Domain) is troublesome. In addition to the technical issues of efficiency and scalability, NAMECOIN only supports .bit suffixes in product features, and does not support other suffixes. Extended support for the domain name is poor, and scalability is poor. For example, it does not support Txt records. Blockstack is a virtual chain implementing an abstract state machine that works on other blockchain platforms. State machines are used to perform a variety of services, including the identity service OneName, which in theory can execute any service. Solving part of NAMECOIN’s technology issues, there are many others that allow users to own their own data, but they do not support a natural language domain name.
+</div>
 
-###	CONVENIENT
-Voicecoin provides an intimate and natural interface between human and computer while reducing the cost of interactions. Voice, as a natural method of login and payment, serves as a core factor permeating the entirety of the voice Blockchain. Voicecoin, the voice Blockchain, and its peripheral products, is the main distinguishing factor from other currencies and services. Voicecoin, will allow people to trade domain names. People can pay for any service on any accessible voice blockchain using VoiceCoin. When not logged-in, you can utilize the chatbot services. When logged-in, you can take it a step further, and even initiate payment via the chatbot. This product was designed to utilize the distinguishing characteristic of speech, from wallet authentication and login to the registration of domain names, and even the provision of chat services. Using voice, people can log in to the wallet; using the voice wallet, people can register the voice featured domain name. Using Voicecoin, people can chat with chatbots
-over speech-enabled devices.
+Select language: EN | [CN](./README_zh_CN.md) | [PT](./README_pt_BR.md) | [FA](./README_fa_IR.md)
 
-###	DECENTRALIZATION
-Traditional VNS is based on ICANN, but VNS is completely different; it runs on a decentralized blockchain. It can be executed by anyone, but cannot be controlled by anyone. Each node runs independently and does not depend on any third-party services.
+Voicecoin is a community-driven cryptocurrency that was inspired by a Shiba Inu meme. The Voicecoin Core software allows anyone to operate a node in the Voicecoin blockchain networks and uses the Scrypt hashing method for Proof of Work. It is adapted from Bitcoin Core and other cryptocurrencies.
 
-###	SECURITY
-Under the traditional VNS mechanism, HTTPS protocols are used to solve the problem of VNS hijacking. However, the website needs to rely on the certificate authority’s guarantee (the “CA”). If any one of the thousands of CAs is attacked, makes a mistake, or is forced by a government, it may issue false certificates / credentials. Decentralized VNS does not need to rely on CA, and nobody can easily hijack VNS domain names. Traditional VNS is very weak; if a node is attacked, then there could be domain name resolution accidents. In some areas, domain name registration is subject to real name authentication, and for domain name offering services, you must first pass a governmental examination. 
-V-DNS Cache Pollution often directs users to different addresses. A DDoS attack occurred in 2016 against VNS provider Dyn, rendering companies such as Amazon, Paypal, Reddit and GitHub unable to provide normal services.
+For information about the default fees used on the Voicecoin network, please
+refer to the [fee recommendation](doc/fee-recommendation.md).
 
-###	CENSORSHIP-RESISTANT
-With traditional VNS, the government can block certain website’s accessibility, but this is not done so easily with 
-V-DNS. In some areas of the world, including China, websites are often not accessible due to government censorship. But VNS is built on Blockchain technology, and every domain  When the developer sets the application name, it can be analyzed via semantics name is accessible the user’s computer without tampering.
+**Website:** [voicecoin.org](https://voicecoin.org)
 
-###	PRIVACY PROTECTION
-Under traditional DNS, based upon the consumer’s IP address, the VNS server can track the consumer’s activity / history. A Blockchain-based domain name system, like VNS, avoids this by not producing any network tracking when users visit a site.
+## Usage 💻
 
-###	LIGHTNING-FAST
-Traditional domain name switchover generally requires 24 to 48 hours, which results in unnecessary service downtime. But Blockchain based VNS can very quickly update the domain name list. Traditional VNS resolution time is slow, generally over 100 milliseconds. The VNS maintains its domain name list locally, and thus resolution time is less than 3 milliseconds.
+To start your journey with Vogecoin Core, see the [installation guide](INSTALL.md) and the [getting started](doc/getting-started.md) tutorial.
 
-###	SUPPORTS ANONYMITY
-VNS can direct users to anonymous hosted Web sites on Tor and I2P anonymous networks. Unlike Tor’s
-.onion domain (made up of random letters and numbers) or I2p’s .i2p domain, which can direct different
-crowds across different websites), VNS provides both Tor and I2P hosting with suitable, readable, and
-definitive VNS analyzation service. 
+The JSON-RPC API provided by Voicecoin Core is self-documenting and can be browsed with `Voicecoin-cli help`, while detailed information for each command can be viewed with `Voicecoin-cli help <command>`. Alternatively, see the [Bitcoin Core documentation](https://developer.bitcoin.org/reference/rpc/) - which implement a similar protocol - to get a browsable version.
 
-###	RESOURCES RELEASED
-VNS establishes a process that allows people to fully release their domain name resources.
+### Such ports
 
-###	INTEROPERABILITY
-When sharing the same basic form of domain name, global chatbots will be able to communicate with each other across platforms. For example, the traditional WeChat public number can’t talk to Facebook’s chatbot, but VNS breaks this limitation.
+Voicecoin Core by default uses port `22556` for peer-to-peer communication that
+is needed to synchronize the "mainnet" blockchain and stay informed of new
+transactions and blocks. Additionally, a JSONRPC port can be opened, which
+defaults to port `22555` for mainnet nodes. It is strongly recommended to not
+expose RPC ports to the public internet.
 
-###	RESOURCE SHARING
-By removing the individual, stand-alone domain name systems of the smart speaker manufacturers, we establish a unified domain name system which strengthens information sharing and reduce the number of intermediaries involved in consumer use of the product. This results in enhanced resource efficiency within the industry and huge improvements to the consumer’s experience.
+| Function | mainnet | testnet | regtest |
+| :------- | ------: | ------: | ------: |
+| P2P      |   22556 |   44556 |   18444 |
+| RPC      |   22555 |   44555 |   18332 |
 
-###	OPEN-SOURCE
-The VNS software is an open source project under Voiceweb. The proliferation of Namecoin is not very active, making it difficult for this platform to become a widely used and supported domain name system in decentralized Internet. VNS will effectively solve this issue. In addition to its open source code, VNS is also ecologically open source. It is not a matter of what we as individuals want within the broader ecology, we must refrain from that; we must hand over to or invest in this open ecology. For the specific technical properties and means of implementation, please refer to the technical white paper.
+## Ongoing development - Moon plan 🌒
+
+Voicecoin Core is an open source and community driven software. The development
+process is open and publicly visible; anyone can see, discuss and work on the
+software.
+
+Main development resources:
+
+* [GitHub Projects](https://github.com/Voicecoin/Voicecoin/projects) is used to
+  follow planned and in-progress work for upcoming releases.
+* [GitHub Discussion](https://github.com/Voicecoin/Voicecoinogecoin/discussions) is used
+  to discuss features, planned and unplanned, related to both the development of
+  the Voicecoin Core software, the underlying protocols and the VOICE asset.  
+* [Voicecoindev subreddit](https://www.reddit.com/r/Voicecoindev/)
+
+### Version strategy
+Version numbers are following ```major.minor.patch``` semantics.
+
+### Branches
+There are 3 types of branches in this repository:
+
+- **master:** Stable, contains the latest version of the latest *major.minor* release.
+- **maintenance:** Stable, contains the latest version of previous releases, which are still under active maintenance. Format: ```<version>-maint```
+- **development:** Unstable, contains new code for planned releases. Format: ```<version>-dev```
+
+*Master and maintenance branches are exclusively mutable by release. Planned*
+*releases will always have a development branch and pull requests should be*
+*submitted against those. Maintenance branches are there for **bug fixes only,***
+*please submit new features against the development branch with the highest version.*
+
+## Contributing 🤝
+
+If you find a bug or experience issues with this software, please report it
+using the [issue system](https://github.com/Voicecoin/Voicecoin/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5Bbug%5D+).
+
+Please see [the contribution guide](CONTRIBUTING.md) to see how you can
+participate in the development of Voicecoin Core. There are often
+[topics seeking help](https://github.com/Voicecoin/Voicecoin/labels/help%20wanted)
+where your contributions will have high impact and get very appreciation. wow.
+
+## Communities 🚀🍾
+
+You can join the communities on different social media.
+To see what's going on, meet people & discuss, find the latest meme, learn
+about Vogecoin, give or ask for help, to share your project.
+
+Here are some places to visit:
+
+* [Voicecoin subreddit](https://www.reddit.com/r/Voicecoin/)
+* [Voiceducation subreddit](https://www.reddit.com/r/Voiceducation/)
+* [Discord](https://discord.gg/Voicecoin)
+* [Voicecoin Twitter](https://twitter.com/Voicecoin)
+
+## Very Much Frequently Asked Questions ❓
+
+Do you have a question regarding Voicecoin? An answer is perhaps already in the
+[FAQ](doc/FAQ.md) or the
+[Q&A section](https://github.com/Voicecoin/voicecoin/discussions/categories/q-a)
+of the discussion board!
+
+## License - Much license ⚖️
+Voicecoin Core is released under the terms of the MIT license. See
+[COPYING](COPYING) for more information or see
+[opensource.org](https://opensource.org/licenses/MIT)
