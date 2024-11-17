@@ -1,7 +1,7 @@
 #include "upnp_loader_thread.h"
 #include "loghelper.h"
 #include <boost/bind.hpp>
-#include "string_helper.h"
+#include "common/string_helper.h"
 
 namespace bcus {
 

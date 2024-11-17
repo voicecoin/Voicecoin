@@ -4,6 +4,10 @@
 #include <vector>
 #include "string_helper.h"
 
+#include <sstream>
+#include <iomanip>
+#include <string>
+
 namespace bcus {
 
 template<unsigned int BITS>
@@ -79,10 +83,24 @@ public:
     friend inline bool operator!=(const base_blob& a, const base_blob& b) { return a.compare(b) != 0; }
     friend inline bool operator<(const base_blob& a, const base_blob& b) { return a.compare(b) < 0; }
 
-    std::string get_hex() const
-    {
-        return bcus::string_helper::to_hex(std::reverse_iterator<const uint8_t*>(data_ + sizeof(data_)), std::reverse_iterator<const uint8_t*>(data_));
+    //std::string get_hex() const
+    //{
+    //    return bcus::string_helper::to_hex(std::reverse_iterator<const uint8_t*>(data_ + sizeof(data_)), std::reverse_iterator<const uint8_t*>(data_));
+    //}
+
+    std::string get_hex() const {
+        std::ostringstream stream;
+        // 使用 reverse_iterator 将 data_ 的内容逆序遍历
+        auto begin = std::reverse_iterator<const uint8_t*>(data_ + sizeof(data_));
+        auto end = std::reverse_iterator<const uint8_t*>(data_);
+
+        for (auto it = begin; it != end; ++it) {
+            stream << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(*it);
+        }
+
+        return stream.str();
     }
+
     void set_hex(const char* psz)
     {
         memset(data_, 0, sizeof(data_));

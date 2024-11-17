@@ -1,7 +1,7 @@
 #pragma once
 
 #include "uint256.h"
-#include "serialize.h"
+//#include "serialize.h"
 #include "block_info.h"
 #include <boost/shared_ptr.hpp>
 

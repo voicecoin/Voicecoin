@@ -1,7 +1,7 @@
 #ifndef BCUS_ERROR_CODE_H
 #define BCUS_ERROR_CODE_H
 
-#if defined(WINDOWS) || defined(WIN32)
+#if defined(_WIN32) || defined(_WIN64)  
 # include <winsock2.h>
 # include <Windows.h>
 #else
@@ -10,7 +10,7 @@
 # include <string.h>
 #endif
 
-#if defined(WINDOWS) || defined(WIN32)
+#if defined(_WIN32) || defined(_WIN64)  
 # define BCUS_NATIVE_ERROR(e) e
 # define BCUS_SOCKET_ERROR(e) WSA ## e
 # define BCUS_NETDB_ERROR(e) WSA ## e

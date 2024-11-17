@@ -1,7 +1,7 @@
 #ifndef CBUS_ADDR_MANAGER_H
 #define CBUS_ADDR_MANAGER_H
 
-#include "http_client.h"
+#include "net/http/http_client.h"
 
 namespace bcus {
 

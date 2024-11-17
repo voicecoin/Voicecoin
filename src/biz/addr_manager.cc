@@ -1,4 +1,5 @@
 #include "addr_manager.h"
+#include <cstring> 
 
 namespace bcus {
 

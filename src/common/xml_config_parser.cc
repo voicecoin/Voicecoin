@@ -11,23 +11,45 @@ namespace bcus {
 
 xml_config_parser::xml_config_parser() : root_(NULL) {
 }
+//void xml_config_parser::set_xml_error() {
+//    if (xmldoc_.Error()) {
+//        char szcode[16] = {0};
+//        snprintf(szcode, 15, "id=%d ", xmldoc_.ErrorID());
+//        error_ = "XMLDocument error ";
+//        error_.append(szcode);
+//        error_.append(tinyxml2::GetError(xmldoc_.ErrorID()));
+//        error_.append(" str1=");
+//        if (xmldoc_.GetErrorStr1()) {
+//            error_.append(xmldoc_.GetErrorStr1());
+//        }
+//        error_.append(" str2=");
+//        if (xmldoc_.GetErrorStr2()) {
+//            error_.append(xmldoc_.GetErrorStr2());
+//        }
+//    }
+//}
+
 void xml_config_parser::set_xml_error() {
     if (xmldoc_.Error()) {
-        char szcode[16] = {0};
-        snprintf(szcode, 15, "id=%d ", xmldoc_.ErrorID());
+        char szcode[16] = { 0 };
+        snprintf(szcode, sizeof(szcode), "id=%d ", xmldoc_.ErrorID());
         error_ = "XMLDocument error ";
         error_.append(szcode);
-        error_.append(tinyxml2::GetError(xmldoc_.ErrorID()));
-        error_.append(" str1=");
-        if (xmldoc_.GetErrorStr1()) {
-            error_.append(xmldoc_.GetErrorStr1());
+
+        // 使用 ErrorName 获取错误描述
+        const char* errorName = xmldoc_.ErrorName();
+        if (errorName) {
+            error_.append(errorName);
         }
-        error_.append(" str2=");
-        if (xmldoc_.GetErrorStr2()) {
-            error_.append(xmldoc_.GetErrorStr2());
+
+        error_.append(" str1=");
+        const char* errorStr1 = xmldoc_.ErrorStr();
+        if (errorStr1) {
+            error_.append(errorStr1);
         }
     }
 }
+
 int xml_config_parser::parse_file(const char *file) {
     if (tinyxml2::XML_SUCCESS != xmldoc_.LoadFile(file)) {
         set_xml_error();
@@ -84,15 +106,30 @@ std::string xml_config_parser::get_attribute(const char *name, const char *path,
     }
     return value;
 }
-std::string xml_config_parser::get_parameter(const char *path, xml_config_parser::element ele) {
+
+
+//std::string xml_config_parser::get_parameter(const char *path, xml_config_parser::element ele) {
+//    ele = get_element(path, ele);
+//    if (ele == NULL) {
+//        return "";
+//    }
+//    tinyxml2::XMLPrinter printer;
+//    ele->InnerAccept(&printer);
+//    return printer.CStr();
+//}
+
+std::string xml_config_parser::get_parameter(const char* path, xml_config_parser::element ele) {
     ele = get_element(path, ele);
-    if (ele == NULL) {
+    if (ele == nullptr) {
         return "";
     }
+
     tinyxml2::XMLPrinter printer;
-    ele->InnerAccept(&printer);
+    ele->Accept(&printer);  // 使用 Accept 方法代替 InnerAccept
     return printer.CStr();
 }
+
+
 int xml_config_parser::get_parameter(const char *path, int defaultvalue, xml_config_parser::element ele) {
     std::string result = get_parameter(path, ele);
     return result.empty() ? defaultvalue : atoi(result.c_str());
@@ -101,25 +138,38 @@ std::string xml_config_parser::get_parameter(const char *path, const char *defau
     std::string result = get_parameter(path, ele);
     return result.empty() ? defaultvalue : result;
 }
-std::vector<std::string> xml_config_parser::get_parameters(const char *path, xml_config_parser::element ele, int return_key_) {
-    std::vector<std::string> result;
-    ele = get_element(path, ele);
-    if (ele == NULL) {
-        return result;
-    }
-    const char *p = strrchr(path, '/');
-    std::string key = (p == NULL) ? path : p + 1;
-    do {
-        tinyxml2::XMLPrinter printer;
-        if (return_key_ == RETURN_KEY)
-            ele->Accept(&printer);
-        else
-            ele->InnerAccept(&printer);
-        result.push_back(printer.CStr());
-    } while(NULL != (ele = ele->NextSiblingElement(key.c_str())));
 
-    return result;
-}
+//std::vector<std::string> xml_config_parser::get_parameters(const char *path, xml_config_parser::element ele, int return_key_) {
+//    std::vector<std::string> result;
+//    ele = get_element(path, ele);
+//    if (ele == NULL) {
+//        return result;
+//    }
+//    const char *p = strrchr(path, '/');
+//    std::string key = (p == NULL) ? path : p + 1;
+//    do {
+//        tinyxml2::XMLPrinter printer;
+//        if (return_key_ == RETURN_KEY)
+//            ele->Accept(&printer);
+//        else
+//            ele->InnerAccept(&printer);
+//        result.push_back(printer.CStr());
+//    } while(NULL != (ele = ele->NextSiblingElement(key.c_str())));
+//
+//    return result;
+//}
+
+//std::string xml_config_parser::get_parameter(const char* path, xml_config_parser::element ele) {
+//    ele = get_element(path, ele);
+//    if (ele == nullptr) {
+//        return "";
+//    }
+//
+//    // 使用 XMLPrinter 输出内容
+//    tinyxml2::XMLPrinter printer;
+//    ele->Accept(&printer);
+//    return printer.CStr();
+//}
 
 std::vector<xml_config_parser::element> xml_config_parser::get_elements(const char *path, xml_config_parser::element ele) {
     std::vector<element> result;
