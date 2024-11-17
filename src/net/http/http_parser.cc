@@ -1,3 +1,4 @@
+#include <stdexcept> 
 #include "http_parser.h"
 #include "loghelper.h"
 namespace bcus {

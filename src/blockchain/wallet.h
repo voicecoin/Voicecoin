@@ -1,6 +1,6 @@
 #pragma once
 
-#include "serialize.h"
+//#include "serialize.h"
 #include "uint256.h"
 #include "transaction.h"
 

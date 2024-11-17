@@ -1,6 +1,8 @@
+#include <boost/asio.hpp>
 #include "dir_reader.h"
 #include "loghelper.h"
 #include <cstring>
+#include <filesystem>
 
 namespace bcus {
 
@@ -56,7 +58,13 @@ void dir_reader::read_files(const char *path)
 
     WIN32_FIND_DATA fd;
 
-    HANDLE handle = FindFirstFile(path, &fd);
+
+    std::wstring wide_path = std::filesystem::path(path).wstring(); // C++17 中的 std::filesystem
+    wide_path += L"\\*.*";
+    HANDLE handle = FindFirstFileW(wide_path.c_str(), &fd);
+
+
+    //HANDLE handle = FindFirstFile(path, &fd);
     if (handle == INVALID_HANDLE_VALUE ) {
         XLOG(XLOG_WARNING,"dir_reader::%s, open dir error. path[%s]\n", __FUNCTION__, path);
         return;

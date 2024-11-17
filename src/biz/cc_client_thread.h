@@ -5,8 +5,8 @@
 
 #include <boost/bind.hpp>
 #include <boost/thread.hpp>
-#include "cc_client.h"
-#include "cc_parser.h"
+#include "net/cc/cc_client.h"
+#include "net/cc/cc_parser.h"
 
 namespace bcus {
 class cc_client_thread : public bcus::singleton<cc_client_thread> {

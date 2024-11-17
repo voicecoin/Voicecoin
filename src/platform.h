@@ -26,6 +26,7 @@
 #  include <math.h>
 #  include <stdlib.h>
 #  include <stdio.h>
+#include <cmath>
 
 #  define BCUS_LOG_DIRSPLITOR '\\'
 #  define access _access
@@ -57,9 +58,9 @@ inline void sleep(int sec) { Sleep((sec) * 1000); }
 #endif
 
 
-#  ifndef isnan
-#  define isnan _isnan
-#  endif
+//#  ifndef isnan
+//#  define isnan _isnan
+//#  endif
 
 #  ifndef strcasecmp
 #  define strcasecmp stricmp

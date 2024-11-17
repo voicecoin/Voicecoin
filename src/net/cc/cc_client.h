@@ -2,7 +2,7 @@
 #define BCUS_NET_CC_CLIENT_H
 
 #include <boost/unordered_map.hpp>
-#include "stream_connector.h"
+#include "net/stream_connector.h"
 #include "cc_session.h"
 
 namespace bcus {

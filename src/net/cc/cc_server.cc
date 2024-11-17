@@ -1,6 +1,8 @@
 #include "cc_server.h"
 #include "loghelper.h"
 
+
+
 namespace bcus {
 
 cc_server::cc_server(boost::asio::io_service &io_service) :
@@ -62,12 +64,48 @@ int  cc_server::register_addr(const bcus::endpoint &ep) {
     return acceptor_->start(ep);
 }
 
-void cc_server::on_accepted(tcp_socket_ptr &socket)
-{
-    //XLOG(XLOG_DEBUG, "fib::responser::%s, type[0X%04X], fd[%d], ep[%s]\n", __FUNCTION__, type, fd, target.to_string().c_str());
 
-    socket->get_io_service().post(boost::bind(&cc_session_container::do_accepted, get_container(socket->get_io_service()), socket));
+//typedef boost::shared_ptr<tcp_socket> tcp_socket_ptr;
+//void cc_server::on_accepted(tcp_socket_ptr &socket)
+//{
+//    //XLOG(XLOG_DEBUG, "fib::responser::%s, type[0X%04X], fd[%d], ep[%s]\n", __FUNCTION__, type, fd, target.to_string().c_str());
+//
+//    //socket->get_io_service().post(
+//    //    boost::bind(
+//    //            &cc_session_container::do_accepted,
+//    //            get_container(socket->get_io_service()), 
+//    //            socket
+//    //            )
+//    //);
+//}
+
+//void cc_server::on_accepted(tcp_socket_ptr& socket)
+//{
+//    // 确保 context 是 boost::asio::io_context 类型
+//    auto& io_context = boost::asio::use_service<boost::asio::io_context>(socket->get_executor().context());
+//
+//    io_context.post(
+//        [container = get_container(io_context), &socket]() { // 传引用
+//            container->do_accepted(socket);
+//        }
+//    );
+//}
+
+void cc_server::on_accepted(tcp_socket_ptr& socket)
+{
+    // 将 context 转换为 io_context
+    auto& io_context = static_cast<boost::asio::io_context&>(socket->get_executor().context());
+
+    // 使用 io_context 执行 post 操作
+    io_context.post(
+        [container = get_container(io_context), &socket]() { // 传引用
+            container->do_accepted(socket);
+        }
+    );
 }
+
+
+
 int cc_server::send_to_all(const void *buf, int len) {
     std::vector<cc_session_container *>::iterator itr = vec_session_container_.begin();
     for (; itr != vec_session_container_.end(); ++itr) {

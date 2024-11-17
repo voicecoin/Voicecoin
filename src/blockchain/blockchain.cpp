@@ -7,7 +7,7 @@
 #include <vector>
 #include <time.h>
 #include "file_stream.h"
-#include <boost/filesystem.hpp>
+#include <filesystem>
 #include "main_thread.h"
 #include "wallet.h"
 #include "loghelper.h"
@@ -30,11 +30,35 @@ block_chain::block_chain()
     max_trans_in_block_ = 2000;
 }
 
+//std::string block_chain::get_app_path()
+//{
+//#ifdef _MSC_VER
+//    char path[_MAX_PATH] = { 0 };
+//    ::GetModuleFileName(NULL, path, sizeof(path) - 1);
+//    *(strrchr(path, '\\') + 1) = 0;
+//#else
+//    const int MAX_PATH_MAX = 512;
+//    char path[MAX_PATH_MAX] = { 0 };
+//    int rslt = readlink("/proc/self/exe", path, MAX_PATH_MAX);
+//    if (rslt < 0 || rslt >= MAX_PATH_MAX)
+//    {
+//        return   NULL;
+//    }
+//    path[rslt] = 0;
+//    *(strrchr(path, '/') + 1) = 0;
+//#endif
+//    return path;
+//}
+
+
 std::string block_chain::get_app_path()
 {
 #ifdef _MSC_VER
+    wchar_t wpath[_MAX_PATH] = { 0 };
+    ::GetModuleFileNameW(NULL, wpath, _MAX_PATH - 1);  // Use the Unicode version
     char path[_MAX_PATH] = { 0 };
-    ::GetModuleFileName(NULL, path, sizeof(path) - 1);
+    size_t converted = 0;
+    wcstombs_s(&converted, path, wpath, _MAX_PATH);  // Convert wide char to multi-byte
     *(strrchr(path, '\\') + 1) = 0;
 #else
     const int MAX_PATH_MAX = 512;
@@ -42,13 +66,14 @@ std::string block_chain::get_app_path()
     int rslt = readlink("/proc/self/exe", path, MAX_PATH_MAX);
     if (rslt < 0 || rslt >= MAX_PATH_MAX)
     {
-        return   NULL;
+        return NULL;
     }
     path[rslt] = 0;
     *(strrchr(path, '/') + 1) = 0;
 #endif
     return path;
 }
+
 
 void block_chain::init()
 {

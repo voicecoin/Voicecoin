@@ -1,3 +1,5 @@
+#include <boost/asio.hpp>
+#include <boost/bind.hpp>
 #include "http_server.h"
 #include "loghelper.h"
 
@@ -62,12 +64,30 @@ int  http_server::register_addr(const bcus::endpoint &ep) {
     return acceptor_->start(ep);
 }
 
-void http_server::on_accepted(tcp_socket_ptr &socket)
-{
-    //XLOG(XLOG_DEBUG, "fib::responser::%s, type[0X%04X], fd[%d], ep[%s]\n", __FUNCTION__, type, fd, target.to_string().c_str());
+//void http_server::on_accepted(tcp_socket_ptr& socket)
+//{
+//    // 获取 io_context
+//    auto& io_context = boost::asio::use_service<boost::asio::io_context>(socket->get_executor().context());
+//
+//    // 使用全局的 boost::asio::post 方法
+//    boost::asio::post(io_context,
+//        boost::bind(&http_session_container::do_accepted,
+//            get_container(io_context), socket));
+//}
 
-    socket->get_io_service().post(boost::bind(&http_session_container::do_accepted, get_container(socket->get_io_service()), socket));
+void http_server::on_accepted(tcp_socket_ptr& socket)
+{
+    // 获取与 socket 相关的 io_context。确保执行器实际上是 io_context 的一部分。
+    auto& io_context = static_cast<boost::asio::io_context&>(socket->get_executor().context());
+
+    // 使用全局的 boost::asio::post 方法
+    boost::asio::post(io_context.get_executor(),
+        [this, &socket, &io_context]() {  // 使用 & 来捕获 socket 和 io_context 引用
+            auto container = get_container(io_context);
+            container->do_accepted(socket);  // 现在传递的是正确的引用
+        });
 }
+
 
 int  http_server::send_response(uint32_t containerid, uint32_t sessionid, uint32_t seqno, const void *buf, int len) {
     vec_session_container_[containerid]->send_response(sessionid, seqno, buf, len);

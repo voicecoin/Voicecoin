@@ -1,12 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "dbwrapper.h"
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 namespace bcus {
 
 dbwrapper::dbwrapper(const char *path)
 {
-    boost::filesystem::create_directories(path);
+    std::filesystem::create_directories(path);
     options.create_if_missing = true;
     readoptions.verify_checksums = true;
     iteroptions.verify_checksums = true;
