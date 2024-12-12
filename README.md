@@ -1,101 +1,93 @@
-Voicecoin Core [VC, Ð]  
-</h1>
+Voicecoin Core integration/staging tree
+=====================================
 
-<div align="center">
+https://voicecoin.com/
 
-[![VoiceCoinBadge](https://avatars.githubusercontent.com/u/33388325?s=200&v=4)](https://www.voicecoin.org)
+What is Voicecoin?
+----------------
 
-</div>
+**Voicecoin** is an experimental new digital currency that enables instant payments to
+anyone, anywhere in the world and enables of storing information as key/value pairs
+in blockchain. **Voicecoin** uses peer-to-peer technology to operate
+with no central authority: managing transactions and issuing money are carried
+out collectively by the network. For minting **Voicecoin** uses Proof-of-Stake,
+Proof-of-Work and Auxilary-Proof-of-Work mechanisms. **Voicecoin** Core is the name of
+open source software which enables the use of this currency.
 
-Select language: EN | [CN](./README_zh_CN.md) | [PT](./README_pt_BR.md) | [FA](./README_fa_IR.md)
+For more information, as well as an immediately useable, binary version of
+the **Voicecoin Core** software, see [here](https://voicecoin.com/).
 
-Voicecoin is a community-driven cryptocurrency that was inspired by a Shiba Inu meme. The Voicecoin Core software allows anyone to operate a node in the Voicecoin blockchain networks and uses the Scrypt hashing method for Proof of Work. It is adapted from Bitcoin Core and other cryptocurrencies.
+License
+-------
 
-For information about the default fees used on the Voicecoin network, please
-refer to the [fee recommendation](doc/fee-recommendation.md).
+**Voicecoin Core** is released under the terms of the GPL3 license. See [COPYING](COPYING) for more
+information or the [GNU site](https://www.gnu.org/licenses/gpl.html).
 
-**Website:** [voicecoin.org](https://voicecoin.org)
+Development process
+-------------------
 
-## Usage 💻
+Developers work in their own trees, then submit pull requests when they think
+their feature or bug fix is ready.
 
-To start your journey with Vogecoin Core, see the [installation guide](INSTALL.md) and the [getting started](doc/getting-started.md) tutorial.
+If it is a simple/trivial/non-controversial change, then one of the **Voicecoin**
+development team members simply pulls it.
 
-The JSON-RPC API provided by Voicecoin Core is self-documenting and can be browsed with `Voicecoin-cli help`, while detailed information for each command can be viewed with `Voicecoin-cli help <command>`. Alternatively, see the [Bitcoin Core documentation](https://developer.bitcoin.org/reference/rpc/) - which implement a similar protocol - to get a browsable version.
 
-### Such ports
+The `master` branch is regularly built and tested, but is not guaranteed to be
+completely stable. [Tags](https://github.com/voicecoin/voicecoin/releases) are created
+regularly to indicate new official, stable release versions of **Voicecoin**.
 
-Voicecoin Core by default uses port `22556` for peer-to-peer communication that
-is needed to synchronize the "mainnet" blockchain and stay informed of new
-transactions and blocks. Additionally, a JSONRPC port can be opened, which
-defaults to port `22555` for mainnet nodes. It is strongly recommended to not
-expose RPC ports to the public internet.
+Testing
+-------
 
-| Function | mainnet | testnet | regtest |
-| :------- | ------: | ------: | ------: |
-| P2P      |   22556 |   44556 |   18444 |
-| RPC      |   22555 |   44555 |   18332 |
+Testing and code review is the bottleneck for development; we get more pull
+requests than we can review and test on short notice. Please be patient and help out by testing
+other people's pull requests, and remember this is a security-critical project where any mistake might cost people
+lots of money.
 
-## Ongoing development - Moon plan 🌒
+### Automated Testing
 
-Voicecoin Core is an open source and community driven software. The development
-process is open and publicly visible; anyone can see, discuss and work on the
-software.
+Developers are strongly encouraged to write unit tests for new code, and to
+submit new unit tests for old code. Unit tests can be compiled and run (assuming they weren't disabled in configure) with: `make check`
 
-Main development resources:
+### Manual Quality Assurance (QA) Testing
 
-* [GitHub Projects](https://github.com/Voicecoin/Voicecoin/projects) is used to
-  follow planned and in-progress work for upcoming releases.
-* [GitHub Discussion](https://github.com/Voicecoin/Voicecoinogecoin/discussions) is used
-  to discuss features, planned and unplanned, related to both the development of
-  the Voicecoin Core software, the underlying protocols and the VOICE asset.  
-* [Voicecoindev subreddit](https://www.reddit.com/r/Voicecoindev/)
+Large changes should have a test plan, and should be tested by somebody other
+than the developer who wrote the code.
 
-### Version strategy
-Version numbers are following ```major.minor.patch``` semantics.
+See [here](https://github.com/bitcoin/QA/) for how to create a test plan.
 
-### Branches
-There are 3 types of branches in this repository:
+Development tips and tricks
+---------------------------
 
-- **master:** Stable, contains the latest version of the latest *major.minor* release.
-- **maintenance:** Stable, contains the latest version of previous releases, which are still under active maintenance. Format: ```<version>-maint```
-- **development:** Unstable, contains new code for planned releases. Format: ```<version>-dev```
+**compiling for debugging**
 
-*Master and maintenance branches are exclusively mutable by release. Planned*
-*releases will always have a development branch and pull requests should be*
-*submitted against those. Maintenance branches are there for **bug fixes only,***
-*please submit new features against the development branch with the highest version.*
+Run configure with the --enable-debug option, then make. Or run configure with
+CXXFLAGS="-g -ggdb -O0" or whatever debug flags you need.
 
-## Contributing 🤝
+**debug.log**
 
-If you find a bug or experience issues with this software, please report it
-using the [issue system](https://github.com/Voicecoin/Voicecoin/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5Bbug%5D+).
+If the code is behaving strangely, take a look in the debug.log file in the data directory;
+error and debugging messages are written there.
 
-Please see [the contribution guide](CONTRIBUTING.md) to see how you can
-participate in the development of Voicecoin Core. There are often
-[topics seeking help](https://github.com/Voicecoin/Voicecoin/labels/help%20wanted)
-where your contributions will have high impact and get very appreciation. wow.
+The -debug=... command-line option controls debugging; running with just -debug will turn
+on all categories (and give you a very large debug.log file).
 
-## Communities 🚀🍾
+The Qt code routes qDebug() output to debug.log under category "qt": run with -debug=qt
+to see it.
 
-You can join the communities on different social media.
-To see what's going on, meet people & discuss, find the latest meme, learn
-about Vogecoin, give or ask for help, to share your project.
+**testnet and regtest modes**
 
-Here are some places to visit:
+Run with the -testnet option to run with "play voicecoins" on the test network, if you
+are testing multi-machine code that needs to operate across the internet.
 
-* [Voicecoin subreddit](https://www.reddit.com/r/Voicecoin/)
-* [Voiceducation subreddit](https://www.reddit.com/r/Voiceducation/)
-* [Discord](https://discord.gg/Voicecoin)
-* [Voicecoin Twitter](https://twitter.com/Voicecoin)
+If you are testing something that can run on one machine, run with the -regtest option.
+In regression test mode, blocks can be created on-demand; see qa/rpc-tests/ for tests
+that run in -regtest mode.
 
-## Very Much Frequently Asked Questions ❓
+**DEBUG_LOCKORDER**
 
-Do you have a question regarding Voicecoin? An answer is perhaps already in the
-[FAQ](doc/FAQ.md) or the
-[Q&A section](https://github.com/Voicecoin/voicecoin/discussions/categories/q-a)
-of the discussion board!
-
-## License - Much license ⚖️
-Voicecoin Core is released under the terms of the MIT license. See
-[COPYING](COPYING) for more information or see
-[opensource.org](https://opensource.org/licenses/MIT)
+**Voicecoin Core** is a multithreaded application, and deadlocks or other multithreading bugs
+can be very difficult to track down. Compiling with -DDEBUG_LOCKORDER (configure
+CXXFLAGS="-DDEBUG_LOCKORDER -g") inserts run-time checks to keep track of which locks
+are held, and adds warnings to the debug.log file if inconsistencies are detected.
