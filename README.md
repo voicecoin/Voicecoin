@@ -1,93 +1,117 @@
-Voicecoin Core integration/staging tree
-=====================================
+# VoiceCoin Core
 
-https://voicecoin.com/
+**Building the Voice-First Decentralized Internet**
 
-What is Voicecoin?
-----------------
+## What is VoiceCoin?
 
-**Voicecoin** is an experimental new digital currency that enables instant payments to
-anyone, anywhere in the world and enables of storing information as key/value pairs
-in blockchain. **Voicecoin** uses peer-to-peer technology to operate
-with no central authority: managing transactions and issuing money are carried
-out collectively by the network. For minting **Voicecoin** uses Proof-of-Stake,
-Proof-of-Work and Auxilary-Proof-of-Work mechanisms. **Voicecoin** Core is the name of
-open source software which enables the use of this currency.
+VoiceCoin is a revolutionary blockchain platform designed to empower authentic voice in the digital age. In an era where AI-generated content and censorship threaten genuine human expression, VoiceCoin aims to restore and protect real voices through decentralized technology.
 
-For more information, as well as an immediately useable, binary version of
-the **Voicecoin Core** software, see [here](https://voicecoin.com/).
+---
 
-License
--------
+## Core Vision
 
-**Voicecoin Core** is released under the terms of the GPL3 license. See [COPYING](COPYING) for more
-information or the [GNU site](https://www.gnu.org/licenses/gpl.html).
+- **Voice-First Internet**: Enabling a future where authentic human voice drives online interaction
+- **Fight Against Fake Content**: Creating verifiable systems for authentic voice content
+- **Freedom of Expression**: Building censorship-resistant communication channels
+- **AI-Resistant**: Maintaining human authenticity in an AI-dominated world
 
-Development process
--------------------
+---
 
-Developers work in their own trees, then submit pull requests when they think
-their feature or bug fix is ready.
+## Technical Features
 
-If it is a simple/trivial/non-controversial change, then one of the **Voicecoin**
-development team members simply pulls it.
+### Mining & Consensus
 
+- **ASIC-Resistant Mining**: CPU-optimized algorithm that prevents mining centralization
+- **Enhanced RandomX Algorithm**:
+  - Memory-intensive computation
+  - Random program execution
+  - CPU-friendly operations
+  - Democratized mining access
 
-The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/voicecoin/voicecoin/releases) are created
-regularly to indicate new official, stable release versions of **Voicecoin**.
+### Blockchain Architecture
 
-Testing
--------
+- **Decentralized Network**: No central authority or control
+- **Pure Proof-of-Work**: Fair and democratic consensus mechanism
+- **Advanced Cryptography**: Secure transaction and data verification
+- **Scalable Design**: Built for future growth
 
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test on short notice. Please be patient and help out by testing
-other people's pull requests, and remember this is a security-critical project where any mistake might cost people
-lots of money.
+---
 
-### Automated Testing
+## Technical Specifications
 
-Developers are strongly encouraged to write unit tests for new code, and to
-submit new unit tests for old code. Unit tests can be compiled and run (assuming they weren't disabled in configure) with: `make check`
+### Mining Algorithm
 
-### Manual Quality Assurance (QA) Testing
+#### Key Features:
+- 2GB+ Memory Requirement
+- Random Code Execution
+- AES Hardware Acceleration
+- Dynamic Program Flow
+- High Memory Bandwidth
 
-Large changes should have a test plan, and should be tested by somebody other
-than the developer who wrote the code.
+### Network Parameters
 
-See [here](https://github.com/bitcoin/QA/) for how to create a test plan.
+- **Block Time**: 2.5 minutes
+- **Initial Supply**: Custom distribution model
+- **Maximum Supply**: Dynamic based on mining
+- **Block Reward**: Balanced for CPU mining
 
-Development tips and tricks
----------------------------
+---
 
-**compiling for debugging**
+## Development
 
-Run configure with the --enable-debug option, then make. Or run configure with
-CXXFLAGS="-g -ggdb -O0" or whatever debug flags you need.
+### Building from Source
 
-**debug.log**
+```bash
+# Debug build
+./configure --enable-debug
+make
 
-If the code is behaving strangely, take a look in the debug.log file in the data directory;
-error and debugging messages are written there.
+# Release build
+./configure CXXFLAGS="-O2"
+make
+```
 
-The -debug=... command-line option controls debugging; running with just -debug will turn
-on all categories (and give you a very large debug.log file).
+### Testing
 
-The Qt code routes qDebug() output to debug.log under category "qt": run with -debug=qt
-to see it.
+- **Unit Tests**: `make check`
+- **Testnet**: `-testnet` flag
+- **Regression Testing**: `-regtest` flag
 
-**testnet and regtest modes**
+---
 
-Run with the -testnet option to run with "play voicecoins" on the test network, if you
-are testing multi-machine code that needs to operate across the internet.
+## Contributing
 
-If you are testing something that can run on one machine, run with the -regtest option.
-In regression test mode, blocks can be created on-demand; see qa/rpc-tests/ for tests
-that run in -regtest mode.
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request
+4. Participate in code review
 
-**DEBUG_LOCKORDER**
+---
 
-**Voicecoin Core** is a multithreaded application, and deadlocks or other multithreading bugs
-can be very difficult to track down. Compiling with -DDEBUG_LOCKORDER (configure
-CXXFLAGS="-DDEBUG_LOCKORDER -g") inserts run-time checks to keep track of which locks
-are held, and adds warnings to the debug.log file if inconsistencies are detected.
+## License
+
+Released under the GPL3 license. See the `COPYING` file for details.
+
+---
+
+## Community & Support
+
+- **GitHub Issues**: Report bugs and request features
+- **Community Forum**: Engage with other VoiceCoin users
+- **Developer Chat**: Join discussions and collaborate with developers
+
+---
+
+## The Future of VoiceCoin
+
+VoiceCoin is more than just a cryptocurrency - it's a foundation for a new internet where:
+
+- Real voices are valued and verified
+- Communication is truly decentralized
+- Content authenticity is preserved
+- Freedom of expression is protected
+- Community governance is embraced
+
+---
+
+Join us in building a voice-first internet where your voice truly matters.
