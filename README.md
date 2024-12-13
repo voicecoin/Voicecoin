@@ -6,7 +6,7 @@
 
 VoiceCoin is a revolutionary blockchain platform designed to empower authentic voice in the digital age. In an era where AI-generated content and censorship threaten genuine human expression, VoiceCoin aims to restore and protect real voices through decentralized technology.
 
----
+
 
 ## Core Vision
 
@@ -15,7 +15,7 @@ VoiceCoin is a revolutionary blockchain platform designed to empower authentic v
 - **Freedom of Expression**: Building censorship-resistant communication channels
 - **AI-Resistant**: Maintaining human authenticity in an AI-dominated world
 
----
+
 
 ## Technical Features
 
@@ -35,7 +35,7 @@ VoiceCoin is a revolutionary blockchain platform designed to empower authentic v
 - **Advanced Cryptography**: Secure transaction and data verification
 - **Scalable Design**: Built for future growth
 
----
+
 
 ## Technical Specifications
 
@@ -55,7 +55,7 @@ VoiceCoin is a revolutionary blockchain platform designed to empower authentic v
 - **Maximum Supply**: Dynamic based on mining
 - **Block Reward**: Balanced for CPU mining
 
----
+
 
 ## Development
 
@@ -77,7 +77,7 @@ make
 - **Testnet**: `-testnet` flag
 - **Regression Testing**: `-regtest` flag
 
----
+
 
 ## Contributing
 
@@ -92,7 +92,7 @@ make
 
 Released under the GPL3 license. See the `COPYING` file for details.
 
----
+
 
 ## Community & Support
 
@@ -100,7 +100,7 @@ Released under the GPL3 license. See the `COPYING` file for details.
 - **Community Forum**: Engage with other VoiceCoin users
 - **Developer Chat**: Join discussions and collaborate with developers
 
----
+
 
 ## The Future of VoiceCoin
 
