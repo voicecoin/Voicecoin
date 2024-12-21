@@ -21,8 +21,7 @@ VoiceCoin aspires to redefine digital transactions by establishing a truly decen
 - **Transaction Speed (TPS)**: Optimized for high throughput, exceeding many existing cryptocurrencies.
 - **Maximum Supply**: Capped supply with a tailored emission rate.
 - **Mining Accessibility / ASIC-resistant**: Utilizes the RandomX mining algorithm to prevent centralization and ensure wide participation.
-- **Voice-Centric Design**: Pioneers voice authentication and payment solutions tailored for the era of large-scale voice interaction.
-- **Voice Authentication Integration**: Built-in support for secure and user-friendly voice-based authentication.
+- **Voice-Centric Design and Authentication**: Pioneers secure, user-friendly voice authentication and payment solutions, optimized for the era of large-scale voice interaction.
 
 ## Applications
 
