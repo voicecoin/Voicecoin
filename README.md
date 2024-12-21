@@ -25,8 +25,6 @@ VoiceCoin aspires to redefine digital transactions by establishing a truly decen
 - **Global Micro-Payments**: Facilitates effortless, secure micro-payments across international borders.
 - **Voice Authentication**: Provides a cutting-edge, secure method for payment verification using voice recognition technology.
 
----
-
 ## License
 
 VoiceCoin is released under the GPL3 license. Refer to the `COPYING` file for comprehensive details.
